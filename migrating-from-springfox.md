@@ -10,7 +10,7 @@ layout: default
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.3.1</version>
+      <version>1.3.0</version>
    </dependency>
 ```
  
@@ -92,11 +92,11 @@ Package for swagger 3 annotations is `io.swagger.v3.oas.annotations`.
   ```
   
  + If the swagger-ui is served behind a proxy:
-   * [https://springdoc.github.io/springdoc-openapi-demos/faq.html#how-can-i-deploy-the-doploy-springdoc-openapi-ui-behind-a-reverse-proxy](https://springdoc.github.io/springdoc-openapi-demos/faq.html#how-can-i-deploy-the-doploy-springdoc-openapi-ui-behind-a-reverse-proxy).
+   * [https://springdoc.org/faq.html#how-can-i-deploy-the-doploy-springdoc-openapi-ui-behind-a-reverse-proxy](https://springdoc.org/faq.html#how-can-i-deploy-the-doploy-springdoc-openapi-ui-behind-a-reverse-proxy).
 
  + To customise the Swagger UI
-   * [https://springdoc.github.io/springdoc-openapi-demos/faq.html#how-can-i-configure-swagger-ui](https://springdoc.github.io/springdoc-openapi-demos/faq.html#how-can-i-configure-swagger-ui).
+   * [https://springdoc.org/faq.html#how-can-i-configure-swagger-ui](https://springdoc.org/faq.html#how-can-i-configure-swagger-ui).
 
  + To hide an operation or a controller from documentation
-   * [https://springdoc.github.io/springdoc-openapi-demos/faq.html#how-can-i-hide-an-operation-or-a-controller-from-documentation-](https://springdoc.github.io/springdoc-openapi-demos/faq.html#how-can-i-hide-an-operation-or-a-controller-from-documentation-).
+   * [https://springdoc.org/faq.html#how-can-i-hide-an-operation-or-a-controller-from-documentation-](https://springdoc.org/faq.html#how-can-i-hide-an-operation-or-a-controller-from-documentation-).
 
