@@ -519,4 +519,16 @@ springdoc.swagger-ui.url=/api-docs.yaml
 - For more information, you can read:
   - [https://swagger.io/docs/specification/describing-parameters/#header-parameters](https://swagger.io/docs/specification/describing-parameters/#header-parameters).
 
+### My Rest Controller using @Controller annotation is ignored?
+- This is the default behaviour if your `@Controller` doesn't have annotation `@ResponseBody`
+- You can change your controllers to `@RestControllers`. Or add `@ResponseBody` + `@Controller`.
+- If its not possible, you can configure sprindoc to scan you additionnal controller using SpringDocUtils. For example:
+
+```java
+static {
+	SpringDocUtils.getConfig().addRestControllers(HelloController.class);
+}
+```
+
+
 [back](./)
