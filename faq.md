@@ -530,5 +530,17 @@ static {
 }
 ```
 
+### How can i define groups using application.yml?
+- You can load groups dynamically using spring-boot configuration files. 
+- Note that, for this usage, you don't have to declare the **GroupedOpenApi** Bean.
+- You need to declare the following properties, under the prefix **springdoc.group-configs**.
+- The list of properties under this prefix, are available here:
+  - https://springdoc.org/springdoc-properties.html#springdoc-openapi-core-properties
+
+### How can i extract fields from parameter object ?
+- You can use springdoc annotation @ParameterObject. 
+- Request parameter annotated with @ParameterObject will help adding each field of the parameter as a separate request parameter. 
+- This is compatible with Spring MVC request parameters mapping to POJO object.
+- This annotation does not support nested parameter objects.
 
 [back](./)

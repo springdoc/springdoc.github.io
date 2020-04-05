@@ -174,6 +174,18 @@ This dependency improves the support of kotlin types:
    </dependency>
 ```
 
+## Groovy support
+For a project that uses Groovy, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+This dependency improves the support of kotlin types:
+```xml
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-groovy</artifactId>
+      <version>@springdoc.version@</version>
+   </dependency>
+```
+
+
 ## Introduction to springdoc-openapi-maven-plugin
 
 The aim of springdoc-openapi-maven-plugin is to generate json and yaml OpenAPI description  during build time. 
