@@ -534,6 +534,12 @@ static {
 - You can load groups dynamically using spring-boot configuration files. 
 - Note that, for this usage, you don't have to declare the **GroupedOpenApi** Bean.
 - You need to declare the following properties, under the prefix **springdoc.group-configs**.
+- For example:
+```properties
+springdoc.group-configs[0].group=users
+springdoc.group-configs[0].paths-to-match=/user/**
+springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
+```
 - The list of properties under this prefix, are available here:
   - https://springdoc.org/springdoc-properties.html#springdoc-openapi-core-properties
 
