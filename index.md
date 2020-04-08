@@ -289,7 +289,7 @@ You need to use OAS3 annotations on your spring-data-rest parameters.
 You can also contribute to add the support for the different annotations (@RepositoryRestResource, @QueryDSL, ...)
 
 
-## **Spring-weblfux with Functional Endpoints, will be available in the future release**
+## **Spring-weblfux/WebMvc.fn with Functional Endpoints, will be available in the future release**
 
 
 
