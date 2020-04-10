@@ -205,8 +205,6 @@ public String toString() {
 
 - If the proxy adds the commonly used `X-Forwarded-For` and `X-Forwarded-Proto headers`, setting server.forward-headers-strategy to NATIVE is enough to support those. With this option, the Web servers themselves natively support this feature; you can check their specific documentation to learn about specific behavior.
 
-- If this is not enough, Spring Framework provides a `ForwardedHeaderFilter`. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.
-
 - You need to make sure the following header is set in your reverse proxy configuration: `X-Forwarded-Prefix`
 - For example, using Apache 2, configuration:
 ```properties
@@ -216,11 +214,12 @@ RequestHeader=set X-Forwarded-Prefix "/custom-path"
 ```properties
 server.use-forward-headers=true
 ```
-- Since Spring Boot 2.2, there is a new property to handle reverse proxy headers:
+- If this is not enough, Spring Framework provides a `ForwardedHeaderFilter`. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.
+- Since Spring Boot 2.2, this is the new property to handle reverse proxy headers:
 ```properties
 server.forward-headers-strategy=framework
 ```
-- Or you can add the following bean to your application:
+- And you can add the following bean to your application:
 ```java
 @Bean
 ForwardedHeaderFilter forwardedHeaderFilter() {
