@@ -199,6 +199,14 @@ public String toString() {
 - Yes
 
 ### How can I deploy the Doploy `springdoc-openapi-ui`, behind a reverse proxy?
+- If your application is running behind a proxy, a load-balancer or in the cloud, the request information (like the host, port, scheme…​) might change along the way. Your application may be running on `10.10.10.10:8080`, but HTTP clients should only see `example.org`.
+
+- [RFC7239 "Forwarded Headers"](https://tools.ietf.org/html/rfc7239) defines the Forwarded HTTP header; proxies can use this header to provide information about the original request. You can configure your application to read those headers and automatically use that information when creating links and sending them to clients in HTTP 302 responses, JSON documents or HTML pages. There are also non-standard headers, like `X-Forwarded-Host`, `X-Forwarded-Port`, `X-Forwarded-Proto`, `X-Forwarded-Ssl`, and `X-Forwarded-Prefix`.
+
+- If the proxy adds the commonly used `X-Forwarded-For` and `X-Forwarded-Proto headers`, setting server.forward-headers-strategy to NATIVE is enough to support those. With this option, the Web servers themselves natively support this feature; you can check their specific documentation to learn about specific behavior.
+
+- If this is not enough, Spring Framework provides a `ForwardedHeaderFilter`. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.
+
 - You need to make sure the following header is set in your reverse proxy configuration: `X-Forwarded-Prefix`
 - For example, using Apache 2, configuration:
 ```properties
