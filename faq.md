@@ -172,6 +172,7 @@ The projects that uses `spring-data` should add this dependency together with th
 
 If you use Pageable in a GET HTTP method, you will have to declare the explicit mapping of Pageable fields as Query Params and add the @Parameter(hidden = true) Pageable pageable on your pageable parameter.
 You should also, declare the annotation `@PageableAsQueryParam` provided by springdoc on the method level, or declare your own if need to define your custom description, defaultvalue, ...
+Since, v1.3.1 you can use `@ParameterObject` instead of `@PageableAsQueryParam`.
 
 
 ### How can I generate enums in the generated description?
