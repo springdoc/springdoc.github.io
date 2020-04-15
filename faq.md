@@ -558,8 +558,8 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
 - This annotation does not support nested parameter objects.
 
 ### Where can i find a tutorial of using springdoc-openapi ?
- - https://www.baeldung.com/spring-rest-openapi-documentation
- - https://dzone.com/articles/openapi-3-documentation-with-spring-boot
- - https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/
+ - [Gaeldung](https://www.baeldung.com/spring-rest-openapi-documentation)
+ - [Dzone](https://dzone.com/articles/openapi-3-documentation-with-spring-boot)
+ - [Piotrminkowski Blog](https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/)
 
 [back](./)
