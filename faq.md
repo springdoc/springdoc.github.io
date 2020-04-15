@@ -562,4 +562,70 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
  - [Dzone](https://dzone.com/articles/openapi-3-documentation-with-spring-boot)
  - [Piotrminkowski Blog](https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/)
 
+### How to Integrate Open API 3 with Spring project (not Spring Boot)?
+When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.
+
+For example, lets assume you want load the swagger-ui in spring-mvc application:
+
+- You mainly, need to add the springdoc-openapi module 
+
+```xml
+<dependency>
+	<groupId>org.springdoc</groupId>
+	<artifactId>springdoc-openapi-ui</artifactId>
+	<version>last.version</version>
+</dependency>
+```
+		
+- If you don't have the spring-boot and spring-boot-autoconfigure dependencies, you need to add them. And pay attention to the compatibility matrix, between you spring.verion and spring-boot.version. For example, in this case (spring.version=5.1.12.RELEASE):
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot</artifactId>
+    <version>2.1.11.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-autoconfigure</artifactId>
+    <version>2.1.11.RELEASE</version>
+</dependency>
+```
+		
+- Scan for the springdoc auto-configuration classes that spring-boot automatically loads for you.  
+- Depending on your module, you can find them on the file: spring.factories of each springdoc-openapi module.
+
+```java
+@EnableWebMvc
+public class AppInitializer implements WebApplicationInitializer {
+
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		WebApplicationContext context = getContext();
+		servletContext.addListener(new ContextLoaderListener(context));
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("RestServlet",
+				new DispatcherServlet(context));
+		dispatcher.setLoadOnStartup(1);
+		dispatcher.addMapping("/*");
+	}
+
+	private AnnotationConfigWebApplicationContext getContext() {
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.scan("rest");
+		context.register(this.getClass(), org.springdoc.ui.SwaggerConfig.class,
+				org.springdoc.core.SwaggerUiConfigProperties.class, org.springdoc.core.SwaggerUiOAuthProperties.class,
+				org.springdoc.core.SpringDocWebMvcConfiguration.class,
+				org.springdoc.core.MultipleOpenApiSupportConfiguration.class,
+				org.springdoc.core.SpringDocConfiguration.class, org.springdoc.core.SpringDocConfigProperties.class,
+				org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration.class);
+		
+		return context;
+	}
+}
+```
+
+
+
+
+
 [back](./)
