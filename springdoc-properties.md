@@ -25,7 +25,7 @@ springdoc.default-produces-media-type | `*/*` | `String`.The default produces me
 springdoc.cache.disabled | `false` | `Boolean`. To disable the springdoc-openapi cache of the the calculated OpenAPI. 
 springdoc.show-actuator | `false` |  `Boolean`. To display the actuator endpoints.
 springdoc.auto-tag-classes | `true` | `Boolean`. To disable the springdoc-openapi automatic tags.
-springdoc.model-and-view-allowed | `false` | `Boolean`. To allow RestControllers with ModelAndView return to appear in the OpenAPI descritpion.
+springdoc.model-and-view-allowed | `false` | `Boolean`. To allow RestControllers with ModelAndView return to appear in the OpenAPI description.
 springdoc.override-with-generic-response | `true` | `Boolean`. When true, automatically adds @ControllerAdvice responses to all the generated responses.
 springdoc.api-docs.groups.enabled | `true` | `Boolean`. To disable the springdoc-openapi groups.
 springdoc.group-configs[0].group | | `String`.The group name
@@ -33,9 +33,9 @@ springdoc.group-configs[0].packages-to-scan | `*`| `List of Strings`.The list of
 springdoc.group-configs[0].paths-to-match | `/*`| `List of Strings`.The list of paths to match for a group(comma separated)
 springdoc.group-configs[0].paths-to-exclude | ``| `List of Strings`.The list of paths to exclude for a group(comma separated)
 springdoc.group-configs[0].packages-to-exclude | | `List of Strings`.The list of packages to exclude for a group(comma separated)
-springdoc.webjars.prefix | `/webjars` |`String`, To change the webjars prefix that is visible the url of swagger-ui for spring-webflux.
+springdoc.webjars.prefix | `/webjars` |`String`, To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.
 springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
-springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference defintions.
+springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 
 ### swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See [Official documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/).
@@ -68,8 +68,8 @@ springdoc.swagger-ui.supportedSubmitMethods |  | `Array=["get", "put", "post", "
 springdoc.swagger-ui.urls[0].url |  | `URL`. The url of the swagger group, used by Topbar plugin.  URLs must be unique among all items in this array, since they're used as identifiers.
 springdoc.swagger-ui.urls[0].name |  | `String`. The name of the swagger group, used by Topbar plugin.  Names must be unique among all items in this array, since they're used as identifiers.
 springdoc.swagger-ui.oauth.clientId |  | `String`. Default clientId. MUST be a string.
-springdoc.swagger-ui.oauth.clientSecret |  | `String`.  Default clientSecret. Never use this parameter in your production environment. It exposes cruicial security information. This feature is intended for dev/test environments only.
-springdoc.swagger-ui.oauth.realm |  | `String`. realm query parameter (for oauth1) added to authorizationUrl and tokenUrl.
+springdoc.swagger-ui.oauth.clientSecret |  | `String`.  Default clientSecret. Never use this parameter in your production environment. It exposes crucial security information. This feature is intended for dev/test environments only.
+springdoc.swagger-ui.oauth.realm |  | `String`. realm query parameter (for OAuth 1) added to authorizationUrl and tokenUrl.
 springdoc.swagger-ui.oauth.appName |  | `String`. OAuth application name, displayed in authorization popup.
 springdoc.swagger-ui.oauth.scopeSeparator |  | `String`. OAuth scope separator for passing scopes, encoded before calling, default value is a space (encoded value %20).
 springdoc.swagger-ui.oauth.additionalQueryStringParams |  | `String`. Additional query parameters added to authorizationUrl and tokenUrl.

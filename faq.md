@@ -14,7 +14,7 @@ The OpenAPI description of this group, will be available by default on:
 
 To enable the support of multiple OpenAPI definitions, a bean of type `GroupedOpenApi` needs to be defined.
 
-For the following Group definition(based on package path), the OpenAPI description url will be :  /v3/api-docs/**stores**
+For the following Group definition(based on package path), the OpenAPI description URL will be :  /v3/api-docs/**stores**
 ```java
 @Bean
 public GroupedOpenApi storeOpenApi() {
@@ -24,7 +24,7 @@ public GroupedOpenApi storeOpenApi() {
 }
 ```
 
-For the following Group definition (based on package name), the OpenAPI description url will be:  /v3/api-docs/**users**
+For the following Group definition (based on package name), the OpenAPI description URL will be:  /v3/api-docs/**users**
 ```java
 @Bean
 public GroupedOpenApi userOpenApi() {
@@ -34,7 +34,7 @@ public GroupedOpenApi userOpenApi() {
 }
 ```
 
-For the following Group definition(based on path), the OpenAPI description url will be:  /v3/api-docs/**pets**
+For the following Group definition(based on path), the OpenAPI description URL will be:  /v3/api-docs/**pets**
 ```java
 @Bean
 public GroupedOpenApi petOpenApi() {
@@ -44,7 +44,7 @@ public GroupedOpenApi petOpenApi() {
 }
 ```
 
-For the following Group definition (based on package name and path), the OpenAPI description url will be:  /v3/api-docs/**groups**
+For the following Group definition (based on package name and path), the OpenAPI description URL will be:  /v3/api-docs/**groups**
 ```java
 @Bean
 public GroupedOpenApi groupOpenApi() {
@@ -71,11 +71,11 @@ springdoc.swagger-ui.filter=group-a
 ```
 
 ### How can I disable/enable Swagger UI generation based on env variable?
-- This property helps you disable only the ui.
+- This property helps you disable only the UI.
 ```properties
 springdoc.swagger-ui.enabled=false
 ```
-### How can I control the default expansion setting for the operations and tags, in the Swagger Ui ,
+### How can I control the default expansion setting for the operations and tags, in the Swagger UI ,
 - You can set this property in your application.yml like so for example:
 ```properties
 springdoc.swagger-ui.doc-expansion= none
@@ -135,7 +135,7 @@ springdoc.packagesToScan=package1, package2
 </dependency>
 ```
 
-### Is there a gradle plugin available?
+### Is there a Gradle plugin available?
 - There is no `springdoc-gradle-plugin` planned for short term.
 
 ### How can I hide a parameter from the documentation ?
@@ -171,7 +171,7 @@ The projects that uses `spring-data` should add this dependency together with th
 ```
 
 - If you use Pageable in a GET HTTP method, you will have to declare the explicit mapping of Pageable fields as Query Params and add the @Parameter(hidden = true) Pageable pageable on your pageable parameter.
-- You should also, declare the annotation `@PageableAsQueryParam` provided by springdoc on the method level, or declare your own if need to define your custom description, defaultvalue, ...
+- You should also, declare the annotation `@PageableAsQueryParam` provided by springdoc on the method level, or declare your own if need to define your custom description, defaultValue, ...
 - Since, v1.3.1 you can use as well `@ParameterObject` instead of `@PageableAsQueryParam` for HTTP `GET` methods.
 
 
@@ -196,10 +196,10 @@ public String toString() {
 }
 ```
 
-### Does it really support Spring Boot 2.2.x.RELEASE & Hateoas 1.0? 
+### Does it really support Spring Boot 2.2.x.RELEASE & HATEOAS 1.0? 
 - Yes
 
-### How can I deploy the Doploy `springdoc-openapi-ui`, behind a reverse proxy?
+### How can I deploy `springdoc-openapi-ui` behind a reverse proxy?
 - If your application is running behind a proxy, a load-balancer or in the cloud, the request information (like the host, port, scheme…​) might change along the way. Your application may be running on `10.10.10.10:8080`, but HTTP clients should only see `example.org`.
 
 - [RFC7239 "Forwarded Headers"](https://tools.ietf.org/html/rfc7239) defines the Forwarded HTTP header; proxies can use this header to provide information about the original request. You can configure your application to read those headers and automatically use that information when creating links and sending them to clients in HTTP 302 responses, JSON documents or HTML pages. There are also non-standard headers, like `X-Forwarded-Host`, `X-Forwarded-Port`, `X-Forwarded-Proto`, `X-Forwarded-Ssl`, and `X-Forwarded-Prefix`.
@@ -239,7 +239,7 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 ```
 
 ### How can I test the Swagger UI?
-- You can have a look on this sample test of the ui:
+- You can have a look on this sample test of the UI:
 - [https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java](https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java).
 
 ### How can I customise the OpenAPI object ?
@@ -255,7 +255,7 @@ return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathI
 }
 ```
 
-### How to include` spring-boot-actuator` endpoints to Swagger Ui?
+### How to include` spring-boot-actuator` endpoints to Swagger UI?
 - In order to display `spring-boot-actuator` endpoints, you will need to add the following property:
 ```properties
 springdoc.show-actuator=true
@@ -265,7 +265,7 @@ springdoc.show-actuator=true
 - It is be possible to handle as return an empty content as response using, one of the following syntaxes:
   - `content = @Content`
   - `content = @Content(schema = @Schema(hidden = true))`
-- For exmaple:
+- For example:
 ```java
 @Operation(summary = "Get thing", responses = {
 		@ApiResponse(description = "Successful Operation", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))),
@@ -312,7 +312,7 @@ ResponseEntity<String> testme() {
 ### Differentiation to Springfox project
 
 - OAS 3 was released in July 2017, and there was no release of `springfox` to support OAS 3.
-`springfox` covers for the moment only swagger 2 integration with Spring Boot. The lastest release date is june 2018. So, in terms of maintenance there is a big lack of support lately.
+`springfox` covers for the moment only swagger 2 integration with Spring Boot. The latest release date is June 2018. So, in terms of maintenance there is a big lack of support lately.
 
 - We decided to move forward and share the library that we already used on our internal projects, with the community.
 - The biggest difference with `springfox`, is that we integrate new features not covered by `springfox`:
@@ -326,14 +326,14 @@ ResponseEntity<String> testme() {
 - There is no relation between `springdoc-openapi` and `springfox`.If you want to migrate to OpenAPI 3:
   - Remove all the dependencies and the related code to springfox
   - Add `springdoc-openapi-ui` dependency
-- If you don't want to serve the ui from your root path or there is a conflict with an existing configuration, you can just change the following property:
+- If you don't want to serve the UI from your root path or there is a conflict with an existing configuration, you can just change the following property:
 ```properties
 springdoc.swagger-ui.path=/you-path/swagger-ui.html
 ```
 
 ### How can I set a global header?
 - You may have global parameters with Standard OpenAPI description.
-- If you need the defintions to appear globally (withing every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.
+- If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.
 - You can define common parameters under parameters in the global components section and reference them elsewhere via `$ref`. You can also define global header parameters.
 - For this, you can override to OpenAPI Bean, and set the global headers or parameters definition on the components level.
 ```java
@@ -386,26 +386,26 @@ public OpenAPI customOpenAPI() {
     .version("100")).addTagsItem(new Tag().name("mytag"));
 }
 ```
-###  Can i use spring property with swagger annotations?
+###  Can I use spring property with swagger annotations?
 - The support of spring property resolver for `@Info`: `title` - `description` - `version` - `termsOfService`
 - The support of spring property resolver for `@Info.license`: `name` - `url`
 - The support of spring property resolver for `@Info.contact`: `name` - `email` - `url`
 - The support of spring property resolver for `@Operation`: `description` - `summary`
 - The support of spring property resolver for `@Parameter`: `description` - `name`
 - The support of spring property resolver for `@ApiResponse`: `description`
-- Its also possible to declare security urls for `@OAuthFlow`: `openIdConnectUrl` - `authorizationUrl` - `refreshUrl` - `tokenUrl` 
+- Its also possible to declare security URLs for `@OAuthFlow`: `openIdConnectUrl` - `authorizationUrl` - `refreshUrl` - `tokenUrl` 
 - The support of spring property resolver for `@Schema`: `name` - `title` - `description` , by setting `springdoc.api-docs.resolve-schema-properties` to `true` 
-### How can i disable springdoc-openapi cache?
+### How can I disable springdoc-openapi cache?
 - By default, the OpenAPI description is calculated once, and then cached.
-- Sometimes the same swagger-ui is served behind internal and external proxies. some users want the server url, to be computed on each http request.
+- Sometimes the same swagger-ui is served behind internal and external proxies. some users want the server URL, to be computed on each http request.
 - In order to disable springdoc cache, you will have to set the following property:
 ```properties
 springdoc.cache.disabled= true
 ```
 
 
-###  How is server url generated ?
-- Generating automatically server url may be useful, if the documentation is not present.
+###  How is server URL generated ?
+- Generating automatically server URL may be useful, if the documentation is not present.
 - If the server annotations are present, they will be used instead.
 
 ### How can I expose the api-docs endpoints without using the `swagger-ui`?
@@ -437,18 +437,18 @@ OR
 @ApiResponse(responseCode = "404", description = "Not found", content = @Content)
 ```
 
-### What is the url of the `swagger-ui`, when I set a different context-path?
+### What is the URL of the `swagger-ui`, when I set a different context-path?
 
 - If you use different context-path:
 ```properties
 server.servlet.context-path= /foo
 ```
-- The `swagger-ui` will be available on the following url:
+- The `swagger-ui` will be available on the following URL:
   - http://server:port/foo/swagger-ui.html
 
 ### Can I customize OpenAPI object programmatically?
 
-- You can Define your own OpenAPI Bean: If you need the defintions to appear globally (withing every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.
+- You can Define your own OpenAPI Bean: If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.
 
 ```java
 @Bean
@@ -460,7 +460,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
             .license(new License().name("Apache 2.0").url("http://springdoc.org")));
 }
 ```
-- If you need the defintions to appear withing a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomiser to your GroupedOpenApi definition.
+- If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomiser to your GroupedOpenApi definition.
 
 ```java
 GroupedOpenApi.builder().setGroup("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
@@ -477,7 +477,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 
 
 ### Where can I find the source code of the demo applications?
-- The source code of the application is available at the following github repository:
+- The source code of the application is available at the following GitHub repository:
   - [https://github.com/springdoc/springdoc-openapi-demos.git](https://github.com/springdoc/springdoc-openapi-demos.git).
 
 ### Does this library supports annotations from interfaces?
@@ -530,7 +530,7 @@ springdoc.swagger-ui.url=/api-docs.yaml
 ### My Rest Controller using @Controller annotation is ignored?
 - This is the default behaviour if your `@Controller` doesn't have annotation `@ResponseBody`
 - You can change your controllers to `@RestControllers`. Or add `@ResponseBody` + `@Controller`.
-- If its not possible, you can configure sprindoc to scan you additionnal controller using SpringDocUtils. For example:
+- If its not possible, you can configure springdoc to scan you additional controller using SpringDocUtils. For example:
 
 ```java
 static {
@@ -538,7 +538,7 @@ static {
 }
 ```
 
-### How can i define groups using application.yml?
+### How can I define groups using application.yml?
 - You can load groups dynamically using spring-boot configuration files. 
 - Note that, for this usage, you don't have to declare the **GroupedOpenApi** Bean.
 - You need to declare the following properties, under the prefix **springdoc.group-configs**.
@@ -551,10 +551,81 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
 - The list of properties under this prefix, are available here:
   - https://springdoc.org/springdoc-properties.html#springdoc-openapi-core-properties
 
-### How can i extract fields from parameter object ?
+### How can I extract fields from parameter object ?
 - You can use springdoc annotation @ParameterObject. 
 - Request parameter annotated with @ParameterObject will help adding each field of the parameter as a separate request parameter. 
 - This is compatible with Spring MVC request parameters mapping to POJO object.
 - This annotation does not support nested parameter objects.
+
+### Where can I find a tutorial of using springdoc-openapi ?
+ - [Baeldung](https://www.baeldung.com/spring-rest-openapi-documentation)
+ - [DZone](https://dzone.com/articles/openapi-3-documentation-with-spring-boot)
+ - [Piotrminkowski Blog](https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/)
+
+### How to Integrate Open API 3 with Spring project (not Spring Boot)?
+When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.
+
+For example, lets assume you want load the swagger-ui in spring-mvc application:
+
+- You mainly, need to add the springdoc-openapi module 
+
+```xml
+<dependency>
+	<groupId>org.springdoc</groupId>
+	<artifactId>springdoc-openapi-ui</artifactId>
+	<version>last.version</version>
+</dependency>
+```
+		
+- If you don't have the spring-boot and spring-boot-autoconfigure dependencies, you need to add them. And pay attention to the compatibility matrix, between you spring.version and spring-boot.version. For example, in this case (spring.version=5.1.12.RELEASE):
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot</artifactId>
+    <version>2.1.11.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-autoconfigure</artifactId>
+    <version>2.1.11.RELEASE</version>
+</dependency>
+```
+		
+- Scan for the springdoc auto-configuration classes that spring-boot automatically loads for you.  
+- Depending on your module, you can find them on the file: spring.factories of each springdoc-openapi module.
+
+```java
+@EnableWebMvc
+public class AppInitializer implements WebApplicationInitializer {
+
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		WebApplicationContext context = getContext();
+		servletContext.addListener(new ContextLoaderListener(context));
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("RestServlet",
+				new DispatcherServlet(context));
+		dispatcher.setLoadOnStartup(1);
+		dispatcher.addMapping("/*");
+	}
+
+	private AnnotationConfigWebApplicationContext getContext() {
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.scan("rest");
+		context.register(this.getClass(), org.springdoc.ui.SwaggerConfig.class,
+				org.springdoc.core.SwaggerUiConfigProperties.class, org.springdoc.core.SwaggerUiOAuthProperties.class,
+				org.springdoc.core.SpringDocWebMvcConfiguration.class,
+				org.springdoc.core.MultipleOpenApiSupportConfiguration.class,
+				org.springdoc.core.SpringDocConfiguration.class, org.springdoc.core.SpringDocConfigProperties.class,
+				org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration.class);
+		
+		return context;
+	}
+}
+```
+
+
+
+
 
 [back](./)
