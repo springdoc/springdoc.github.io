@@ -5,7 +5,7 @@ layout: default
 
 # **Introduction**
 
-springdoc-openapi java library helps automating the generation of API documentation using spring boot projects.
+springdoc-openapi Java library helps automating the generation of API documentation using spring boot projects.
 springdoc-openapi works by examining an application at runtime to infer API semantics based on spring configurations, class structure and various annotations.
 
 Automatically generates documentation in JSON/YAML and HTML format APIs. 
@@ -16,7 +16,7 @@ This library supports:
 *  Spring-boot (v1 and v2)
 *  JSR-303, specifically for @NotNull, @Min, @Max, and @Size.
 *  Swagger-ui
-*  Oauth 2
+*  OAuth 2
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal)
 
@@ -25,7 +25,7 @@ This is a community-based project, not maintained by the Spring Framework Contri
 ## Library for springdoc-openapi integration with spring-boot and swagger-ui 
 *   Automatically deploys swagger-ui to a spring-boot application
 *   Documentation will be available in HTML format, using the official [swagger-ui jars](https://github.com/swagger-api/swagger-ui.git).
-*   The Swagger UI page should then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following url for json format: http://server:port/context-path/v3/api-docs
+*   The Swagger UI page should then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following URL for json format: http://server:port/context-path/v3/api-docs
     * server: The server name or IP
     * port: The server port
     * context-path: The context path of the application
@@ -46,8 +46,8 @@ This is a community-based project, not maintained by the Spring Framework Contri
 springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
-## Integration of the libray in a spring-boot project without the swagger-ui:
-*   Documentation will be available at the following url for json format: http://server:port/context-path/v3/api-docs
+## Integration of the library in a spring-boot project without the swagger-ui:
+*   Documentation will be available at the following URL for json format: http://server:port/context-path/v3/api-docs
     * server: The server name or IP
     * port: The server port
     * context-path: The context path of the application
@@ -68,7 +68,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
 springdoc.api-docs.path=/api-docs
 ```
 
-*   For wildfly users, you need to add the following dependency to make the swagger-ui work:
+*   For WildFly users, you need to add the following dependency to make the swagger-ui work:
 
 ```xml
    <dependency>
@@ -78,7 +78,7 @@ springdoc.api-docs.path=/api-docs
    </dependency>
 ```
 
-# **Additonnal settings**
+# **Additional settings**
 
 ## Adding API Information and Security documentation
   The library uses spring-boot application auto-configured packages to scan for the following annotations in spring beans: OpenAPIDefinition and Info.
@@ -123,7 +123,7 @@ For the list of paths to include, use the following property:
 springdoc.pathsToMatch=/v1, /api/balance/**
 ```
 
-## Spring-weblfux support with Annotated Controllers
+## Spring WebFlux support with Annotated Controllers
 *   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yml
 *   Add the library to the list of your project dependencies (No additional configuration is needed)
 
@@ -164,8 +164,8 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 ```
 
 ## Kotlin support
-For a project that uses kotlin, you should add the following dependency, together with the springdoc-openapi-ui dependency:
-This dependency improves the support of kotlin types:
+For a project that uses Kotlin, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+This dependency improves the support of Kotlin types:
 ```xml
    <dependency>
       <groupId>org.springdoc</groupId>
@@ -176,7 +176,7 @@ This dependency improves the support of kotlin types:
 
 ## Groovy support
 For a project that uses Groovy, you should add the following dependency, together with the springdoc-openapi-ui dependency:
-This dependency improves the support of kotlin types:
+This dependency improves the support of Kotlin types:
 ```xml
    <dependency>
       <groupId>org.springdoc</groupId>
@@ -192,7 +192,7 @@ The aim of springdoc-openapi-maven-plugin is to generate json and yaml OpenAPI d
 The plugin works during integration-tests phase, and generate the OpenAPI description. 
 The plugin works in conjunction with spring-boot-maven plugin. 
 
-You can test it during the integration tests phase using the maven command:
+You can test it during the integration tests phase using the Maven command:
 
 ```protobuf
 mvn verify -Dspring.application.admin.enabled=true
@@ -263,9 +263,9 @@ For more custom configuration of springdoc-openapi-gradle-plugin ,you can consul
 
 # **springdoc applications demos**
 
-## [Demo Spring Boot 2 webmvc with OpenAPI 3](https://springdoc-openapi-test-app2-silly-numbat.eu-de.mybluemix.net/).
-## [Demo Spring Boot 2 webflux with OpenAPI 3](https://springdoc-openapi-test-app3-terrific-rabbit.eu-de.mybluemix.net/swagger-ui.html).
-## [Demo Spring Boot 1 webmvc with OpenAPI 3](https://springdoc-openapi-test-app1-courteous-puku.eu-de.mybluemix.net/).
+## [Demo Spring Boot 2 Web MVC with OpenAPI 3](https://springdoc-openapi-test-app2-silly-numbat.eu-de.mybluemix.net/).
+## [Demo Spring Boot 2 WebFlux with OpenAPI 3](https://springdoc-openapi-test-app3-terrific-rabbit.eu-de.mybluemix.net/swagger-ui.html).
+## [Demo Spring Boot 1 Web MVC with OpenAPI 3](https://springdoc-openapi-test-app1-courteous-puku.eu-de.mybluemix.net/).
 
 ![Branching](https://springdoc.org/assets/images/pets.png)
 
@@ -274,7 +274,7 @@ For more custom configuration of springdoc-openapi-gradle-plugin ,you can consul
 
 ## Dependencies repository
 
-The springdoc-openapi libraries are hosted on maven central repository. 
+The springdoc-openapi libraries are hosted on Maven central repository. 
 The artifacts can be viewed accessed at the following locations:
 
 Releases:
