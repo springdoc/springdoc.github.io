@@ -67,6 +67,7 @@ springdoc.swagger-ui.showCommonExtensions | `false` | `Boolean`. Controls the di
 springdoc.swagger-ui.supportedSubmitMethods |  | `Array=["get", "put", "post", "delete", "options", "head", "patch", "trace"]`. List of HTTP methods that have the "Try it out" feature enabled. An empty array disables "Try it out" for all operations. This does not filter the operations from the display.
 springdoc.swagger-ui.urls[0].url |  | `URL`. The url of the swagger group, used by Topbar plugin.  URLs must be unique among all items in this array, since they're used as identifiers.
 springdoc.swagger-ui.urls[0].name |  | `String`. The name of the swagger group, used by Topbar plugin.  Names must be unique among all items in this array, since they're used as identifiers.
+springdoc.swagger-ui.urlsPrimaryName |  | `String`. The name of the swagger group which will be displayed when Swagger UI loads.
 springdoc.swagger-ui.oauth.clientId |  | `String`. Default clientId. MUST be a string.
 springdoc.swagger-ui.oauth.clientSecret |  | `String`.  Default clientSecret. Never use this parameter in your production environment. It exposes crucial security information. This feature is intended for dev/test environments only.
 springdoc.swagger-ui.oauth.realm |  | `String`. realm query parameter (for OAuth 1) added to authorizationUrl and tokenUrl.
