@@ -624,8 +624,20 @@ public class AppInitializer implements WebApplicationInitializer {
 }
 ```
 
+### How can I use the last springdoc-openapi SNAPSHOT ?
+- For testing purposes only, you can test temporarly using the last springdoc-openapi SNAPSHOT 
+- To achieve that, you can on your pom.xml or your settings.xml the following section:
 
-
+```xml
+     <repositories>
+       <repository>
+         <id>snapshots-repo</id>
+         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+         <releases><enabled>false</enabled></releases>
+         <snapshots><enabled>true</enabled></snapshots>
+       </repository>
+     </repositories>
+```
 
 
 [back](./)
