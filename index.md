@@ -5,7 +5,7 @@ layout: default
 
 # **Introduction**
 
-springdoc-openapi Java library helps automating the generation of API documentation using spring boot projects.
+springdoc-openapi java library helps automating the generation of API documentation using spring boot projects.
 springdoc-openapi works by examining an application at runtime to infer API semantics based on spring configurations, class structure and various annotations.
 
 Automatically generates documentation in JSON/YAML and HTML format APIs. 
@@ -25,7 +25,7 @@ This is a community-based project, not maintained by the Spring Framework Contri
 ## Library for springdoc-openapi integration with spring-boot and swagger-ui 
 *   Automatically deploys swagger-ui to a spring-boot application
 *   Documentation will be available in HTML format, using the official [swagger-ui jars](https://github.com/swagger-api/swagger-ui.git).
-*   The Swagger UI page should then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following URL for json format: http://server:port/context-path/v3/api-docs
+*   The Swagger UI page should then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following url for json format: http://server:port/context-path/v3/api-docs
     * server: The server name or IP
     * port: The server port
     * context-path: The context path of the application
@@ -36,7 +36,7 @@ This is a community-based project, not maintained by the Spring Framework Contri
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file:
@@ -47,7 +47,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
 ## Integration of the library in a spring-boot project without the swagger-ui:
-*   Documentation will be available at the following URL for json format: http://server:port/context-path/v3/api-docs
+*   Documentation will be available at the following url for json format: http://server:port/context-path/v3/api-docs
     * server: The server name or IP
     * port: The server port
     * context-path: The context path of the application
@@ -58,7 +58,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-webmvc-core</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
@@ -123,7 +123,7 @@ For the list of paths to include, use the following property:
 springdoc.pathsToMatch=/v1, /api/balance/**
 ```
 
-## Spring WebFlux support with Annotated Controllers
+## Spring-weblfux support with Annotated Controllers
 *   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yml
 *   Add the library to the list of your project dependencies (No additional configuration is needed)
 
@@ -131,7 +131,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-webflux-ui</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file:
@@ -148,7 +148,7 @@ The projects that use Pageable type should add this dependency together with the
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-data-rest</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 
@@ -159,7 +159,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-security</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 
@@ -170,7 +170,7 @@ This dependency improves the support of Kotlin types:
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-kotlin</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 
@@ -181,7 +181,7 @@ This dependency improves the support of Kotlin types:
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-groovy</artifactId>
-      <version>1.3.2</version>
+      <version>1.3.3</version>
    </dependency>
 ```
 
@@ -192,7 +192,7 @@ The aim of springdoc-openapi-maven-plugin is to generate json and yaml OpenAPI d
 The plugin works during integration-tests phase, and generate the OpenAPI description. 
 The plugin works in conjunction with spring-boot-maven plugin. 
 
-You can test it during the integration tests phase using the Maven command:
+You can test it during the integration tests phase using the maven command:
 
 ```protobuf
 mvn verify -Dspring.application.admin.enabled=true
@@ -274,7 +274,7 @@ For more custom configuration of springdoc-openapi-gradle-plugin ,you can consul
 
 ## Dependencies repository
 
-The springdoc-openapi libraries are hosted on Maven central repository. 
+The springdoc-openapi libraries are hosted on maven central repository. 
 The artifacts can be viewed accessed at the following locations:
 
 Releases:
