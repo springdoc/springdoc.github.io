@@ -164,7 +164,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 ```
 
 ## Kotlin support
-For a project that uses Kotlin, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+For a project that uses Kotlin, you should add the following dependency.
 This dependency improves the support of Kotlin types:
 ```xml
    <dependency>
@@ -173,6 +173,8 @@ This dependency improves the support of Kotlin types:
       <version>@springdoc.version@</version>
    </dependency>
 ```
+- If your are using spring-web, you combine the springdoc-openapi-kotlin module with springdoc-openapi-ui.
+- If your are using spring-webflux, you combine the springdoc-openapi-kotlin module  with springdoc-openapi-webflux-ui.
 
 ## Groovy support
 For a project that uses Groovy, you should add the following dependency, together with the springdoc-openapi-ui dependency:
