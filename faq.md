@@ -559,7 +559,8 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
 
 ### Where can I find a tutorial of using springdoc-openapi ?
  - [Baeldung](https://www.baeldung.com/spring-rest-openapi-documentation)
- - [DZone](https://dzone.com/articles/openapi-3-documentation-with-spring-boot)
+ - [DZone Part1](https://dzone.com/articles/openapi-3-documentation-with-spring-boot)
+ - [DZone Part2](https://dzone.com/articles/doing-more-with-springdoc-openapi)
  - [Piotrminkowski Blog](https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/)
 
 ### How to Integrate Open API 3 with Spring project (not Spring Boot)?
