@@ -225,7 +225,7 @@ In order to use this functionality, you need to add the plugin declaration on th
 <plugin>
  <groupId>org.springdoc</groupId>
  <artifactId>springdoc-openapi-maven-plugin</artifactId>
- <version>0.3</version>
+ <version>1.0</version>
  <executions>
   <execution>
    <id>integration-test</id>
