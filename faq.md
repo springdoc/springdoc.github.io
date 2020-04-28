@@ -161,7 +161,7 @@ springdoc.packagesToScan=package1, package2
 
 ###  How can I map `Pageable` (spring-date-commons) object to correct URL-Parameter in Swagger UI?
 
-- To enable improved Pageable support, projects that uses `spring-data` should add this dependency together with the `springdoc-openapi-ui` dependency:
+The projects that uses `spring-data` should add this dependency together with the `springdoc-openapi-ui` dependency:
 ```xml
 <dependency>
     <groupId>org.springdoc</groupId>
@@ -170,7 +170,9 @@ springdoc.packagesToScan=package1, package2
 </dependency>
 ```
 
-- If you don't want rely on springdoc-openapi-data-rest, you will have to declare the explicit mapping of Pageable fields as Query Params and add the @Parameter(hidden = true) Pageable pageable on your pageable parameter. You can have a look at @PageableAsQueryParam in the project springdoc-openapi-data-rest for examples.
+- If you use Pageable in a GET HTTP method, you will have to declare the explicit mapping of Pageable fields as Query Params and add the @Parameter(hidden = true) Pageable pageable on your pageable parameter.
+- You should also, declare the annotation `@PageableAsQueryParam` provided by springdoc on the method level, or declare your own if need to define your custom description, defaultValue, ...
+- Since, v1.3.1 you can use as well `@ParameterObject` instead of `@PageableAsQueryParam` for HTTP `GET` methods.
 
 
 ### How can I generate enums in the generated description?
@@ -645,7 +647,7 @@ public class AppInitializer implements WebApplicationInitializer {
 SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.MonetaryAmount.class);
 ```
  
-- Another solution, without using springdoc-openapi MonetaryAmount, would be:
+Another solution, without using springdoc-openapi MonetaryAmount, would be:
 
 ```java
 SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
