@@ -643,11 +643,12 @@ public class AppInitializer implements WebApplicationInitializer {
 ### How can I use enable springdoc-openapi MonetaryAmount support ?
 
 - If an application wants to enable the springdoc-openapi support, it declares:
+
 ```java
 SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.MonetaryAmount.class);
 ```
  
-Another solution, without using springdoc-openapi MonetaryAmount, would be:
+- Another solution, without using springdoc-openapi MonetaryAmount, would be:
 
 ```java
 SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
