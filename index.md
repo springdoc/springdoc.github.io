@@ -150,7 +150,7 @@ Only APIs with the @RouterOperations and @RouterOperation can be displayed on th
 *   @RouterOperation: It can be used alone, if the Router bean contains one single route related to the REST API..
     When using @RouterOperation, its not mandatory to fill the path
 	
-	A @RouterOperation, can reference directly a spring Bean (beanClass property) and the underlying method (beanMethod property): Springdoc-openapi, will then inspect this method and the swagger annotations on this method level.
+*   @RouterOperation, can reference directly a spring Bean (beanClass property) and the underlying method (beanMethod property): Springdoc-openapi, will then inspect this method and the swagger annotations on this method level.
 
 ```java	
 @Bean
@@ -162,10 +162,10 @@ RouterFunction<ServerResponse> getAllEmployeesRoute() {
 }
 ```
 	
-*   A @RouterOperation, contains the @Operation annotation.
+*   @RouterOperation, contains the @Operation annotation.
 	The @Operation annotation can also be placed on the bean method level if the property beanMethod is declared.
     
-	Don't forget to set **operationId** which is **mandatory**.
+*   Don't forget to set **operationId** which is **mandatory**.
 
 ```java	
 @Bean
@@ -184,7 +184,7 @@ RouterFunction<ServerResponse> getEmployeeByIdRoute() {
 *   @RouterOperations: This annotation should be used if the Router bean contains multiple routes.
     When using RouterOperations, its mandatory to fill the path property. 
 	
-	A @RouterOperations, contains many @RouterOperation.
+*   A @RouterOperations, contains many @RouterOperation.
 
 ```java	
 @RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
