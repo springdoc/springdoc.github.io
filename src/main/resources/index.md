@@ -145,7 +145,8 @@ springdoc.swagger-ui.path=/swagger-ui.html
 ## Spring-weblfux/WebMvc.fn with Functional Endpoints
 Since version v1.3.8, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: @RouterOperations and @RouterOperation.
-Only APIs with the @RouterOperations and @RouterOperation can be displayed on the swagger-ui.
+
+Only REST APIs with the @RouterOperations and @RouterOperation can be displayed on the swagger-ui.
 
 *   @RouterOperation: It can be used alone, if the Router bean contains one single route related to the REST API..
     When using @RouterOperation, its not mandatory to fill the path
@@ -219,7 +220,7 @@ Some code samples are available on GITHUB of demos:
 
 And some of the project tests: (from app69 to app75)
 
-- [Sample code with Functional Endpoints documentation] https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api
+- [Sample code with Functional Endpoints documentation](https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api)
 
 ## Spring Pageable support
 The support for Pageable of spring-data-commons is available.
