@@ -265,8 +265,8 @@ For more custom configuration of springdoc-openapi-gradle-plugin ,you can consul
 
 # **springdoc applications demos**
 
-## [Demo Spring Boot 2 Web MVC with OpenAPI 3](https://springdoc-openapi-test-app2-silly-numbat.eu-de.mybluemix.net/).
-## [Demo Spring Boot 2 WebFlux with OpenAPI 3](https://springdoc-openapi-test-app3-terrific-rabbit.eu-de.mybluemix.net/swagger-ui.html).
+## [Demo Spring Boot 2 Web MVC with OpenAPI 3](https://springdoc-openapi-test-app2-rested-ardvark.eu-de.mybluemix.net/).
+## [Demo Spring Boot 2 WebFlux with OpenAPI 3](https://springdoc-openapi-test-app3-generous-springhare.eu-de.mybluemix.net/swagger-ui.html).
 ## [Demo Spring Boot 1 Web MVC with OpenAPI 3](https://springdoc-openapi-test-app1-courteous-puku.eu-de.mybluemix.net/).
 
 ![Branching](https://springdoc.org/assets/images/pets.png)
