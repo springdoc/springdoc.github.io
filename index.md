@@ -215,11 +215,11 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 
 Some code samples are available on GITHUB of demos:
 
-- https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-test-app4
+- [Sample application with Functional Endpoints documentation](https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-test-app4)
 
 And some of the project tests: (from app69 to app75)
 
-- https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api
+- [Sample code with Functional Endpoints documentation] https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api
 
 ## Spring Pageable support
 The support for Pageable of spring-data-commons is available.
