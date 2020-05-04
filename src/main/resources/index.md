@@ -147,17 +147,59 @@ Since version v1.3.8, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: @RouterOperations and @RouterOperation.
 Only APIs with the @RouterOperations and @RouterOperation can be displayed on the swagger-ui.
 
-*   @RouterOperations: This annotation should be used if the Router bean contains multiple routes.
-    When using RouterOperations, its mandatory to fill the path property. 
-	A @RouterOperations, can contain many @RouterOperation.
-
 *   @RouterOperation: It can be used alone, if the Router bean contains one single route related to the REST API..
     When using @RouterOperation, its not mandatory to fill the path
+	
 	A @RouterOperation, can reference directly a spring Bean (beanClass property) and the underlying method (beanMethod property): Springdoc-openapi, will then inspect this method and the swagger annotations on this method level.
+
+```java	
+@Bean
+@RouterOperation(beanClass = EmployeeRepository.class, beanMethod = "findAllEmployees")
+RouterFunction<ServerResponse> getAllEmployeesRoute() {
+	return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
+			req -> ok().body(
+					employeeRepository().findAllEmployees(), Employee.class));
+}
+```
+	
 	A @RouterOperation, contains the @Operation annotation.
 	The @Operation annotation can also be placed on the bean method level if the property beanMethod is declared.
-    Don't forget to set **operationId** which is **mandatory**.
+    
+	Don't forget to set **operationId** which is **mandatory**.
 
+```java	
+@Bean
+@RouterOperation(operation = @Operation(operationId = "findEmployeeById", summary = "Find purchase order by ID", tags = { "MyEmployee" },
+		parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Employee Id") },
+		responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Employee.class))),
+				@ApiResponse(responseCode = "400", description = "Invalid Employee ID supplied"),
+				@ApiResponse(responseCode = "404", description = "Employee not found") }))
+RouterFunction<ServerResponse> getEmployeeByIdRoute() {
+	return route(GET("/employees/{id}"),
+			req -> ok().body(
+					employeeRepository().findEmployeeById(req.pathVariable("id")), Employee.class));
+}
+```
+	
+*   @RouterOperations: This annotation should be used if the Router bean contains multiple routes.
+    When using RouterOperations, its mandatory to fill the path property. 
+	
+	A @RouterOperations, contains many @RouterOperation.
+
+```java	
+@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
+		@RouterOperation(path = "/getPerson/{id}", beanClass = PersonService.class, beanMethod = "getById"),
+		@RouterOperation(path = "/createPerson", beanClass = PersonService.class, beanMethod = "save"),
+		@RouterOperation(path = "/deletePerson/{id}", beanClass = PersonService.class, beanMethod = "delete") })
+@Bean
+public RouterFunction<ServerResponse> personRoute(PersonHandler handler) {
+	return RouterFunctions
+			.route(GET("/getAllPersons").and(accept(MediaType.APPLICATION_JSON)), handler::findAll)
+			.andRoute(GET("/getPerson/{id}").and(accept(MediaType.APPLICATION_STREAM_JSON)), handler::findById)
+			.andRoute(POST("/createPerson").and(accept(MediaType.APPLICATION_JSON)), handler::save)
+			.andRoute(DELETE("/deletePerson/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::delete);
+}
+```
 	
 All the documentations filled using @RouterOperation, might be completed by the router function data. 
 For that, @RouterOperation fields must help identify uniquely the concerned route.
@@ -172,8 +214,11 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 - by path and RequestMethod and produces and consumes
 
 Some code samples are available on GITHUB of demos:
+
 - https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-test-app4
+
 And some of the project tests: (from app69 to app75)
+
 - https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api
 
 ## Spring Pageable support
