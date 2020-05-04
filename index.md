@@ -154,15 +154,15 @@ Only APIs with the @RouterOperations and @RouterOperation can be displayed on th
 
 ```java	
 @Bean
-@RouterOperation(beanClass = EmployeeRepository.class, beanMethod = "findAllEmployees")
+@RouterOperation(beanClass = EmployeeService.class, beanMethod = "findAllEmployees")
 RouterFunction<ServerResponse> getAllEmployeesRoute() {
 	return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
 			req -> ok().body(
-					employeeRepository().findAllEmployees(), Employee.class));
+					employeeService().findAllEmployees(), Employee.class));
 }
 ```
 	
-	A @RouterOperation, contains the @Operation annotation.
+*   A @RouterOperation, contains the @Operation annotation.
 	The @Operation annotation can also be placed on the bean method level if the property beanMethod is declared.
     
 	Don't forget to set **operationId** which is **mandatory**.
