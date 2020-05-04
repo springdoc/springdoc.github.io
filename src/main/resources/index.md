@@ -141,6 +141,41 @@ springdoc.pathsToMatch=/v1, /api/balance/**
 springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
+
+## Spring-weblfux/WebMvc.fn with Functional Endpoints
+Since version v1.3.8, the support of functional endpoints has been added.
+Two main annotations have been added for this purpose: @RouterOperations and @RouterOperation.
+Only APIs with the @RouterOperations and @RouterOperation can be displayed on the swagger-ui.
+
+*   @RouterOperations: This annotation should be used if the Router bean contains multiple routes.
+    When using RouterOperations, its mandatory to fill the path property. 
+	A @RouterOperations, can contain many @RouterOperation.
+
+*   @RouterOperation: It can be used alone, if the Router bean contains one single route related to the REST API..
+    When using @RouterOperation, its not mandatory to fill the path
+	A @RouterOperation, can reference directly a spring Bean (beanClass property) and the underlying method (beanMethod property): Springdoc-openapi, will then inspect this method and the swagger annotations on this method level.
+	A @RouterOperation, contains the @Operation annotation.
+	The @Operation annotation can also be placed on the bean method level if the property beanMethod is declared.
+    Don't forget to set **operationId** which is **mandatory**.
+
+	
+All the documentations filled using @RouterOperation, might be completed by the router function data. 
+For that, @RouterOperation fields must help identify uniquely the concerned route.
+springdoc-openpi scans for a unique route related to a @RouterOperation annotation, using on the following criteria:
+- by path
+- by path and RequestMethod
+- by path and produces
+- by path and consumes
+- by path and RequestMethod and produces
+- by path and RequestMethod and consumes
+- by path and produces and consumes
+- by path and RequestMethod and produces and consumes
+
+Some code samples are available on GITHUB of demos:
+- https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-test-app4
+And some of the project tests: (from app69 to app75)
+- https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api
+
 ## Spring Pageable support
 The support for Pageable of spring-data-commons is available.
 The projects that use Pageable type should add this dependency together with the springdoc-openapi-ui dependency.
@@ -290,11 +325,6 @@ Snapshots:
 There no automatic generation planned to spring-data-rest annotations.
 You need to use OAS3 annotations on your spring-data-rest parameters.
 You can also contribute to add the support for the different annotations (@RepositoryRestResource, @QueryDSL, ...)
-
-
-## **Spring-weblfux/WebMvc.fn with Functional Endpoints, will be available in the future release**
-
-
 
 
 
