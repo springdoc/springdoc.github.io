@@ -216,7 +216,7 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 
 Some code samples are available on GITHUB of demos:
 
-- [Sample application with Functional Endpoints documentation](https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-test-app4)
+- [Sample application with Functional Endpoints documentation](https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional)
 
 And some of the project tests: (from app69 to app75)
 
