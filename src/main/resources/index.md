@@ -222,9 +222,28 @@ And some of the project tests: (from app69 to app75)
 
 - [Sample code with Functional Endpoints documentation](https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api)
 
-## Spring Pageable support
+## Spring Hateoas support
+The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+This dependency enables the support of Spring Hateoas format.
+```xml
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-hateoas</artifactId>
+      <version>${springdoc.version}</version>
+   </dependency>
+```
+
+## Spring Data Rest support
 The support for Pageable of spring-data-commons is available.
-The projects that use Pageable type should add this dependency together with the springdoc-openapi-ui dependency.
+If only want to enable the support of spring Pageable Type, you can just enable it using:
+
+```java
+SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class, Pageable.class);
+```
+
+Alternately, the projects that use Pageable type can aslo add the follwing dependency together with the springdoc-openapi-ui dependency.
+This dependency enables the support of spring-data-rest types as well: @RepositoryRestResource and QuerydslPredicate annotations.
 ```xml
    <dependency>
       <groupId>org.springdoc</groupId>
@@ -367,10 +386,6 @@ Releases:
 Snapshots:
 * [https://oss.sonatype.org/content/repositories/snapshots/org/springdoc/](https://oss.sonatype.org/content/repositories/snapshots/org/springdoc/).
 
-##  Spring Data REST support
-There no automatic generation planned to spring-data-rest annotations.
-You need to use OAS3 annotations on your spring-data-rest parameters.
-You can also contribute to add the support for the different annotations (@RepositoryRestResource, @QueryDSL, ...)
 
 
 

@@ -19,7 +19,7 @@ For the following Group definition(based on package path), the OpenAPI descripti
 @Bean
 public GroupedOpenApi storeOpenApi() {
 	String paths[] = {"/store/**"};
-	return GroupedOpenApi.builder().setGroup("stores").pathsToMatch(paths)
+	return GroupedOpenApi.builder().group("stores").pathsToMatch(paths)
 			.build();
 }
 ```
@@ -29,7 +29,7 @@ For the following Group definition (based on package name), the OpenAPI descript
 @Bean
 public GroupedOpenApi userOpenApi() {
 	String packagesToscan[] = {"test.org.springdoc.api.app68.api.user"};
-	return GroupedOpenApi.builder().setGroup("users").packagesToScan(packagesToscan)
+	return GroupedOpenApi.builder().group("users").packagesToScan(packagesToscan)
 			.build();
 }
 ```
@@ -39,7 +39,7 @@ For the following Group definition(based on path), the OpenAPI description URL w
 @Bean
 public GroupedOpenApi petOpenApi() {
 	String paths[] = {"/pet/**"};
-	return GroupedOpenApi.builder().setGroup("pets").pathsToMatch(paths)
+	return GroupedOpenApi.builder().group("pets").pathsToMatch(paths)
 			.build();
 }
 ```
@@ -50,7 +50,7 @@ For the following Group definition (based on package name and path), the OpenAPI
 public GroupedOpenApi groupOpenApi() {
 	String paths[] = {"/v1/**"};
 	String packagesToscan[] = {"test.org.springdoc.api.app68.api.user", "test.org.springdoc.api.app68.api.store"};
-	return GroupedOpenApi.builder().setGroup("groups").pathsToMatch(paths).packagesToScan(packagesToscan)
+	return GroupedOpenApi.builder().group("groups").pathsToMatch(paths).packagesToScan(packagesToscan)
 			.build();
 }
 ```
@@ -463,7 +463,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 - If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomiser to your GroupedOpenApi definition.
 
 ```java
-GroupedOpenApi.builder().setGroup("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
+GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
                 .build()
 
 @Bean
