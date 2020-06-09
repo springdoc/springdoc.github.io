@@ -346,9 +346,9 @@ This plugin allows you to generate an OpenAPI 3 specification for a Spring Boot 
 
 ```groovy
 plugins {
-      id("org.springframework.boot") version "2.2.4.RELEASE"
+      id("org.springframework.boot") version "2.3.0.RELEASE"
       id "com.github.johnrengelman.processes" version "0.5.0"
-      id("org.springdoc.openapi-gradle-plugin") version "1.2.0"
+      id("org.springdoc.openapi-gradle-plugin") version "1.3.0"
 }
 ```
 
