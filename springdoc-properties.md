@@ -36,6 +36,7 @@ springdoc.group-configs[0].packages-to-exclude | | `List of Strings`.The list of
 springdoc.webjars.prefix | `/webjars` |`String`, To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.
 springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
 springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
+springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
 
 ### swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See [Official documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/).
@@ -65,6 +66,9 @@ springdoc.swagger-ui.showExtensions | `false` | `Boolean`. Controls the display 
 springdoc.swagger-ui.url |  | `String`.To configure, the path of a custom OpenAPI file . Will be ignored if `urls` is used.
 springdoc.swagger-ui.showCommonExtensions | `false` | `Boolean`. Controls the display of extensions (`pattern`, `maxLength`, `minLength`, `maximum`, `minimum`) fields and values for Parameters.
 springdoc.swagger-ui.supportedSubmitMethods |  | `Array=["get", "put", "post", "delete", "options", "head", "patch", "trace"]`. List of HTTP methods that have the "Try it out" feature enabled. An empty array disables "Try it out" for all operations. This does not filter the operations from the display.
+springdoc.swagger-ui.display-query-params-without-oauth2 | `false` | `Boolean`. To enable access to swagger-ui using url query params instead of configUrl. If the REST APIs, are not using OAuth2 (Available if groups are not enabled. Prevents the load of the swagger-config twice with configUrl, available since v1.4.1).
+springdoc.swagger-ui.display-query-params | `false` | `Boolean`. To enable access to swagger-ui using url query params instead of configUrl. If the REST APIs, are using OAuth2 (Available if groups are not enabled. Prevents the load of the swagger-config twice with configUrl, available since v1.4.1).
+springdoc.swagger-ui.disable-swagger-default-url | `false` | `Boolean`. To disable the swagger-ui default petstore url. (Available since v1.4.1).
 springdoc.swagger-ui.urls[0].url |  | `URL`. The url of the swagger group, used by Topbar plugin.  URLs must be unique among all items in this array, since they're used as identifiers.
 springdoc.swagger-ui.urls[0].name |  | `String`. The name of the swagger group, used by Topbar plugin.  Names must be unique among all items in this array, since they're used as identifiers.
 springdoc.swagger-ui.urlsPrimaryName |  | `String`. The name of the swagger group which will be displayed when Swagger UI loads.
