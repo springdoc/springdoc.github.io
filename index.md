@@ -18,7 +18,12 @@ This library supports:
 *  Swagger-ui
 *  OAuth 2
 
-This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal)
+The following video introduces the Library:
+
+* https://youtu.be/utRxyPfFlDw
+
+This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
+
 
 # **Getting Started**
 
