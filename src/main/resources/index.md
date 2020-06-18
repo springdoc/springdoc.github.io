@@ -243,7 +243,8 @@ The support for Pageable of spring-data-commons is available.
 If only want to enable the support of spring Pageable Type, you can just enable it using:
 
 ```java
-SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class, org.springdoc.core.converters.models.Pageable.class);
+SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class, 
+org.springdoc.core.converters.models.Pageable.class);
 ```
 
 Alternately, the projects that use Pageable type can aslo add the follwing dependency together with the springdoc-openapi-ui dependency.
