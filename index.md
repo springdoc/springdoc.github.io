@@ -20,10 +20,10 @@ This library supports:
 
 The following video introduces the Library:
 
-[![Watch the video](https://github.com/springdoc/springdoc.github.io/blob/master/assets/images/springdoc-openapi-conf.gif)](https://youtu.be/utRxyPfFlDw)
+[![Watch the video](https://springdoc.org/assets/images/springdoc-openapi-conf.gif)](https://youtu.be/utRxyPfFlDw)
 
 
-[![Watch the video](https://github.com/springdoc/springdoc.github.io/blob/master/assets/images/springdoc-openapi-prez.png)](https://youtu.be/utRxyPfFlDw)
+[![Watch the video](https://springdoc.org/assets/images/springdoc-openapi-prez.png)](https://youtu.be/utRxyPfFlDw)
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
 
