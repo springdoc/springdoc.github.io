@@ -24,7 +24,6 @@ The following video introduces the Library:
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
 
-
 # **Getting Started**
 ![overview](https://springdoc.org/assets/images/common.jpg)
 
@@ -52,7 +51,7 @@ This is a community-based project, not maintained by the Spring Framework Contri
 springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
-## Integration in a spring-boot project without the swagger-ui:
+## Integration of the library in a spring-boot project without the swagger-ui:
 *   Documentation will be available at the following url for json format: http://server:port/context-path/v3/api-docs
     * server: The server name or IP
     * port: The server port
