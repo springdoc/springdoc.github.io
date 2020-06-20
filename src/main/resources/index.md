@@ -128,7 +128,7 @@ For the list of paths to include, use the following property:
 springdoc.pathsToMatch=/v1, /api/balance/**
 ```
 
-## Spring-weblfux support with Annotated Controllers
+## Spring-webflux support with Annotated Controllers
 *   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yml
 *   Add the library to the list of your project dependencies (No additional configuration is needed)
 
@@ -147,7 +147,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
 ```
 
 
-## Spring-weblfux/WebMvc.fn with Functional Endpoints
+## Spring-webflux/WebMvc.fn with Functional Endpoints
 Since version v1.3.8, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: @RouterOperations and @RouterOperation.
 
