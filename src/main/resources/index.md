@@ -20,13 +20,14 @@ This library supports:
 
 The following video introduces the Library:
 
-* [https://youtu.be/utRxyPfFlDw](https://youtu.be/utRxyPfFlDw)
+[![Watch the video](https://springdoc.org/assets/images/springdoc-openapi-prez.gif)](https://youtu.be/utRxyPfFlDw)
 
-This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal)
+This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
 
 # **Getting Started**
+![overview](https://springdoc.org/assets/images/common.jpg)
 
-## Library for springdoc-openapi integration with spring-boot and swagger-ui 
+## Integration between spring-boot and swagger-ui 
 *   Automatically deploys swagger-ui to a spring-boot application
 *   Documentation will be available in HTML format, using the official [swagger-ui jars](https://github.com/swagger-api/swagger-ui.git).
 *   The Swagger UI page should then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following url for json format: http://server:port/context-path/v3/api-docs
