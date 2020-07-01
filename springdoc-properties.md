@@ -37,6 +37,7 @@ springdoc.webjars.prefix | `/webjars` |`String`, To change the webjars prefix th
 springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
 springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
+springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
 
 ### swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See [Official documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/).
