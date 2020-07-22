@@ -245,7 +245,7 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 ### How can I customise the OpenAPI object ?
 - You can write your own implementation of `OpenApiCustomiser`.
 - An example is available on:
-  - [https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java](https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java).
+  - [https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java](https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java).
 
 ```java
 @Bean
