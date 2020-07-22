@@ -1,7 +1,10 @@
-language: ruby
-cache: bundler
-rvm: 2.6
-
-
-install: bash script/bootstrap
-script: bash script/cibuild
+language: java
+jdk:
+  - openjdk8
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.sonar/cache
+    
+script:
+  - mvn clean package
