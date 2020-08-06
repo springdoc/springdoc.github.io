@@ -41,7 +41,7 @@ This is a community-based project, not maintained by the Spring Framework Contri
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file:
@@ -63,7 +63,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-webmvc-core</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
@@ -136,7 +136,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-webflux-ui</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file:
@@ -235,7 +235,7 @@ This dependency enables the support of Spring Hateoas format.
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-hateoas</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 
@@ -254,7 +254,7 @@ This dependency enables the support of spring-data-rest types as well: @Reposito
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-data-rest</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 
@@ -265,7 +265,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-security</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 
@@ -276,7 +276,7 @@ This dependency improves the support of Kotlin types:
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-kotlin</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 - If your are using spring-web, you combine the springdoc-openapi-kotlin module with springdoc-openapi-ui.
@@ -289,7 +289,7 @@ This dependency improves the support of Kotlin types:
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-groovy</artifactId>
-      <version>1.4.3</version>
+      <version>1.4.4</version>
    </dependency>
 ```
 
@@ -371,10 +371,11 @@ For more custom configuration of springdoc-openapi-gradle-plugin ,you can consul
 
 # **springdoc applications demos**
 
-## [Demo Spring Boot 2 Web MVC with OpenAPI 3](https://springdoc-openapi-spring-boot-2-webmvc-fearless-giraffe.eu-de.mybluemix.net/).
-## [Demo Spring Boot 2 WebFlux with OpenAPI 3](https://springdoc-openapi-spring-boot-2-webflux-quiet-ratel.eu-de.mybluemix.net/swagger-ui.html).
-## [Demo Spring Boot 1 Web MVC with OpenAPI 3](https://springdoc-openapi-spring-boot-1-nice-kudu.eu-de.mybluemix.net/).
-## [Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3](https://springdoc-openapi-spring-boot-2-webflux-func-shiny-gerenuk.eu-de.mybluemix.net/swagger-ui.html).
+## [Demo Spring Boot 2 Web MVC with OpenAPI 3](http://158.101.164.60:8081/).
+## [Demo Spring Boot 2 WebFlux with OpenAPI 3](http://158.101.164.60:8082/).
+## [Demo Spring Boot 1 Web MVC with OpenAPI 3](http://158.101.164.60:8083/).
+## [Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3](http://158.101.164.60:8084/swagger-ui.html).
+## [Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3](http://158.101.164.60:8085/swagger-ui.html).
 
 ![Branching](https://springdoc.org/assets/images/pets.png)
 

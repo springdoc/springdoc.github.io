@@ -38,6 +38,7 @@ springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  p
 springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
 springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
+springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 
 ### swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See [Official documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/).
@@ -81,6 +82,8 @@ springdoc.swagger-ui.oauth.scopeSeparator |  | `String`. OAuth scope separator f
 springdoc.swagger-ui.oauth.additionalQueryStringParams |  | `String`. Additional query parameters added to authorizationUrl and tokenUrl.
 springdoc.swagger-ui.oauth.<br/>useBasicAuthenticationWithAccessCodeGrant | `false` | `Boolean`. Only activated for the accessCode flow. During the authorization_code request to the tokenUrl, pass the Client Password using the HTTP Basic Authentication scheme (Authorization header with Basic base64encode(client_id + client_secret)).
 springdoc.swagger-ui.oauth.usePkceWithAuthorizationCodeGrant | `false` | `Boolean`.Only applies to authorizatonCode flows. Proof Key for Code Exchange brings enhanced security for OAuth public clients.
-
+springdoc.swagger-ui.csrf.enabled | `false` | `Boolean`. To enable CSRF support
+springdoc.swagger-ui.csrf.cookie-name | `XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF cookie name.
+springdoc.swagger-ui.csrf.header-name | `X-XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF header name.
 
 [back](./)
