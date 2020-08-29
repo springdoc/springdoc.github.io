@@ -39,6 +39,7 @@ springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable r
 springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
 springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
 springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
+springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
 
 ### swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See [Official documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/).
