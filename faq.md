@@ -291,6 +291,14 @@ ResponseEntity<String> testme() {
 - Full documentation here:
   - [https://docs.spring.io/spring/docs/5.1.x/spring-framework-reference/web.html#mvc-ann-arguments](https://docs.spring.io/spring/docs/5.1.x/spring-framework-reference/web.html#mvc-ann-arguments).
 
+### How can i disable ignored types:
+
+If you don't want to ignore the types `Principal`, `Locale`, `HttpServletRequest`, and others,:
+```java
+    SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class)
+```
+
+
 ### How do I add authorization header in requests?
 - You should add the `@SecurityRequirement` tags to your protected APIs.
 - For example:
@@ -641,7 +649,6 @@ public class AppInitializer implements WebApplicationInitializer {
 ```
 
 ### How can I use enable springdoc-openapi MonetaryAmount support ?
-
 - If an application wants to enable the springdoc-openapi support, it declares:
 
 ```java
@@ -654,6 +661,88 @@ SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.
 SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
 				.addProperties("amount", new NumberSchema()).example(99.96)
 				.addProperties("currency", new StringSchema().example("USD")));
+```
+
+### How can i agreagte external endpoints (exposing OPENAPI 3 spec) inside one single application?
+The properties springdoc.swagger-ui.urls.*, are suitable to configure external (/v3/api-docs url).
+For example if you want to agreagte all the endpoints of other services, inside one single application.
+Don't forget that CORS needs to be enabled as well.
+
+### How can use custom json/yml file instead of generated one ?
+If your file open-api.json, contains the OpenAPI documentation in OpenAPI 3 format. 
+Then simply declare: The file name can be anything you want, from the moment your declaration is consistent yaml or json OpenAPI Spec.
+```properties
+	springdoc.swagger-ui.url=/open-api.json
+```
+
+Then the file open-api.json, should be located in: src/main/resources/static
+No additional configuration is needed.
+
+### How can i enable CSRF support?
+If you are using standard headers.(for example using spring-security headers)
+If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN during each HTTP REQUEST.
+That said - if your XSRF-TOKEN isn't standards-based, you can use a requestInterceptor to manually capture and attach the latest xsrf token to requests programmatically via spring resource transformer:
+ - https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#requestinterceptor
+
+Starting from release v1.4.4 of springdoc-openapi, a new property is added to enable CSRF support, while using standard header names:
+```properties
+    springdoc.swagger-ui.csrf.enabled=true
+```
+
+### How can i disable the default swagger petstore URL?
+You can use the following property:
+```properties
+springdoc.swagger-ui.disable-swagger-default-url=true
+```
+
+### Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?
+Yes, you can use it in conjunction with  `@ParameterObject` annotation.
+Also, the spring-boot `spring.data.web.*` and `spring.data.rest.default.*` properties are supported since v1.4.5
+
+### How can i make spring security login-endpoint visible ?
+You can use the following property:
+```properties
+springdoc.show-login-endpoint=true
+```
+
+### How can i show schema definitions even the schema is not referenced?
+You can use the following property:
+```properties
+springdoc.remove-broken-reference-definitions=false
+```
+
+### How can i disable the swagger-ui from loading twince? 
+You can try the following property (if not using Oauth): This resolves a bug on swagger-ui where it loads some resources twice if using configurl as query parameter.
+```properties
+springdoc.swagger-ui.display-query-params-without-oauth2=true
+```
+Or if using Oauth2: 
+```properties
+springdoc.swagger-ui.display-query-params	= true
+```
+
+### How to override @Deprecated?
+The whole idea of springdoc-openapi is to get your documentation the closest to the code, with minimal code changes. 
+If the code contains `@Deprecated`, sprindoc-openapi will consider its schema as Deprecated as well.
+If you want to declare a field on swagger as non deprecated, even with the java code, the field contains `@Depreacted`, 
+You can use the following property that is available since release v1.4.3:
+```properties
+springdoc.model-converters.deprecating-converter.enabled=false
+```
+
+### How can i display a method that returns ModelAndView?
+
+You can use the following property:
+```properties
+springdoc.model-and-view-allowed=true
+```
+
+
+### How can i have pretty-printed output of the OpenApi specification?
+
+You can use the following property:
+```properties
+springdoc.writer-with-default-pretty-printer=true
 ```
 
 
