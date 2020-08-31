@@ -664,7 +664,7 @@ SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSch
 ```
 
 ### How can i agreagte external endpoints (exposing OPENAPI 3 spec) inside one single application?
-The properties springdoc.swagger-ui.urls.*, are suitable to configure external (/v3/api-docs url).
+The properties `springdoc.swagger-ui.urls.*`, are suitable to configure external (/v3/api-docs url).
 For example if you want to agreagte all the endpoints of other services, inside one single application.
 Don't forget that CORS needs to be enabled as well.
 

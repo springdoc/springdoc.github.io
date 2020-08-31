@@ -41,7 +41,7 @@ This is a community-based project, not maintained by the Spring Framework Contri
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file:
@@ -63,7 +63,7 @@ springdoc.swagger-ui.path=/swagger-ui.html
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-webmvc-core</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
@@ -136,7 +136,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-webflux-ui</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 *   This step is optional: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file:
@@ -235,7 +235,7 @@ This dependency enables the support of Spring Hateoas format.
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-hateoas</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 
@@ -254,7 +254,7 @@ This dependency enables the support of spring-data-rest types as well: @Reposito
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-data-rest</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 
@@ -265,7 +265,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-security</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 
@@ -276,7 +276,7 @@ This dependency improves the support of Kotlin types:
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-kotlin</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 - If your are using spring-web, you combine the springdoc-openapi-kotlin module with springdoc-openapi-ui.
@@ -289,7 +289,7 @@ This dependency improves the support of Kotlin types:
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-groovy</artifactId>
-      <version>1.4.5</version>
+      <version>1.4.6</version>
    </dependency>
 ```
 
