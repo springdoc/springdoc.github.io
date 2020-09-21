@@ -40,6 +40,7 @@ springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pr
 springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
 springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
+springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
 
 ### swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See [Official documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/).
@@ -86,5 +87,4 @@ springdoc.swagger-ui.oauth.usePkceWithAuthorizationCodeGrant | `false` | `Boolea
 springdoc.swagger-ui.csrf.enabled | `false` | `Boolean`. To enable CSRF support
 springdoc.swagger-ui.csrf.cookie-name | `XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF cookie name.
 springdoc.swagger-ui.csrf.header-name | `X-XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF header name.
-
 [back](./)

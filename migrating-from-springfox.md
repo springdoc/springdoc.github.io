@@ -10,7 +10,7 @@ layout: default
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.4.6</version>
+      <version>1.4.7</version>
    </dependency>
 ```
  
