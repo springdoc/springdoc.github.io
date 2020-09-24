@@ -87,4 +87,5 @@ springdoc.swagger-ui.oauth.usePkceWithAuthorizationCodeGrant | `false` | `Boolea
 springdoc.swagger-ui.csrf.enabled | `false` | `Boolean`. To enable CSRF support
 springdoc.swagger-ui.csrf.cookie-name | `XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF cookie name.
 springdoc.swagger-ui.csrf.header-name | `X-XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF header name.
+
 [back](./)
