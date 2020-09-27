@@ -18,6 +18,9 @@ springdoc.api-docs.path | `/v3/api-docs` | `String`, For custom path of the Open
 springdoc.api-docs.enabled | `true` | `Boolean`. To disable the springdoc-openapi endpoint (/v3/api-docs by default).
 springdoc.packages-to-scan | `*`| `List of Strings`.The list of packages to scan (comma separated)
 springdoc.paths-to-match | `/*`| `List of Strings`.The list of paths to match (comma separated)
+springdoc.produces-to-match | `/*`| `List of Strings`.The list of produces mediaTypes to match (comma separated)
+springdoc.headers-to-match | `/*`| `List of Strings`.The list of headers to match (comma separated)
+springdoc.consumes-to-match | `/*`| `List of Strings`.The list of consumes mediaTypes to match (comma separated)
 springdoc.paths-to-exclude | | `List of Strings`.The list of paths to exclude (comma separated)
 springdoc.packages-to-exclude | | `List of Strings`.The list of packages to exclude (comma separated)
 springdoc.default-consumes-media-type | `application/json` | `String`. The default consumes media type.
@@ -33,6 +36,9 @@ springdoc.group-configs[0].packages-to-scan | `*`| `List of Strings`.The list of
 springdoc.group-configs[0].paths-to-match | `/*`| `List of Strings`.The list of paths to match for a group(comma separated)
 springdoc.group-configs[0].paths-to-exclude | ``| `List of Strings`.The list of paths to exclude for a group(comma separated)
 springdoc.group-configs[0].packages-to-exclude | | `List of Strings`.The list of packages to exclude for a group(comma separated)
+springdoc.group-configs[0].produces-to-match | `/*`| `List of Strings`.The list of produces mediaTypes to match (comma separated)
+springdoc.group-configs[0].consumes-to-match | `/*`| `List of Strings`.The list of consumes mediaTypes to match (comma separated)
+springdoc.group-configs[0].headers-to-match | `/*`| `List of Strings`.The list of headers to match (comma separated)
 springdoc.webjars.prefix | `/webjars` |`String`, To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.
 springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
 springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
@@ -87,5 +93,7 @@ springdoc.swagger-ui.oauth.usePkceWithAuthorizationCodeGrant | `false` | `Boolea
 springdoc.swagger-ui.csrf.enabled | `false` | `Boolean`. To enable CSRF support
 springdoc.swagger-ui.csrf.cookie-name | `XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF cookie name.
 springdoc.swagger-ui.csrf.header-name | `X-XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF header name.
+springdoc.swagger-ui.syntaxHighlight.activated | `true` | `Boolean`. Whether syntax highlighting should be activated or not.
+springdoc.swagger-ui.syntaxHighlight.theme | `agate` | `String`.  `String=["agate"*, "arta", "monokai", "nord", "obsidian", "tomorrow-night"]`. [Highlight.js](https://highlightjs.org/static/demo/) syntax coloring theme to use. (Only these 6 styles are available.)
 
 [back](./)
