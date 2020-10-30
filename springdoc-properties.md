@@ -57,6 +57,7 @@ springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to loa
 | Parameter name |  Default Value    | Description |
 |:---------------|:------------------|:------------|
 springdoc.swagger-ui.path | `/swagger-ui.html` |`String`, For custom path of the swagger-ui HTML documentation.
+springdoc.swagger-ui.enabled | `true` | `Boolean`. To disable the swagger-ui endpoint (/swagger-ui.html by default).
 springdoc.swagger-ui.configUrl | `/v3/api-docs/swagger-config` |  `String`. URL to fetch external configuration document from.
 springdoc.swagger-ui.layout | `BaseLayout`  | `String`. The name of a component available via the plugin system to use as the top-level layout for Swagger UI.
 springdoc.swagger-ui.validatorUrl | `null` | By default, Swagger UI attempts to validate specs against swagger.io's online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators ([Validator Badge](https://github.com/swagger-api/validator-badge)). Setting it to `null` will disable validation.
