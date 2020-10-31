@@ -340,7 +340,7 @@ In order to use this functionality, you need to add the plugin declaration on th
    </goals>
   </execution>
  </executions>
-<plugin>
+</plugin>
 ```
 
 For more custom settings of the springdoc-openapi-maven-plugin, you can consult the plugin documentation:
