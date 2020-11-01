@@ -32,10 +32,16 @@
 				<artifactId>maven-clean-plugin</artifactId>
 				<version>2.4.1</version>
 				<configuration>
-					<followSymLinks>false</followSymLinks>
+					<excludeDefaultDirectories>true</excludeDefaultDirectories>
 					<filesets>
 						<fileset>
 							<directory>${refdocs.build.directory}</directory>
+							<includes>
+								<include>**</include>
+							</includes>
+							<excludes>
+								<exclude>CNAME</exclude>
+							</excludes>
 						</fileset>
 					</filesets>
 				</configuration>
