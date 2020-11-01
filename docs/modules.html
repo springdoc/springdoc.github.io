@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Springdoc-openapi Modules</title>
+<link rel="stylesheet" href="css/spring.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="modules">Springdoc-openapi Modules</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_general_overview">General overview</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/common.jpg" alt="Architecture">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_webmvc_support">Spring-webmvc support</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation will be available at the following url for json format: <code>http://server:port/context-path/v3/api-docs</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>server: The server name or IP</p>
+</li>
+<li>
+<p>port: The server port</p>
+</li>
+<li>
+<p>context-path: The context path of the application</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yml</p>
+</li>
+<li>
+<p>Add the library to the list of your project dependencies. (No additional configuration is needed)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs"># /api-docs endpoint custom path
+springdoc.api-docs.path=/api-docs</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_webflux_support">Spring-webflux support</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yml</p>
+</li>
+<li>
+<p>Add the library to the list of your project dependencies (No additional configuration is needed)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_hateoas_support">Spring Hateoas support</h3>
+<div class="paragraph">
+<p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+This dependency enables the support of Spring Hateoas format.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_data_rest_support">Spring Data Rest support</h3>
+<div class="paragraph">
+<p>The support for Pageable of spring-data-commons is available.
+If only want to enable the support of spring Pageable Type, you can just enable it using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class,
+org.springdoc.core.converters.models.Pageable.class);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternately, the projects that use Pageable type can aslo add the follwing dependency together with the springdoc-openapi-ui dependency.
+This dependency enables the support of spring-data-rest types as well: @RepositoryRestResource and QuerydslPredicate annotations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_security_support">Spring security support</h3>
+<div class="paragraph">
+<p>For a project that uses spring-security, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kotlin_support">Kotlin support</h3>
+<div class="paragraph">
+<p>For a project that uses Kotlin, you should add the following dependency.
+This dependency improves the support of Kotlin types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your are using spring-web, you combine the springdoc-openapi-kotlin module with springdoc-openapi-ui.</p>
+</li>
+<li>
+<p>If your are using spring-webflux, you combine the springdoc-openapi-kotlin module  with springdoc-openapi-webflux-ui.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_groovy_support">Groovy support</h3>
+<div class="paragraph">
+<p>For a project that uses Groovy, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+This dependency improves the support of Kotlin types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-11-01 19:10:40 +0100
+</div>
+</div>
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<script src="js/highlight/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-143834491-1');
+</script>
+</body>
+</html>

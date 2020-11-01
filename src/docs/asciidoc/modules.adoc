@@ -1,0 +1,127 @@
+[[modules]]
+== Springdoc-openapi Modules
+
+=== General overview
+image::images/common.jpg[Architecture]
+
+=== Spring-webmvc support
+
+*   Documentation will be available at the following url for json format: `\http://server:port/context-path/v3/api-docs`
+**  server: The server name or IP
+**  port: The server port
+**  context-path: The context path of the application
+*   Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yml
+*   Add the library to the list of your project dependencies. (No additional configuration is needed)
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-webmvc-core</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+NOTE: This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui.
+
+TIP: For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
+
+[source,properties, subs="attributes+"]
+----
+# /api-docs endpoint custom path
+springdoc.api-docs.path=/api-docs
+----
+
+
+=== Spring-webflux support
+
+*   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yml
+*   Add the library to the list of your project dependencies (No additional configuration is needed)
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-webflux-ui</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+
+=== Spring Hateoas support
+The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+This dependency enables the support of Spring Hateoas format.
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-hateoas</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+=== Spring Data Rest support
+The support for Pageable of spring-data-commons is available.
+If only want to enable the support of spring Pageable Type, you can just enable it using:
+
+[source,java, subs="attributes+"]
+----
+SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class,
+org.springdoc.core.converters.models.Pageable.class);
+----
+
+Alternately, the projects that use Pageable type can aslo add the follwing dependency together with the springdoc-openapi-ui dependency.
+This dependency enables the support of spring-data-rest types as well: @RepositoryRestResource and QuerydslPredicate annotations.
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-data-rest</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+=== Spring security support
+For a project that uses spring-security, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-security</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+=== Kotlin support
+For a project that uses Kotlin, you should add the following dependency.
+This dependency improves the support of Kotlin types:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-kotlin</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+* If your are using spring-web, you combine the springdoc-openapi-kotlin module with springdoc-openapi-ui.
+* If your are using spring-webflux, you combine the springdoc-openapi-kotlin module  with springdoc-openapi-webflux-ui.
+
+=== Groovy support
+For a project that uses Groovy, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+This dependency improves the support of Kotlin types:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-groovy</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----

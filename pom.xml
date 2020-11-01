@@ -10,28 +10,88 @@
 
 	<properties>
 		<springdoc.version>1.4.8</springdoc.version>
+		<java.version>1.8</java.version>
+		<refdocs.build.directory>${project.basedir}/docs</refdocs.build.directory>
+		<spring-doc-resources.version>0.2.2.RELEASE</spring-doc-resources.version>
 	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>io.spring.docresources</groupId>
+			<artifactId>spring-doc-resources</artifactId>
+			<version>${spring-doc-resources.version}</version>
+			<type>zip</type>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>3.1.0</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<followSymLinks>false</followSymLinks>
+					<filesets>
+						<fileset>
+							<directory>${refdocs.build.directory}</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.asciidoctor</groupId>
+				<artifactId>asciidoctor-maven-plugin</artifactId>
+				<version>2.1.0</version>
+				<configuration>
+					<attributes>
+						<springdoc-version>${springdoc.version}</springdoc-version>
+					</attributes>
+				</configuration>
 				<executions>
 					<execution>
-						<id>copy-resources</id>
-						<phase>validate</phase>
+						<id>generate-html-documentation</id>
+						<phase>prepare-package</phase>
 						<goals>
-							<goal>copy-resources</goal>
+							<goal>process-asciidoc</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>${project.basedir}</outputDirectory>
-							<resources>
-								<resource>
-									<directory>src/main/resources</directory>
-									<filtering>true</filtering>
-								</resource>
-							</resources>
+							<outputDirectory>${refdocs.build.directory}</outputDirectory>
+							<backend>html5</backend>
+							<doctype>book</doctype>
+							<attributes>
+								<docinfo>shared</docinfo>
+								<stylesdir>css/</stylesdir>
+								<stylesheet>spring.css</stylesheet>
+								<linkcss>true</linkcss>
+								<icons>font</icons>
+								<highlightjsdir>js/highlight</highlightjsdir>
+								<highlightjs-theme>github</highlightjs-theme>
+								<source-highlighter>highlight.js</source-highlighter>
+							</attributes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>com.googlecode.maven-download-plugin</groupId>
+				<artifactId>download-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<executions>
+					<execution>
+						<id>unpack-doc-resources</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>wget</goal>
+						</goals>
+						<configuration>
+							<url>
+								https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip
+							</url>
+							<unpack>true</unpack>
+							<outputDirectory>${refdocs.build.directory}</outputDirectory>
 						</configuration>
 					</execution>
 				</executions>
@@ -39,4 +99,44 @@
 		</plugins>
 	</build>
 
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-release</id>
+			<name>Spring release</name>
+			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshot</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Milestone</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>

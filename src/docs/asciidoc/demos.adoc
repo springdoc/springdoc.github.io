@@ -1,0 +1,14 @@
+[[demos]]
+== Springdoc-openapi Demos
+
+=== springdoc applications demos
+* link:http://158.101.164.60:8081/[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
+* link:http://158.101.164.60:8082/[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
+* link:http://158.101.164.60:8083/[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
+* link:http://158.101.164.60:8084/swagger-ui.html[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
+* link:http://158.101.164.60:8085/swagger-ui.html[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
+
+image::images/pets.png[pets.png]
+
+=== Source code of the Demo Applications
+*   link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]

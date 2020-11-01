@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Migrating from SpringFox</title>
+<link rel="stylesheet" href="css/spring.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="migrating-from-springfox">Migrating from SpringFox</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Remove springfox and swagger 2 dependencies. Add <code>springdoc-openapi-ui</code> dependency instead.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
+      &lt;version&gt;1.4.8&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Replace swagger 2 annotations with swagger 3 annotations (it is already included with <code>springdoc-openapi-ui</code> dependency).
+Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@Api</code> &#8594; <code>@Tag</code></p>
+</li>
+<li>
+<p><code>@ApiIgnore</code> &#8594; <code>@Parameter(hidden = true)</code> or <code>@Operation(hidden = true)</code> or <code>@Hidden</code></p>
+</li>
+<li>
+<p><code>@ApiImplicitParam</code> &#8594; <code>@Parameter</code></p>
+</li>
+<li>
+<p><code>@ApiImplicitParams</code> &#8594; <code>@Parameters</code></p>
+</li>
+<li>
+<p><code>@ApiModel</code> &#8594; <code>@Schema</code></p>
+</li>
+<li>
+<p><code>@ApiModelProperty(hidden = true)</code> &#8594; <code>@Schema(accessMode = READ_ONLY)</code></p>
+</li>
+<li>
+<p><code>@ApiModelProperty</code> &#8594; <code>@Schema</code></p>
+</li>
+<li>
+<p><code>@ApiOperation(value = "foo", notes = "bar")</code> &#8594; <code>@Operation(summary = "foo", description = "bar")</code></p>
+</li>
+<li>
+<p><code>@ApiParam</code> &#8594; <code>@Parameter</code></p>
+</li>
+<li>
+<p><code>@ApiResponse(code = 404, message = "foo")</code> &#8594; <code>@ApiResponse(responseCode = "404", description = "foo")</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>This step is optional: Only if you have <strong>multiple</strong> <code>Docket</code> beans replace them with <code>GroupedOpenApi</code> beans.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Before:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">  @Bean
+  public Docket publicApi() {
+      return new Docket(DocumentationType.SWAGGER_2)
+              .select()
+              .apis(RequestHandlerSelectors.basePackage("org.github.springshop.web.public"))
+              .paths(PathSelectors.regex("/public.*"))
+              .build()
+              .groupName("springshop-public")
+              .apiInfo(apiInfo());
+  }
+
+  @Bean
+  public Docket adminApi() {
+      return new Docket(DocumentationType.SWAGGER_2)
+              .select()
+              .apis(RequestHandlerSelectors.basePackage("org.github.springshop.web.admin"))
+              .paths(PathSelectors.regex("/admin.*"))
+              .build()
+              .groupName("springshop-admin")
+              .apiInfo(apiInfo());
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">  @Bean
+  public GroupedOpenApi publicApi() {
+      return GroupedOpenApi.builder()
+              .setGroup("springshop-public")
+              .pathsToMatch("/public/**")
+              .build();
+  }
+  @Bean
+  public GroupedOpenApi adminApi() {
+      return GroupedOpenApi.builder()
+              .setGroup("springshop-admin")
+              .pathsToMatch("/admin/**")
+              .build();
+  }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you have <strong>only one</strong> <code>Docket</code>&#8201;&#8212;&#8201;remove it and instead add properties to your <code>application.properties</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.packagesToScan=package1, package2
+springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add bean of <code>OpenAPI</code> type. See example:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">  @Bean
+  public OpenAPI springShopOpenAPI() {
+      return new OpenAPI()
+              .info(new Info().title("SpringShop API")
+              .description("Spring shop sample application")
+              .version("v0.0.1")
+              .license(new License().name("Apache 2.0").url("http://springdoc.org")))
+              .externalDocs(new ExternalDocumentation()
+              .description("SpringShop Wiki Documentation")
+              .url("https://springshop.wiki.github.org/docs"));
+  }</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the swagger-ui is served behind a proxy:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="index.html#how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy">how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To customise the Swagger UI</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="index.html#how-can-i-configure-swagger-ui">how-can-i-configure-swagger-ui</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To hide an operation or a controller from documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="index.html#how-can-i-hide-an-operation-or-a-controller-from-documentation">how-can-i-hide-an-operation-or-a-controller-from-documentation</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-11-01 18:51:16 +0100
+</div>
+</div>
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<script src="js/highlight/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-143834491-1');
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+= springdoc-openapi v{springdoc-version}
+Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
+include::_attributes.adoc[]
+
+link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:images/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
+
+include::intro.adoc[]
+
+include::getting-started.adoc[]
+
+include::modules.adoc[]
+
+include::features.adoc[]
+
+include::properties.adoc[]
+
+include::plugins.adoc[]
+
+include::demos.adoc[]
+
+include::migrating-from-springfox.adoc[]
+
+include::other-resources.adoc[]
+
+include::thanks.adoc[]
+
+include::faq.adoc[]

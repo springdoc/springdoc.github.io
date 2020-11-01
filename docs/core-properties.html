@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.10">
+<title>Untitled</title>
+<link rel="stylesheet" href="css/spring.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table id="core-properties" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter name</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.api-docs.path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/v3/api-docs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>, For custom path of the OpenAPI documentation in Json format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.api-docs.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi endpoint (/v3/api-docs by default).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.packages-to-scan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of packages to scan (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.paths-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of paths to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.produces-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of produces mediaTypes to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.headers-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of headers to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.consumes-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of consumes mediaTypes to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.paths-to-exclude</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of paths to exclude (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.packages-to-exclude</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of packages to exclude (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.default-consumes-media-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>application/json</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The default consumes media type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.default-produces-media-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>/</strong></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.The default produces media type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.cache.disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi cache of the the calculated OpenAPI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.show-actuator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To display the actuator endpoints.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.auto-tag-classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi automatic tags.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-and-view-allowed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To allow RestControllers with ModelAndView return to appear in the OpenAPI description.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.override-with-generic-response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. When true, automatically adds @ControllerAdvice responses to all the generated responses.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.api-docs.groups.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi groups.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].group</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.The group name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].packages-to-scan</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of packages to scan for a group (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].paths-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of paths to match for a group(comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].paths-to-exclude</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">``</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of paths to exclude for a group(comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].packages-to-exclude</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of packages to exclude for a group(comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].produces-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of produces mediaTypes to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].consumes-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of consumes mediaTypes to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].headers-to-match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of headers to match (comma separated)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.webjars.prefix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/webjars</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>, To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.api-docs.resolve-schema-properties</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable  property resolver on @Schema (name, title and description).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.remove-broken-reference-definitions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable removal of broken reference definitions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.writer-with-default-pretty-printer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable pretty print of the OpenApi specification.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters. deprecating-converter.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable deprecating model converter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.use-fqn</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable fully qualified names.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.show-login-endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To make spring security login-endpoint visible.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.pre-loading-enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Pre-loading setting to load OpenAPI on application startup.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2020-11-01 20:17:44 +0100
+</div>
+</div>
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<script src="js/highlight/highlight.min.js"></script>
+<script>hljs.initHighlighting()</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-143834491-1');
+</script>
+</body>
+</html>
