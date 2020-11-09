@@ -109,5 +109,11 @@ springdoc.pathsToMatch=/v1, /api/balance/**
 
 === Migrating using tool
 
-springfox-to-springdoc is a simple migration tool which traverse ast and migrates code springfox to springdoc. For more
-details see https://github.com/MobilizIT/springfox-to-springdoc
+springfox-to-springdoc is a simple migration tool which traverse ast and migrates your code from springfox to springdoc.
+
+[source,shell script]
+----
+java -jar springfox-to-springdoc.jar -i /path/to/java/files
+----
+
+For more information. Please see: https://github.com/MobilizIT/springfox-to-springdoc
