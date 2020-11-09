@@ -106,3 +106,8 @@ springdoc.pathsToMatch=/v1, /api/balance/**
    ** link:index.html#how-can-i-configure-swagger-ui[how-can-i-configure-swagger-ui]
 * To hide an operation or a controller from documentation
    ** link:index.html#how-can-i-hide-an-operation-or-a-controller-from-documentation[how-can-i-hide-an-operation-or-a-controller-from-documentation]
+
+=== Migrating using tool
+
+springfox-to-springdoc is a simple migration tool which traverse ast and migrates code springfox to springdoc. For more
+details see https://github.com/MobilizIT/springfox-to-springdoc
