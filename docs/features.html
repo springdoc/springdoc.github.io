@@ -103,6 +103,61 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 <div class="sect2">
 <h3 id="_spring_webfluxwebmvc_fn_with_functional_endpoints">Spring-webflux/WebMvc.fn with Functional Endpoints</h3>
 <div class="paragraph">
+<p>Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-frameowrk: <a href="https://github.com/spring-projects/spring-framework/issues/25938">#25938</a></p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s an alternative functional API to the <code>@RouterOperations</code> annotations.</p>
+</div>
+<div class="paragraph">
+<p>This is a sample DSL, to generate OpenAPI description to the webflux/WebMvc.fn REST endpoints:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+RouterFunction&lt;?&gt; routes() {
+    return route().GET("/foo", HANDLER_FUNCTION, ops -&gt; ops
+            .operationId("hello")
+            .parameter(parameterBuilder().name("key1").description("My key1 description"))
+            .parameter(parameterBuilder().name("key2").description("My key2 description"))
+            .response(responseBuilder().responseCode("200").description("This is normal response description"))
+            .response(responseBuilder().responseCode("404").description("This is another response description"))
+    ).build();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the link for some sample codes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/HelloRouter.java">HelloRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java">QuotesRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java">BookRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java">EmployeeRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java">PositionRouter</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And the Demo code, using the functionnal endpoints DSL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional">Sample webflux application using functional DSL</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>Since version v1.3.8, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: <code>@RouterOperations</code> and <code>@RouterOperation</code>.</p>
 </div>
@@ -271,7 +326,7 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-01 19:13:31 +0100
+Last updated 2020-11-14 00:10:33 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">

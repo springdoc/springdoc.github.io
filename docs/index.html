@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
 <meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
-<title>springdoc-openapi v1.4.8</title>
+<title>springdoc-openapi v1.5.0</title>
 <link rel="stylesheet" href="css/spring.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -17,7 +17,7 @@
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>springdoc-openapi v1.4.8</h1>
+<h1>springdoc-openapi v1.5.0</h1>
 <div class="details">
 <span id="author" class="author">Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -222,7 +222,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -319,7 +319,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -371,7 +371,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -388,7 +388,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -414,7 +414,7 @@ This dependency enables the support of spring-data-rest types as well: @Reposito
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -430,7 +430,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -446,7 +446,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -472,7 +472,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -563,6 +563,61 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div class="sect2">
 <h3 id="spring-webfluxwebmvc-fn-with-functional-endpoints"><a class="anchor" href="#spring-webfluxwebmvc-fn-with-functional-endpoints"></a>4.7. Spring-webflux/WebMvc.fn with Functional Endpoints</h3>
+<div class="paragraph">
+<p>Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-frameowrk: <a href="https://github.com/spring-projects/spring-framework/issues/25938">#25938</a></p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s an alternative functional API to the <code>@RouterOperations</code> annotations.</p>
+</div>
+<div class="paragraph">
+<p>This is a sample DSL, to generate OpenAPI description to the webflux/WebMvc.fn REST endpoints:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+RouterFunction&lt;?&gt; routes() {
+    return route().GET("/foo", HANDLER_FUNCTION, ops -&gt; ops
+            .operationId("hello")
+            .parameter(parameterBuilder().name("key1").description("My key1 description"))
+            .parameter(parameterBuilder().name("key2").description("My key2 description"))
+            .response(responseBuilder().responseCode("200").description("This is normal response description"))
+            .response(responseBuilder().responseCode("404").description("This is another response description"))
+    ).build();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the link for some sample codes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/HelloRouter.java">HelloRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java">QuotesRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java">BookRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java">EmployeeRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java">PositionRouter</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And the Demo code, using the functionnal endpoints DSL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional">Sample webflux application using functional DSL</a></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p>Since version v1.3.8, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: <code>@RouterOperations</code> and <code>@RouterOperation</code>.</p>
@@ -915,6 +970,11 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.pre-loading-enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Pre-loading setting to load OpenAPI on application startup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.writer-with-order-by-keys</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable a deterministic/alphabetical orderding.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1335,7 +1395,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.4.8&lt;/version&gt;
+      &lt;version&gt;1.5.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
