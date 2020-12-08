@@ -10,7 +10,7 @@ image::images/common.jpg[Architecture]
 **  server: The server name or IP
 **  port: The server port
 **  context-path: The context path of the application
-*   Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yml
+*   Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yaml
 *   Add the library to the list of your project dependencies. (No additional configuration is needed)
 
 [source,xml, subs="attributes+"]
@@ -35,7 +35,7 @@ springdoc.api-docs.path=/api-docs
 
 === Spring-webflux support
 
-*   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yml
+*   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yaml
 *   Add the library to the list of your project dependencies (No additional configuration is needed)
 
 [source,xml, subs="attributes+"]
