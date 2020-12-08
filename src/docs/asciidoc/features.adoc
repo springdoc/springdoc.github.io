@@ -167,6 +167,75 @@ And some of the project tests: (from app69 to app75)
 * link:https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api[Sample code with Functional Endpoints documentation, window="_blank"]
 
 
+=== Exposing swagger-ui on the Actuator port
+
+Starting from the release `1.5.1`, it will be possible to expose the **swagger-ui** and the **openapi** endpoints on actuator port.
+NOTE: The actuator management port has to be different from the application port.
+
+To expose the swagger-ui, on the management port, you should set
+
+[source,properties]
+----
+springdoc.use-management-port=true
+# This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, swaggerui
+----
+
+Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
+- http://serverName:managementPort/actuator
+
+For example, if you have the following settings:
+
+Two endpoints will be available:
+
+. REST API that holdes the OpenAPI definition:
+
+- http://serverName:managementPort/actuator/openapi
+
+. An Endpoint, that routes to the swagger-ui:
+
+- http://serverName:managementPort/actuator/swaggerui
+
+[source,properties]
+----
+management.server.port=9090
+----
+
+For the example, you should also be able to see the springdoc-openapi endpoints under:
+- http://serverName:9090/actuator
+- http://serverName:9090/actuator/swaggerui
+- http://serverName:9090/actuator/openapi
+
+TIP: If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, under a different port from your application, `CORS for your endpoints` on your application level should be enabled.
+
+
+Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.
+
+[source,properties]
+----
+springdoc.show-actuator=true
+----
+
+Once enabled:
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.
+
+The swagger-ui will be then accessible through the actuator port:
+- http://serverName:managementPort/actuator/swaggerui
+
+If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:
+
+Once enabled:
+- The swagger-ui will be then accessible through the application port. For example: http://serverName:applicationPort/swagger-ui.html
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.
+
+
+TIP: If you want to reach the actuator endpoints for this case (different port from your application), `CORS` for your actuator endpoints should be enabled.
+
+Note: The naming of these new endpoints beneath the actuator base path cannot be customized for now.
+
+
 === Integration with WildFly
 
 *   For WildFly users, you need to add the following dependency to make the swagger-ui work:

@@ -26,7 +26,7 @@
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>springdoc-openapi v1.5.0</h1>
+<h1>springdoc-openapi v1.5.1</h1>
 <div class="details">
 <span id="author" class="author">Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -56,7 +56,8 @@
 <li><a href="#swagger-ui-configuration">4.5. Swagger-ui configuration</a></li>
 <li><a href="#selecting-the-rest-controllers-to-include-in-the-documentation">4.6. Selecting the Rest Controllers to include in the documentation</a></li>
 <li><a href="#spring-webfluxwebmvc-fn-with-functional-endpoints">4.7. Spring-webflux/WebMvc.fn with Functional Endpoints</a></li>
-<li><a href="#integration-with-wildfly">4.8. Integration with WildFly</a></li>
+<li><a href="#exposing-swagger-ui-on-the-actuator-port">4.8. Exposing swagger-ui on the Actuator port</a></li>
+<li><a href="#integration-with-wildfly">4.9. Integration with WildFly</a></li>
 </ul>
 </li>
 <li><a href="#properties">5. Springdoc-openapi Properties</a>
@@ -231,7 +232,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -328,7 +329,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -380,7 +381,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -397,7 +398,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -423,7 +424,7 @@ This dependency enables the support of spring-data-rest types as well: @Reposito
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -439,7 +440,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -455,7 +456,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -481,7 +482,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -773,7 +774,122 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 </div>
 </div>
 <div class="sect2">
-<h3 id="integration-with-wildfly"><a class="anchor" href="#integration-with-wildfly"></a>4.8. Integration with WildFly</h3>
+<h3 id="exposing-swagger-ui-on-the-actuator-port"><a class="anchor" href="#exposing-swagger-ui-on-the-actuator-port"></a>4.8. Exposing swagger-ui on the Actuator port</h3>
+<div class="paragraph">
+<p>Starting from the release <code>1.5.1</code>, it will be possible to expose the <strong>swagger-ui</strong> and the <strong>openapi</strong> endpoints on actuator port.
+NOTE: The actuator management port has to be different from the application port.</p>
+</div>
+<div class="paragraph">
+<p>To expose the swagger-ui, on the management port, you should set</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.use-management-port=true
+# This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
+- <a href="http://serverName:managementPort/actuator" class="bare">serverName:managementPort/actuator</a></p>
+</div>
+<div class="paragraph">
+<p>For example, if you have the following settings:</p>
+</div>
+<div class="paragraph">
+<p>Two endpoints will be available:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>REST API that holdes the OpenAPI definition:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://serverName:managementPort/actuator/openapi" class="bare">serverName:managementPort/actuator/openapi</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An Endpoint, that routes to the swagger-ui:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://serverName:managementPort/actuator/swaggerui" class="bare">serverName:managementPort/actuator/swaggerui</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">management.server.port=9090</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the example, you should also be able to see the springdoc-openapi endpoints under:
+- <a href="http://serverName:9090/actuator" class="bare">serverName:9090/actuator</a>
+- <a href="http://serverName:9090/actuator/swaggerui" class="bare">serverName:9090/actuator/swaggerui</a>
+- <a href="http://serverName:9090/actuator/openapi" class="bare">serverName:9090/actuator/openapi</a></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, under a different port from your application, <code>CORS for your endpoints</code> on your application level should be enabled.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.show-actuator=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once enabled:
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.</p>
+</div>
+<div class="paragraph">
+<p>The swagger-ui will be then accessible through the actuator port:
+- <a href="http://serverName:managementPort/actuator/swaggerui" class="bare">serverName:managementPort/actuator/swaggerui</a></p>
+</div>
+<div class="paragraph">
+<p>If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:</p>
+</div>
+<div class="paragraph">
+<p>Once enabled:
+- The swagger-ui will be then accessible through the application port. For example: <a href="http://serverName:applicationPort/swagger-ui.html" class="bare">serverName:applicationPort/swagger-ui.html</a>
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to reach the actuator endpoints for this case (different port from your application), <code>CORS</code> for your actuator endpoints should be enabled.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Note: The naming of these new endpoints beneath the actuator base path cannot be customized for now.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="integration-with-wildfly"><a class="anchor" href="#integration-with-wildfly"></a>4.9. Integration with WildFly</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -984,6 +1100,11 @@ springdoc-openpi scans for a unique route related to a @RouterOperation annotati
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.writer-with-order-by-keys</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable a deterministic/alphabetical orderding.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.use-management-port</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui on the actuator management port.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1226,6 +1347,11 @@ All these properties should be declared with the following prefix: <code>springd
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>.Only applies to authorizatonCode flows. Proof Key for Code Exchange brings enhanced security for OAuth public clients.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.persistAuthorization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. If set to true, it persists authorization data and it would not be lost on browser close/refresh</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1404,7 +1530,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.0&lt;/version&gt;
+      &lt;version&gt;1.5.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>

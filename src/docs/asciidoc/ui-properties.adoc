@@ -48,6 +48,7 @@
 |springdoc.swagger-ui.syntaxHighlight.theme | `agate` | `String`.  `String=["agate"*, "arta", "monokai", "nord", "obsidian", "tomorrow-night"]`. link:https://highlightjs.org/static/demo/[Highlight.js, window="_blank"] syntax coloring theme to use. (Only these 6 styles are available.)
 |springdoc.swagger-ui.oauth. useBasicAuthentication WithAccessCodeGrant | `false` | `Boolean`. Only activated for the accessCode flow.  During the authorization_code request to the tokenUrl, pass the Client Password using the HTTP Basic Authentication scheme (Authorization header with Basic base64encode(client_id + client_secret)).
 |springdoc.swagger-ui.oauth. usePkceWithAuthorization CodeGrant | `false` | `Boolean`.Only applies to authorizatonCode flows. Proof Key for Code Exchange brings enhanced security for OAuth public clients.
+|springdoc.swagger-ui.persistAuthorization | `false` | `Boolean`. If set to true, it persists authorization data and it would not be lost on browser close/refresh
 
 |===
 
