@@ -51,7 +51,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**
 ----
 
 === Spring-webflux/WebMvc.fn with Functional Endpoints
-Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-frameowrk: link:https://github.com/spring-projects/spring-framework/issues/25938[#25938]
+Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-framework: link:https://github.com/spring-projects/spring-framework/issues/25938[#25938]
 
 It's an alternative functional API to the `@RouterOperations` annotations.
 
