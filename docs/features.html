@@ -320,7 +320,7 @@ management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 </div>
 <div class="paragraph">
 <p>Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
-- <a href="http://serverName:managementPort/actuator" class="bare">http://serverName:managementPort/actuator</a></p>
+- <code>http://serverName:managementPort/actuator</code></p>
 </div>
 <div class="paragraph">
 <p>For example, if you have the following settings:</p>
@@ -335,7 +335,7 @@ management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://serverName:managementPort/actuator/openapi" class="bare">http://serverName:managementPort/actuator/openapi</a></p>
+<p><code>http://serverName:managementPort/actuator/openapi</code></p>
 </li>
 </ul>
 </div>
@@ -345,7 +345,7 @@ management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://serverName:managementPort/actuator/swaggerui" class="bare">http://serverName:managementPort/actuator/swaggerui</a></p>
+<p><code>http://serverName:managementPort/actuator/swaggerui</code></p>
 </li>
 </ul>
 </div>
@@ -358,10 +358,20 @@ management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For the example, you should also be able to see the springdoc-openapi endpoints under:
-- <a href="http://serverName:9090/actuator" class="bare">http://serverName:9090/actuator</a>
-- <a href="http://serverName:9090/actuator/swaggerui" class="bare">http://serverName:9090/actuator/swaggerui</a>
-- <a href="http://serverName:9090/actuator/openapi" class="bare">http://serverName:9090/actuator/openapi</a></p>
+<p>For the example, you should also be able to see the springdoc-openapi endpoints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:9090/actuator</code></p>
+</li>
+<li>
+<p><code>http://serverName:9090/actuator/swaggerui</code></p>
+</li>
+<li>
+<p><code>http://serverName:9090/actuator/openapi</code></p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -370,7 +380,7 @@ management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, under a different port from your application, <code>CORS for your endpoints</code> on your application level should be enabled.
+If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, <code>CORS for your endpoints</code> on your application level should be enabled.
 </td>
 </tr>
 </table>
@@ -390,14 +400,14 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 </div>
 <div class="paragraph">
 <p>The swagger-ui will be then accessible through the actuator port:
-- <a href="http://serverName:managementPort/actuator/swaggerui" class="bare">http://serverName:managementPort/actuator/swaggerui</a></p>
+- <code>http://serverName:managementPort/actuator/swaggerui</code></p>
 </div>
 <div class="paragraph">
 <p>If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:</p>
 </div>
 <div class="paragraph">
 <p>Once enabled:
-- The swagger-ui will be then accessible through the application port. For example: <a href="http://serverName:applicationPort/swagger-ui.html" class="bare">http://serverName:applicationPort/swagger-ui.html</a>
+- The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code>
 - A dedicated group for the actuator endpoints will be by default added.
 - If no group is defined for the application, a default one will be added.</p>
 </div>
@@ -441,7 +451,7 @@ If you want to reach the actuator endpoints for this case (different port from y
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-07 22:58:41 +0100
+Last updated 2020-12-08 14:35:00 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
