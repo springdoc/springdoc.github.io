@@ -62,14 +62,14 @@ Now:
   @Bean
   public GroupedOpenApi publicApi() {
       return GroupedOpenApi.builder()
-              .setGroup("springshop-public")
+              .group("springshop-public")
               .pathsToMatch("/public/**")
               .build();
   }
   @Bean
   public GroupedOpenApi adminApi() {
       return GroupedOpenApi.builder()
-              .setGroup("springshop-admin")
+              .group("springshop-admin")
               .pathsToMatch("/admin/**")
               .build();
   }

@@ -118,14 +118,14 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 <pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">  @Bean
   public GroupedOpenApi publicApi() {
       return GroupedOpenApi.builder()
-              .setGroup("springshop-public")
+              .group("springshop-public")
               .pathsToMatch("/public/**")
               .build();
   }
   @Bean
   public GroupedOpenApi adminApi() {
       return GroupedOpenApi.builder()
-              .setGroup("springshop-admin")
+              .group("springshop-admin")
               .pathsToMatch("/admin/**")
               .build();
   }</code></pre>
