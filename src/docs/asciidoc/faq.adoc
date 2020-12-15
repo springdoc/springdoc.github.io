@@ -148,7 +148,7 @@ springdoc.packagesToScan=package1, package2
 ----
 
 === Is there a Gradle plugin available?
-* There is no `springdoc-gradle-plugin` planned for short term.
+* Yes. More details are available, in the link:https://springdoc.org/#gradle-plugin[gradle plugin] section.
 
 === How can I hide a parameter from the documentation ?
 * You can use `@Parameter(hidden = true)`
