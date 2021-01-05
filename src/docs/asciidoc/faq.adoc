@@ -442,6 +442,11 @@ public OpenAPI customOpenAPI() {
 * The support of spring property resolver for `@ApiResponse`: `description`
 * Its also possible to declare security URLs for `@OAuthFlow`: `openIdConnectUrl` * `authorizationUrl` * `refreshUrl` * `tokenUrl`
 * The support of spring property resolver for `@Schema`: `name` * `title` * `description` , by setting `springdoc.api-docs.resolve-schema-properties` to `true`
+
+===  How is server URL generated ?
+* Generating automatically server URL may be useful, if the documentation is not present.
+* If the server annotations are present, they will be used instead.
+
 === How can I disable springdoc-openapi cache?
 * By default, the OpenAPI description is calculated once, and then cached.
 * Sometimes the same swagger-ui is served behind internal and external proxies. some users want the server URL, to be computed on each http request.
@@ -450,11 +455,6 @@ public OpenAPI customOpenAPI() {
 ----
 springdoc.cache.disabled= true
 ----
-
-
-===  How is server URL generated ?
-* Generating automatically server URL may be useful, if the documentation is not present.
-* If the server annotations are present, they will be used instead.
 
 === How can I expose the api-docs endpoints without using the `swagger-ui`?
 * You should use the `springdoc-openapi-core` dependency only:

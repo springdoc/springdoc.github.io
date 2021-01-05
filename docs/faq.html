@@ -924,9 +924,28 @@ public OpenAPI customOpenAPI() {
 <p>Its also possible to declare security URLs for <code>@OAuthFlow</code>: <code>openIdConnectUrl</code> * <code>authorizationUrl</code> * <code>refreshUrl</code> * <code>tokenUrl</code></p>
 </li>
 <li>
-<p>The support of spring property resolver for <code>@Schema</code>: <code>name</code> * <code>title</code> * <code>description</code> , by setting <code>springdoc.api-docs.resolve-schema-properties</code> to <code>true</code>
-=== How can I disable springdoc-openapi cache?</p>
+<p>The support of spring property resolver for <code>@Schema</code>: <code>name</code> * <code>title</code> * <code>description</code> , by setting <code>springdoc.api-docs.resolve-schema-properties</code> to <code>true</code></p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_is_server_url_generated">How is server URL generated ?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Generating automatically server URL may be useful, if the documentation is not present.</p>
+</li>
+<li>
+<p>If the server annotations are present, they will be used instead.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_disable_springdoc_openapi_cache">How can I disable springdoc-openapi cache?</h3>
+<div class="ulist">
+<ul>
 <li>
 <p>By default, the OpenAPI description is calculated once, and then cached.</p>
 </li>
@@ -942,19 +961,6 @@ public OpenAPI customOpenAPI() {
 <div class="content">
 <pre>springdoc.cache.disabled= true</pre>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_how_is_server_url_generated">How is server URL generated ?</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Generating automatically server URL may be useful, if the documentation is not present.</p>
-</li>
-<li>
-<p>If the server annotations are present, they will be used instead.</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1613,7 +1619,7 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-15 12:55:00 +0100
+Last updated 2021-01-05 19:18:22 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
