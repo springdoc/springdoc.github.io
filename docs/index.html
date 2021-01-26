@@ -2347,7 +2347,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
-public OpenAPICustomiser consumerTypeHeaderOpenAPICustomiser() {
+public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
 return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt; pathItem.readOperations().stream())
     .forEach(operation -&gt; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
 }</code></pre>

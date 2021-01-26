@@ -273,7 +273,7 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 [source,java]
 ----
 @Bean
-public OpenAPICustomiser consumerTypeHeaderOpenAPICustomiser() {
+public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
 return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathItem.readOperations().stream())
     .forEach(operation -> operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
 }

@@ -585,7 +585,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
-public OpenAPICustomiser consumerTypeHeaderOpenAPICustomiser() {
+public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
 return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt; pathItem.readOperations().stream())
     .forEach(operation -&gt; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
 }</code></pre>
@@ -1619,7 +1619,7 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-01-05 19:18:22 +0100
+Last updated 2021-01-26 11:42:07 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
