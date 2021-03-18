@@ -705,7 +705,7 @@ public class AppInitializer implements WebApplicationInitializer {
 
 [source,java]
 ----
-SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.MonetaryAmount.class);
+SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.models.MonetaryAmount.class);
 ----
 
 * Another solution, without using springdoc-openapi MonetaryAmount, would be:
