@@ -282,6 +282,11 @@ All these properties should be declared with the following prefix: <code>springd
 <td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI attempts to validate specs against swagger.io&#8217;s online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators <a href="https://github.com/swagger-api/validator-badge" target="_blank" rel="noopener">Validator Badge</a>. Setting it to <code>null</code> will disable validation.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.tryItOutEnabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls whether the "Try it out" section should be enabled by default.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.filter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean OR String</code>. If set, enables filtering. The top bar will show an edit box that you can use to filter the tagged operations that are shown. Can be Boolean to enable or disable, or a string, in which case filtering will be enabled using that string as the filter expression. Filtering is case sensitive matching the filter expression anywhere inside the tag.</p></td>

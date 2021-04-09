@@ -26,7 +26,7 @@
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>springdoc-openapi v1.5.6</h1>
+<h1>springdoc-openapi v1.5.7</h1>
 <div class="details">
 <span id="author" class="author">Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -233,7 +233,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -330,7 +330,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -382,7 +382,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -399,7 +399,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -425,7 +425,7 @@ This dependency enables the support of spring-data-rest types as well: @Reposito
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -441,7 +441,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -457,7 +457,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -483,7 +483,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -1184,6 +1184,11 @@ All these properties should be declared with the following prefix: <code>springd
 <td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI attempts to validate specs against swagger.io&#8217;s online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators <a href="https://github.com/swagger-api/validator-badge" target="_blank" rel="noopener">Validator Badge</a>. Setting it to <code>null</code> will disable validation.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.tryItOutEnabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls whether the "Try it out" section should be enabled by default.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.filter</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean OR String</code>. If set, enables filtering. The top bar will show an edit box that you can use to filter the tagged operations that are shown. Can be Boolean to enable or disable, or a string, in which case filtering will be enabled using that string as the filter expression. Filtering is case sensitive matching the filter expression anywhere inside the tag.</p></td>
@@ -1541,7 +1546,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.6&lt;/version&gt;
+      &lt;version&gt;1.5.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
