@@ -906,8 +906,10 @@ If you want to reach the actuator endpoints for this case (different port from y
 <div class="sect2">
 <h3 id="graalvm-and-spring-native-for-native-images"><a class="anchor" href="#graalvm-and-spring-native-for-native-images"></a>4.9. GraalVM and spring-native for native images</h3>
 <div class="paragraph">
-<p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.
-If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, there is no additional configuration required to enable the support of native images.</p>
+<p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.</p>
+</div>
+<div class="paragraph">
+<p>If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, there is no additional configuration required to enable the support of native images.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -917,7 +919,6 @@ If the application uses <a href="https://docs.spring.io/spring-native/docs/curre
 </td>
 <td class="content">
 The url of the swagger-ui using native images, contains the version of the swagger-ui as well. This is related to the following enhancement request in GraalVM <a href="https://github.com/oracle/graal/issues/1108">#1108</a>:
-This will help <code>webjars-locator</code> find assets in <code>/META-INF/resources/webjars</code>.
 </td>
 </tr>
 </table>
