@@ -236,6 +236,12 @@ TIP: If you want to reach the actuator endpoints for this case (different port f
 
 Note: The naming of these new endpoints beneath the actuator base path cannot be customized for now.
 
+=== GraalVM and spring-native for native images
+`springdoc-openapi`, supports out of the box https://www.graalvm.org/[GraalVM] native images.
+If the application uses https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/[spring-native], there is no additional configuration required to enable the support of native images.
+
+NOTE:  The url of the swagger-ui using native images, contains the version of the swagger-ui as well. This is related to the following enhancement request in GraalVM https://github.com/oracle/graal/issues/1108[#1108]:
+This will help `webjars-locator` find assets in `/META-INF/resources/webjars`.
 
 === Integration with WildFly
 

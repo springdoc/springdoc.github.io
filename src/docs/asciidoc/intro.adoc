@@ -15,6 +15,7 @@ This library supports:
 *  JSR-303, specifically for @NotNull, @Min, @Max, and @Size.
 *  Swagger-ui
 *  OAuth 2
+*  GraalVM native images
 
 The following video introduces the Library:
 
