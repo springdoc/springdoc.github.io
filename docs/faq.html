@@ -1614,12 +1614,113 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_how_can_i_define_different_schemas_for_the_same_class">How can i define different schemas for the same class?</h3>
+<div class="paragraph">
+<p>Complex objects are always resolved as a reference to a schema defined in components.
+For example let&#8217;s consider a <code>PersonDTO</code> class with an <code>workAddress</code> and <code>homeAddress</code> attribute of type <code>Address</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">public class PersonDTO {
+
+	@JsonProperty
+	private String email;
+
+	@JsonProperty
+	private String firstName;
+
+	@JsonProperty
+	private String lastName;
+
+	@Schema(ref = "WorkAddressSchema")
+	@JsonProperty
+	private Address workAddress;
+
+	@Schema(ref = "HomeAddressSchema")
+	@JsonProperty
+	private Address homeAddress;
+
+}
+
+public class Address {
+
+	@JsonProperty
+	private String addressName;
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to define two different schemas for this class, you can set up 2 different schemas as follow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+public OpenAPI customOpenAPI() {
+return new OpenAPI().components(new Components()
+.addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address" ))
+.addSchemas("HomeAddressSchema", getSchemaWithDifferentDescription(Address.class, "home Address" )));
+}
+
+private Schema getSchemaWithDifferentDescription(Class className, String description){
+ResolvedSchema resolvedSchema = ModelConverters.getInstance()
+.resolveAsResolvedSchema(
+new AnnotatedType(className).resolveAsRef(false));
+return resolvedSchema.schema.description(description);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_define_different_description_for_a_class_attribute_depending_on_usage">How can i define different description for a class attribute depending on usage?</h3>
+<div class="paragraph">
+<p>For example let&#8217;s consider a <code>PersonDTO</code> class with an <code>email</code> attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">public class PersonDTO {
+
+	@JsonProperty
+	private String email;
+
+	@JsonProperty
+	private String firstName;
+
+	@JsonProperty
+	private String lastName;
+
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to define two different description for the  <code>email</code>, you can set up 2 different schemas as follow:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+public OpenAPI customOpenAPI() {
+return new OpenAPI().components(new Components()
+.addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email" ))
+.addSchemas("PersonDTO2", getFieldSchemaWithDifferentDescription(PersonDTO.class, "home email" )));
+}
+
+private Schema getFieldSchemaWithDifferentDescription(Class className, String description){
+    ResolvedSchema resolvedSchema = ModelConverters.getInstance()
+            .resolveAsResolvedSchema(
+                    new AnnotatedType(className).resolveAsRef(false));
+    return resolvedSchema.schema.addProperties("email", new StringSchema().description(description));
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-03-18 15:17:08 +0100
+Last updated 2021-06-03 11:31:13 +0200
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">

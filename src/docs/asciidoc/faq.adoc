@@ -810,3 +810,96 @@ You can use the following property:
 ----
 springdoc.writer-with-default-pretty-printer=true
 ----
+
+=== How can i define different schemas for the same class?
+Complex objects are always resolved as a reference to a schema defined in components.
+For example let's consider a `PersonDTO` class with an `workAddress` and `homeAddress` attribute of type `Address`:
+
+[source,java]
+----
+public class PersonDTO {
+
+	@JsonProperty
+	private String email;
+
+	@JsonProperty
+	private String firstName;
+
+	@JsonProperty
+	private String lastName;
+
+	@Schema(ref = "WorkAddressSchema")
+	@JsonProperty
+	private Address workAddress;
+
+	@Schema(ref = "HomeAddressSchema")
+	@JsonProperty
+	private Address homeAddress;
+
+}
+
+public class Address {
+
+	@JsonProperty
+	private String addressName;
+
+}
+----
+
+If you want to define two different schemas for this class, you can set up 2 different schemas as follow:
+
+[source,java]
+----
+@Bean
+public OpenAPI customOpenAPI() {
+return new OpenAPI().components(new Components()
+.addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address" ))
+.addSchemas("HomeAddressSchema", getSchemaWithDifferentDescription(Address.class, "home Address" )));
+}
+
+private Schema getSchemaWithDifferentDescription(Class className, String description){
+ResolvedSchema resolvedSchema = ModelConverters.getInstance()
+.resolveAsResolvedSchema(
+new AnnotatedType(className).resolveAsRef(false));
+return resolvedSchema.schema.description(description);
+}
+----
+
+=== How can i define different description for a class attribute depending on usage?
+For example let's consider a `PersonDTO` class with an `email` attribute:
+
+[source,java]
+----
+public class PersonDTO {
+
+	@JsonProperty
+	private String email;
+
+	@JsonProperty
+	private String firstName;
+
+	@JsonProperty
+	private String lastName;
+
+
+}
+----
+
+If you want to define two different description for the  `email`, you can set up 2 different schemas as follow:
+
+[source,java]
+----
+@Bean
+public OpenAPI customOpenAPI() {
+return new OpenAPI().components(new Components()
+.addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email" ))
+.addSchemas("PersonDTO2", getFieldSchemaWithDifferentDescription(PersonDTO.class, "home email" )));
+}
+
+private Schema getFieldSchemaWithDifferentDescription(Class className, String description){
+    ResolvedSchema resolvedSchema = ModelConverters.getInstance()
+            .resolveAsResolvedSchema(
+                    new AnnotatedType(className).resolveAsRef(false));
+    return resolvedSchema.schema.addProperties("email", new StringSchema().description(description));
+}
+----
