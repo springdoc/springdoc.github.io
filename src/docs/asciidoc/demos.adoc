@@ -2,11 +2,11 @@
 == Springdoc-openapi Demos
 
 === springdoc applications demos
-* link:http://129.159.192.103:8081/[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
-* link:http://129.159.192.103:8082/[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
-* link:http://129.159.192.103:8083/[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
-* link:http://129.159.192.103:8084/[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
-* link:http://129.159.192.103:8085/[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
+* link:http://129.159.201.215:8081/[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
+* link:http://129.159.201.215:8082/[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
+* link:http://129.159.201.215:8083/[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
+* link:http://129.159.201.215:8084/[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
+* link:http://129.159.201.215:8085/[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
 
 image::images/pets.png[pets.png]
 
