@@ -62,7 +62,7 @@
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -114,7 +114,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -131,7 +131,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -144,20 +144,19 @@ If you only want to enable the support of spring Pageable Type, you can just ena
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class,
-org.springdoc.core.converters.models.Pageable.class);</code></pre>
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-converters.pageable-converter.enabled=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Alternatively, the projects that use Pageable type can also add the follwing dependency together with the springdoc-openapi-ui dependency.
-This dependency enables the support of spring-data-rest types as well: @RepositoryRestResource and QuerydslPredicate annotations.</p>
+<p>Alternatively, the projects that use Pageable type can also add the following dependency together with the springdoc-openapi-ui dependency.
+This dependency enables the support of <code>spring-boot-starter-data-rest</code> types as well: @RepositoryRestResource and QuerydslPredicate annotations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -173,7 +172,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -189,7 +188,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -215,9 +214,88 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.5.10&lt;/version&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_javadoc_support">Javadoc support</h3>
+<div class="paragraph">
+<p>For a project that wants to enable javadoc support, you should add the following dependency, together with the <code>springdoc-openapi-ui</code> dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
+      &lt;version&gt;1.5.11&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This dependency improves the support of javadoc tags and comments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The javadoc comment of a method: is resolved as the <code>@Operation</code> description</p>
+</li>
+<li>
+<p><code>@return </code>: is resolved as the <code>@Operation</code> response description</p>
+</li>
+<li>
+<p>The javadoc comment of an attribute: is resolved as '@Schema' description for this field.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This dependency is based on the library <a href="https://github.com/dnault/therapi-runtime-javadoc">therapi-runtime-javadoc</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure, you enable the annotation processor of <code>therapi-runtime-javadoc</code> in order to enable javadoc support for springdoc-openapi.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+				&lt;configuration&gt;
+					&lt;annotationProcessorPaths&gt;
+						&lt;path&gt;
+							&lt;groupId&gt;com.github.therapi&lt;/groupId&gt;
+							&lt;artifactId&gt;therapi-runtime-javadoc-scribe&lt;/artifactId&gt;
+							&lt;version&gt;0.12.0&lt;/version&gt;
+						&lt;/path&gt;
+					&lt;/annotationProcessorPaths&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -225,7 +303,7 @@ This dependency improves the support of Kotlin types:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-04-08 00:13:06 +0200
+Last updated 2021-08-30 17:24:44 +0200
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">

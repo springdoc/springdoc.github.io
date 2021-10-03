@@ -66,14 +66,13 @@ This dependency enables the support of Spring Hateoas format.
 The support for Pageable of spring-data-commons is available.
 If you only want to enable the support of spring Pageable Type, you can just enable it using:
 
-[source,java, subs="attributes+"]
+[source,properties]
 ----
-SpringDocUtils.getConfig().replaceWithClass(org.springframework.data.domain.Pageable.class,
-org.springdoc.core.converters.models.Pageable.class);
+springdoc.model-converters.pageable-converter.enabled=true
 ----
 
-Alternatively, the projects that use Pageable type can also add the follwing dependency together with the springdoc-openapi-ui dependency.
-This dependency enables the support of spring-data-rest types as well: @RepositoryRestResource and QuerydslPredicate annotations.
+Alternatively, the projects that use Pageable type can also add the following dependency together with the springdoc-openapi-ui dependency.
+This dependency enables the support of `spring-boot-starter-data-rest` types as well: @RepositoryRestResource and QuerydslPredicate annotations.
 
 [source,xml, subs="attributes+"]
 ----
@@ -125,3 +124,48 @@ This dependency improves the support of Kotlin types:
       <version>{springdoc-version}</version>
    </dependency>
 ----
+
+=== Javadoc support
+For a project that wants to enable javadoc support, you should add the following dependency, together with the `springdoc-openapi-ui` dependency:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-javadoc</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+This dependency improves the support of javadoc tags and comments:
+
+- The javadoc comment of a method: is resolved as the `@Operation` description
+- ``@return ``: is resolved as the `@Operation` response description
+- The javadoc comment of an attribute: is resolved as '@Schema' description for this field.
+
+This dependency is based on the library https://github.com/dnault/therapi-runtime-javadoc[therapi-runtime-javadoc]
+
+NOTE: Make sure, you enable the annotation processor of `therapi-runtime-javadoc` in order to enable javadoc support for springdoc-openapi.
+
+[source,xml, subs="attributes+"]
+----
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>com.github.therapi</groupId>
+							<artifactId>therapi-runtime-javadoc-scribe</artifactId>
+							<version>0.12.0</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+----
+
+TIP: If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.

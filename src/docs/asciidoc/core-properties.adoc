@@ -36,7 +36,7 @@
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 |springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
 |springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
-|springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical orderding.
+|springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
 |springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
 |springdoc.enable-native-image-support | `false` | `Boolean`. To force enabling native images support.
 
