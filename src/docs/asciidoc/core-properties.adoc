@@ -33,11 +33,13 @@
 |springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 |springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
 |springdoc.model-converters. deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
+|springdoc.model-converters.polymorphic-converter.enabled | `true` | `Boolean`. To disable polymorphic model converter.
+|springdoc.model-converters.pageable-converter.enabled | `true` | `Boolean`. To disable pageable model converter.
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 |springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
 |springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
 |springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
 |springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
-|springdoc.enable-native-image-support | `false` | `Boolean`. To force enabling native images support.
+|springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
 
 |===
