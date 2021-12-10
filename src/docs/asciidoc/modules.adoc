@@ -99,7 +99,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 === Spring Native support
 `springdoc-openapi`, supports out of the box https://www.graalvm.org/[GraalVM] native images.
 If the application uses https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/[spring-native], you should add the following dependency, together with the springdoc-openapi-ui/webflux-ui dependency:
-This dependency helps native support on springdoc-openapi.
+- This dependency helps native support on springdoc-openapi (Only available since `v1.5.13`).
 
 [source,xml, subs="attributes+"]
 ----
