@@ -62,7 +62,7 @@
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -114,7 +114,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -131,7 +131,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -139,24 +139,15 @@ This dependency enables the support of Spring Hateoas format.</p>
 <div class="sect2">
 <h3 id="_spring_data_rest_support">Spring Data Rest support</h3>
 <div class="paragraph">
-<p>The support for Pageable of spring-data-commons is available.
-If you only want to enable the support of spring Pageable Type, you can just enable it using:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-converters.pageable-converter.enabled=true</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Alternatively, the projects that use Pageable type can also add the following dependency together with the springdoc-openapi-ui dependency.
-This dependency enables the support of <code>spring-boot-starter-data-rest</code> types as well: @RepositoryRestResource and QuerydslPredicate annotations.</p>
+<p>The projects that use <code>spring-data-rest</code> and need the support for <code>Pageable</code> type can  add the following dependency in combination with the <code>springdoc-openapi-ui</code> dependency.
+This dependency enables the support of <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -164,7 +155,7 @@ This dependency enables the support of <code>spring-boot-starter-data-rest</code
 <div class="sect2">
 <h3 id="_spring_security_support">Spring security support</h3>
 <div class="paragraph">
-<p>For a project that uses spring-security, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+<p>For a project that uses spring-security, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
 This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.</p>
 </div>
 <div class="listingblock">
@@ -172,7 +163,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -181,15 +172,15 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <h3 id="_spring_native_support">Spring Native support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.
-If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, together with the springdoc-openapi-ui/webflux-ui dependency:
-This dependency helps native support on springdoc-openapi.</p>
+If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-ui</code> or <code>springdoc-openapi-webflux-ui</code>) dependency:
+- This dependency helps native support on springdoc-openapi (Only available since <code>v1.5.13</code>).</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-native&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -207,24 +198,28 @@ This dependency helps native support on springdoc-openapi.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">spring-native Version</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.9</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.9.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11.0</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.10</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.10.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.13</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11-RC1</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.11</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.10.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.12</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.5</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.12</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.10.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.11</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.3</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1.5.13</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0.11-RC1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.10</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.9</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.9.2</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -252,7 +247,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -270,7 +265,7 @@ This dependency improves the support of Kotlin types:</p>
 <div class="sect2">
 <h3 id="_groovy_support">Groovy support</h3>
 <div class="paragraph">
-<p>For a project that uses Groovy, you should add the following dependency, together with the springdoc-openapi-ui dependency:
+<p>For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
 This dependency improves the support of Kotlin types:</p>
 </div>
 <div class="listingblock">
@@ -278,7 +273,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -286,14 +281,14 @@ This dependency improves the support of Kotlin types:</p>
 <div class="sect2">
 <h3 id="_javadoc_support">Javadoc support</h3>
 <div class="paragraph">
-<p>For a project that wants to enable javadoc support, you should add the following dependency, together with the <code>springdoc-openapi-ui</code> dependency:</p>
+<p>For a project that wants to enable javadoc support, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
-      &lt;version&gt;1.5.13&lt;/version&gt;
+      &lt;version&gt;1.6.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -367,7 +362,7 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-10 13:01:07 +0100
+Last updated 2021-12-12 23:14:53 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">

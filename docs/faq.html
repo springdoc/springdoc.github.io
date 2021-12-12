@@ -280,7 +280,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 <p>A solution workaround would be to use: <code>@Parameter(hidden = true)</code></p>
 </li>
 <li>
-<p>For a project that uses <code>spring-security</code>, you should add the following dependency, together with the <code>springdoc-openapi-ui</code> dependency:</p>
+<p>For a project that uses <code>spring-security</code>, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
 </li>
 </ul>
 </div>
@@ -379,32 +379,44 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 <div class="sect2">
 <h3 id="_how_can_i_map_pageable_spring_date_commons_object_to_correct_url_parameter_in_swagger_ui">How can I map <code>Pageable</code> (spring-date-commons) object to correct URL-Parameter in Swagger UI?</h3>
 <div class="paragraph">
-<p>If you only want to enable the support of spring Pageable Type, you can just enable it using:</p>
+<p>The support for Pageable of spring-data-commons is available out-of-the box since <code>springdoc-openapi v1.6.0</code>.
+For this, you have to combine <code>@ParameterObject</code> annotation with the <code>Pageable</code> type.</p>
+</div>
+<div class="paragraph">
+<p>Before <code>springdoc-openapi v1.6.0</code>:
+* You can use as well <code>@ParameterObject</code> instead of <code>@PageableAsQueryParam</code> for HTTP <code>GET</code> methods.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-converters.pageable-converter.enabled=true</code></pre>
+<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">static {
+    getConfig().replaceParameterObjectWithClass(org.springframework.data.domain.Pageable.class, Pageable.class)
+            .replaceParameterObjectWithClass(org.springframework.data.domain.PageRequest.class, Pageable.class);
+}</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you use Pageable in a GET HTTP method, you will have to declare the explicit mapping of Pageable fields as Query Params and add the <code>@Parameter(hidden = true) Pageable pageable</code> on your pageable parameter.</p>
+<p>Another solution, is to configure Pageable manually:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>you will have to declare the explicit mapping of Pageable fields as Query Params and add the <code>@Parameter(hidden = true) Pageable pageable</code> on your pageable parameter.</p>
 </li>
 <li>
 <p>You should also, declare the annotation <code>@PageableAsQueryParam</code> provided by springdoc on the method level, or declare your own if need to define your custom description, defaultValue, &#8230;&#8203;</p>
 </li>
-<li>
-<p>Since, v1.3.1 you can use as well <code>@ParameterObject</code> instead of <code>@PageableAsQueryParam</code> for HTTP <code>GET</code> methods.</p>
+</ul>
+</div>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>If you want to disable the support of spring Pageable Type, you can use:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>static {
-    getConfig().replaceParameterObjectWithClass(org.springframework.data.domain.Pageable.class, Pageable.class)
-            .replaceParameterObjectWithClass(org.springframework.data.domain.PageRequest.class, Pageable.class);
-}</pre>
+<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-converters.pageable-converter.enabled=false</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -415,19 +427,6 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </td>
 <td class="content">
 The property <code>springdoc.model-converters.pageable-converter.enabled</code> is only available since v1.5.11+
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-The projects that uses <code>spring-boot-starter-data-rest</code> should add the following dependency <code>springdoc-openapi-data-rest</code> in combination with the <code>springdoc-openapi-ui</code>.
-This dependency handles the main previous points listed above.
 </td>
 </tr>
 </table>
@@ -1589,25 +1588,6 @@ Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.dat
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_disable_the_swagger_ui_from_loading_twince">How can i disable the swagger-ui from loading twince?</h3>
-<div class="paragraph">
-<p>You can try the following property (if not using Oauth): This resolves a bug on swagger-ui where it loads some resources twice if using configurl as query parameter.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.swagger-ui.display-query-params-without-oauth2=true</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Or if using Oauth2:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.swagger-ui.display-query-params = true</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_how_to_override_deprecated">How to override @Deprecated?</h3>
 <div class="paragraph">
 <p>The whole idea of springdoc-openapi is to get your documentation the closest to the code, with minimal code changes.
@@ -1744,12 +1724,68 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_what_is_the_compatibility_matrix_of_springdoc_openapi_with_spring_boot">What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
+<div class="paragraph">
+<p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.
+In general, you should only pick the last stable version as per today 1.6.0.
+More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc-openapi Versions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spring-boot Versions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.6.x</code>, <code>1.5.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.9</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.5.x</code>, <code>1.5.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.0</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.4.x</code>, <code>1.5.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.4.0</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.3.x</code>, <code>1.5.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.2.1</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.x</code>, <code>1.5.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.0.0</code><br></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code>, <code>1.5.x</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The url of the swagger-ui using native images, contains the version of the swagger-ui. This is related to the following enhancement request in GraalVM <a href="https://github.com/oracle/graal/issues/1108">#1108</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-10-02 11:26:00 +0200
+Last updated 2021-12-12 23:55:51 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
