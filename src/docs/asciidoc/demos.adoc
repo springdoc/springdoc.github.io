@@ -7,6 +7,7 @@
 * link:http://158.101.191.70:8083/[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
 * link:http://158.101.191.70:8084/[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
 * link:http://158.101.191.70:8085/[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
+* link:http://158.101.191.70:8060/[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
 
 image::images/pets.png[pets.png]
 

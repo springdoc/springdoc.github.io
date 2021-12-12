@@ -145,14 +145,9 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array=["get", "put", "post", "delete", "options", "head", "patch", "trace"]</code>. List of HTTP methods that have the "Try it out" feature enabled. An empty array disables "Try it out" for all operations. This does not filter the operations from the display.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.display-query-params-without-oauth2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.queryConfigEnabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable access to swagger-ui using url query params instead of configUrl. If the REST APIs, are not using OAuth2 (Available if groups are not enabled. Prevents the load of the swagger-config twice with configUrl, available since v1.4.1).</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.display-query-params</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable access to swagger-ui using url query params instead of configUrl. If the REST APIs, are using OAuth2 (Available if groups are not enabled. Prevents the load of the swagger-config twice with configUrl, available since v1.4.1).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Disabled since <code>v1.6.0</code>. This parameter enables (legacy) overriding configuration parameters via URL search params. <a href="https://github.com/swagger-api/swagger-ui/security/advisories/GHSA-qrmm-w75w-3wpx" target="_blank" rel="noopener">See security advisory</a> before enabling this feature.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth. additionalQueryStringParams</p></td>
@@ -256,7 +251,7 @@
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-05-23 14:28:54 +0200
+Last updated 2021-12-12 21:25:29 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
