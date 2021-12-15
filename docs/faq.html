@@ -1725,6 +1725,23 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 </div>
 <div class="sect2">
+<h3 id="_why_i_get_no_api_definition_provided_when_navigating_directly_to_swagger_uiindex_html">Why i get <code>no API definition provided</code> when navigating directly to <code>/swagger-ui/index.html</code> ?</h3>
+<div class="paragraph">
+<p>You may navigate directly <code>/swagger-ui/index.html</code> but you will get the Error message.
+Since <code>v1.6.0</code> query params are disabled by default for <a href="https://github.com/swagger-api/swagger-ui/security/advisories/GHSA-qrmm-w75w-3wpx" target="_blank" rel="noopener">security reasons</a>.
+This is the default setting, since <a href="https://github.com/swagger-api/swagger-ui/releases/tag/v4.1.3" target="_blank" rel="noopener">swagger-ui v1.4.3</a>.</p>
+</div>
+<div class="paragraph">
+<p>You should only use the following link:  <code>http://serverName:applicationPort/${springdoc.swagger-ui.path}</code></p>
+</div>
+<div class="paragraph">
+<p>For example: <code>http://localhost:8080/swagger-ui.html</code></p>
+</div>
+<div class="paragraph">
+<p>Now, if you want the legacy mode, you can still enable it using (Not recommended)  <code>springdoc.swagger-ui.query-config-enabled=true</code></p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_what_is_the_compatibility_matrix_of_springdoc_openapi_with_spring_boot">What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.
@@ -1785,7 +1802,7 @@ The url of the swagger-ui using native images, contains the version of the swagg
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-12 23:55:51 +0100
+Last updated 2021-12-15 17:50:30 +0100
 </div>
 </div>
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
