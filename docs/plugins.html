@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.15">
 <title>Springdoc-openapi Plugins</title>
 <link rel="stylesheet" href="css/spring.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
 <style>
     #header #revnumber {
         display: none
@@ -33,7 +34,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">mvn verify</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn verify</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -41,7 +42,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">&lt;plugin&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
  &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
  &lt;version&gt;2.3.4.RELEASE&lt;/version&gt;
@@ -96,7 +97,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="groovy" class="language-groovy hljs">plugins {
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
       id("org.springframework.boot") version "2.3.0.RELEASE"
       id("com.github.johnrengelman.processes") version "0.5.0"
       id("org.springdoc.openapi-gradle-plugin") version "1.3.3"
@@ -118,7 +119,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">gradle clean generateOpenApiDocs</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gradle clean generateOpenApiDocs</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -140,9 +141,13 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 Last updated 2021-08-30 15:04:34 +0200
 </div>
 </div>
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
 <script src="js/highlight/highlight.min.js"></script>
-<script>hljs.initHighlighting()</script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
 <script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
 <script type="text/javascript" src="js/toc.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>

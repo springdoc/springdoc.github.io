@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.15">
 <title>F.A.Q</title>
 <link rel="stylesheet" href="css/spring.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
 <style>
     #header #revnumber {
         display: none
@@ -42,7 +43,7 @@ The OpenAPI description of this group, will be available by default on:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public GroupedOpenApi storeOpenApi() {
    String paths[] = {"/store/**"};
    return GroupedOpenApi.builder().group("stores").pathsToMatch(paths)
@@ -55,7 +56,7 @@ public GroupedOpenApi storeOpenApi() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public GroupedOpenApi userOpenApi() {
    String packagesToscan[] = {"test.org.springdoc.api.app68.api.user"};
    return GroupedOpenApi.builder().group("users").packagesToScan(packagesToscan)
@@ -68,7 +69,7 @@ public GroupedOpenApi userOpenApi() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public GroupedOpenApi petOpenApi() {
    String paths[] = {"/pet/**"};
    return GroupedOpenApi.builder().group("pets").pathsToMatch(paths)
@@ -81,7 +82,7 @@ public GroupedOpenApi petOpenApi() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public GroupedOpenApi groupOpenApi() {
    String paths[] = {"/v1/**"};
    String packagesToscan[] = {"test.org.springdoc.api.app68.api.user", "test.org.springdoc.api.app68.api.store"};
@@ -286,7 +287,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">&lt;dependency&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
    &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
    &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
    &lt;version&gt;last.version&lt;/version&gt;
@@ -388,7 +389,7 @@ For this, you have to combine <code>@ParameterObject</code> annotation with the 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">static {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">static {
     getConfig().replaceParameterObjectWithClass(org.springframework.data.domain.Pageable.class, Pageable.class)
             .replaceParameterObjectWithClass(org.springframework.data.domain.PageRequest.class, Pageable.class);
 }</code></pre>
@@ -416,7 +417,7 @@ For this, you have to combine <code>@ParameterObject</code> annotation with the 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-converters.pageable-converter.enabled=false</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.model-converters.pageable-converter.enabled=false</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -443,7 +444,7 @@ The property <code>springdoc.model-converters.pageable-converter.enabled</code> 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@GetMapping("/example")
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GetMapping("/example")
 public Object example(@Parameter(name ="json", schema = @Schema(description = "var 1",type = "string", allowableValues = {"1", "2"}))
 String json) {
    return null;
@@ -459,7 +460,7 @@ String json) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Override
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
 @JsonValue
 public String toString() {
    return String.valueOf(action);
@@ -527,7 +528,7 @@ public String toString() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">server.forward-headers-strategy=framework</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">server.forward-headers-strategy=framework</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -539,7 +540,7 @@ public String toString() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 ForwardedHeaderFilter forwardedHeaderFilter() {
    return new ForwardedHeaderFilter();
 }</code></pre>
@@ -612,7 +613,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
 return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt; pathItem.readOperations().stream())
     .forEach(operation -&gt; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
@@ -655,7 +656,7 @@ return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt;
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Operation(summary = "Get thing", responses = {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Operation(summary = "Get thing", responses = {
       @ApiResponse(description = "Successful Operation", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))),
       @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
       @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))) })
@@ -726,7 +727,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class)</code></pre>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class)</code></pre>
 </div>
 </div>
 </div>
@@ -756,7 +757,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
  public OpenAPI customOpenAPI() {
    return new OpenAPI()
           .components(new Components()
@@ -839,7 +840,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
  return new OpenAPI()
         .components(new Components().addSecuritySchemes("basicScheme", new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic"))
@@ -878,7 +879,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs"> @Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"> @Bean
  public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
   return new OpenAPI()
    .components(new Components().addSecuritySchemes("basicScheme",
@@ -916,7 +917,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
     return new OpenAPI().components(new Components()
     .addSecuritySchemes("basicScheme", new SecurityScheme()
@@ -1002,7 +1003,7 @@ public OpenAPI customOpenAPI() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">&lt;dependency&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
   &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
   &lt;version&gt;latest.version&lt;/version&gt;
@@ -1094,7 +1095,7 @@ OR
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
    return new OpenAPI()
     .components(new Components().addSecuritySchemes("basicScheme",
@@ -1113,7 +1114,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
                 .build()
 
 @Bean
@@ -1232,7 +1233,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
@@ -1293,7 +1294,7 @@ public SpringDocConfigProperties springDocConfigProperties() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">static {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">static {
    SpringDocUtils.getConfig().addRestControllers(HelloController.class);
 }</code></pre>
 </div>
@@ -1375,7 +1376,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">&lt;dependency&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
    &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
    &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
    &lt;version&gt;last.version&lt;/version&gt;
@@ -1391,7 +1392,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">&lt;dependency&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot&lt;/artifactId&gt;
     &lt;version&gt;2.1.11.RELEASE&lt;/version&gt;
@@ -1415,7 +1416,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@EnableWebMvc
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@EnableWebMvc
 public class AppInitializer implements WebApplicationInitializer {
 
    @Override
@@ -1458,7 +1459,7 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">     &lt;repositories&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">     &lt;repositories&gt;
        &lt;repository&gt;
          &lt;id&gt;snapshots-repo&lt;/id&gt;
          &lt;url&gt;https://s01.oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
@@ -1480,7 +1481,7 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.models.MonetaryAmount.class);</code></pre>
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.models.MonetaryAmount.class);</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1492,7 +1493,7 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
             .addProperties("amount", new NumberSchema()).example(99.96)
             .addProperties("currency", new StringSchema().example("USD")));</code></pre>
 </div>
@@ -1514,7 +1515,7 @@ Then simply declare: The file name can be anything you want, from the moment you
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">   springdoc.swagger-ui.url=/open-api.json</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">   springdoc.swagger-ui.url=/open-api.json</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1543,7 +1544,7 @@ If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.swagger-ui.csrf.enabled=true</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.swagger-ui.csrf.enabled=true</code></pre>
 </div>
 </div>
 </div>
@@ -1554,7 +1555,7 @@ If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.swagger-ui.disable-swagger-default-url=true</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.swagger-ui.disable-swagger-default-url=true</code></pre>
 </div>
 </div>
 </div>
@@ -1572,7 +1573,7 @@ Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.dat
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.show-login-endpoint=true</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-login-endpoint=true</code></pre>
 </div>
 </div>
 </div>
@@ -1583,7 +1584,7 @@ Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.dat
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.remove-broken-reference-definitions=false</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.remove-broken-reference-definitions=false</code></pre>
 </div>
 </div>
 </div>
@@ -1597,7 +1598,7 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-converters.deprecating-converter.enabled=false</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.model-converters.deprecating-converter.enabled=false</code></pre>
 </div>
 </div>
 </div>
@@ -1608,7 +1609,7 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.model-and-view-allowed=true</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.model-and-view-allowed=true</code></pre>
 </div>
 </div>
 </div>
@@ -1619,7 +1620,7 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.writer-with-default-pretty-printer=true</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.writer-with-default-pretty-printer=true</code></pre>
 </div>
 </div>
 </div>
@@ -1631,7 +1632,7 @@ For example let&#8217;s consider a <code>PersonDTO</code> class with an <code>wo
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">public class PersonDTO {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class PersonDTO {
 
 	@JsonProperty
 	private String email;
@@ -1665,7 +1666,7 @@ public class Address {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
 return new OpenAPI().components(new Components()
 .addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address" ))
@@ -1688,7 +1689,7 @@ return resolvedSchema.schema.description(description);
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">public class PersonDTO {
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class PersonDTO {
 
 	@JsonProperty
 	private String email;
@@ -1708,7 +1709,7 @@ return resolvedSchema.schema.description(description);
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
 return new OpenAPI().components(new Components()
 .addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email" ))
@@ -1780,9 +1781,13 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 Last updated 2021-12-19 22:47:50 +0100
 </div>
 </div>
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
 <script src="js/highlight/highlight.min.js"></script>
-<script>hljs.initHighlighting()</script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
 <script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
 <script type="text/javascript" src="js/toc.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>

@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
+<meta name="generator" content="Asciidoctor 2.0.15">
 <title>Springdoc-openapi Features</title>
 <link rel="stylesheet" href="css/spring.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
 <style>
     #header #revnumber {
         display: none
@@ -42,7 +43,7 @@ For better performance of documentation generation, declare @OpenAPIDefinition a
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs"># Disabling the /v3/api-docs enpoint
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disabling the /v3/api-docs enpoint
 springdoc.api-docs.enabled=false</code></pre>
 </div>
 </div>
@@ -54,7 +55,7 @@ springdoc.api-docs.enabled=false</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs"># Disabling the swagger-ui
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disabling the swagger-ui
 springdoc.swagger-ui.enabled=false</code></pre>
 </div>
 </div>
@@ -86,7 +87,7 @@ All these properties should be declared with the following prefix: <strong>sprin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs"># Packages to include
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Packages to include
 springdoc.packagesToScan=com.package1, com.package2</code></pre>
 </div>
 </div>
@@ -95,7 +96,7 @@ springdoc.packagesToScan=com.package1, com.package2</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs"># Paths to include
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Paths to include
 springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 </div>
@@ -113,7 +114,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 RouterFunction&lt;?&gt; routes() {
     return route().GET("/foo", HANDLER_FUNCTION, ops -&gt; ops
             .operationId("hello")
@@ -177,7 +178,7 @@ When using @RouterOperation, its not mandatory to fill the path</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 @RouterOperation(beanClass = EmployeeService.class, beanMethod = "findAllEmployees")
 RouterFunction&lt;ServerResponse&gt; getAllEmployeesRoute() {
    return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
@@ -208,7 +209,7 @@ Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandator
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@Bean
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
 @RouterOperation(operation = @Operation(operationId = "findEmployeeById", summary = "Find purchase order by ID", tags = { "MyEmployee" },
       parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Employee Id") },
       responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Employee.class))),
@@ -234,7 +235,7 @@ When using RouterOperations, its mandatory to fill the path property.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="java" class="language-java hljs">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
       @RouterOperation(path = "/getPerson/{id}", beanClass = PersonService.class, beanMethod = "getById"),
       @RouterOperation(path = "/createPerson", beanClass = PersonService.class, beanMethod = "save"),
       @RouterOperation(path = "/deletePerson/{id}", beanClass = PersonService.class, beanMethod = "delete") })
@@ -313,7 +314,7 @@ NOTE: The actuator management port has to be different from the application port
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.use-management-port=true
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.use-management-port=true
 # This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
 management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 </div>
@@ -354,7 +355,7 @@ management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">management.server.port=9090</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">management.server.port=9090</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -390,7 +391,7 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="properties" class="language-properties hljs">springdoc.show-actuator=true</code></pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -438,7 +439,7 @@ If you want to reach the actuator endpoints for this case (different port from y
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code data-lang="xml" class="language-xml hljs">   &lt;dependency&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
      &lt;groupId&gt;org.webjars&lt;/groupId&gt;
      &lt;artifactId&gt;webjars-locator-jboss-vfs&lt;/artifactId&gt;
      &lt;version&gt;0.1.0&lt;/version&gt;
@@ -454,9 +455,13 @@ If you want to reach the actuator endpoints for this case (different port from y
 Last updated 2021-11-28 13:39:38 +0100
 </div>
 </div>
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
 <script src="js/highlight/highlight.min.js"></script>
-<script>hljs.initHighlighting()</script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
 <script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
 <script type="text/javascript" src="js/toc.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
