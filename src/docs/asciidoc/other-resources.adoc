@@ -17,8 +17,8 @@ The artifacts can be viewed accessed at the following locations:
 
 Releases:
 
-* link:https://oss.sonatype.org/content/groups/public/org/springdoc/[https://oss.sonatype.org/content/groups/public/org/springdoc/, window="_blank"]
+* link:https://s01.oss.sonatype.org/content/groups/public/org/springdoc/[https://s01.oss.sonatype.org/content/groups/public/org/springdoc/, window="_blank"]
 
 Snapshots:
 
-* link:https://oss.sonatype.org/content/repositories/snapshots/org/springdoc/[https://oss.sonatype.org/content/repositories/snapshots/org/springdoc/, window="_blank", window="_blank"]
+* link:https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/[https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/, window="_blank", window="_blank"]

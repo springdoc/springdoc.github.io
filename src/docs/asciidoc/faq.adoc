@@ -705,7 +705,7 @@ public class AppInitializer implements WebApplicationInitializer {
      <repositories>
        <repository>
          <id>snapshots-repo</id>
-         <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+         <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
          <releases><enabled>false</enabled></releases>
          <snapshots><enabled>true</enabled></snapshots>
        </repository>
@@ -906,18 +906,18 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
 `springdoc-openapi` is compatible with `spring-boot 1` and `spring-boot 2`.
-In general, you should only pick the last stable version as per today {springdoc-version}.
+
+In general, **you should only pick the last stable version as per today {springdoc-version}.**
+
 More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
 
 |===
-|springdoc-openapi Versions | spring-boot Versions
-|`1.6.0` + | `2.6.x`, `1.5.x`
-|`1.5.9` + | `2.5.x`, `1.5.x`
-|`1.5.0` + | `2.4.x`, `1.5.x`
-|`1.4.0` + | `2.3.x`, `1.5.x`
-|`1.2.1` + | `2.2.x`, `1.5.x`
-|`1.0.0` + | `2.0.x`, `1.5.x`
+| spring-boot Versions | Minimum springdoc-openapi Versions
+|`2.6.x`, `1.5.x` | `1.6.0`+
+|`2.5.x`, `1.5.x` | `1.5.9`+
+|`2.4.x`, `1.5.x` | `1.5.0`+
+|`2.3.x`, `1.5.x` | `1.4.0`+
+|`2.2.x`, `1.5.x` | `1.2.1`+
+|`2.0.x`, `1.5.x` | `1.0.0`+
 
 |===
-
-NOTE:  The url of the swagger-ui using native images, contains the version of the swagger-ui. This is related to the following enhancement request in GraalVM https://github.com/oracle/graal/issues/1108[#1108].

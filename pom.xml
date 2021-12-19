@@ -9,7 +9,7 @@
 	<version>3.1.2-SNAPSHOT</version>
 
 	<properties>
-		<springdoc.version>1.6.1</springdoc.version>
+		<springdoc.version>1.6.2</springdoc.version>
 		<java.version>1.8</java.version>
 		<refdocs.build.directory>${project.basedir}/docs</refdocs.build.directory>
 		<spring-doc-resources.version>0.2.2.RELEASE</spring-doc-resources.version>
