@@ -23,7 +23,7 @@
 <h2 id="properties">Springdoc-openapi Properties</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>springdoc-openapi relies on standard <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config" target="_blank" rel="noopener">spring configuration properties</a> (yml or properties) using the standard files locations.</p>
+<p><code>springdoc-openapi</code> relies on standard <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config" target="_blank" rel="noopener">spring configuration properties</a> (yml or properties) using the standard files locations.</p>
 </div>
 <div class="sect2">
 <h3 id="_springdoc_openapi_core_properties">springdoc-openapi core properties</h3>
@@ -99,7 +99,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.cache.disabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi cache of the the calculated OpenAPI.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi cache of the calculated OpenAPI.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.show-actuator</p></td>
@@ -230,6 +230,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.disable-i18n</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable automatic translation using i18n.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.show-spring-cloud-functions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To display the spring-cloud-function web endpoints.</p></td>
 </tr>
 </tbody>
 </table>
@@ -490,7 +495,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-01 19:06:09 +0100
+Last updated 2021-12-25 11:47:29 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>

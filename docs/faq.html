@@ -405,7 +405,7 @@ For this, you have to combine <code>@ParameterObject</code> annotation with the 
 <p>you will have to declare the explicit mapping of Pageable fields as Query Params and add the <code>@Parameter(hidden = true) Pageable pageable</code> on your pageable parameter.</p>
 </li>
 <li>
-<p>You should also, declare the annotation <code>@PageableAsQueryParam</code> provided by springdoc on the method level, or declare your own if need to define your custom description, defaultValue, &#8230;&#8203;</p>
+<p>You should also, declare the annotation <code>@PageableAsQueryParam</code> provided by <code>springdoc-openapi</code> on the method level, or declare your own if need to define your custom description, defaultValue, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -622,21 +622,6 @@ return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt;
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_to_include_spring_boot_actuator_endpoints_to_swagger_ui">How to include` spring-boot-actuator` endpoints to Swagger UI?</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>In order to display <code>spring-boot-actuator</code> endpoints, you will need to add the following property:</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>springdoc.show-actuator=true</pre>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_how_can_i_return_an_empty_content_as_response">How can I return an empty content as response?</h3>
 <div class="ulist">
 <ul>
@@ -788,7 +773,7 @@ ResponseEntity&lt;String&gt; testme() {
 <p>We rely on on <code>swagger-annotations</code> and <code>swagger-ui</code> only official libraries.</p>
 </li>
 <li>
-<p>We support new features on Spring 5, like <code>spring-webflux</code> with annotated and functionnal style.</p>
+<p>We support new features on Spring 5, like <code>spring-webflux</code> with annotated and functional style.</p>
 </li>
 <li>
 <p>We do our best to answer all the questions and address all issues or enhancement requests</p>
@@ -1205,7 +1190,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 <div class="ulist">
 <ul>
 <li>
-<p><code>springdoc</code> renders these methods as a single endpoint. It detects the overloaded endpoints, and generates parameters.schema.oneOf.</p>
+<p><code>springdoc-openapi</code> renders these methods as a single endpoint. It detects the overloaded endpoints, and generates parameters.schema.oneOf.</p>
 </li>
 </ul>
 </div>
@@ -1215,7 +1200,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 <div class="ulist">
 <ul>
 <li>
-<p>With this property, all the springdoc-openapi auto configuration beans are disabled:</p>
+<p>With this property, all the <code>springdoc-openapi</code> auto-configuration beans are disabled:</p>
 </li>
 </ul>
 </div>
@@ -1227,7 +1212,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 <div class="ulist">
 <ul>
 <li>
-<p>Then enable the minimal beans configuration, by adding this Bean:</p>
+<p>Then enable the minimal Beans configuration, by adding this Bean:</p>
 </li>
 </ul>
 </div>
@@ -1407,10 +1392,10 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 <div class="ulist">
 <ul>
 <li>
-<p>Scan for the springdoc auto-configuration classes that spring-boot automatically loads for you.</p>
+<p>Scan for the <code>springdoc-openapi</code> 'auto-configuration classes that spring-boot automatically loads for you.</p>
 </li>
 <li>
-<p>Depending on your module, you can find them on the file: spring.factories of each springdoc-openapi module.</p>
+<p>Depending on your module, you can find them on the file: <code>spring.factories</code> of each <code>springdoc-openapi</code> module.</p>
 </li>
 </ul>
 </div>
@@ -1446,11 +1431,11 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_use_the_last_springdoc_openapi_snapshot">How can I use the last springdoc-openapi SNAPSHOT ?</h3>
+<h3 id="_how_can_i_use_the_last_springdoc_openapi_snapshot">How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>For testing purposes only, you can test temporarly using the last springdoc-openapi SNAPSHOT</p>
+<p>For testing purposes only, you can test temporarily using the last <code>springdoc-openapi</code> SNAPSHOT</p>
 </li>
 <li>
 <p>To achieve that, you can on your pom.xml or your settings.xml the following section:</p>
@@ -1471,11 +1456,11 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_use_enable_springdoc_openapi_monetaryamount_support">How can I use enable springdoc-openapi MonetaryAmount support ?</h3>
+<h3 id="_how_can_i_use_enable_springdoc_openapi_monetaryamount_support">How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>If an application wants to enable the springdoc-openapi support, it declares:</p>
+<p>If an application wants to enable the <code>springdoc-openapi</code> support, it declares:</p>
 </li>
 </ul>
 </div>
@@ -1500,7 +1485,7 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_agreagte_external_endpoints_exposing_openapi_3_spec_inside_one_single_application">How can i agreagte external endpoints (exposing OPENAPI 3 spec) inside one single application?</h3>
+<h3 id="_how_can_i_aggregate_external_endpoints_exposing_openapi_3_spec_inside_one_single_application">How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</h3>
 <div class="paragraph">
 <p>The properties <code>springdoc.swagger-ui.urls.*</code>, are suitable to configure external (/v3/api-docs url).
 For example if you want to agreagte all the endpoints of other services, inside one single application.
@@ -1526,7 +1511,7 @@ No additional configuration is needed.</p>
 <div class="sect2">
 <h3 id="_how_can_i_enable_csrf_support">How can i enable CSRF support?</h3>
 <div class="paragraph">
-<p>If you are using standard headers.(for example using spring-security headers)
+<p>If you are using standard headers.( For example using spring-security headers)
 If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN during each HTTP REQUEST.</p>
 </div>
 <div class="paragraph">
@@ -1591,8 +1576,8 @@ Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.dat
 <div class="sect2">
 <h3 id="_how_to_override_deprecated">How to override @Deprecated?</h3>
 <div class="paragraph">
-<p>The whole idea of springdoc-openapi is to get your documentation the closest to the code, with minimal code changes.
-If the code contains <code>@Deprecated</code>, sprindoc-openapi will consider its schema as Deprecated as well.
+<p>The whole idea of <code>springdoc-openapi</code> is to get your documentation the closest to the code, with minimal code changes.
+If the code contains <code>@Deprecated</code>, <code>sprindoc-openapi</code> will consider its schema as Deprecated as well.
 If you want to declare a field on swagger as non deprecated, even with the java code, the field contains <code>@Depreacted</code>,
 You can use the following property that is available since release v1.4.3:</p>
 </div>
@@ -1731,7 +1716,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 <p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 1.6.2.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 1.6.3.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -1778,7 +1763,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-19 22:47:50 +0100
+Last updated 2021-12-25 11:42:46 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>

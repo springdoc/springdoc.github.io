@@ -4,7 +4,7 @@
 === General overview
 image::images/common.jpg[Architecture]
 
-=== Spring-webmvc support
+=== Spring WebMvc support
 
 *   Documentation will be available at the following url for json format: `\http://server:port/context-path/v3/api-docs`
 **  server: The server name or IP
@@ -33,7 +33,7 @@ springdoc.api-docs.path=/api-docs
 ----
 
 
-=== Spring-webflux support
+=== Spring WebFlux support
 
 *   Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yaml
 *   Add the library to the list of your project dependencies (No additional configuration is needed)
@@ -76,7 +76,7 @@ This dependency enables the support of `spring-boot-starter-data-rest` types lik
    </dependency>
 ----
 
-=== Spring security support
+=== Spring Security support
 For a project that uses spring-security, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
 This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.
 
@@ -107,6 +107,7 @@ This is the compatibility matrix which shows the tested/validated versions with 
 
 |===
 |springdoc-openapi Version | spring-native Version
+|`1.6.3` | `0.11.1`
 |`1.6.0` | `0.11.0`
 |`1.5.13` | `0.11-RC1`
 |`1.5.12` | `0.10.5`
@@ -116,6 +117,133 @@ This is the compatibility matrix which shows the tested/validated versions with 
 |===
 
 NOTE:  The url of the swagger-ui using native images, contains the version of the swagger-ui. This is related to the following enhancement request in GraalVM https://github.com/oracle/graal/issues/1108[#1108].
+
+=== Actuator support
+
+* In order to display `spring-boot-actuator` endpoints, simply add the following property:
+[source,properties]
+----
+springdoc.show-actuator=true
+----
+
+Starting from the release `1.5.1`, it will be possible to expose the **swagger-ui** and the **openapi** endpoints on **actuator port**.
+NOTE: The actuator management port has to be different from the application port.
+
+To expose the swagger-ui, on the management port, you should set
+
+[source,properties]
+----
+springdoc.use-management-port=true
+# This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, swaggerui
+----
+
+Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
+- `\http://serverName:managementPort/actuator`
+
+For example, if you have the following settings:
+
+Two endpoints will be available:
+
+. REST API that holdes the OpenAPI definition:
+
+- `\http://serverName:managementPort/actuator/openapi`
+
+. An Endpoint, that routes to the swagger-ui:
+
+- `\http://serverName:managementPort/actuator/swaggerui`
+
+[source,properties]
+----
+management.server.port=9090
+----
+
+For the example, you should also be able to see the springdoc-openapi endpoints:
+
+- `\http://serverName:9090/actuator`
+- `\http://serverName:9090/actuator/swaggerui`
+- `\http://serverName:9090/actuator/openapi`
+
+TIP: If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, `CORS for your endpoints` on your application level should be enabled.
+
+
+Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.
+
+[source,properties]
+----
+springdoc.show-actuator=true
+----
+
+Once enabled:
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.
+
+The swagger-ui will be then accessible through the actuator port:
+- `\http://serverName:managementPort/actuator/swaggerui`
+
+If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:
+
+Once enabled:
+- The swagger-ui will be then accessible through the application port. For example: `\http://serverName:applicationPort/swagger-ui.html`
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.
+
+
+TIP: If you want to reach the actuator endpoints for this case (different port from your application), `CORS` for your actuator endpoints should be enabled.
+
+Note: The naming of these new endpoints beneath the actuator base path cannot be customized for now.
+
+=== Spring Cloud Function Web support
+
+`spring-cloud-function-web` exposes Java Function as REST endpoint automatically.
+* Since version `v1.6.3`, the support of functional endpoints has been added.
+
+* These starters will display the OpenAPI description of the `spring-cloud-function-web` endpoints.
+- If you are using `spring-web`, simply add the `springdoc-openapi-ui` dependency.
+- If you are using `spring-webflux`, simply add the `springdoc-openapi-webflux-ui` dependency.
+
+
+The customisation of the output can be achieved programmatically through  `OpenApiCustomiser` or with the annotations: `@RouterOperations` and `@RouterOperation`.
+For annotation usage, you have:
+*   `@RouterOperation`: It can be used alone, if the customisation is related to a single REST API.
+When using `@RouterOperation`, it's not mandatory to fill the path
+
+*   `@RouterOperation`, contains the `@Operation` annotation.
+The `@Operation` annotation can also be placed on the bean method level if the property beanMethod is declared.
+
+IMPORTANT:   Don't forget to set **operationId** which is **mandatory**.
+
+[source,java]
+----
+@Bean
+@RouterOperation(operation = @Operation(description = "Say hello", operationId = "hello", tags = "persons",
+        responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = PersonDTO.class)))))
+public Supplier<PersonDTO> helloSupplier() {
+    return () -> new PersonDTO();
+}
+----
+
+*   `@RouterOperations`: This annotation should be used to describe the multiple REST APIs exposed by `spring-cloud-function-web`.
+When using `RouterOperations`, it's mandatory to fill the method property.
+
+*   A `@RouterOperations`, contains many `@RouterOperation`.
+
+[source,java]
+----
+@Bean
+@RouterOperations({
+        @RouterOperation(method = RequestMethod.GET, operation = @Operation(description = "Say hello GET", operationId = "lowercaseGET", tags = "persons")),
+        @RouterOperation(method = RequestMethod.POST, operation = @Operation(description = "Say hello POST", operationId = "lowercasePOST", tags = "positions"))
+})
+public Function<Flux<String>, Flux<String>> lowercase() {
+    return flux -> flux.map(value -> value.toLowerCase());
+}
+----
+
+Some code samples are available on GITHUB of demos:
+
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-cloud-function[Sample applications with Spring Cloud Function Web, window="_blank"]
+
 
 === Kotlin support
 For a project that uses Kotlin, you should add the following dependency.
@@ -130,8 +258,8 @@ This dependency improves the support of Kotlin types:
    </dependency>
 ----
 
-* If your are using spring-web, you combine the springdoc-openapi-kotlin module with springdoc-openapi-ui.
-* If your are using spring-webflux, you combine the springdoc-openapi-kotlin module  with springdoc-openapi-webflux-ui.
+* If you are using spring-web, you should combine the `springdoc-openapi-kotlin` module with `springdoc-openapi-ui`.
+* If you are using spring-webflux, you should combine the `springdoc-openapi-kotlin` module  with `springdoc-openapi-webflux-ui`.
 
 === Groovy support
 For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:

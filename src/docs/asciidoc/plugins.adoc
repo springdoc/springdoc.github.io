@@ -3,7 +3,7 @@
 
 === Maven plugin
 
-The aim of springdoc-openapi-maven-plugin is to generate json and yaml OpenAPI description  during build time.
+The aim of `springdoc-openapi-maven-plugin` is to generate json and yaml OpenAPI description  during build time.
 The plugin works during integration-tests phase, and generate the OpenAPI description.
 The plugin works in conjunction with spring-boot-maven plugin.
 
@@ -82,6 +82,6 @@ When you add this plugin and its runtime dependency plugins to your build file, 
 gradle clean generateOpenApiDocs
 ----
 
-For more custom configuration of springdoc-openapi-gradle-plugin ,you can consult the plugin documentation:
+For more custom configuration of `springdoc-openapi-gradle-plugin` ,you can consult the plugin documentation:
 
 * link:https://github.com/springdoc/springdoc-openapi-gradle-plugin[https://github.com/springdoc/springdoc-openapi-gradle-plugin, window="_blank"]

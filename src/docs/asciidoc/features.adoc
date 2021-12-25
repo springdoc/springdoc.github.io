@@ -9,11 +9,11 @@ For better performance of documentation generation, declare @OpenAPIDefinition a
 === Error Handling for REST using @ControllerAdvice
 To generate documentation automatically, make sure all the methods declare the HTTP Code responses using the annotation: @ResponseStatus
 
-=== Disabling the springdoc-openapi endpoints
-In order to disable the springdoc-openapi endpoint (/v3/api-docs by default) use the following property:
+=== Disabling the `springdoc-openapi` endpoints
+In order to disable the `springdoc-openapi` endpoint (/v3/api-docs by default) use the following property:
 [source,properties]
 ----
-# Disabling the /v3/api-docs enpoint
+# Disabling the /v3/api-docs endpoint
 springdoc.api-docs.enabled=false
 ----
 
@@ -34,7 +34,7 @@ You need to declare swagger-ui properties as spring-boot properties.
 All these properties should be declared with the following prefix: **springdoc.swagger-ui**
 
 === Selecting the Rest Controllers to include in the documentation
-Additionally to @Hidden annotation from swagger-annotations, its possible to restrict the generated OpenAPI description using package or path configuration.
+Additionally, to @Hidden annotation from swagger-annotations, its possible to restrict the generated OpenAPI description using package or path configuration.
 
 For the list of packages to include, use the following property:
 [source,properties]
@@ -79,11 +79,11 @@ Here is the link for some sample codes:
 - link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java[EmployeeRouter]
 - link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java[PositionRouter]
 
-And the Demo code, using the functionnal endpoints DSL:
+And the Demo code, using the functional endpoints DSL:
 
 - link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional[Sample webflux application using functional DSL]
 
-Since version v1.3.8, the support of functional endpoints has been added.
+Since version `v1.3.8`, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: `@RouterOperations` and `@RouterOperation`.
 
 Only REST APIs with the `@RouterOperations` and `@RouterOperation` can be displayed on the swagger-ui.
@@ -146,8 +146,8 @@ public RouterFunction<ServerResponse> personRoute(PersonHandler handler) {
 ----
 
 All the documentations filled using @RouterOperation, might be completed by the router function data.
-For that, @RouterOperation fields must help identify uniquely the concerned route.
-springdoc-openpi scans for a unique route related to a @RouterOperation annotation, using on the following criteria:
+For that, `@RouterOperation` fields must help identify uniquely the concerned route.
+`springdoc-openpi` scans for a unique route related to a `@RouterOperation` annotation, using on the following criteria:
 
 * by path
 * by path and RequestMethod
@@ -162,79 +162,9 @@ Some code samples are available on GITHUB of demos:
 
 * link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional[Sample application with Functional Endpoints documentation, window="_blank"]
 
-And some of the project tests: (from app69 to app75)
+And some project tests: (from app69 to app75)
 
 * link:https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api[Sample code with Functional Endpoints documentation, window="_blank"]
-
-
-=== Exposing swagger-ui on the Actuator port
-
-Starting from the release `1.5.1`, it will be possible to expose the **swagger-ui** and the **openapi** endpoints on actuator port.
-NOTE: The actuator management port has to be different from the application port.
-
-To expose the swagger-ui, on the management port, you should set
-
-[source,properties]
-----
-springdoc.use-management-port=true
-# This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
-management.endpoints.web.exposure.include=openapi, swaggerui
-----
-
-Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
-- `\http://serverName:managementPort/actuator`
-
-For example, if you have the following settings:
-
-Two endpoints will be available:
-
-. REST API that holdes the OpenAPI definition:
-
-- `\http://serverName:managementPort/actuator/openapi`
-
-. An Endpoint, that routes to the swagger-ui:
-
-- `\http://serverName:managementPort/actuator/swaggerui`
-
-[source,properties]
-----
-management.server.port=9090
-----
-
-For the example, you should also be able to see the springdoc-openapi endpoints:
-
-- `\http://serverName:9090/actuator`
-- `\http://serverName:9090/actuator/swaggerui`
-- `\http://serverName:9090/actuator/openapi`
-
-TIP: If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, `CORS for your endpoints` on your application level should be enabled.
-
-
-Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.
-
-[source,properties]
-----
-springdoc.show-actuator=true
-----
-
-Once enabled:
-- A dedicated group for the actuator endpoints will be by default added.
-- If no group is defined for the application, a default one will be added.
-
-The swagger-ui will be then accessible through the actuator port:
-- `\http://serverName:managementPort/actuator/swaggerui`
-
-If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:
-
-Once enabled:
-- The swagger-ui will be then accessible through the application port. For example: `\http://serverName:applicationPort/swagger-ui.html`
-- A dedicated group for the actuator endpoints will be by default added.
-- If no group is defined for the application, a default one will be added.
-
-
-TIP: If you want to reach the actuator endpoints for this case (different port from your application), `CORS` for your actuator endpoints should be enabled.
-
-Note: The naming of these new endpoints beneath the actuator base path cannot be customized for now.
 
 === Integration with WildFly
 

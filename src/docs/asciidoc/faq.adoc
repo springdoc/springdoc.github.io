@@ -190,7 +190,7 @@ static {
 
 * Another solution, is to configure Pageable manually:
     - you will have to declare the explicit mapping of Pageable fields as Query Params and add the `@Parameter(hidden = true) Pageable pageable` on your pageable parameter.
-    - You should also, declare the annotation `@PageableAsQueryParam` provided by springdoc on the method level, or declare your own if need to define your custom description, defaultValue, ...
+    - You should also, declare the annotation `@PageableAsQueryParam` provided by `springdoc-openapi` on the method level, or declare your own if need to define your custom description, defaultValue, ...
 
 If you want to disable the support of spring Pageable Type, you can use:
 [source,properties]
@@ -291,13 +291,6 @@ return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathI
 }
 ----
 
-=== How to include` spring-boot-actuator` endpoints to Swagger UI?
-* In order to display `spring-boot-actuator` endpoints, you will need to add the following property:
-[source,properties]
-----
-springdoc.show-actuator=true
-----
-
 === How can I return an empty content as response?
 * It is be possible to handle as return an empty content as response using, one of the following syntaxes:
 * `content = @Content`
@@ -369,7 +362,7 @@ SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class
 
 * The integration between Spring Boot and OpenAPI 3 standard.
 * We rely on on `swagger-annotations` and `swagger-ui` only official libraries.
-* We support new features on Spring 5, like `spring-webflux` with annotated and functionnal style.
+* We support new features on Spring 5, like `spring-webflux` with annotated and functional style.
 * We do our best to answer all the questions and address all issues or enhancement requests
 
 === How do I migrate to OpenAPI 3 with springdoc-openapi
@@ -565,15 +558,15 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 * Query parameters with `defaultValue` specified are marked as required.
 
 === How are overloaded methods with the same endpoints, but with different parameters
-* `springdoc` renders these methods as a single endpoint. It detects the overloaded endpoints, and generates parameters.schema.oneOf.
+* `springdoc-openapi` renders these methods as a single endpoint. It detects the overloaded endpoints, and generates parameters.schema.oneOf.
 
 === What is a proper way to set up Swagger UI to use provided spec.yml?
-* With this property, all the springdoc-openapi auto configuration beans are disabled:
+* With this property, all the `springdoc-openapi` auto-configuration beans are disabled:
 [source,properties]
 ----
 springdoc.api-docs.enabled=false
 ----
-* Then enable the minimal beans configuration, by adding this Bean:
+* Then enable the minimal Beans configuration, by adding this Bean:
 
 [source,java]
 ----
@@ -663,8 +656,8 @@ For example, lets assume you want load the swagger-ui in spring-mvc application:
 </dependency>
 ----
 
-* Scan for the springdoc auto-configuration classes that spring-boot automatically loads for you.
-* Depending on your module, you can find them on the file: spring.factories of each springdoc-openapi module.
+* Scan for the `springdoc-openapi` 'auto-configuration classes that spring-boot automatically loads for you.
+* Depending on your module, you can find them on the file: `spring.factories` of each `springdoc-openapi` module.
 
 [source,java]
 ----
@@ -696,8 +689,8 @@ public class AppInitializer implements WebApplicationInitializer {
 }
 ----
 
-=== How can I use the last springdoc-openapi SNAPSHOT ?
-* For testing purposes only, you can test temporarly using the last springdoc-openapi SNAPSHOT
+=== How can I use the last `springdoc-openapi` SNAPSHOT ?
+* For testing purposes only, you can test temporarily using the last `springdoc-openapi` SNAPSHOT
 * To achieve that, you can on your pom.xml or your settings.xml the following section:
 
 [source,xml]
@@ -712,8 +705,8 @@ public class AppInitializer implements WebApplicationInitializer {
      </repositories>
 ----
 
-=== How can I use enable springdoc-openapi MonetaryAmount support ?
-* If an application wants to enable the springdoc-openapi support, it declares:
+=== How can I use enable `springdoc-openapi` MonetaryAmount support ?
+* If an application wants to enable the `springdoc-openapi` support, it declares:
 
 [source,java]
 ----
@@ -729,7 +722,7 @@ SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSch
             .addProperties("currency", new StringSchema().example("USD")));
 ----
 
-=== How can i agreagte external endpoints (exposing OPENAPI 3 spec) inside one single application?
+=== How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?
 The properties `springdoc.swagger-ui.urls.*`, are suitable to configure external (/v3/api-docs url).
 For example if you want to agreagte all the endpoints of other services, inside one single application.
 IMPORTANT: Don't forget that CORS needs to be enabled as well.
@@ -746,7 +739,7 @@ Then the file open-api.json, should be located in: src/main/resources/static
 No additional configuration is needed.
 
 === How can i enable CSRF support?
-If you are using standard headers.(for example using spring-security headers)
+If you are using standard headers.( For example using spring-security headers)
 If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN during each HTTP REQUEST.
 
 If your XSRF-TOKEN isn't standards-based, you can use a requestInterceptor to manually capture and attach the latest xsrf token to requests programmatically via spring resource transformer:
@@ -785,8 +778,8 @@ springdoc.remove-broken-reference-definitions=false
 ----
 
 === How to override @Deprecated?
-The whole idea of springdoc-openapi is to get your documentation the closest to the code, with minimal code changes.
-If the code contains `@Deprecated`, sprindoc-openapi will consider its schema as Deprecated as well.
+The whole idea of `springdoc-openapi` is to get your documentation the closest to the code, with minimal code changes.
+If the code contains `@Deprecated`, `sprindoc-openapi` will consider its schema as Deprecated as well.
 If you want to declare a field on swagger as non deprecated, even with the java code, the field contains `@Depreacted`,
 You can use the following property that is available since release v1.4.3:
 [source,properties]

@@ -12,7 +12,7 @@
 
 === Dependencies repository
 
-The springdoc-openapi libraries are hosted on maven central repository.
+The `springdoc-openapi` libraries are hosted on maven central repository.
 The artifacts can be viewed accessed at the following locations:
 
 Releases:

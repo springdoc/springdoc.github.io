@@ -14,7 +14,7 @@
 |springdoc.packages-to-exclude | | `List of Strings`.The list of packages to exclude (comma separated)
 |springdoc.default-consumes-media-type | `application/json` | `String`. The default consumes media type.
 |springdoc.default-produces-media-type | `*/*` | `String`.The default produces media type.
-|springdoc.cache.disabled | `false` | `Boolean`. To disable the springdoc-openapi cache of the the calculated OpenAPI.
+|springdoc.cache.disabled | `false` | `Boolean`. To disable the springdoc-openapi cache of the calculated OpenAPI.
 |springdoc.show-actuator | `false` |  `Boolean`. To display the actuator endpoints.
 |springdoc.auto-tag-classes | `true` | `Boolean`. To disable the springdoc-openapi automatic tags.
 |springdoc.model-and-view-allowed | `false` | `Boolean`. To allow RestControllers with ModelAndView return to appear in the OpenAPI description.
@@ -41,5 +41,5 @@
 |springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
 |springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
 |springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
-
+|springdoc.show-spring-cloud-functions | `true` |  `Boolean`. To display the spring-cloud-function web endpoints.
 |===
