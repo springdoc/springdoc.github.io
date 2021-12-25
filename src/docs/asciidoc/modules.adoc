@@ -121,6 +121,7 @@ NOTE:  The url of the swagger-ui using native images, contains the version of th
 === Actuator support
 
 * In order to display `spring-boot-actuator` endpoints, simply add the following property:
+
 [source,properties]
 ----
 springdoc.show-actuator=true
