@@ -127,6 +127,7 @@ springdoc.show-actuator=true
 ----
 
 Starting from the release `1.5.1`, it will be possible to expose the **swagger-ui** and the **openapi** endpoints on **actuator port**.
+
 NOTE: The actuator management port has to be different from the application port.
 
 To expose the swagger-ui, on the management port, you should set
