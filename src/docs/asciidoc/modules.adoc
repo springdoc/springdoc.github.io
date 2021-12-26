@@ -184,7 +184,7 @@ The swagger-ui will be then accessible through the actuator port:
 
 - `\http://serverName:managementPort/actuator/swaggerui`
 
-If the management port is different from the application port and `springdoc.use-management-port` is not defined but 'springdoc.show-actuator' is set to true:
+If the management port is different from the application port and `springdoc.use-management-port` is not defined but `springdoc.show-actuator` is set to true:
 
 - The swagger-ui will be then accessible through the application port. For example: `\http://serverName:applicationPort/swagger-ui.html`
 - A dedicated group for the actuator endpoints will be by default added.
