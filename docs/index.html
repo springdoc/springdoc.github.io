@@ -637,17 +637,30 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 - If no group is defined for the application, a default one will be added.</p>
 </div>
 <div class="paragraph">
-<p>The swagger-ui will be then accessible through the actuator port:
-- <code>http://serverName:managementPort/actuator/swaggerui</code></p>
+<p>The swagger-ui will be then accessible through the actuator port:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/swaggerui</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:</p>
+<p>If the management port is different from the application port and <code>springdoc.use-management-port</code> is not defined but 'springdoc.show-actuator' is set to true:</p>
 </div>
-<div class="paragraph">
-<p>Once enabled:
-- The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code>
-- A dedicated group for the actuator endpoints will be by default added.
-- If no group is defined for the application, a default one will be added.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code></p>
+</li>
+<li>
+<p>A dedicated group for the actuator endpoints will be by default added.</p>
+</li>
+<li>
+<p>If no group is defined for the application, a default one will be added.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -3677,7 +3690,7 @@ You can use the following property that is available since release v1.4.3:</p>
 <h3 id="how-can-i-define-different-schemas-for-the-same-class"><a class="anchor" href="#how-can-i-define-different-schemas-for-the-same-class"></a>11.74. How can i define different schemas for the same class?</h3>
 <div class="paragraph">
 <p>Complex objects are always resolved as a reference to a schema defined in components.
-For example let&#8217;s consider a <code>PersonDTO</code> class with an <code>workAddress</code> and <code>homeAddress</code> attribute of type <code>Address</code>:</p>
+For example let&#8217;s consider a <code>Instance</code> class with an <code>workAddress</code> and <code>homeAddress</code> attribute of type <code>Address</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -3734,7 +3747,7 @@ return resolvedSchema.schema.description(description);
 <div class="sect2">
 <h3 id="how-can-i-define-different-description-for-a-class-attribute-depending-on-usage"><a class="anchor" href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage"></a>11.75. How can i define different description for a class attribute depending on usage?</h3>
 <div class="paragraph">
-<p>For example let&#8217;s consider a <code>PersonDTO</code> class with an <code>email</code> attribute:</p>
+<p>For example let&#8217;s consider a <code>Instance</code> class with an <code>email</code> attribute:</p>
 </div>
 <div class="listingblock">
 <div class="content">

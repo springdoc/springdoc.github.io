@@ -806,7 +806,7 @@ springdoc.writer-with-default-pretty-printer=true
 
 === How can i define different schemas for the same class?
 Complex objects are always resolved as a reference to a schema defined in components.
-For example let's consider a `PersonDTO` class with an `workAddress` and `homeAddress` attribute of type `Address`:
+For example let's consider a `Instance` class with an `workAddress` and `homeAddress` attribute of type `Address`:
 
 [source,java]
 ----
@@ -859,7 +859,7 @@ return resolvedSchema.schema.description(description);
 ----
 
 === How can i define different description for a class attribute depending on usage?
-For example let's consider a `PersonDTO` class with an `email` attribute:
+For example let's consider a `Instance` class with an `email` attribute:
 
 [source,java]
 ----

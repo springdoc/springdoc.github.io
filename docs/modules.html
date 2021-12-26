@@ -252,7 +252,7 @@ The url of the swagger-ui using native images, contains the version of the swagg
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>springdoc.show-actuator=true</pre>
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -361,17 +361,30 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 - If no group is defined for the application, a default one will be added.</p>
 </div>
 <div class="paragraph">
-<p>The swagger-ui will be then accessible through the actuator port:
-- <code>http://serverName:managementPort/actuator/swaggerui</code></p>
+<p>The swagger-ui will be then accessible through the actuator port:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/swaggerui</code></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>If the management port is different from the application port and 'springdoc.use-management-port' is not defined but 'springdoc.show-actuator' is set to true:</p>
+<p>If the management port is different from the application port and <code>springdoc.use-management-port</code> is not defined but 'springdoc.show-actuator' is set to true:</p>
 </div>
-<div class="paragraph">
-<p>Once enabled:
-- The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code>
-- A dedicated group for the actuator endpoints will be by default added.
-- If no group is defined for the application, a default one will be added.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code></p>
+</li>
+<li>
+<p>A dedicated group for the actuator endpoints will be by default added.</p>
+</li>
+<li>
+<p>If no group is defined for the application, a default one will be added.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -608,7 +621,7 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-25 14:30:46 +0100
+Last updated 2021-12-26 22:22:59 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>
