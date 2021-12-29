@@ -64,7 +64,7 @@ This dependency enables the support of Spring Hateoas format.
 
 === Spring Data Rest support
 
-The projects that use `spring-data-rest` and need the support for `Pageable` type can  add the following dependency in combination with the `springdoc-openapi-ui` dependency.
+The projects that use `spring-data-rest` can  add the following dependency in combination with the `springdoc-openapi-ui` dependency.
 This dependency enables the support of `spring-boot-starter-data-rest` types like: `@RepositoryRestResource` and `QuerydslPredicate` annotations.
 
 [source,xml, subs="attributes+"]
