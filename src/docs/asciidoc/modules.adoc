@@ -310,7 +310,7 @@ NOTE: Make sure, you enable the annotation processor of `therapi-runtime-javadoc
 						<path>
 							<groupId>com.github.therapi</groupId>
 							<artifactId>therapi-runtime-javadoc-scribe</artifactId>
-							<version>0.12.0</version>
+							<version>0.13.0</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
