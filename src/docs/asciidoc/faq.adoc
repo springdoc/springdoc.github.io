@@ -689,6 +689,15 @@ public class AppInitializer implements WebApplicationInitializer {
 }
 ----
 
+* Depending on your module, you can find them on the file: `spring.factories` of each `springdoc-openapi` module.
+* For groups usage make sure your  `GroupedOpenApi` Beans are scanned.
+* If additionally, you are using custom `context path`: `/my-servlet-path`. Make sure you declare the following property:
+[source,properties]
+----
+spring.mvc.servlet.path=/my-servlet-path
+----
+
+
 === How can I use the last `springdoc-openapi` SNAPSHOT ?
 * For testing purposes only, you can test temporarily using the last `springdoc-openapi` SNAPSHOT
 * To achieve that, you can on your pom.xml or your settings.xml the following section:
