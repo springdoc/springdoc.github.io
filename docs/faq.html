@@ -597,7 +597,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="ulist">
 <ul>
 <li>
-<p>You can write your own implementation of <code>OpenApiCustomiser</code>.</p>
+<p>You can write your own implementation of <code>OpenApiCustomizer</code>.</p>
 </li>
 <li>
 <p>An example is available on:</p>
@@ -1429,6 +1429,24 @@ public class AppInitializer implements WebApplicationInitializer {
 }</code></pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Depending on your module, you can find them on the file: <code>spring.factories</code> of each <code>springdoc-openapi</code> module.</p>
+</li>
+<li>
+<p>For groups usage make sure your  <code>GroupedOpenApi</code> Beans are scanned.</p>
+</li>
+<li>
+<p>If additionally, you are using custom <code>context path</code>: <code>/my-servlet-path</code>. Make sure you declare the following property:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>spring.mvc.servlet.path=/my-servlet-path</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_how_can_i_use_the_last_springdoc_openapi_snapshot">How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</h3>
@@ -1716,7 +1734,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 <p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 1.6.4.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 1.6.5.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -1763,7 +1781,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-12-26 16:27:17 +0100
+Last updated 2022-01-25 01:24:01 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>

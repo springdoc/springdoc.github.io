@@ -205,7 +205,7 @@ Note: The naming of these new endpoints beneath the actuator base path cannot be
 - If you are using `spring-webflux`, simply add the `springdoc-openapi-webflux-ui` dependency.
 
 
-The customisation of the output can be achieved programmatically through  `OpenApiCustomiser` or with the annotations: `@RouterOperations` and `@RouterOperation`.
+The customisation of the output can be achieved programmatically through  `OpenApiCustomizer` or with the annotations: `@RouterOperations` and `@RouterOperation`.
 For annotation usage, you have:
 *   `@RouterOperation`: It can be used alone, if the customisation is related to a single REST API.
 When using `@RouterOperation`, it's not mandatory to fill the path

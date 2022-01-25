@@ -34,7 +34,7 @@
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.4&lt;/version&gt;
+      &lt;version&gt;1.6.5&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -105,6 +105,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
               .select()
               .apis(RequestHandlerSelectors.basePackage("org.github.springshop.web.admin"))
               .paths(PathSelectors.regex("/admin.*"))
+              .apis(RequestHandlerSelectors.withMethodAnnotation(Admin.class))
               .build()
               .groupName("springshop-admin")
               .apiInfo(apiInfo());
@@ -128,6 +129,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
       return GroupedOpenApi.builder()
               .group("springshop-admin")
               .pathsToMatch("/admin/**")
+              .addMethodFilter(method -&gt; method.isAnnotationPresent(Admin.class))
               .build();
   }</code></pre>
 </div>
@@ -202,7 +204,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-12-15 12:20:12 +0100
+Last updated 2022-01-10 11:58:54 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>
