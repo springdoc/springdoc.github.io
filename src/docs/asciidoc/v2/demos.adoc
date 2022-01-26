@@ -2,14 +2,14 @@
 == Springdoc-openapi Demos
 
 === springdoc applications demos
-* link:http://158.101.191.70:8081/[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
-* link:http://158.101.191.70:8082/[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
-* link:http://158.101.191.70:8083/[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
-* link:http://158.101.191.70:8084/[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
-* link:http://158.101.191.70:8085/[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
-* link:http://158.101.191.70:8060/[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
-* link:http://158.101.191.70:8086/[Demo Spring Boot 2 and Spring Cloud Function Web MVC, window="_blank"]
-* link:http://158.101.191.70:8087/[Demo Spring Boot 2 and Spring Cloud Function WebFlux, window="_blank"]
+* link:http://144.24.171.248:8081/[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
+* link:http://144.24.171.248:8082/[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
+* link:http://144.24.171.248:8083/[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
+* link:http://144.24.171.248:8084/[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
+* link:http://144.24.171.248:8085/[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
+* link:http://144.24.171.248:8060/[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
+* link:http://144.24.171.248:8086/[Demo Spring Boot 2 and Spring Cloud Function Web MVC, window="_blank"]
+* link:http://144.24.171.248:8087/[Demo Spring Boot 2 and Spring Cloud Function WebFlux, window="_blank"]
 
 image::images/pets.png[pets.png]
 
