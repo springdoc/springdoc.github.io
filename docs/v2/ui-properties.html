@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Untitled</title>
+<link rel="stylesheet" href="css/spring.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<table id="ui-properties" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter name</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/swagger-ui.html</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>, For custom path of the swagger-ui HTML documentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the swagger-ui endpoint (/swagger-ui.html by default).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.configUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/v3/api-docs/swagger-config</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. URL to fetch external configuration document from.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.layout</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BaseLayout</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The name of a component available via the plugin system to use as the top-level layout for Swagger UI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.validatorUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://validator.swagger.io/validator" class="bare">https://validator.swagger.io/validator</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI attempts to validate specs against swagger.io&#8217;s online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators <a href="https://github.com/swagger-api/validator-badge" target="_blank" rel="noopener">Validator Badge</a>. Setting it to either <code>none</code>, <code>127.0.0.1</code> or <code>localhost</code> will disable validation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.tryItOutEnabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls whether the "Try it out" section should be enabled by default.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.filter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean OR String</code>. If set, enables filtering. The top bar will show an edit box that you can use to filter the tagged operations that are shown. Can be Boolean to enable or disable, or a string, in which case filtering will be enabled using that string as the filter expression. Filtering is case sensitive matching the filter expression anywhere inside the tag.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.operationsSorter</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Function=(a &#8658; a)</code>. Apply a sort to the operation list of each API. It can be 'alpha' (sort by paths alphanumerically), 'method' (sort by HTTP method) or a function (see Array.prototype.sort() to know how sort function works). Default is the order returned by the server unchanged.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.tagsSorter</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Function=(a &#8658; a)</code>. Apply a sort to the tag list of each API. It can be 'alpha' (sort by paths alphanumerically) or a function <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank" rel="noopener">see Array.prototype.sort()</a> to learn how to write a sort function). Two tag name strings are passed to the sorter for each pass. Default is the order determined by Swagger UI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth2RedirectUrl</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/swagger-ui/oauth2-redirect.html</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. OAuth redirect URL.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.displayOperationId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls the display of operationId in operations list. The default is <code>false</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.displayRequestDuration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls the display of the request duration (in milliseconds) for "Try it out" requests.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.deepLinking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. If set to <code>true</code>, enables deep linking for tags and operations. See the [Deep Linking documentation](/docs/usage/deep-linking.md) for more information.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.defaultModelsExpandDepth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code>. The default expansion depth for models (set to -1 completely hide the models).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.defaultModelExpandDepth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code>. The default expansion depth for the model on the model-example section.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.defaultModelRendering</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String=["example"*, "model"]</code>. Controls how the model is shown when the API is first rendered. (The user can always switch the rendering for a given model by clicking the 'Model' and 'Example Value' links.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.docExpansion</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String=["list"*, "full", "none"]</code>. Controls the default expansion setting for the operations and tags. It can be 'list' (expands only the tags), 'full' (expands the tags and operations) or 'none' (expands nothing).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.maxDisplayedTags</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Number</code>. If set, limits the number of tagged operations displayed to at most this many. The default is to show all operations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.showExtensions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls the display of vendor extension (<code>x-</code>) fields and values for Operations, Parameters, and Schema.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.url</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.To configure, the path of a custom OpenAPI file . Will be ignored if <code>urls</code> is used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.showCommonExtensions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Controls the display of extensions (<code>pattern</code>, <code>maxLength</code>, <code>minLength</code>, <code>maximum</code>, <code>minimum</code>) fields and values for Parameters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.supportedSubmitMethods</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Array=["get", "put", "post", "delete", "options", "head", "patch", "trace"]</code>. List of HTTP methods that have the "Try it out" feature enabled. An empty array disables "Try it out" for all operations. This does not filter the operations from the display.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.queryConfigEnabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Disabled since <code>v1.6.0</code>. This parameter enables (legacy) overriding configuration parameters via URL search params. <a href="https://github.com/swagger-api/swagger-ui/security/advisories/GHSA-qrmm-w75w-3wpx" target="_blank" rel="noopener">See security advisory</a> before enabling this feature.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth. additionalQueryStringParams</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Additional query parameters added to authorizationUrl and tokenUrl.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.disable-swagger-default-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the swagger-ui default petstore url. (Available since v1.4.1).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.urls[0].url</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>URL</code>. The url of the swagger group, used by Topbar plugin.  URLs must be unique among all items in this array, since they&#8217;re used as identifiers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.urls[0].name</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The name of the swagger group, used by Topbar plugin.  Names must be unique among all items in this array, since they&#8217;re used as identifiers.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.urlsPrimaryName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The name of the swagger group which will be displayed when Swagger UI loads.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.clientId</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Default clientId. MUST be a string.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.clientSecret</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.  Default clientSecret. Never use this parameter in your production environment. It exposes crucial security information. This feature is intended for dev/test environments only.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.realm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. realm query parameter (for OAuth 1) added to authorizationUrl and tokenUrl.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.appName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. OAuth application name, displayed in authorization popup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.scopeSeparator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. OAuth scope separator for passing scopes, encoded before calling, default value is a space (encoded value %20).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable CSRF support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.cookie-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>XSRF-TOKEN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Optional CSRF, to set the CSRF cookie name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.header-name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>X-XSRF-TOKEN</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Optional CSRF, to set the CSRF header name.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.syntaxHighlight.activated</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Whether syntax highlighting should be activated or not.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.syntaxHighlight.theme</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>agate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.  <code>String=["agate"*, "arta", "monokai", "nord", "obsidian", "tomorrow-night"]</code>. <a href="https://highlightjs.org/static/demo/" target="_blank" rel="noopener">Highlight.js</a> syntax coloring theme to use. (Only these 6 styles are available.)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth. useBasicAuthentication WithAccessCodeGrant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Only activated for the accessCode flow.  During the authorization_code request to the tokenUrl, pass the Client Password using the HTTP Basic Authentication scheme (Authorization header with Basic base64encode(client_id + client_secret)).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth. usePkceWithAuthorization CodeGrant</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>.Only applies to authorizatonCode flows. Proof Key for Code Exchange brings enhanced security for OAuth public clients.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.persistAuthorization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. If set to true, it persists authorization data and it would not be lost on browser close/refresh</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.use-root-path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. If set to true, the swagger-ui will be accessible from the application root path directly.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2021-12-25 11:47:51 +0100
+</div>
+</div>
+<script src="js/highlight/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-143834491-1');
+</script>
+</body>
+</html>

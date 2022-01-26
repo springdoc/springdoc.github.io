@@ -65,6 +65,7 @@
 						<configuration>
 							<outputDirectory>${refdocs.build.directory}</outputDirectory>
 							<backend>html5</backend>
+							<preserveDirectories>true</preserveDirectories>
 							<doctype>book</doctype>
 							<attributes>
 								<docinfo>shared</docinfo>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Getting Started</title>
+<link rel="stylesheet" href="css/spring.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="getting-started">Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the integration between spring-boot and swagger-ui, add the library to the list of your project dependencies (No additional configuration is needed)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will automatically deploy swagger-ui to a spring-boot application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation will be available in HTML format, using the official <a href="https://github.com/swagger-api/swagger-ui.git" target="_blank" rel="noopener">swagger-ui jars</a></p>
+</li>
+<li>
+<p>The Swagger UI page will then be available at <code>http://server:port/context-path/swagger-ui.html</code> and the OpenAPI description will be available at the following url for json format: <code>http://server:port/context-path/v3/api-docs</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>server: The server name or IP</p>
+</li>
+<li>
+<p>port: The server port</p>
+</li>
+<li>
+<p>context-path: The context path of the application</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yaml</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file: .
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># swagger-ui custom path
+springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-01-26 13:07:30 +0100
+</div>
+</div>
+<script src="js/highlight/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-143834491-1');
+</script>
+</body>
+</html>

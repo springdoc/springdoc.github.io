@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Springdoc-openapi Modules</title>
+<link rel="stylesheet" href="css/spring.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+</style>
+</head>
+<body class="book">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="modules">Springdoc-openapi Modules</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_general_overview">General overview</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/common.jpg" alt="Architecture">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_webmvc_support">Spring WebMvc support</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation will be available at the following url for json format: <code>http://server:port/context-path/v3/api-docs</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>server: The server name or IP</p>
+</li>
+<li>
+<p>port: The server port</p>
+</li>
+<li>
+<p>context-path: The context path of the application</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yaml</p>
+</li>
+<li>
+<p>Add the library to the list of your project dependencies. (No additional configuration is needed)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># /api-docs endpoint custom path
+springdoc.api-docs.path=/api-docs</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_webflux_support">Spring WebFlux support</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation can be available in yaml format as well, on the following path : /v3/api-docs.yaml</p>
+</li>
+<li>
+<p>Add the library to the list of your project dependencies (No additional configuration is needed)</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
+      &lt;version&gt;1.6.5&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_hateoas_support">Spring Hateoas support</h3>
+<div class="paragraph">
+<p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+This dependency enables the support of Spring Hateoas format.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_data_rest_support">Spring Data Rest support</h3>
+<div class="paragraph">
+<p>The projects that use <code>spring-data-rest</code> can  add the following dependency in combination with the <code>springdoc-openapi-ui</code> dependency.
+This dependency enables the support of <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
+      &lt;version&gt;1.6.5&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_security_support">Spring Security support</h3>
+<div class="paragraph">
+<p>For a project that uses spring-security, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
+This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_native_support">Spring Native support</h3>
+<div class="paragraph">
+<p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.
+If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-ui</code> or <code>springdoc-openapi-webflux-ui</code>) dependency:
+- This dependency helps native support on springdoc-openapi (Only available since <code>v1.5.13</code>).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-native&lt;/artifactId&gt;
+      &lt;version&gt;1.6.5&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is the compatibility matrix which shows the tested/validated versions with <code>springdoc-openapi</code>:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc-openapi Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spring-native Version</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.13</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11-RC1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.12</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.5</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.11</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.3</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.10</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.9</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.9.2</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The url of the swagger-ui using native images, contains the version of the swagger-ui. This is related to the following enhancement request in GraalVM <a href="https://github.com/oracle/graal/issues/1108">#1108</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_actuator_support">Actuator support</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>In order to display <code>spring-boot-actuator</code> endpoints, simply add the following property:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Starting from the release <code>1.5.1</code>, it will be possible to expose the <strong>swagger-ui</strong> and the <strong>openapi</strong> endpoints on <strong>actuator port</strong>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The actuator management port has to be different from the application port.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To expose the swagger-ui, on the management port, you should set</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.use-management-port=true
+# This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, swaggerui</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
+- <code>http://serverName:managementPort/actuator</code></p>
+</div>
+<div class="paragraph">
+<p>For example, if you have the following settings:</p>
+</div>
+<div class="paragraph">
+<p>Two endpoints will be available:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>REST API that holdes the OpenAPI definition:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/openapi</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>An Endpoint, that routes to the swagger-ui:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/swaggerui</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">management.server.port=9090</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the example, you should also be able to see the springdoc-openapi endpoints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:9090/actuator</code></p>
+</li>
+<li>
+<p><code>http://serverName:9090/actuator/swaggerui</code></p>
+</li>
+<li>
+<p><code>http://serverName:9090/actuator/openapi</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, <code>CORS for your endpoints</code> on your application level should be enabled.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once enabled:
+- A dedicated group for the actuator endpoints will be by default added.
+- If no group is defined for the application, a default one will be added.</p>
+</div>
+<div class="paragraph">
+<p>The swagger-ui will be then accessible through the actuator port:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/swaggerui</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the management port is different from the application port and <code>springdoc.use-management-port</code> is not defined but <code>springdoc.show-actuator</code> is set to true:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code></p>
+</li>
+<li>
+<p>A dedicated group for the actuator endpoints will be by default added.</p>
+</li>
+<li>
+<p>If no group is defined for the application, a default one will be added.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to reach the actuator endpoints for this case (different port from your application), <code>CORS</code> for your actuator endpoints should be enabled.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Note: The naming of these new endpoints beneath the actuator base path cannot be customized for now.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_cloud_function_web_support">Spring Cloud Function Web support</h3>
+<div class="paragraph">
+<p><code>spring-cloud-function-web</code> exposes Java Function as REST endpoint automatically.
+* Since version <code>v1.6.3</code>, the support of functional endpoints has been added.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>These starters will display the OpenAPI description of the <code>spring-cloud-function-web</code> endpoints.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-ui</code> dependency.</p>
+</li>
+<li>
+<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-webflux-ui</code> dependency.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The customisation of the output can be achieved programmatically through  <code>OpenApiCustomizer</code> or with the annotations: <code>@RouterOperations</code> and <code>@RouterOperation</code>.
+For annotation usage, you have:
+*   <code>@RouterOperation</code>: It can be used alone, if the customisation is related to a single REST API.
+When using <code>@RouterOperation</code>, it&#8217;s not mandatory to fill the path</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@RouterOperation</code>, contains the <code>@Operation</code> annotation.
+The <code>@Operation</code> annotation can also be placed on the bean method level if the property beanMethod is declared.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandatory</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+@RouterOperation(operation = @Operation(description = "Say hello", operationId = "hello", tags = "persons",
+        responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = PersonDTO.class)))))
+public Supplier&lt;PersonDTO&gt; helloSupplier() {
+    return () -&gt; new PersonDTO();
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@RouterOperations</code>: This annotation should be used to describe the multiple REST APIs exposed by <code>spring-cloud-function-web</code>.
+When using <code>RouterOperations</code>, it&#8217;s mandatory to fill the method property.</p>
+</li>
+<li>
+<p>A <code>@RouterOperations</code>, contains many <code>@RouterOperation</code>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+@RouterOperations({
+        @RouterOperation(method = RequestMethod.GET, operation = @Operation(description = "Say hello GET", operationId = "lowercaseGET", tags = "persons")),
+        @RouterOperation(method = RequestMethod.POST, operation = @Operation(description = "Say hello POST", operationId = "lowercasePOST", tags = "positions"))
+})
+public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
+    return flux -&gt; flux.map(value -&gt; value.toLowerCase());
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some code samples are available on GITHUB of demos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-cloud-function" target="_blank" rel="noopener">Sample applications with Spring Cloud Function Web</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_kotlin_support">Kotlin support</h3>
+<div class="paragraph">
+<p>For a project that uses Kotlin, you should add the following dependency.
+This dependency improves the support of Kotlin types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are using spring-web, you should combine the <code>springdoc-openapi-kotlin</code> module with <code>springdoc-openapi-ui</code>.</p>
+</li>
+<li>
+<p>If you are using spring-webflux, you should combine the <code>springdoc-openapi-kotlin</code> module  with <code>springdoc-openapi-webflux-ui</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_groovy_support">Groovy support</h3>
+<div class="paragraph">
+<p>For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
+This dependency improves the support of Kotlin types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
+      &lt;version&gt;1.6.5&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_javadoc_support">Javadoc support</h3>
+<div class="paragraph">
+<p>For a project that wants to enable javadoc support, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This dependency improves the support of javadoc tags and comments:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The javadoc comment of a method: is resolved as the <code>@Operation</code> description</p>
+</li>
+<li>
+<p><code>@return </code>: is resolved as the <code>@Operation</code> response description</p>
+</li>
+<li>
+<p>The javadoc comment of an attribute: is resolved as '@Schema' description for this field.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This dependency is based on the library <a href="https://github.com/dnault/therapi-runtime-javadoc">therapi-runtime-javadoc</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Make sure, you enable the annotation processor of <code>therapi-runtime-javadoc</code> in order to enable javadoc support for springdoc-openapi.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+				&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+				&lt;configuration&gt;
+					&lt;annotationProcessorPaths&gt;
+						&lt;path&gt;
+							&lt;groupId&gt;com.github.therapi&lt;/groupId&gt;
+							&lt;artifactId&gt;therapi-runtime-javadoc-scribe&lt;/artifactId&gt;
+							&lt;version&gt;0.13.0&lt;/version&gt;
+						&lt;/path&gt;
+					&lt;/annotationProcessorPaths&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2022-01-26 13:08:07 +0100
+</div>
+</div>
+<script src="js/highlight/highlight.min.js"></script>
+<script>
+if (!hljs.initHighlighting.called) {
+  hljs.initHighlighting.called = true
+  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
+}
+</script>
+<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
+<script type="text/javascript" src="js/toc.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-143834491-1');
+</script>
+</body>
+</html>
