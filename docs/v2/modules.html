@@ -62,7 +62,7 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
@@ -114,7 +114,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
       &lt;version&gt;1.6.5&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
@@ -124,66 +124,30 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <h3 id="_spring_hateoas_support">Spring Hateoas support</h3>
 <div class="paragraph">
 <p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
-The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-starter-webmvc-ui dependency.
 This dependency enables the support of Spring Hateoas format.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_spring_data_rest_support">Spring Data Rest support</h3>
 <div class="paragraph">
-<p>The projects that use <code>spring-data-rest</code> can  add the following dependency in combination with the <code>springdoc-openapi-ui</code> dependency.
+<p>The projects that use <code>spring-data-rest</code> can should use <code>springdoc-openapi-starter-common</code>.
 This dependency enables the support of <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_spring_security_support">Spring Security support</h3>
 <div class="paragraph">
-<p>For a project that uses spring-security, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
-This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
+<p>For a project that uses spring-security, you should use <code>springdoc-openapi-starter-common</code>.
+This dependency helps ignoring @AuthenticationPrincipal in case it is used on REST Controllers.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_spring_native_support">Spring Native support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.
-If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-ui</code> or <code>springdoc-openapi-webflux-ui</code>) dependency:
+If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-starter-webmvc-ui</code> or <code>springdoc-openapi-starter-webflux-ui</code>) dependency:
 - This dependency helps native support on springdoc-openapi (Only available since <code>v1.5.13</code>).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-native&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 <div class="paragraph">
 <p>This is the compatibility matrix which shows the tested/validated versions with <code>springdoc-openapi</code>:</p>
@@ -415,10 +379,10 @@ If you want to reach the actuator endpoints for this case (different port from y
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-ui</code> dependency.</p>
+<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-starter-webmvc-ui</code> dependency.</p>
 </li>
 <li>
-<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-webflux-ui</code> dependency.</p>
+<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-starter-webflux-ui</code> dependency.</p>
 </li>
 </ul>
 </div>
@@ -498,25 +462,16 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <div class="sect2">
 <h3 id="_kotlin_support">Kotlin support</h3>
 <div class="paragraph">
-<p>For a project that uses Kotlin, you should add the following dependency.
-This dependency improves the support of Kotlin types:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
+<p>For a project that uses Kotlin, you should use <code>springdoc-openapi-starter-common</code>.
+This dependency improves the support of Kotlin types.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using spring-web, you should combine the <code>springdoc-openapi-kotlin</code> module with <code>springdoc-openapi-ui</code>.</p>
+<p>If you are using spring-web, you should combine the <code>springdoc-openapi-kotlin</code> module with <code>springdoc-openapi-starter-webmvc-ui</code>.</p>
 </li>
 <li>
-<p>If you are using spring-webflux, you should combine the <code>springdoc-openapi-kotlin</code> module  with <code>springdoc-openapi-webflux-ui</code>.</p>
+<p>If you are using spring-webflux, you should combine the <code>springdoc-openapi-kotlin</code> module  with <code>springdoc-openapi-starter-webflux-ui</code>.</p>
 </li>
 </ul>
 </div>
@@ -524,35 +479,15 @@ This dependency improves the support of Kotlin types:</p>
 <div class="sect2">
 <h3 id="_groovy_support">Groovy support</h3>
 <div class="paragraph">
-<p>For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
+<p>For a project that uses Groovy, you should use <code>springdoc-openapi-starter-common</code>.
 This dependency improves the support of Kotlin types:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_javadoc_support">Javadoc support</h3>
 <div class="paragraph">
-<p>For a project that wants to enable javadoc support, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This dependency improves the support of javadoc tags and comments:</p>
+<p>For a project that wants to enable javadoc support, you should use <code>springdoc-openapi-starter-common</code>.
+This dependency improves the support of javadoc tags and comments:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -621,7 +556,7 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-26 13:08:07 +0100
+Last updated 2022-01-26 23:41:01 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>
