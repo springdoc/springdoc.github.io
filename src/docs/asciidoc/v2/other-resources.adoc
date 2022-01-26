@@ -1,0 +1,24 @@
+[[other-resources]]
+== Other resources
+
+=== Additional resources to get started
+- link:https://prezi.com/view/r4DP4TCmYUJk1eaqjKG4/[Springdoc-openapi presentation, window="_blank"]
+- link:https://www.baeldung.com/spring-rest-openapi-documentation[Baeldung, window="_blank"]
+- link:https://dzone.com/articles/openapi-3-documentation-with-spring-boot[DZone Part1, window="_blank"]
+- link:https://dzone.com/articles/doing-more-with-springdoc-openapi[DZone Part2, window="_blank"]
+- link:https://dzone.com/articles/extending-swagger-and-spring-doc-open-api[Extending Swagger and Spring Doc Open API, window="_blank"]
+- link:https://piotrminkowski.com/2020/02/20/microservices-api-documentation-with-springdoc-openapi/[Piotrminkowski Blog, window="_blank"]
+
+
+=== Dependencies repository
+
+The `springdoc-openapi` libraries are hosted on maven central repository.
+The artifacts can be viewed accessed at the following locations:
+
+Releases:
+
+* link:https://s01.oss.sonatype.org/content/groups/public/org/springdoc/[https://s01.oss.sonatype.org/content/groups/public/org/springdoc/, window="_blank"]
+
+Snapshots:
+
+* link:https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/[https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/, window="_blank", window="_blank"]

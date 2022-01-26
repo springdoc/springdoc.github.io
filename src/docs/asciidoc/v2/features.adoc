@@ -1,0 +1,180 @@
+[[features]]
+== Springdoc-openapi Features
+
+=== Adding API Information and Security documentation
+The library uses spring-boot application auto-configured packages to scan for the following annotations in spring beans: OpenAPIDefinition and Info.
+These annotations declare, API Information: Title, version, licence, security, servers, tags, security and externalDocs.
+For better performance of documentation generation, declare @OpenAPIDefinition and @SecurityScheme annotations within a spring managed bean.
+
+=== Error Handling for REST using @ControllerAdvice
+To generate documentation automatically, make sure all the methods declare the HTTP Code responses using the annotation: @ResponseStatus
+
+=== Disabling the `springdoc-openapi` endpoints
+In order to disable the `springdoc-openapi` endpoint (/v3/api-docs by default) use the following property:
+[source,properties]
+----
+# Disabling the /v3/api-docs endpoint
+springdoc.api-docs.enabled=false
+----
+
+=== Disabling the swagger-ui
+In order to disable the swagger-ui, use the following property:
+[source,properties]
+----
+# Disabling the swagger-ui
+springdoc.swagger-ui.enabled=false
+----
+
+=== Swagger-ui configuration
+The library supports the swagger-ui official properties:
+
+* link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/, window="_blank"]
+
+You need to declare swagger-ui properties as spring-boot properties.
+All these properties should be declared with the following prefix: **springdoc.swagger-ui**
+
+=== Selecting the Rest Controllers to include in the documentation
+Additionally, to @Hidden annotation from swagger-annotations, its possible to restrict the generated OpenAPI description using package or path configuration.
+
+For the list of packages to include, use the following property:
+[source,properties]
+----
+# Packages to include
+springdoc.packagesToScan=com.package1, com.package2
+----
+
+For the list of paths to include, use the following property:
+[source,properties]
+----
+# Paths to include
+springdoc.pathsToMatch=/v1, /api/balance/**
+----
+
+=== Spring-webflux/WebMvc.fn with Functional Endpoints
+Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-framework: link:https://github.com/spring-projects/spring-framework/issues/25938[#25938]
+
+It's an alternative functional API to the `@RouterOperations` annotations.
+
+This is a sample DSL, to generate OpenAPI description to the webflux/WebMvc.fn REST endpoints:
+
+[source,java]
+----
+@Bean
+RouterFunction<?> routes() {
+    return route().GET("/foo", HANDLER_FUNCTION, ops -> ops
+            .operationId("hello")
+            .parameter(parameterBuilder().name("key1").description("My key1 description"))
+            .parameter(parameterBuilder().name("key2").description("My key2 description"))
+            .response(responseBuilder().responseCode("200").description("This is normal response description"))
+            .response(responseBuilder().responseCode("404").description("This is another response description"))
+    ).build();
+}
+----
+
+Here is the link for some sample codes:
+
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/HelloRouter.java[HelloRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java[QuotesRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java[BookRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java[EmployeeRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java[PositionRouter]
+
+And the Demo code, using the functional endpoints DSL:
+
+- link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional[Sample webflux application using functional DSL]
+
+Since version `v1.3.8`, the support of functional endpoints has been added.
+Two main annotations have been added for this purpose: `@RouterOperations` and `@RouterOperation`.
+
+Only REST APIs with the `@RouterOperations` and `@RouterOperation` can be displayed on the swagger-ui.
+
+*   `@RouterOperation`: It can be used alone, if the Router bean contains one single route related to the REST API..
+When using @RouterOperation, its not mandatory to fill the path
+
+*   `@RouterOperation`, can reference directly a spring Bean (beanClass property) and the underlying method (beanMethod property): Springdoc-openapi, will then inspect this method and the swagger annotations on this method level.
+
+[source,java]
+----
+@Bean
+@RouterOperation(beanClass = EmployeeService.class, beanMethod = "findAllEmployees")
+RouterFunction<ServerResponse> getAllEmployeesRoute() {
+   return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
+         req -> ok().body(
+               employeeService().findAllEmployees(), Employee.class));
+}
+----
+
+*   `@RouterOperation`, contains the `@Operation` annotation.
+The `@Operation` annotation can also be placed on the bean method level if the property beanMethod is declared.
+
+IMPORTANT:   Don't forget to set **operationId** which is **mandatory**.
+
+[source,java]
+----
+@Bean
+@RouterOperation(operation = @Operation(operationId = "findEmployeeById", summary = "Find purchase order by ID", tags = { "MyEmployee" },
+      parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Employee Id") },
+      responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Employee.class))),
+            @ApiResponse(responseCode = "400", description = "Invalid Employee ID supplied"),
+            @ApiResponse(responseCode = "404", description = "Employee not found") }))
+RouterFunction<ServerResponse> getEmployeeByIdRoute() {
+   return route(GET("/employees/{id}"),
+         req -> ok().body(
+               employeeRepository().findEmployeeById(req.pathVariable("id")), Employee.class));
+}
+----
+
+*   `@RouterOperations`: This annotation should be used if the Router bean contains multiple routes.
+When using RouterOperations, its mandatory to fill the path property.
+
+*   A `@RouterOperations`, contains many `@RouterOperation`.
+
+[source,java]
+----
+@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
+      @RouterOperation(path = "/getPerson/{id}", beanClass = PersonService.class, beanMethod = "getById"),
+      @RouterOperation(path = "/createPerson", beanClass = PersonService.class, beanMethod = "save"),
+      @RouterOperation(path = "/deletePerson/{id}", beanClass = PersonService.class, beanMethod = "delete") })
+@Bean
+public RouterFunction<ServerResponse> personRoute(PersonHandler handler) {
+   return RouterFunctions
+         .route(GET("/getAllPersons").and(accept(MediaType.APPLICATION_JSON)), handler::findAll)
+         .andRoute(GET("/getPerson/{id}").and(accept(MediaType.APPLICATION_STREAM_JSON)), handler::findById)
+         .andRoute(POST("/createPerson").and(accept(MediaType.APPLICATION_JSON)), handler::save)
+         .andRoute(DELETE("/deletePerson/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::delete);
+}
+----
+
+All the documentations filled using @RouterOperation, might be completed by the router function data.
+For that, `@RouterOperation` fields must help identify uniquely the concerned route.
+`springdoc-openpi` scans for a unique route related to a `@RouterOperation` annotation, using on the following criteria:
+
+* by path
+* by path and RequestMethod
+* by path and produces
+* by path and consumes
+* by path and RequestMethod and produces
+* by path and RequestMethod and consumes
+* by path and produces and consumes
+* by path and RequestMethod and produces and consumes
+
+Some code samples are available on GITHUB of demos:
+
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional[Sample application with Functional Endpoints documentation, window="_blank"]
+
+And some project tests: (from app69 to app75)
+
+* link:https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api[Sample code with Functional Endpoints documentation, window="_blank"]
+
+=== Integration with WildFly
+
+*   For WildFly users, you need to add the following dependency to make the swagger-ui work:
+
+[source,xml]
+----
+   <dependency>
+     <groupId>org.webjars</groupId>
+     <artifactId>webjars-locator-jboss-vfs</artifactId>
+     <version>0.1.0</version>
+   </dependency>
+----

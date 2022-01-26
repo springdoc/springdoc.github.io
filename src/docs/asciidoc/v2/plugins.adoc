@@ -1,0 +1,87 @@
+[[plugins]]
+== Springdoc-openapi Plugins
+
+=== Maven plugin
+
+The aim of `springdoc-openapi-maven-plugin` is to generate json and yaml OpenAPI description  during build time.
+The plugin works during integration-tests phase, and generate the OpenAPI description.
+The plugin works in conjunction with spring-boot-maven plugin.
+
+You can test it during the integration tests phase using the maven command:
+
+[source,bash]
+----
+mvn verify
+----
+
+In order to use this functionality, you need to add the plugin declaration on the plugins section of your pom.xml:
+
+[source,xml]
+----
+<plugin>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-maven-plugin</artifactId>
+ <version>2.3.4.RELEASE</version>
+ <configuration>
+    <jvmArguments>-Dspring.application.admin.enabled=true</jvmArguments>
+ </configuration>
+ <executions>
+  <execution>
+   <id>pre-integration-test</id>
+   <goals>
+    <goal>start</goal>
+   </goals>
+  </execution>
+  <execution>
+   <id>post-integration-test</id>
+   <goals>
+    <goal>stop</goal>
+   </goals>
+  </execution>
+ </executions>
+</plugin>
+<plugin>
+ <groupId>org.springdoc</groupId>
+ <artifactId>springdoc-openapi-maven-plugin</artifactId>
+ <version>1.3</version>
+ <executions>
+  <execution>
+   <id>integration-test</id>
+   <goals>
+    <goal>generate</goal>
+   </goals>
+  </execution>
+ </executions>
+</plugin>
+----
+
+For more custom settings of the springdoc-openapi-maven-plugin, you can consult the plugin documentation:
+
+* link:https://github.com/springdoc/springdoc-openapi-maven-plugin[https://github.com/springdoc/springdoc-openapi-maven-plugin, window="_blank"]
+
+=== Gradle plugin
+
+This plugin allows you to generate an OpenAPI 3 specification for a Spring Boot application from a Gradle build.
+
+[source,groovy]
+----
+plugins {
+      id("org.springframework.boot") version "2.3.0.RELEASE"
+      id("com.github.johnrengelman.processes") version "0.5.0"
+      id("org.springdoc.openapi-gradle-plugin") version "1.3.3"
+}
+----
+
+When you add this plugin and its runtime dependency plugins to your build file, the plugin creates the following tasks:
+
+* forkedSpringBootRun
+* generateOpenApiDocs
+
+[source,bash]
+----
+gradle clean generateOpenApiDocs
+----
+
+For more custom configuration of `springdoc-openapi-gradle-plugin` ,you can consult the plugin documentation:
+
+* link:https://github.com/springdoc/springdoc-openapi-gradle-plugin[https://github.com/springdoc/springdoc-openapi-gradle-plugin, window="_blank"]
