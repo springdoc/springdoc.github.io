@@ -17,7 +17,7 @@ image::images/common.jpg[Architecture]
 ----
    <dependency>
       <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-webmvc-core</artifactId>
+      <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
       <version>2.0.0-SNAPSHOT</version>
    </dependency>
 ----
@@ -42,7 +42,7 @@ springdoc.api-docs.path=/api-docs
 ----
    <dependency>
       <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-webflux-ui</artifactId>
+      <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
       <version>{springdoc-version}</version>
    </dependency>
 ----
@@ -50,58 +50,25 @@ springdoc.api-docs.path=/api-docs
 
 === Spring Hateoas support
 The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
-The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-starter-webmvc-ui dependency.
 This dependency enables the support of Spring Hateoas format.
 
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-hateoas</artifactId>
-      <version>2.0.0-SNAPSHOT</version>
-   </dependency>
-----
 
 === Spring Data Rest support
 
-The projects that use `spring-data-rest` can  add the following dependency in combination with the `springdoc-openapi-ui` dependency.
+The projects that use `spring-data-rest` can should use `springdoc-openapi-starter-common`.
 This dependency enables the support of `spring-boot-starter-data-rest` types like: `@RepositoryRestResource` and `QuerydslPredicate` annotations.
 
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-data-rest</artifactId>
-      <version>{springdoc-version}</version>
-   </dependency>
-----
 
 === Spring Security support
-For a project that uses spring-security, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
-This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.
+For a project that uses spring-security, you should use `springdoc-openapi-starter-common`.
+This dependency helps ignoring @AuthenticationPrincipal in case it is used on REST Controllers.
 
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-security</artifactId>
-      <version>2.0.0-SNAPSHOT</version>
-   </dependency>
-----
 
 === Spring Native support
 `springdoc-openapi`, supports out of the box https://www.graalvm.org/[GraalVM] native images.
-If the application uses https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/[spring-native], you should add the following dependency, in combination with  the (`springdoc-openapi-ui` or `springdoc-openapi-webflux-ui`) dependency:
+If the application uses https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/[spring-native], you should add the following dependency, in combination with  the (`springdoc-openapi-starter-webmvc-ui` or `springdoc-openapi-starter-webflux-ui`) dependency:
 - This dependency helps native support on springdoc-openapi (Only available since `v1.5.13`).
-
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-native</artifactId>
-      <version>{springdoc-version}</version>
-   </dependency>
-----
 
 This is the compatibility matrix which shows the tested/validated versions with `springdoc-openapi`:
 
@@ -201,8 +168,8 @@ Note: The naming of these new endpoints beneath the actuator base path cannot be
 * Since version `v1.6.3`, the support of functional endpoints has been added.
 
 * These starters will display the OpenAPI description of the `spring-cloud-function-web` endpoints.
-- If you are using `spring-web`, simply add the `springdoc-openapi-ui` dependency.
-- If you are using `spring-webflux`, simply add the `springdoc-openapi-webflux-ui` dependency.
+- If you are using `spring-web`, simply add the `springdoc-openapi-starter-webmvc-ui` dependency.
+- If you are using `spring-webflux`, simply add the `springdoc-openapi-starter-webflux-ui` dependency.
 
 
 The customisation of the output can be achieved programmatically through  `OpenApiCustomizer` or with the annotations: `@RouterOperations` and `@RouterOperation`.
@@ -248,46 +215,19 @@ Some code samples are available on GITHUB of demos:
 
 
 === Kotlin support
-For a project that uses Kotlin, you should add the following dependency.
-This dependency improves the support of Kotlin types:
+For a project that uses Kotlin, you should use `springdoc-openapi-starter-common`.
+This dependency improves the support of Kotlin types.
 
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-kotlin</artifactId>
-      <version>2.0.0-SNAPSHOT</version>
-   </dependency>
-----
-
-* If you are using spring-web, you should combine the `springdoc-openapi-kotlin` module with `springdoc-openapi-ui`.
-* If you are using spring-webflux, you should combine the `springdoc-openapi-kotlin` module  with `springdoc-openapi-webflux-ui`.
+* If you are using spring-web, you should combine the `springdoc-openapi-kotlin` module with `springdoc-openapi-starter-webmvc-ui`.
+* If you are using spring-webflux, you should combine the `springdoc-openapi-kotlin` module  with `springdoc-openapi-starter-webflux-ui`.
 
 === Groovy support
-For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
+For a project that uses Groovy, you should use `springdoc-openapi-starter-common`.
 This dependency improves the support of Kotlin types:
 
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-groovy</artifactId>
-      <version>{springdoc-version}</version>
-   </dependency>
-----
 
 === Javadoc support
-For a project that wants to enable javadoc support, you should add the following dependency, in combination with the `springdoc-openapi-ui` dependency:
-
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-javadoc</artifactId>
-      <version>2.0.0-SNAPSHOT</version>
-   </dependency>
-----
-
+For a project that wants to enable javadoc support, you should use `springdoc-openapi-starter-common`.
 This dependency improves the support of javadoc tags and comments:
 
 - The javadoc comment of a method: is resolved as the `@Operation` description

@@ -223,8 +223,6 @@ public String toString() {
 }
 ----
 
-=== Does it really support Spring Boot 2.2.x.RELEASE & HATEOAS 1.0?
-* Yes
 
 === How can I deploy `springdoc-openapi-ui` behind a reverse proxy?
 * If your application is running behind a proxy, a load-balancer or in the cloud, the request information (like the host, port, scheme…​) might change along the way. Your application may be running on `10.10.10.10:8080`, but HTTP clients should only see `example.org`.
