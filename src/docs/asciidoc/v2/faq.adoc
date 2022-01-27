@@ -137,7 +137,7 @@ springdoc.packagesToScan=package1, package2
 === How can I ignore `@AuthenticationPrincipal` parameter from spring-security ?
 * A solution workaround would be to use: `@Parameter(hidden = true)`
 * For a project that uses `spring-security`, you should add `springdoc-openapi-starter-common`:
-----
+
 
 === Is there a Gradle plugin available?
 * Yes. More details are available, in the link:https://springdoc.org/#gradle-plugin[gradle plugin] section.

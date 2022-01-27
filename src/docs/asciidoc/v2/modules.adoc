@@ -59,7 +59,6 @@ This dependency enables the support of Spring Hateoas format.
 The projects that use `spring-data-rest` can should use `springdoc-openapi-starter-common`.
 This dependency enables the support of `spring-boot-starter-data-rest` types like: `@RepositoryRestResource` and `QuerydslPredicate` annotations.
 
-
 === Spring Security support
 For a project that uses spring-security, you should use `springdoc-openapi-starter-common`.
 This dependency helps ignoring @AuthenticationPrincipal in case it is used on REST Controllers.
