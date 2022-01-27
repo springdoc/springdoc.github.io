@@ -42,4 +42,10 @@
 |springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
 |springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
 |springdoc.show-spring-cloud-functions | `true` |  `Boolean`. To display the spring-cloud-function web endpoints.
+|springdoc.enable-groovy | `true` |  `Boolean`. To enable Groovy support.
+|springdoc.enable-spring-security | `true` |  `Boolean`. To enable spring-security support.
+|springdoc.enable-kotlin | `true` |  `Boolean`. To enable Kotlin support.
+|springdoc.enable-native-support | `true` |  `Boolean`. To enable spring-native support.
+|springdoc.enable-hateoas | `true` |  `Boolean`. To enable spring-hateoas support.
+|springdoc.enable-data-rest | `true` |  `Boolean`. To enable spring-data-rest support.
 |===
