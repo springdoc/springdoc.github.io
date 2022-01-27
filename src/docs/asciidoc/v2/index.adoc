@@ -4,24 +4,24 @@ include::_attributes.adoc[]
 
 link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:images/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
 
-include::intro.adoc[]
+include::v2/intro.adoc[]
 
-include::getting-started.adoc[]
+include::v2/getting-started.adoc[]
 
-include::modules.adoc[]
+include::v2/modules.adoc[]
 
-include::features.adoc[]
+include::v2/features.adoc[]
 
-include::properties.adoc[]
+include::v2/properties.adoc[]
 
-include::plugins.adoc[]
+include::v2/plugins.adoc[]
 
-include::demos.adoc[]
+include::v2/demos.adoc[]
 
-include::migrating-from-springfox.adoc[]
+include::v2/migrating-from-springfox.adoc[]
 
-include::other-resources.adoc[]
+include::v2/other-resources.adoc[]
 
-include::thanks.adoc[]
+include::v2/thanks.adoc[]
 
-include::faq.adoc[]
+include::v2/faq.adoc[]

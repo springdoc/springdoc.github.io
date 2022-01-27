@@ -104,9 +104,9 @@
 <li><a href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero">11.19. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</a></li>
 <li><a href="#how-can-i-map-pageable-spring-date-commons-object-to-correct-url-parameter-in-swagger-ui">11.20. How can I map <code>Pageable</code> (spring-date-commons) object to correct URL-Parameter in Swagger UI?</a></li>
 <li><a href="#how-can-i-generate-enums-in-the-generated-description">11.21. How can I generate enums in the generated description?</a></li>
-<li><a href="#how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy">11.22. How can I deploy <code>springdoc-openapi-ui</code> behind a reverse proxy?</a></li>
+<li><a href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">11.22. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</a></li>
 <li><a href="#is-jsonview-annotations-in-spring-mvc-apis-supported">11.23. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</a></li>
-<li><a href="#adding-springdoc-openapi-ui-dependency-breaks-my-publicindex-html-welcome-page">11.24. Adding <code>springdoc-openapi-ui</code> dependency breaks my <code>public/index.html</code> welcome page</a></li>
+<li><a href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page">11.24. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</a></li>
 <li><a href="#how-can-i-test-the-swagger-ui">11.25. How can I test the Swagger UI?</a></li>
 <li><a href="#how-can-i-customise-the-openapi-object">11.26. How can I customise the OpenAPI object ?</a></li>
 <li><a href="#how-can-i-return-an-empty-content-as-response">11.27. How can I return an empty content as response?</a></li>
@@ -191,7 +191,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <p>OpenAPI 3</p>
 </li>
 <li>
-<p>Spring-boot (v1 and v2)</p>
+<p>Spring-boot v3 (Java 17 &amp; Jakarta EE 9)</p>
 </li>
 <li>
 <p>JSR-303, specifically for @NotNull, @Min, @Max, and @Size.</p>
@@ -230,8 +230,8 @@ This documentation can be completed by comments using swagger-api annotations.</
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -327,8 +327,8 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -379,7 +379,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
       &lt;version&gt;1.6.5&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
@@ -389,66 +389,30 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <h3 id="spring-hateoas-support"><a class="anchor" href="#spring-hateoas-support"></a>3.4. Spring Hateoas support</h3>
 <div class="paragraph">
 <p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
-The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-ui dependency.
+The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-starter-webmvc-ui dependency.
 This dependency enables the support of Spring Hateoas format.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="spring-data-rest-support"><a class="anchor" href="#spring-data-rest-support"></a>3.5. Spring Data Rest support</h3>
 <div class="paragraph">
-<p>The projects that use <code>spring-data-rest</code> can  add the following dependency in combination with the <code>springdoc-openapi-ui</code> dependency.
+<p>The projects that use <code>spring-data-rest</code> can should use <code>springdoc-openapi-starter-common</code>.
 This dependency enables the support of <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="spring-security-support"><a class="anchor" href="#spring-security-support"></a>3.6. Spring Security support</h3>
 <div class="paragraph">
-<p>For a project that uses spring-security, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
-This dependency helps ignoring @AuthenticationPrincipal in case its used on REST Controllers.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
+<p>For a project that uses spring-security, you should use <code>springdoc-openapi-starter-common</code>.
+This dependency helps ignoring @AuthenticationPrincipal in case it is used on REST Controllers.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="spring-native-support"><a class="anchor" href="#spring-native-support"></a>3.7. Spring Native support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.
-If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-ui</code> or <code>springdoc-openapi-webflux-ui</code>) dependency:
+If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-starter-webmvc-ui</code> or <code>springdoc-openapi-starter-webflux-ui</code>) dependency:
 - This dependency helps native support on springdoc-openapi (Only available since <code>v1.5.13</code>).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-native&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 <div class="paragraph">
 <p>This is the compatibility matrix which shows the tested/validated versions with <code>springdoc-openapi</code>:</p>
@@ -680,10 +644,10 @@ If you want to reach the actuator endpoints for this case (different port from y
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-ui</code> dependency.</p>
+<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-starter-webmvc-ui</code> dependency.</p>
 </li>
 <li>
-<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-webflux-ui</code> dependency.</p>
+<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-starter-webflux-ui</code> dependency.</p>
 </li>
 </ul>
 </div>
@@ -763,25 +727,16 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <div class="sect2">
 <h3 id="kotlin-support"><a class="anchor" href="#kotlin-support"></a>3.10. Kotlin support</h3>
 <div class="paragraph">
-<p>For a project that uses Kotlin, you should add the following dependency.
-This dependency improves the support of Kotlin types:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
+<p>For a project that uses Kotlin, you should use <code>springdoc-openapi-starter-common</code>.
+This dependency improves the support of Kotlin types.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using spring-web, you should combine the <code>springdoc-openapi-kotlin</code> module with <code>springdoc-openapi-ui</code>.</p>
+<p>If you are using spring-web, you should combine the <code>springdoc-openapi-kotlin</code> module with <code>springdoc-openapi-starter-webmvc-ui</code>.</p>
 </li>
 <li>
-<p>If you are using spring-webflux, you should combine the <code>springdoc-openapi-kotlin</code> module  with <code>springdoc-openapi-webflux-ui</code>.</p>
+<p>If you are using spring-webflux, you should combine the <code>springdoc-openapi-kotlin</code> module  with <code>springdoc-openapi-starter-webflux-ui</code>.</p>
 </li>
 </ul>
 </div>
@@ -789,35 +744,15 @@ This dependency improves the support of Kotlin types:</p>
 <div class="sect2">
 <h3 id="groovy-support"><a class="anchor" href="#groovy-support"></a>3.11. Groovy support</h3>
 <div class="paragraph">
-<p>For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
+<p>For a project that uses Groovy, you should use <code>springdoc-openapi-starter-common</code>.
 This dependency improves the support of Kotlin types:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="javadoc-support"><a class="anchor" href="#javadoc-support"></a>3.12. Javadoc support</h3>
 <div class="paragraph">
-<p>For a project that wants to enable javadoc support, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This dependency improves the support of javadoc tags and comments:</p>
+<p>For a project that wants to enable javadoc support, you should use <code>springdoc-openapi-starter-common</code>.
+This dependency improves the support of javadoc tags and comments:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -1018,7 +953,7 @@ RouterFunction&lt;?&gt; routes() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional">Sample webflux application using functional DSL</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/demo-spring-boot-3-webflux-functional">Sample webflux application using functional DSL</a></p>
 </li>
 </ul>
 </div>
@@ -1785,28 +1720,25 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://158.101.191.70:8081/" target="_blank" rel="noopener">Demo Spring Boot 2 Web MVC with OpenAPI 3</a></p>
+<p><a href="http://144.24.171.248:8081/" target="_blank" rel="noopener">Demo Spring Boot 3 Web MVC with OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="http://158.101.191.70:8082/" target="_blank" rel="noopener">Demo Spring Boot 2 WebFlux with OpenAPI 3</a></p>
+<p><a href="http://144.24.171.248:8082/" target="_blank" rel="noopener">Demo Spring Boot 3 WebFlux with OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="http://158.101.191.70:8083/" target="_blank" rel="noopener">Demo Spring Boot 1 Web MVC with OpenAPI 3</a></p>
+<p><a href="http://144.24.171.248:8084/" target="_blank" rel="noopener">Demo Spring Boot 3 WebFlux with Functional endpoints OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="http://158.101.191.70:8084/" target="_blank" rel="noopener">Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3</a></p>
+<p><a href="http://144.24.171.248:8085/" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Hateoas with OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="http://158.101.191.70:8085/" target="_blank" rel="noopener">Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3</a></p>
+<p><a href="http://144.24.171.248:8060/" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Cloud Gateway</a></p>
 </li>
 <li>
-<p><a href="http://158.101.191.70:8060/" target="_blank" rel="noopener">Demo Spring Boot 2 and Spring Cloud Gateway</a></p>
+<p><a href="http://144.24.171.248:8086/" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Cloud Function Web MVC</a></p>
 </li>
 <li>
-<p><a href="http://158.101.191.70:8086/" target="_blank" rel="noopener">Demo Spring Boot 2 and Spring Cloud Function Web MVC</a></p>
-</li>
-<li>
-<p><a href="http://158.101.191.70:8087/" target="_blank" rel="noopener">Demo Spring Boot 2 and Spring Cloud Function WebFlux</a></p>
+<p><a href="http://144.24.171.248:8087/" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Cloud Function WebFlux</a></p>
 </li>
 </ul>
 </div>
@@ -1834,7 +1766,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Remove springfox and swagger 2 dependencies. Add <code>springdoc-openapi-ui</code> dependency instead.</p>
+<p>Remove springfox and swagger 2 dependencies. Add <code>springdoc-openapi-starter-webmvc-ui</code> dependency instead.</p>
 </li>
 </ul>
 </div>
@@ -1842,15 +1774,15 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.5&lt;/version&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0-SNAPSHOT&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Replace swagger 2 annotations with swagger 3 annotations (it is already included with <code>springdoc-openapi-ui</code> dependency).
+<p>Replace swagger 2 annotations with swagger 3 annotations (it is already included with <code>springdoc-openapi-starter-webmvc-ui</code> dependency).
 Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.</p>
 <div class="ulist">
 <ul>
@@ -1981,7 +1913,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="index.html#how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy">how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy</a></p>
+<p><a href="index.html#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy</a></p>
 </li>
 </ul>
 </div>
@@ -2165,7 +2097,7 @@ public GroupedOpenApi groupOpenApi() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/tree/2.x/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app68" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68</a></p>
 </li>
 </ul>
 </div>
@@ -2349,7 +2281,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 <p>A solution workaround would be to use: <code>@Parameter(hidden = true)</code></p>
 </li>
 <li>
-<p>For a project that uses <code>spring-security</code>, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
+<p>For a project that uses <code>spring-security</code>, you should add the following dependency, in combination with the <code>springdoc-openapi-starter-webmvc-ui</code> dependency:</p>
 </li>
 </ul>
 </div>
@@ -2537,7 +2469,7 @@ public String toString() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy"><a class="anchor" href="#how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy"></a>11.22. How can I deploy <code>springdoc-openapi-ui</code> behind a reverse proxy?</h3>
+<h3 id="how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy"><a class="anchor" href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy"></a>11.22. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2580,7 +2512,7 @@ public String toString() {
 <p>If this is not enough, Spring Framework provides a <code>ForwardedHeaderFilter</code>. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.</p>
 </li>
 <li>
-<p>Since Spring Boot 2.2, this is the new property to handle reverse proxy headers:</p>
+<p>Since Spring Boot 3.2, this is the new property to handle reverse proxy headers:</p>
 </li>
 </ul>
 </div>
@@ -2616,11 +2548,11 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-springdoc-openapi-ui-dependency-breaks-my-publicindex-html-welcome-page"><a class="anchor" href="#adding-springdoc-openapi-ui-dependency-breaks-my-publicindex-html-welcome-page"></a>11.24. Adding <code>springdoc-openapi-ui</code> dependency breaks my <code>public/index.html</code> welcome page</h3>
+<h3 id="adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page"><a class="anchor" href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page"></a>11.24. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>If you already have static content on your root, and you don&#8217;t want it to be overridden by <code>springdoc-openapi-ui</code> configuration, you can just define a custom configuration of the <code>swagger-ui</code>, in order not to override the configuration of your files from in your context-root:</p>
+<p>If you already have static content on your root, and you don&#8217;t want it to be overridden by <code>springdoc-openapi-starter-webmvc-ui</code> configuration, you can just define a custom configuration of the <code>swagger-ui</code>, in order not to override the configuration of your files from in your context-root:</p>
 </li>
 <li>
 <p>For example use:</p>
@@ -2642,7 +2574,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java</a></p>
 </li>
 </ul>
 </div>
@@ -2662,7 +2594,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java</a></p>
 </li>
 </ul>
 </div>
@@ -2850,7 +2782,7 @@ ResponseEntity&lt;String&gt; testme() {
 <p>Remove all the dependencies and the related code to springfox</p>
 </li>
 <li>
-<p>Add <code>springdoc-openapi-ui</code> dependency</p>
+<p>Add <code>springdoc-openapi-starter-webmvc-ui</code> dependency</p>
 </li>
 <li>
 <p>If you don&#8217;t want to serve the UI from your root path or there is a conflict with an existing configuration, you can just change the following property:</p>
@@ -3048,7 +2980,7 @@ public OpenAPI customOpenAPI() {
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-  &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
+  &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
   &lt;version&gt;latest.version&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -3421,7 +3353,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
    &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-   &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
+   &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
    &lt;version&gt;last.version&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
@@ -3789,10 +3721,10 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 <div class="sect2">
 <h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>11.75. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
-<p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.</p>
+<p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 1.6.5.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.0.0-SNAPSHOT.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -3839,7 +3771,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-26 13:07:10 +0100
+Last updated 2022-01-27 12:43:35 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>
