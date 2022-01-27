@@ -274,7 +274,7 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 [source,java]
 ----
 @Bean
-public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
+public OpenApiCustomizer consumerTypeHeaderOpenAPICustomizer() {
 return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathItem.readOperations().stream())
     .forEach(operation -> operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
 }
@@ -508,15 +508,15 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
             .license(new License().name("Apache 2.0").url("http://springdoc.org")));
 }
 ----
-* If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomiser to your GroupedOpenApi definition.
+* If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomizer to your GroupedOpenApi definition.
 
 [source,java]
 ----
-GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
+GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomizer(customerGlobalHeaderOpenApiCustomizer())
                 .build()
 
 @Bean
-public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
+public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
    return openApi -> openApi.path("/foo",
    new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
    .addApiResponse("default",new ApiResponse().description("")

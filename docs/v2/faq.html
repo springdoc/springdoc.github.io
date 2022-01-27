@@ -453,7 +453,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 <div class="paragraph">
 <p>@Bean
-public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
+public OpenApiCustomizer consumerTypeHeaderOpenAPICustomizer() {
 return openApi &#8594; openApi.getPaths().values().stream().flatMap(pathItem &#8594; pathItem.readOperations().stream())
     .forEach(operation &#8594; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
 }</p>
@@ -736,18 +736,18 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>* If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomiser to your GroupedOpenApi definition.
+<pre>* If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomizer to your GroupedOpenApi definition.
 
 [source,java]</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
+<p>GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomizer(customerGlobalHeaderOpenApiCustomizer())
                 .build()</p>
 </div>
 <div class="paragraph">
 <p>@Bean
-public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
+public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
    return openApi &#8594; openApi.path("/foo",
    new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
    .addApiResponse("default",new ApiResponse().description("")
@@ -1175,7 +1175,7 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-01-27 15:22:05 +0100
+Last updated 2022-01-27 15:54:08 +0100
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>

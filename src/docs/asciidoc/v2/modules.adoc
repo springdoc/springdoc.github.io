@@ -2,7 +2,7 @@
 == Springdoc-openapi Modules
 
 === General overview
-image::images/common.jpg[Architecture]
+image::images/common.png[Architecture]
 
 === Spring WebMvc support
 
