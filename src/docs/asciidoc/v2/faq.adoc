@@ -163,13 +163,14 @@ springdoc.packagesToScan=package1, package2
 === Are the following validation annotations supported : `@NotEmpty` `@NotBlank` `@PositiveOrZero` `@NegativeOrZero`?
 * Yes
 
-===  How can I map `Pageable` (spring-date-commons) object to correct URL-Parameter in Swagger UI?
+===  How can I map `Pageable` (spring-data-commons) object to correct URL-Parameter in Swagger UI?
 
 The support for Pageable of spring-data-commons is available out-of-the box since `springdoc-openapi v1.6.0`.
 For this, you have to combine `@ParameterObject` annotation with the `Pageable` type.
 
 
 Before `springdoc-openapi v1.6.0`:
+
 * You can use as well `@ParameterObject` instead of `@PageableAsQueryParam` for HTTP `GET` methods.
 
 [source,java]
