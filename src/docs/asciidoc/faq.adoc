@@ -676,7 +676,7 @@ public class AppInitializer implements WebApplicationInitializer {
    private AnnotationConfigWebApplicationContext getContext() {
       AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
       context.scan("rest");
-      context.register(this.getClass(), org.springdoc.ui.SwaggerConfig.class,
+      context.register(this.getClass(), org.springdoc.webmvc.ui.SwaggerConfig.class,
             org.springdoc.core.SwaggerUiConfigProperties.class, org.springdoc.core.SwaggerUiOAuthProperties.class,
             org.springdoc.webmvc.core.SpringDocWebMvcConfiguration.class,
             org.springdoc.webmvc.core.MultipleOpenApiSupportConfiguration.class,

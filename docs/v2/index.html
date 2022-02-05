@@ -101,7 +101,7 @@
 <li><a href="#does-springdoc-openapi-support-jersey">11.17. Does <code>springdoc-openapi</code> support Jersey?</a></li>
 <li><a href="#can-springdoc-openapi-generate-api-only-for-restcontroller">11.18. Can <code>springdoc-openapi</code> generate API only for <code>@RestController</code>?</a></li>
 <li><a href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero">11.19. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</a></li>
-<li><a href="#how-can-i-map-pageable-spring-date-commons-object-to-correct-url-parameter-in-swagger-ui">11.20. How can I map <code>Pageable</code> (spring-date-commons) object to correct URL-Parameter in Swagger UI?</a></li>
+<li><a href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui">11.20. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</a></li>
 <li><a href="#how-can-i-generate-enums-in-the-generated-description">11.21. How can I generate enums in the generated description?</a></li>
 <li><a href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">11.22. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</a></li>
 <li><a href="#is-jsonview-annotations-in-spring-mvc-apis-supported">11.23. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</a></li>
@@ -1585,39 +1585,33 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
- &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
- &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
- &lt;version&gt;2.3.4.RELEASE&lt;/version&gt;
- &lt;configuration&gt;
-    &lt;jvmArguments&gt;-Dspring.application.admin.enabled=true&lt;/jvmArguments&gt;
- &lt;/configuration&gt;
- &lt;executions&gt;
-  &lt;execution&gt;
-   &lt;id&gt;pre-integration-test&lt;/id&gt;
-   &lt;goals&gt;
-    &lt;goal&gt;start&lt;/goal&gt;
-   &lt;/goals&gt;
-  &lt;/execution&gt;
-  &lt;execution&gt;
-   &lt;id&gt;post-integration-test&lt;/id&gt;
-   &lt;goals&gt;
-    &lt;goal&gt;stop&lt;/goal&gt;
-   &lt;/goals&gt;
-  &lt;/execution&gt;
- &lt;/executions&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${spring-boot-maven-plugin.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;jvmArguments&gt;-Dspring.application.admin.enabled=true&lt;/jvmArguments&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;start&lt;/goal&gt;
+                &lt;goal&gt;stop&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
 &lt;/plugin&gt;
 &lt;plugin&gt;
- &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
- &lt;artifactId&gt;springdoc-openapi-maven-plugin&lt;/artifactId&gt;
- &lt;version&gt;1.3&lt;/version&gt;
- &lt;executions&gt;
-  &lt;execution&gt;
-   &lt;id&gt;integration-test&lt;/id&gt;
-   &lt;goals&gt;
-    &lt;goal&gt;generate&lt;/goal&gt;
-   &lt;/goals&gt;
-  &lt;/execution&gt;
- &lt;/executions&gt;
+    &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+    &lt;artifactId&gt;springdoc-openapi-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.4&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;integration-test&lt;/id&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;generate&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
 &lt;/plugin&gt;</code></pre>
 </div>
 </div>
@@ -2331,14 +2325,20 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-map-pageable-spring-date-commons-object-to-correct-url-parameter-in-swagger-ui"><a class="anchor" href="#how-can-i-map-pageable-spring-date-commons-object-to-correct-url-parameter-in-swagger-ui"></a>11.20. How can I map <code>Pageable</code> (spring-date-commons) object to correct URL-Parameter in Swagger UI?</h3>
+<h3 id="how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui"><a class="anchor" href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui"></a>11.20. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</h3>
 <div class="paragraph">
 <p>The support for Pageable of spring-data-commons is available out-of-the box since <code>springdoc-openapi v1.6.0</code>.
 For this, you have to combine <code>@ParameterObject</code> annotation with the <code>Pageable</code> type.</p>
 </div>
 <div class="paragraph">
-<p>Before <code>springdoc-openapi v1.6.0</code>:
-* You can use as well <code>@ParameterObject</code> instead of <code>@PageableAsQueryParam</code> for HTTP <code>GET</code> methods.</p>
+<p>Before <code>springdoc-openapi v1.6.0</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can use as well <code>@ParameterObject</code> instead of <code>@PageableAsQueryParam</code> for HTTP <code>GET</code> methods.</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
