@@ -130,6 +130,19 @@ springdoc.pathsToMatch=/v1, /api/balance/**
 springdoc.packagesToScan=package1, package2
 ----
 
+=== How can I set Swagger properties programmatically?
+
+These can be set by creating a `swaggerUiConfig` bean as follows:
+
+---
+    @Bean
+    fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
+        config.showCommonExtensions = true
+        config.queryConfigEnabled = true
+        return config
+    }
+---
+
 === How can I ignore some field of model ?
 * You can use the following annotation on the top of the field that you want to hide:
 * `@Schema(hidden = true)`
