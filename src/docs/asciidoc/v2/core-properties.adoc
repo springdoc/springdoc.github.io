@@ -21,6 +21,7 @@
 |springdoc.override-with-generic-response | `true` | `Boolean`. When true, automatically adds @ControllerAdvice responses to all the generated responses.
 |springdoc.api-docs.groups.enabled | `true` | `Boolean`. To disable the springdoc-openapi groups.
 |springdoc.group-configs[0].group | | `String`.The group name
+|springdoc.group-configs[0].displayName | | `String`.The display name of the group.
 |springdoc.group-configs[0].packages-to-scan | `*`| `List of Strings`.The list of packages to scan for a group (comma separated)
 |springdoc.group-configs[0].paths-to-match | `/*`| `List of Strings`.The list of paths to match for a group(comma separated)
 |springdoc.group-configs[0].paths-to-exclude | ``| `List of Strings`.The list of paths to exclude for a group(comma separated)

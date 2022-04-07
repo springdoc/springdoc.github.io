@@ -133,14 +133,14 @@ springdoc.packagesToScan=package1, package2
 === How can I set Swagger properties programmatically?
 
 These can be set by creating a `swaggerUiConfig` bean as follows:
-
+[source,kotlin]
 ---
-    @Bean
-    fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
-        config.showCommonExtensions = true
-        config.queryConfigEnabled = true
-        return config
-    }
+@Bean
+fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
+    config.showCommonExtensions = true
+    config.queryConfigEnabled = true
+    return config
+}
 ---
 
 === How can I ignore some field of model ?

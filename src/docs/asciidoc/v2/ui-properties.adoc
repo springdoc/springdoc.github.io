@@ -37,6 +37,8 @@
 |springdoc.swagger-ui.oauth.appName |  | `String`. OAuth application name, displayed in authorization popup.
 |springdoc.swagger-ui.oauth.scopeSeparator |  | `String`. OAuth scope separator for passing scopes, encoded before calling, default value is a space (encoded value %20).
 |springdoc.swagger-ui.csrf.enabled | `false` | `Boolean`. To enable CSRF support
+|springdoc.swagger-ui.csrf.use-local-storage | `false` | `Boolean`. To get the CSRF token from the Local Storage.
+|springdoc.swagger-ui.csrf.use-session-storage | `false` | `Boolean`. To get the CSRF token from the Session Storage.
 |springdoc.swagger-ui.csrf.cookie-name | `XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF cookie name.
 |springdoc.swagger-ui.csrf.header-name | `X-XSRF-TOKEN` | `String`. Optional CSRF, to set the CSRF header name.
 |springdoc.swagger-ui.syntaxHighlight.activated | `true` | `Boolean`. Whether syntax highlighting should be activated or not.

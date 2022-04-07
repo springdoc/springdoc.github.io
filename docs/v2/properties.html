@@ -132,6 +132,11 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.The group name</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].displayName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>.The display name of the group.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.group-configs[0].packages-to-scan</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of packages to scan for a group (comma separated)</p></td>
@@ -446,6 +451,16 @@ All these properties should be declared with the following prefix: <code>springd
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable CSRF support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.use-local-storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To get the CSRF token from the Local Storage.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.use-session-storage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To get the CSRF token from the Session Storage.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.cookie-name</p></td>
