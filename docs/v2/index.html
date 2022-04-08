@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
-<title>springdoc-openapi v2.0.0-M1</title>
+<title>springdoc-openapi v2.0.0-M2</title>
 <link rel="stylesheet" href="css/spring.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="js/highlight/styles/github.min.css">
@@ -18,7 +18,7 @@
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>springdoc-openapi v2.0.0-M1</h1>
+<h1>springdoc-openapi v2.0.0-M2</h1>
 <div class="details">
 <span id="author" class="author">Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -230,7 +230,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M1&lt;/version&gt;
+      &lt;version&gt;2.0.0-M2&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -327,7 +327,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M1&lt;/version&gt;
+      &lt;version&gt;2.0.0-M2&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -379,7 +379,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M1&lt;/version&gt;
+      &lt;version&gt;2.0.0-M2&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -1746,7 +1746,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M1&lt;/version&gt;
+      &lt;version&gt;2.0.0-M2&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -3317,6 +3317,9 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 <li>
 <p>This annotation does not support nested parameter objects.</p>
 </li>
+<li>
+<p>POJO object must contain getters for fields with mandatory prefix <code>get</code>. Otherwise, the swagger documentation will not show the fields of the annotated entity.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -3606,7 +3609,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.0.0-M1.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.0.0-M2.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -3623,7 +3626,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.0-M1</code>+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.0-M2</code>+</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.6.x</code>, <code>1.5.x</code></p></td>
@@ -3657,7 +3660,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-06 00:25:12 +0100
+Last updated 2022-04-07 20:33:47 +0200
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>

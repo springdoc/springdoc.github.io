@@ -626,6 +626,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
 * Request parameter annotated with @ParameterObject will help adding each field of the parameter as a separate request parameter.
 * This is compatible with Spring MVC request parameters mapping to POJO object.
 * This annotation does not support nested parameter objects.
+* POJO object must contain getters for fields with mandatory prefix `get`. Otherwise, the swagger documentation will not show the fields of the annotated entity.
 
 === How can I use the last `springdoc-openapi` SNAPSHOT ?
 * For testing purposes only, you can test temporarily using the last `springdoc-openapi` SNAPSHOT

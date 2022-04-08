@@ -1355,6 +1355,9 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 <li>
 <p>This annotation does not support nested parameter objects.</p>
 </li>
+<li>
+<p>POJO object must contain getters for fields with mandatory prefix <code>get</code>. Otherwise, the swagger documentation will not show the fields of the annotated entity.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -1795,7 +1798,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-02-27 16:18:35 +0100
+Last updated 2022-04-08 19:19:25 +0200
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>
