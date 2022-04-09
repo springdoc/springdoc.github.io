@@ -936,3 +936,64 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 |`2.0.x`, `1.5.x` | `1.0.0`+
 
 |===
+
+=== Customizing swagger static resources
+
+You can customize swagger documentation static resources located in `META-INF/resources/webjars/swagger-ui/{swagger.version}/`. The list of resources includes:
+
+- `index.html`
+- `swagger-ui-bundle.js`
+- `swagger-ui.css`
+- `swagger-ui-standalone-preset.js`
+- `swagger-ui.css.map`
+- `swagger-ui-bundle.js.map`
+- `swagger-ui-standalone-preset.js.map`
+- `favicon-32x32.png`
+
+To do this, you need to extend the implementation of `SwaggerIndexPageTransformer`
+
+[source,java]
+----
+public class SwaggerCodeBlockTransformer
+       extends SwaggerIndexPageTransformer {
+  // < constructor >
+  @Override
+  public Resource transform(HttpServletRequest request,
+                            Resource resource,
+                            ResourceTransformerChain transformer)
+                            throws IOException {
+      if (resource.toString().contains("swagger-ui.css")) {
+          final InputStream is = resource.getInputStream();
+          final InputStreamReader isr = new InputStreamReader(is);
+          try (BufferedReader br = new BufferedReader(isr)) {
+              final String css = br.lines().collect(Collectors.joining());
+              final byte[] transformedContent = css.replace("old", "new").getBytes();
+              return  new TransformedResource(resource, transformedContent);
+          } // AutoCloseable br > isr > is
+      }
+      return super.transform(request, resource, transformer);
+  }
+
+}
+----
+
+Next, add transformer `@Bean` to your `@Configuration`
+
+[source,java]
+----
+@Configuration
+public class OpenApiConfig {
+    @Bean
+    public SwaggerIndexTransformer swaggerIndexTransformer(
+            SwaggerUiConfigProperties a,
+            SwaggerUiOAuthProperties b,
+            SwaggerUiConfigParameters c,
+            SwaggerWelcomeCommon d) {
+        return new SwaggerCodeBlockTransformer(a, b, c, d);
+    }
+}
+----
+
+Illustrative example
+
+image::images/static_content_transformation.png[Illustrative example]
