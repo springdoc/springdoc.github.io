@@ -919,24 +919,6 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 }
 ----
 
-=== What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
-`springdoc-openapi` is compatible with `spring-boot 1` and `spring-boot 2`.
-
-In general, **you should only pick the last stable version as per today {springdoc-version}.**
-
-More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
-
-|===
-| spring-boot Versions | Minimum springdoc-openapi Versions
-|`2.6.x`, `1.5.x` | `1.6.0`+
-|`2.5.x`, `1.5.x` | `1.5.9`+
-|`2.4.x`, `1.5.x` | `1.5.0`+
-|`2.3.x`, `1.5.x` | `1.4.0`+
-|`2.2.x`, `1.5.x` | `1.2.1`+
-|`2.0.x`, `1.5.x` | `1.0.0`+
-
-|===
-
 === Customizing swagger static resources
 
 You can customize swagger documentation static resources located in `META-INF/resources/webjars/swagger-ui/{swagger.version}/`. The list of resources includes:
@@ -997,3 +979,21 @@ public class OpenApiConfig {
 Illustrative example
 
 image::images/static_content_transformation.png[Illustrative example]
+
+=== What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
+`springdoc-openapi` is compatible with `spring-boot 1` and `spring-boot 2`.
+
+In general, **you should only pick the last stable version as per today {springdoc-version}.**
+
+More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
+
+|===
+| spring-boot Versions | Minimum springdoc-openapi Versions
+|`2.6.x`, `1.5.x` | `1.6.0`+
+|`2.5.x`, `1.5.x` | `1.5.9`+
+|`2.4.x`, `1.5.x` | `1.5.0`+
+|`2.3.x`, `1.5.x` | `1.4.0`+
+|`2.2.x`, `1.5.x` | `1.2.1`+
+|`2.0.x`, `1.5.x` | `1.0.0`+
+
+|===

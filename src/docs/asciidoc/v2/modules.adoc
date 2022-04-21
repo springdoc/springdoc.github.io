@@ -81,8 +81,8 @@ To expose the swagger-ui, on the management port, you should set
 [source,properties]
 ----
 springdoc.use-management-port=true
-# This property enables the openapi and swaggerui endpoints to be exposed beneath the actuator base path.
-management.endpoints.web.exposure.include=openapi, swaggerui
+# This property enables the openapi and swagger-ui endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, swagger-ui
 ----
 
 Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
@@ -98,7 +98,7 @@ Two endpoints will be available:
 
 . An Endpoint, that routes to the swagger-ui:
 
-- `\http://serverName:managementPort/actuator/swaggerui`
+- `\http://serverName:managementPort/actuator/swagger-ui`
 
 [source,properties]
 ----
@@ -108,11 +108,12 @@ management.server.port=9090
 For the example, you should also be able to see the springdoc-openapi endpoints:
 
 - `\http://serverName:9090/actuator`
-- `\http://serverName:9090/actuator/swaggerui`
+- `\http://serverName:9090/actuator/swagger-ui`
 - `\http://serverName:9090/actuator/openapi`
 
-TIP: If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, `CORS for your endpoints` on your application level should be enabled.
+All the path `springdoc-openapi` properties are not applicable when `springdoc.use-management-port=true`.
 
+TIP: If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, `CORS for your endpoints` on your application level should be enabled.
 
 Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.
 
@@ -127,7 +128,7 @@ Once enabled:
 
 The swagger-ui will be then accessible through the actuator port:
 
-- `\http://serverName:managementPort/actuator/swaggerui`
+- `\http://serverName:managementPort/actuator/swagger-ui`
 
 If the management port is different from the application port and `springdoc.use-management-port` is not defined but `springdoc.show-actuator` is set to true:
 
