@@ -294,6 +294,10 @@ return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathI
 }
 ----
 
+NOTE: This bean `OpenApiCustomizer` will be applied to the Default OpenAPI only.
+
+If you need the `OpenApiCustomizer` to applied to `GroupedOpenApi` as well, then use `GlobalOpenApiCustomiser` instead.
+
 === How can I return an empty content as response?
 * It is be possible to handle as return an empty content as response using, one of the following syntaxes:
 * `content = @Content`
