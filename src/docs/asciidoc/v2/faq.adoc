@@ -582,8 +582,13 @@ SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
 @Bean
-public SpringDocConfigProperties springDocConfigProperties() {
+SpringDocConfigProperties springDocConfigProperties() {
    return new SpringDocConfigProperties();
+}
+
+@Bean
+ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
+    return new ObjectMapperProvider(springDocConfigProperties);
 }
 ----
 

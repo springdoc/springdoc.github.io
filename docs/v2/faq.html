@@ -1243,8 +1243,13 @@ SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
 @Bean
-public SpringDocConfigProperties springDocConfigProperties() {
+SpringDocConfigProperties springDocConfigProperties() {
    return new SpringDocConfigProperties();
+}
+
+@Bean
+ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
+    return new ObjectMapperProvider(springDocConfigProperties);
 }</code></pre>
 </div>
 </div>
@@ -1792,7 +1797,7 @@ public class OpenApiConfig {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-22 02:27:13 +0200
+Last updated 2022-04-23 17:25:19 +0200
 </div>
 </div>
 <script src="js/highlight/highlight.min.js"></script>
@@ -1804,12 +1809,14 @@ if (!hljs.initHighlighting.called) {
 </script>
 <script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
 <script type="text/javascript" src="js/toc.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143834491-1"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'UA-143834491-1');
+
+    gtag('config', 'G-1GEGWXWNH4');
 </script>
 </body>
 </html>
