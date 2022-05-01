@@ -1,9 +1,9 @@
 [[sponsor]]
 == Sponsor
 
-If you find `springdoc-openapi` useful for your work, please consider asking your company to support this Open Source project by becoming a sponsor.
+`springdoc-openapi` is on link:https://opencollective.com/springdoc[Open Collective, window="_blank"].
 
-You can also individually sponsor the project!
+If you ❤️ this project consider becoming a link:https://github.com/sponsors/springdoc[sponsor, window="_blank"].
 
 This money is used to cover project expenses and your donation will help the project live and grow successfully.
 
@@ -24,20 +24,19 @@ Thank you to our bronze sponsors!
 Bronze sponsors donate $50 per month to the project, and get the following benefits:
 
 - You will receive a Sponsor badge 🎖!. Visibility on the front page of  https://springdoc.org in the `welcome` page (about 55,000 views/month on May, 2022).
-- The ability to create 1 `issue` every month, non transferable.
-- “Thank you” tweet from @springdoc.
+- “Thank you” tweet from `springdoc team'.
 
 === Benefits of being a silver sponsor
 Silver sponsors donate $100 per month to the project, and get the following benefits:
 
 - Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).
-- The ability to create 2 `issues` every month, non transferable.
+- The ability to get support for 2 `issues` every month, non transferable.
 - If issues are not created by the end of the month, it is lost
 
 === Benefits of being a gold sponsor
 Gold sponsors donate $500 per month to the project, and get the following benefits:
 
 - Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
-- The ability to create 10 `issues` every month, non transferable.
+- The ability to get support for 10 `issues` every month, non transferable.
 - Company logos on all https://springdoc.org page footers
 - If issues are not created by the end of the month, the remaining ones are lost.

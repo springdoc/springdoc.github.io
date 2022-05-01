@@ -2,6 +2,7 @@
 == Other resources
 
 === Additional resources to get started
+- link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:img/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
 - link:https://prezi.com/view/r4DP4TCmYUJk1eaqjKG4/[Springdoc-openapi presentation, window="_blank"]
 - link:https://www.baeldung.com/spring-rest-openapi-documentation[Baeldung, window="_blank"]
 - link:https://dzone.com/articles/openapi-3-documentation-with-spring-boot[DZone Part1, window="_blank"]

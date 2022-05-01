@@ -1,8 +1,8 @@
 = springdoc-openapi v{springdoc-version}
-Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
+The library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
 include::_attributes.adoc[]
 
-link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:img/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
+`springdoc-openapi` is on link:https://opencollective.com/springdoc[Open Collective, window="_blank"]. If you ❤️ this project consider becoming a link:https://github.com/sponsors/springdoc[sponsor, window="_blank"].
 
 This project is sponsored by
 ++++
