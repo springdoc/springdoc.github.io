@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!--
+  - /*
+  -  *
+  -  *  *
+  -  *  *  * Copyright 2019-2022 the original author or authors.
+  -  *  *  *
+  -  *  *  * Licensed under the Apache License, Version 2.0 (the "License");
+  -  *  *  * you may not use this file except in compliance with the License.
+  -  *  *  * You may obtain a copy of the License at
+  -  *  *  *
+  -  *  *  *      https://www.apache.org/licenses/LICENSE-2.0
+  -  *  *  *
+  -  *  *  * Unless required by applicable law or agreed to in writing, software
+  -  *  *  * distributed under the License is distributed on an "AS IS" BASIS,
+  -  *  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  -  *  *  * See the License for the specific language governing permissions and
+  -  *  *  * limitations under the License.
+  -  *  *
+  -  *
+  -  */
+  -->
+
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="200" height="70" viewBox="0 -50 6000 2100" xml:space="preserve">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="200" height="70"
+	 viewBox="0 -50 6000 2100" xml:space="preserve">
 <desc>Created with Fabric.js 4.6.0</desc>
 <defs>
 </defs>
@@ -57,6 +80,6 @@
 </g>
 </g>
 <g transform="matrix(1 0 0 1 3645.74 1285.87)" style="" id="v83j84MYzrgG1nH3HjDf-"  >
-		<text xml:space="preserve" font-family="Poppins" font-size="750" font-style="normal" font-weight="600" line-height="1" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(34,134,58); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-1295" y="-575.89" >OpenAPI 3</tspan><tspan x="-194.5" y="-10.9" >&amp;</tspan><tspan x="-1463.25" y="554.11" >Spring Boot</tspan></text>
+		<text xml:space="preserve" font-family="Poppins" font-size="600" font-style="normal" font-weight="600" line-height="1" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(34,134,58); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-1295" y="-575.89" >OpenAPI 3</tspan><tspan x="-194.5" y="-10.9" >&amp;</tspan><tspan x="-1463.25" y="554.11" >Spring Boot</tspan></text>
 </g>
 </svg>
