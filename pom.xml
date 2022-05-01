@@ -13,6 +13,7 @@
 		<java.version>1.8</java.version>
 		<refdocs.build.directory>${project.basedir}/docs</refdocs.build.directory>
 		<spring-doc-resources.version>0.2.5</spring-doc-resources.version>
+		<spring-asciidoctor-backends.version>0.0.3</spring-asciidoctor-backends.version>
 	</properties>
 
 	<dependencies>
@@ -58,47 +59,49 @@
 				<executions>
 					<execution>
 						<id>generate-html-documentation</id>
-						<phase>prepare-package</phase>
+						<phase>generate-resources</phase>
 						<goals>
 							<goal>process-asciidoc</goal>
 						</goals>
 						<configuration>
+							<backend>spring-html</backend>
 							<outputDirectory>${refdocs.build.directory}</outputDirectory>
-							<backend>html5</backend>
 							<preserveDirectories>true</preserveDirectories>
-							<doctype>book</doctype>
-							<attributes>
-								<docinfo>shared</docinfo>
-								<stylesdir>css/</stylesdir>
-								<stylesheet>spring.css</stylesheet>
-								<linkcss>true</linkcss>
-								<icons>font</icons>
-								<highlightjsdir>js/highlight</highlightjsdir>
-								<highlightjs-theme>github</highlightjs-theme>
-								<source-highlighter>highlight.js</source-highlighter>
-							</attributes>
 						</configuration>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>io.spring.asciidoctor.backends</groupId>
+						<artifactId>spring-asciidoctor-backends</artifactId>
+						<version>${spring-asciidoctor-backends.version}</version>
+					</dependency>
+				</dependencies>
 			</plugin>
-
 			<plugin>
-				<groupId>com.googlecode.maven-download-plugin</groupId>
-				<artifactId>download-maven-plugin</artifactId>
-				<version>1.6.7</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
-						<id>unpack-doc-resources</id>
-						<phase>generate-resources</phase>
+						<id>copy-resource-one</id>
+						<phase>process-resources</phase>
 						<goals>
-							<goal>wget</goal>
+							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<url>
-								https://repo.spring.io/release/io/spring/docresources/spring-doc-resources/${spring-doc-resources.version}/spring-doc-resources-${spring-doc-resources.version}.zip
-							</url>
-							<unpack>true</unpack>
+							<overwrite>true</overwrite>
 							<outputDirectory>${refdocs.build.directory}</outputDirectory>
+							<resources>
+								<resource>
+									<targetPath>${refdocs.build.directory}/img</targetPath>
+									<directory>src/docs/asciidoc/img</directory>
+								</resource>
+								<resource>
+									<targetPath>${refdocs.build.directory}/v2/img</targetPath>
+									<directory>src/docs/asciidoc/img</directory>
+								</resource>
+							</resources>
 						</configuration>
 					</execution>
 				</executions>
@@ -144,6 +147,14 @@
 			<id>spring-milestones</id>
 			<name>Spring Milestones</name>
 			<url>https://repo.spring.io/milestone</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>spring-release</id>
+			<name>Spring release</name>
+			<url>https://repo.spring.io/release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
 </project>

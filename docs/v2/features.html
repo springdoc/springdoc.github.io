@@ -6,24 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <title>Springdoc-openapi Features</title>
-<link rel="stylesheet" href="css/spring.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
-<style>
-    #header #revnumber {
-        display: none
-    }
-</style>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
 </head>
-<body class="book">
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
 <div id="header">
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="features">Springdoc-openapi Features</h2>
+<h2 id="features"><a class="anchor" href="#features"></a>Springdoc-openapi Features</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_adding_api_information_and_security_documentation">Adding API Information and Security documentation</h3>
+<h3 id="_adding_api_information_and_security_documentation"><a class="anchor" href="#_adding_api_information_and_security_documentation"></a>Adding API Information and Security documentation</h3>
 <div class="paragraph">
 <p>The library uses spring-boot application auto-configured packages to scan for the following annotations in spring beans: OpenAPIDefinition and Info.
 These annotations declare, API Information: Title, version, licence, security, servers, tags, security and externalDocs.
@@ -31,37 +41,37 @@ For better performance of documentation generation, declare @OpenAPIDefinition a
 </div>
 </div>
 <div class="sect2">
-<h3 id="_error_handling_for_rest_using_controlleradvice">Error Handling for REST using @ControllerAdvice</h3>
+<h3 id="_error_handling_for_rest_using_controlleradvice"><a class="anchor" href="#_error_handling_for_rest_using_controlleradvice"></a>Error Handling for REST using @ControllerAdvice</h3>
 <div class="paragraph">
 <p>To generate documentation automatically, make sure all the methods declare the HTTP Code responses using the annotation: @ResponseStatus</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_disabling_the_springdoc_openapi_endpoints">Disabling the <code>springdoc-openapi</code> endpoints</h3>
+<h3 id="_disabling_the_springdoc_openapi_endpoints"><a class="anchor" href="#_disabling_the_springdoc_openapi_endpoints"></a>Disabling the <code>springdoc-openapi</code> endpoints</h3>
 <div class="paragraph">
 <p>In order to disable the <code>springdoc-openapi</code> endpoint (/v3/api-docs by default) use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disabling the /v3/api-docs endpoint
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Disabling the /v3/api-docs endpoint
 springdoc.api-docs.enabled=false</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_disabling_the_swagger_ui">Disabling the swagger-ui</h3>
+<h3 id="_disabling_the_swagger_ui"><a class="anchor" href="#_disabling_the_swagger_ui"></a>Disabling the swagger-ui</h3>
 <div class="paragraph">
 <p>In order to disable the swagger-ui, use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disabling the swagger-ui
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Disabling the swagger-ui
 springdoc.swagger-ui.enabled=false</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_swagger_ui_configuration">Swagger-ui configuration</h3>
+<h3 id="_swagger_ui_configuration"><a class="anchor" href="#_swagger_ui_configuration"></a>Swagger-ui configuration</h3>
 <div class="paragraph">
 <p>The library supports the swagger-ui official properties:</p>
 </div>
@@ -78,7 +88,7 @@ All these properties should be declared with the following prefix: <strong>sprin
 </div>
 </div>
 <div class="sect2">
-<h3 id="_selecting_the_rest_controllers_to_include_in_the_documentation">Selecting the Rest Controllers to include in the documentation</h3>
+<h3 id="_selecting_the_rest_controllers_to_include_in_the_documentation"><a class="anchor" href="#_selecting_the_rest_controllers_to_include_in_the_documentation"></a>Selecting the Rest Controllers to include in the documentation</h3>
 <div class="paragraph">
 <p>Additionally, to @Hidden annotation from swagger-annotations, its possible to restrict the generated OpenAPI description using package or path configuration.</p>
 </div>
@@ -87,7 +97,7 @@ All these properties should be declared with the following prefix: <strong>sprin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Packages to include
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Packages to include
 springdoc.packagesToScan=com.package1, com.package2</code></pre>
 </div>
 </div>
@@ -96,13 +106,13 @@ springdoc.packagesToScan=com.package1, com.package2</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Paths to include
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Paths to include
 springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_webfluxwebmvc_fn_with_functional_endpoints">Spring-webflux/WebMvc.fn with Functional Endpoints</h3>
+<h3 id="_spring_webfluxwebmvc_fn_with_functional_endpoints"><a class="anchor" href="#_spring_webfluxwebmvc_fn_with_functional_endpoints"></a>Spring-webflux/WebMvc.fn with Functional Endpoints</h3>
 <div class="paragraph">
 <p>Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-framework: <a href="https://github.com/spring-projects/spring-framework/issues/25938">#25938</a></p>
 </div>
@@ -114,7 +124,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 RouterFunction&lt;?&gt; routes() {
     return route().GET("/foo", HANDLER_FUNCTION, ops -&gt; ops
             .operationId("hello")
@@ -123,7 +133,8 @@ RouterFunction&lt;?&gt; routes() {
             .response(responseBuilder().responseCode("200").description("This is normal response description"))
             .response(responseBuilder().responseCode("404").description("This is another response description"))
     ).build();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -178,13 +189,14 @@ When using @RouterOperation, its not mandatory to fill the path</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperation(beanClass = EmployeeService.class, beanMethod = "findAllEmployees")
 RouterFunction&lt;ServerResponse&gt; getAllEmployeesRoute() {
    return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
          req -&gt; ok().body(
                employeeService().findAllEmployees(), Employee.class));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -209,7 +221,7 @@ Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandator
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperation(operation = @Operation(operationId = "findEmployeeById", summary = "Find purchase order by ID", tags = { "MyEmployee" },
       parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Employee Id") },
       responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Employee.class))),
@@ -219,7 +231,8 @@ RouterFunction&lt;ServerResponse&gt; getEmployeeByIdRoute() {
    return route(GET("/employees/{id}"),
          req -&gt; ok().body(
                employeeRepository().findEmployeeById(req.pathVariable("id")), Employee.class));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -235,7 +248,7 @@ When using RouterOperations, its mandatory to fill the path property.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
+<pre class="highlight"><code class="language-java" data-lang="java">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
       @RouterOperation(path = "/getPerson/{id}", beanClass = PersonService.class, beanMethod = "getById"),
       @RouterOperation(path = "/createPerson", beanClass = PersonService.class, beanMethod = "save"),
       @RouterOperation(path = "/deletePerson/{id}", beanClass = PersonService.class, beanMethod = "delete") })
@@ -246,7 +259,8 @@ public RouterFunction&lt;ServerResponse&gt; personRoute(PersonHandler handler) {
          .andRoute(GET("/getPerson/{id}").and(accept(MediaType.APPLICATION_STREAM_JSON)), handler::findById)
          .andRoute(POST("/createPerson").and(accept(MediaType.APPLICATION_JSON)), handler::save)
          .andRoute(DELETE("/deletePerson/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::delete);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -304,7 +318,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 </div>
 </div>
 <div class="sect2">
-<h3 id="_integration_with_wildfly">Integration with WildFly</h3>
+<h3 id="_integration_with_wildfly"><a class="anchor" href="#_integration_with_wildfly"></a>Integration with WildFly</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -314,7 +328,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
      &lt;groupId&gt;org.webjars&lt;/groupId&gt;
      &lt;artifactId&gt;webjars-locator-jboss-vfs&lt;/artifactId&gt;
      &lt;version&gt;0.1.0&lt;/version&gt;
@@ -330,23 +344,8 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 Last updated 2022-01-26 23:27:18 +0100
 </div>
 </div>
-<script src="js/highlight/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
-<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
-<script type="text/javascript" src="js/toc.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-1GEGWXWNH4');
-</script>
+</div>
+  </div>
+</div>
 </body>
 </html>

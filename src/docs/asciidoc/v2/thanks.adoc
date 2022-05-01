@@ -5,4 +5,4 @@
 
 * Thanks a lot link:https://www.jetbrains.com/?from=springdoc-openapi[JetBrains, window="_blank"] for supporting springdoc-openapi project.
 
-image::images/jetbrains.svg[JetBrains]
+image::img/jetbrains.svg[JetBrains]

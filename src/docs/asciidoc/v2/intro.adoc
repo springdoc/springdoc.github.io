@@ -21,7 +21,7 @@ The following video introduces the Library:
 
 
 [link=https://youtu.be/utRxyPfFlDw,window=_blank]
-image::images/springdoc-openapi-prez.gif[spring.io conference]
+image::img/springdoc-openapi-prez.gif[spring.io conference]
 
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).

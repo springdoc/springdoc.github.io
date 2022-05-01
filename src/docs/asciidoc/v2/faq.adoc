@@ -904,7 +904,7 @@ public class OpenApiConfig {
 
 Illustrative example
 
-image::images/static_content_transformation.png[Illustrative example]
+image::img/static_content_transformation.png[Illustrative example]
 
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
 `springdoc-openapi 2.x` is compatible with `spring-boot 3`.

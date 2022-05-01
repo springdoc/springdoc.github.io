@@ -6,32 +6,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <title>Springdoc-openapi Modules</title>
-<link rel="stylesheet" href="css/spring.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
-<style>
-    #header #revnumber {
-        display: none
-    }
-</style>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
 </head>
-<body class="book">
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
 <div id="header">
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="modules">Springdoc-openapi Modules</h2>
+<h2 id="modules"><a class="anchor" href="#modules"></a>Springdoc-openapi Modules</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_general_overview">General overview</h3>
+<h3 id="_general_overview"><a class="anchor" href="#_general_overview"></a>General overview</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/common.png" alt="Architecture">
+<img src="img/common.png" alt="Architecture">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_webmvc_support">Spring WebMvc support</h3>
+<h3 id="_spring_webmvc_support"><a class="anchor" href="#_spring_webmvc_support"></a>Spring WebMvc support</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -60,7 +70,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -93,13 +103,13 @@ For custom path of the OpenAPI documentation in Json format, add a custom spring
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># /api-docs endpoint custom path
+<pre class="highlight"><code class="language-properties" data-lang="properties"># /api-docs endpoint custom path
 springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_webflux_support">Spring WebFlux support</h3>
+<h3 id="_spring_webflux_support"><a class="anchor" href="#_spring_webflux_support"></a>Spring WebFlux support</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -112,7 +122,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -121,7 +131,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_hateoas_support">Spring Hateoas support</h3>
+<h3 id="_spring_hateoas_support"><a class="anchor" href="#_spring_hateoas_support"></a>Spring Hateoas support</h3>
 <div class="paragraph">
 <p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
 The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-starter-webmvc-ui dependency.
@@ -129,21 +139,21 @@ This dependency enables the support of Spring Hateoas format.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_data_rest_support">Spring Data Rest support</h3>
+<h3 id="_spring_data_rest_support"><a class="anchor" href="#_spring_data_rest_support"></a>Spring Data Rest support</h3>
 <div class="paragraph">
 <p>The projects that use <code>spring-data-rest</code> can should use <code>springdoc-openapi-starter-common</code>.
 This dependency enables the support of <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_security_support">Spring Security support</h3>
+<h3 id="_spring_security_support"><a class="anchor" href="#_spring_security_support"></a>Spring Security support</h3>
 <div class="paragraph">
 <p>For a project that uses spring-security, you should use <code>springdoc-openapi-starter-common</code>.
 This dependency helps ignoring @AuthenticationPrincipal in case it is used on REST Controllers.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_actuator_support">Actuator support</h3>
+<h3 id="_actuator_support"><a class="anchor" href="#_actuator_support"></a>Actuator support</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -153,7 +163,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case it is used on RE
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.show-actuator=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -176,7 +186,7 @@ The actuator management port has to be different from the application port.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.use-management-port=true
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.use-management-port=true
 # This property enables the openapi and swagger-ui endpoints to be exposed beneath the actuator base path.
 management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 </div>
@@ -217,7 +227,7 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">management.server.port=9090</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">management.server.port=9090</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -256,7 +266,7 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.show-actuator=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -307,7 +317,7 @@ If you want to reach the actuator endpoints for this case (different port from y
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_cloud_function_web_support">Spring Cloud Function Web support</h3>
+<h3 id="_spring_cloud_function_web_support"><a class="anchor" href="#_spring_cloud_function_web_support"></a>Spring Cloud Function Web support</h3>
 <div class="paragraph">
 <p><code>spring-cloud-function-web</code> exposes Java Function as REST endpoint automatically.
 * Since version <code>v1.6.3</code>, the support of functional endpoints has been added.</p>
@@ -357,12 +367,13 @@ Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandator
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperation(operation = @Operation(description = "Say hello", operationId = "hello", tags = "persons",
         responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = PersonDTO.class)))))
 public Supplier&lt;PersonDTO&gt; helloSupplier() {
     return () -&gt; new PersonDTO();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -378,14 +389,15 @@ When using <code>RouterOperations</code>, it&#8217;s mandatory to fill the metho
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperations({
         @RouterOperation(method = RequestMethod.GET, operation = @Operation(description = "Say hello GET", operationId = "lowercaseGET", tags = "persons")),
         @RouterOperation(method = RequestMethod.POST, operation = @Operation(description = "Say hello POST", operationId = "lowercasePOST", tags = "positions"))
 })
 public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
     return flux -&gt; flux.map(value -&gt; value.toLowerCase());
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -400,7 +412,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kotlin_support">Kotlin support</h3>
+<h3 id="_kotlin_support"><a class="anchor" href="#_kotlin_support"></a>Kotlin support</h3>
 <div class="paragraph">
 <p>For a project that uses Kotlin, you should use <code>springdoc-openapi-starter-common</code>.
 This dependency improves the support of Kotlin types.</p>
@@ -417,14 +429,14 @@ This dependency improves the support of Kotlin types.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_groovy_support">Groovy support</h3>
+<h3 id="_groovy_support"><a class="anchor" href="#_groovy_support"></a>Groovy support</h3>
 <div class="paragraph">
 <p>For a project that uses Groovy, you should use <code>springdoc-openapi-starter-common</code>.
 This dependency improves the support of Kotlin types:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_javadoc_support">Javadoc support</h3>
+<h3 id="_javadoc_support"><a class="anchor" href="#_javadoc_support"></a>Javadoc support</h3>
 <div class="paragraph">
 <p>For a project that wants to enable javadoc support, you should use <code>springdoc-openapi-starter-common</code>.
 This dependency improves the support of javadoc tags and comments:</p>
@@ -459,7 +471,7 @@ Make sure, you enable the annotation processor of <code>therapi-runtime-javadoc<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">	&lt;build&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">	&lt;build&gt;
 		&lt;plugins&gt;
 			&lt;plugin&gt;
 				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -496,26 +508,11 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-21 19:25:05 +0200
+Last updated 2022-05-01 00:07:55 +0200
 </div>
 </div>
-<script src="js/highlight/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
-<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
-<script type="text/javascript" src="js/toc.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-1GEGWXWNH4');
-</script>
+</div>
+  </div>
+</div>
 </body>
 </html>

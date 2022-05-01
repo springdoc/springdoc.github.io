@@ -6,21 +6,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <title>Migrating from SpringFox</title>
-<link rel="stylesheet" href="css/spring.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
-<style>
-    #header #revnumber {
-        display: none
-    }
-</style>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
 </head>
-<body class="book">
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
 <div id="header">
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="migrating-from-springfox">Migrating from SpringFox</h2>
+<h2 id="migrating-from-springfox"><a class="anchor" href="#migrating-from-springfox"></a>Migrating from SpringFox</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -31,7 +41,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -88,7 +98,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Bean
+<pre class="highlight"><code class="language-java" data-lang="java">  @Bean
   public Docket publicApi() {
       return new Docket(DocumentationType.SWAGGER_2)
               .select()
@@ -109,7 +119,8 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
               .build()
               .groupName("springshop-admin")
               .apiInfo(apiInfo());
-  }</code></pre>
+  }
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -117,7 +128,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Bean
+<pre class="highlight"><code class="language-java" data-lang="java">  @Bean
   public GroupedOpenApi publicApi() {
       return GroupedOpenApi.builder()
               .group("springshop-public")
@@ -131,7 +142,8 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
               .pathsToMatch("/admin/**")
               .addMethodFilter(method -&gt; method.isAnnotationPresent(Admin.class))
               .build();
-  }</code></pre>
+  }
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -139,7 +151,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.packagesToScan=package1, package2
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.packagesToScan=package1, package2
 springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 </div>
@@ -152,7 +164,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Bean
+<pre class="highlight"><code class="language-java" data-lang="java">  @Bean
   public OpenAPI springShopOpenAPI() {
       return new OpenAPI()
               .info(new Info().title("SpringShop API")
@@ -162,7 +174,8 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
               .externalDocs(new ExternalDocumentation()
               .description("SpringShop Wiki Documentation")
               .url("https://springshop.wiki.github.org/docs"));
-  }</code></pre>
+  }
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -207,23 +220,8 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 Last updated 2022-04-07 20:33:32 +0200
 </div>
 </div>
-<script src="js/highlight/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
-<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
-<script type="text/javascript" src="js/toc.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-1GEGWXWNH4');
-</script>
+</div>
+  </div>
+</div>
 </body>
 </html>

@@ -7,16 +7,31 @@
 <meta name="generator" content="Asciidoctor 2.0.15">
 <meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
 <title>springdoc-openapi v2.0.0-M2</title>
-<link rel="stylesheet" href="css/spring.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="js/highlight/styles/github.min.css">
+<link rel="stylesheet" href="css/site.css">
 <style>
     #header #revnumber {
         display: none
     }
 </style>
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
 </head>
-<body class="book toc2 toc-left">
+<body class="book toc2 toc-left"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
 <div id="header">
 <h1>springdoc-openapi v2.0.0-M2</h1>
 <div class="details">
@@ -79,85 +94,92 @@
 <li><a href="#dependencies-repository">9.2. Dependencies repository</a></li>
 </ul>
 </li>
-<li><a href="#thanks">10. Special Thanks</a></li>
-<li><a href="#faq">11. F.A.Q</a>
+<li><a href="#sponsor">10. Sponsor</a>
 <ul class="sectlevel2">
-<li><a href="#how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project">11.1. How can I define multiple OpenAPI definitions in one Spring Boot project?</a></li>
-<li><a href="#how-can-i-configure-swagger-ui">11.2. How can I configure Swagger UI?</a></li>
-<li><a href="#how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group">11.3. How can I filter the resources documented in the output specification by the provided group?</a></li>
-<li><a href="#how-can-i-disableenable-swagger-ui-generation-based-on-env-variable">11.4. How can I disable/enable Swagger UI generation based on env variable?</a></li>
-<li><a href="#how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui">11.5. How can I control the default expansion setting for the operations and tags, in the Swagger UI ,</a></li>
-<li><a href="#how-can-i-change-the-layout-of-the-swagger-ui">11.6. How can I change the layout of the <code>swagger-ui</code>?</a></li>
-<li><a href="#how-can-i-sort-endpoints-alphabetically">11.7. How can I sort endpoints alphabetically?</a></li>
-<li><a href="#how-can-i-disable-the-try-it-out-button">11.8. How can I disable the try it out button?</a></li>
-<li><a href="#how-can-i-add-reusable-enums">11.9. How can I add  Reusable Enums ?</a></li>
-<li><a href="#how-can-i-explicitly-set-which-paths-to-filter">11.10. How can I explicitly set which paths to filter?</a></li>
-<li><a href="#how-can-i-explicitly-set-which-packages-to-scan">11.11. How can I explicitly set which packages to scan?</a></li>
-<li><a href="#how-can-i-set-swagger-properties-programmatically">11.12. How can I set Swagger properties programmatically?</a></li>
-<li><a href="#how-can-i-ignore-some-field-of-model">11.13. How can I ignore some field of model ?</a></li>
-<li><a href="#how-can-i-ignore-authenticationprincipal-parameter-from-spring-security">11.14. How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security ?</a></li>
-<li><a href="#is-there-a-gradle-plugin-available">11.15. Is there a Gradle plugin available?</a></li>
-<li><a href="#how-can-i-hide-a-parameter-from-the-documentation">11.16. How can I hide a parameter from the documentation ?</a></li>
-<li><a href="#is-parameters-annotation-supported">11.17. Is <code>@Parameters</code> annotation supported ?</a></li>
-<li><a href="#does-springdoc-openapi-support-jersey">11.18. Does <code>springdoc-openapi</code> support Jersey?</a></li>
-<li><a href="#can-springdoc-openapi-generate-api-only-for-restcontroller">11.19. Can <code>springdoc-openapi</code> generate API only for <code>@RestController</code>?</a></li>
-<li><a href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero">11.20. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</a></li>
-<li><a href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui">11.21. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</a></li>
-<li><a href="#how-can-i-generate-enums-in-the-generated-description">11.22. How can I generate enums in the generated description?</a></li>
-<li><a href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">11.23. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</a></li>
-<li><a href="#is-jsonview-annotations-in-spring-mvc-apis-supported">11.24. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</a></li>
-<li><a href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page">11.25. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</a></li>
-<li><a href="#how-can-i-test-the-swagger-ui">11.26. How can I test the Swagger UI?</a></li>
-<li><a href="#how-can-i-customise-the-openapi-object">11.27. How can I customise the OpenAPI object ?</a></li>
-<li><a href="#how-can-i-return-an-empty-content-as-response">11.28. How can I return an empty content as response?</a></li>
-<li><a href="#how-are-endpoints-with-multiple-consuming-media-types-supported">11.29. How are endpoints with multiple consuming media types supported?</a></li>
-<li><a href="#how-can-i-get-yaml-and-json-openapi-in-compile-time">11.30. How can I get yaml and json (OpenAPI) in compile time?</a></li>
-<li><a href="#what-are-the-ignored-types-in-the-documentation">11.31. What are the ignored types in the documentation?</a></li>
-<li><a href="#how-can-i-disable-ignored-types">11.32. How can i disable ignored types:</a></li>
-<li><a href="#how-do-i-add-authorization-header-in-requests">11.33. How do I add authorization header in requests?</a></li>
-<li><a href="#differentiation-to-springfox-project">11.34. Differentiation to Springfox project</a></li>
-<li><a href="#how-do-i-migrate-to-openapi-3-with-springdoc-openapi">11.35. How do I migrate to OpenAPI 3 with springdoc-openapi</a></li>
-<li><a href="#how-can-i-set-a-global-header">11.36. How can I set a global header?</a></li>
-<li><a href="#are-callbacks-supported">11.37. Are Callbacks supported?</a></li>
-<li><a href="#how-can-i-define-securityscheme">11.38. How can I define SecurityScheme ?</a></li>
-<li><a href="#how-can-i-hide-an-operation-or-a-controller-from-documentation">11.39. How can I hide an operation or a controller from documentation ?</a></li>
-<li><a href="#how-to-configure-global-security-schemes">11.40. How to configure global security schemes?</a></li>
-<li><a href="#can-i-use-spring-property-with-swagger-annotations">11.41. Can I use spring property with swagger annotations?</a></li>
-<li><a href="#how-is-server-url-generated">11.42. How is server URL generated ?</a></li>
-<li><a href="#how-can-i-disable-springdoc-openapi-cache">11.43. How can I disable springdoc-openapi cache?</a></li>
-<li><a href="#how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui">11.44. How can I expose the mvc api-docs endpoints without using the <code>swagger-ui</code>?</a></li>
-<li><a href="#how-can-i-disable-springdoc-openapi-endpoints">11.45. How can I disable <code>springdoc-openapi</code> endpoints ?</a></li>
-<li><a href="#how-can-i-hide-schema-of-the-the-response">11.46. How can I hide Schema of the the response ?</a></li>
-<li><a href="#what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path">11.47. What is the URL of the <code>swagger-ui</code>, when I set a different context-path?</a></li>
-<li><a href="#can-i-customize-openapi-object-programmatically">11.48. Can I customize OpenAPI object programmatically?</a></li>
-<li><a href="#where-can-i-find-the-source-code-of-the-demo-applications">11.49. Where can I find the source code of the demo applications?</a></li>
-<li><a href="#does-this-library-supports-annotations-from-interfaces">11.50. Does this library supports annotations from interfaces?</a></li>
-<li><a href="#what-is-the-list-of-the-excluded-parameter-types">11.51. What is the list of the excluded parameter types?</a></li>
-<li><a href="#is-file-upload-supported">11.52. Is file upload supported ?</a></li>
-<li><a href="#can-i-use-parameter-inside-operation-annotation">11.53. Can I use <code>@Parameter</code> inside <code>@Operation</code> annotation?</a></li>
-<li><a href="#why-my-parameter-is-marked-as-required">11.54. Why my parameter is marked as required?</a></li>
-<li><a href="#how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters">11.55. How are overloaded methods with the same endpoints, but with different parameters</a></li>
-<li><a href="#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml">11.56. What is a proper way to set up Swagger UI to use provided spec.yml?</a></li>
-<li><a href="#is-there-a-way-to-send-authorization-header-through-the-parameter-tag">11.57. Is there a way to send authorization header through the @Parameter tag?</a></li>
-<li><a href="#my-rest-controller-using-controller-annotation-is-ignored">11.58. My Rest Controller using @Controller annotation is ignored?</a></li>
-<li><a href="#how-can-i-define-groups-using-application-yml">11.59. How can I define groups using application.yml?</a></li>
-<li><a href="#how-can-i-extract-fields-from-parameter-object">11.60. How can I extract fields from parameter object ?</a></li>
-<li><a href="#how-can-i-use-the-last-springdoc-openapi-snapshot">11.61. How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</a></li>
-<li><a href="#how-can-i-use-enable-springdoc-openapi-monetaryamount-support">11.62. How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</a></li>
-<li><a href="#how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application">11.63. How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</a></li>
-<li><a href="#how-can-use-custom-jsonyml-file-instead-of-generated-one">11.64. How can use custom json/yml file instead of generated one ?</a></li>
-<li><a href="#how-can-i-enable-csrf-support">11.65. How can i enable CSRF support?</a></li>
-<li><a href="#how-can-i-disable-the-default-swagger-petstore-url">11.66. How can i disable the default swagger petstore URL?</a></li>
-<li><a href="#is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation">11.67. Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?</a></li>
-<li><a href="#how-can-i-make-spring-security-login-endpoint-visible">11.68. How can i make spring security login-endpoint visible ?</a></li>
-<li><a href="#how-can-i-show-schema-definitions-even-the-schema-is-not-referenced">11.69. How can i show schema definitions even the schema is not referenced?</a></li>
-<li><a href="#how-to-override-deprecated">11.70. How to override @Deprecated?</a></li>
-<li><a href="#how-can-i-display-a-method-that-returns-modelandview">11.71. How can i display a method that returns ModelAndView?</a></li>
-<li><a href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification">11.72. How can i have pretty-printed output of the OpenApi specification?</a></li>
-<li><a href="#how-can-i-define-different-schemas-for-the-same-class">11.73. How can i define different schemas for the same class?</a></li>
-<li><a href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage">11.74. How can i define different description for a class attribute depending on usage?</a></li>
-<li><a href="#customizing-swagger-static-resources">11.75. Customizing swagger static resources</a></li>
-<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">11.76. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
+<li><a href="#benefits-of-being-a-bronze-sponsor">10.1. Benefits of being a bronze sponsor</a></li>
+<li><a href="#benefits-of-being-a-silver-sponsor">10.2. Benefits of being a silver sponsor</a></li>
+<li><a href="#benefits-of-being-a-gold-sponsor">10.3. Benefits of being a gold sponsor</a></li>
+</ul>
+</li>
+<li><a href="#thanks">11. Special Thanks</a></li>
+<li><a href="#faq">12. F.A.Q</a>
+<ul class="sectlevel2">
+<li><a href="#how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project">12.1. How can I define multiple OpenAPI definitions in one Spring Boot project?</a></li>
+<li><a href="#how-can-i-configure-swagger-ui">12.2. How can I configure Swagger UI?</a></li>
+<li><a href="#how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group">12.3. How can I filter the resources documented in the output specification by the provided group?</a></li>
+<li><a href="#how-can-i-disableenable-swagger-ui-generation-based-on-env-variable">12.4. How can I disable/enable Swagger UI generation based on env variable?</a></li>
+<li><a href="#how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui">12.5. How can I control the default expansion setting for the operations and tags, in the Swagger UI ,</a></li>
+<li><a href="#how-can-i-change-the-layout-of-the-swagger-ui">12.6. How can I change the layout of the <code>swagger-ui</code>?</a></li>
+<li><a href="#how-can-i-sort-endpoints-alphabetically">12.7. How can I sort endpoints alphabetically?</a></li>
+<li><a href="#how-can-i-disable-the-try-it-out-button">12.8. How can I disable the try it out button?</a></li>
+<li><a href="#how-can-i-add-reusable-enums">12.9. How can I add  Reusable Enums ?</a></li>
+<li><a href="#how-can-i-explicitly-set-which-paths-to-filter">12.10. How can I explicitly set which paths to filter?</a></li>
+<li><a href="#how-can-i-explicitly-set-which-packages-to-scan">12.11. How can I explicitly set which packages to scan?</a></li>
+<li><a href="#how-can-i-set-swagger-properties-programmatically">12.12. How can I set Swagger properties programmatically?</a></li>
+<li><a href="#how-can-i-ignore-some-field-of-model">12.13. How can I ignore some field of model ?</a></li>
+<li><a href="#how-can-i-ignore-authenticationprincipal-parameter-from-spring-security">12.14. How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security ?</a></li>
+<li><a href="#is-there-a-gradle-plugin-available">12.15. Is there a Gradle plugin available?</a></li>
+<li><a href="#how-can-i-hide-a-parameter-from-the-documentation">12.16. How can I hide a parameter from the documentation ?</a></li>
+<li><a href="#is-parameters-annotation-supported">12.17. Is <code>@Parameters</code> annotation supported ?</a></li>
+<li><a href="#does-springdoc-openapi-support-jersey">12.18. Does <code>springdoc-openapi</code> support Jersey?</a></li>
+<li><a href="#can-springdoc-openapi-generate-api-only-for-restcontroller">12.19. Can <code>springdoc-openapi</code> generate API only for <code>@RestController</code>?</a></li>
+<li><a href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero">12.20. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</a></li>
+<li><a href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui">12.21. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</a></li>
+<li><a href="#how-can-i-generate-enums-in-the-generated-description">12.22. How can I generate enums in the generated description?</a></li>
+<li><a href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">12.23. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</a></li>
+<li><a href="#is-jsonview-annotations-in-spring-mvc-apis-supported">12.24. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</a></li>
+<li><a href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page">12.25. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</a></li>
+<li><a href="#how-can-i-test-the-swagger-ui">12.26. How can I test the Swagger UI?</a></li>
+<li><a href="#how-can-i-customise-the-openapi-object">12.27. How can I customise the OpenAPI object ?</a></li>
+<li><a href="#how-can-i-return-an-empty-content-as-response">12.28. How can I return an empty content as response?</a></li>
+<li><a href="#how-are-endpoints-with-multiple-consuming-media-types-supported">12.29. How are endpoints with multiple consuming media types supported?</a></li>
+<li><a href="#how-can-i-get-yaml-and-json-openapi-in-compile-time">12.30. How can I get yaml and json (OpenAPI) in compile time?</a></li>
+<li><a href="#what-are-the-ignored-types-in-the-documentation">12.31. What are the ignored types in the documentation?</a></li>
+<li><a href="#how-can-i-disable-ignored-types">12.32. How can i disable ignored types:</a></li>
+<li><a href="#how-do-i-add-authorization-header-in-requests">12.33. How do I add authorization header in requests?</a></li>
+<li><a href="#differentiation-to-springfox-project">12.34. Differentiation to Springfox project</a></li>
+<li><a href="#how-do-i-migrate-to-openapi-3-with-springdoc-openapi">12.35. How do I migrate to OpenAPI 3 with springdoc-openapi</a></li>
+<li><a href="#how-can-i-set-a-global-header">12.36. How can I set a global header?</a></li>
+<li><a href="#are-callbacks-supported">12.37. Are Callbacks supported?</a></li>
+<li><a href="#how-can-i-define-securityscheme">12.38. How can I define SecurityScheme ?</a></li>
+<li><a href="#how-can-i-hide-an-operation-or-a-controller-from-documentation">12.39. How can I hide an operation or a controller from documentation ?</a></li>
+<li><a href="#how-to-configure-global-security-schemes">12.40. How to configure global security schemes?</a></li>
+<li><a href="#can-i-use-spring-property-with-swagger-annotations">12.41. Can I use spring property with swagger annotations?</a></li>
+<li><a href="#how-is-server-url-generated">12.42. How is server URL generated ?</a></li>
+<li><a href="#how-can-i-disable-springdoc-openapi-cache">12.43. How can I disable springdoc-openapi cache?</a></li>
+<li><a href="#how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui">12.44. How can I expose the mvc api-docs endpoints without using the <code>swagger-ui</code>?</a></li>
+<li><a href="#how-can-i-disable-springdoc-openapi-endpoints">12.45. How can I disable <code>springdoc-openapi</code> endpoints ?</a></li>
+<li><a href="#how-can-i-hide-schema-of-the-the-response">12.46. How can I hide Schema of the the response ?</a></li>
+<li><a href="#what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path">12.47. What is the URL of the <code>swagger-ui</code>, when I set a different context-path?</a></li>
+<li><a href="#can-i-customize-openapi-object-programmatically">12.48. Can I customize OpenAPI object programmatically?</a></li>
+<li><a href="#where-can-i-find-the-source-code-of-the-demo-applications">12.49. Where can I find the source code of the demo applications?</a></li>
+<li><a href="#does-this-library-supports-annotations-from-interfaces">12.50. Does this library supports annotations from interfaces?</a></li>
+<li><a href="#what-is-the-list-of-the-excluded-parameter-types">12.51. What is the list of the excluded parameter types?</a></li>
+<li><a href="#is-file-upload-supported">12.52. Is file upload supported ?</a></li>
+<li><a href="#can-i-use-parameter-inside-operation-annotation">12.53. Can I use <code>@Parameter</code> inside <code>@Operation</code> annotation?</a></li>
+<li><a href="#why-my-parameter-is-marked-as-required">12.54. Why my parameter is marked as required?</a></li>
+<li><a href="#how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters">12.55. How are overloaded methods with the same endpoints, but with different parameters</a></li>
+<li><a href="#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml">12.56. What is a proper way to set up Swagger UI to use provided spec.yml?</a></li>
+<li><a href="#is-there-a-way-to-send-authorization-header-through-the-parameter-tag">12.57. Is there a way to send authorization header through the @Parameter tag?</a></li>
+<li><a href="#my-rest-controller-using-controller-annotation-is-ignored">12.58. My Rest Controller using @Controller annotation is ignored?</a></li>
+<li><a href="#how-can-i-define-groups-using-application-yml">12.59. How can I define groups using application.yml?</a></li>
+<li><a href="#how-can-i-extract-fields-from-parameter-object">12.60. How can I extract fields from parameter object ?</a></li>
+<li><a href="#how-can-i-use-the-last-springdoc-openapi-snapshot">12.61. How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</a></li>
+<li><a href="#how-can-i-use-enable-springdoc-openapi-monetaryamount-support">12.62. How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</a></li>
+<li><a href="#how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application">12.63. How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</a></li>
+<li><a href="#how-can-use-custom-jsonyml-file-instead-of-generated-one">12.64. How can use custom json/yml file instead of generated one ?</a></li>
+<li><a href="#how-can-i-enable-csrf-support">12.65. How can i enable CSRF support?</a></li>
+<li><a href="#how-can-i-disable-the-default-swagger-petstore-url">12.66. How can i disable the default swagger petstore URL?</a></li>
+<li><a href="#is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation">12.67. Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?</a></li>
+<li><a href="#how-can-i-make-spring-security-login-endpoint-visible">12.68. How can i make spring security login-endpoint visible ?</a></li>
+<li><a href="#how-can-i-show-schema-definitions-even-the-schema-is-not-referenced">12.69. How can i show schema definitions even the schema is not referenced?</a></li>
+<li><a href="#how-to-override-deprecated">12.70. How to override @Deprecated?</a></li>
+<li><a href="#how-can-i-display-a-method-that-returns-modelandview">12.71. How can i display a method that returns ModelAndView?</a></li>
+<li><a href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification">12.72. How can i have pretty-printed output of the OpenApi specification?</a></li>
+<li><a href="#how-can-i-define-different-schemas-for-the-same-class">12.73. How can i define different schemas for the same class?</a></li>
+<li><a href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage">12.74. How can i define different description for a class attribute depending on usage?</a></li>
+<li><a href="#customizing-swagger-static-resources">12.75. Customizing swagger static resources</a></li>
+<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">12.76. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
 </ul>
 </li>
 </ul>
@@ -167,8 +189,19 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="https://github.com/springdoc/springdoc-openapi" target="_blank" rel="noopener">View project on GitHub</a> <span class="image"><a class="image" href="https://github.com/springdoc/springdoc-openapi"><img src="images/github-logo.png" alt="github logo"></a></span></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi" target="_blank" rel="noopener">View project on GitHub</a> <span class="image"><a class="image" href="https://github.com/springdoc/springdoc-openapi"><img src="img/github-logo.png" alt="github logo"></a></span></p>
 </div>
+<div class="paragraph">
+<p>This project is sponsored by</p>
+</div>
+        <p style="text-align: center;">
+          <a href="https://opensource.mercedes-benz.com/" target="_blank">
+           <img src="img/mercedes-benz.png" height="10%" width="10%" />
+          </a>&nbsp;&nbsp;
+          <a href="https://www.dmtech.de" target="_blank">
+            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
+           </a>
+        </p>
 </div>
 </div>
 <div class="sect1">
@@ -212,7 +245,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://youtu.be/utRxyPfFlDw" target="_blank" rel="noopener"><img src="images/springdoc-openapi-prez.gif" alt="spring.io conference"></a>
+<a class="image" href="https://youtu.be/utRxyPfFlDw" target="_blank" rel="noopener"><img src="img/springdoc-openapi-prez.gif" alt="spring.io conference"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -228,7 +261,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -278,7 +311,7 @@ For custom path of the swagger documentation in HTML format, add a custom spring
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># swagger-ui custom path
+<pre class="highlight"><code class="language-properties" data-lang="properties"># swagger-ui custom path
 springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 </div>
 </div>
@@ -291,7 +324,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <h3 id="general-overview"><a class="anchor" href="#general-overview"></a>3.1. General overview</h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/common.png" alt="Architecture">
+<img src="img/common.png" alt="Architecture">
 </div>
 </div>
 </div>
@@ -325,7 +358,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -358,7 +391,7 @@ For custom path of the OpenAPI documentation in Json format, add a custom spring
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># /api-docs endpoint custom path
+<pre class="highlight"><code class="language-properties" data-lang="properties"># /api-docs endpoint custom path
 springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
@@ -377,7 +410,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -418,7 +451,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case it is used on RE
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.show-actuator=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -441,7 +474,7 @@ The actuator management port has to be different from the application port.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.use-management-port=true
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.use-management-port=true
 # This property enables the openapi and swagger-ui endpoints to be exposed beneath the actuator base path.
 management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 </div>
@@ -482,7 +515,7 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">management.server.port=9090</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">management.server.port=9090</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -521,7 +554,7 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-actuator=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.show-actuator=true</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -622,12 +655,13 @@ Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandator
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperation(operation = @Operation(description = "Say hello", operationId = "hello", tags = "persons",
         responses = @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = PersonDTO.class)))))
 public Supplier&lt;PersonDTO&gt; helloSupplier() {
     return () -&gt; new PersonDTO();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -643,14 +677,15 @@ When using <code>RouterOperations</code>, it&#8217;s mandatory to fill the metho
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperations({
         @RouterOperation(method = RequestMethod.GET, operation = @Operation(description = "Say hello GET", operationId = "lowercaseGET", tags = "persons")),
         @RouterOperation(method = RequestMethod.POST, operation = @Operation(description = "Say hello POST", operationId = "lowercasePOST", tags = "positions"))
 })
 public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
     return flux -&gt; flux.map(value -&gt; value.toLowerCase());
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -724,7 +759,7 @@ Make sure, you enable the annotation processor of <code>therapi-runtime-javadoc<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;build&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;build&gt;
         &lt;plugins&gt;
             &lt;plugin&gt;
                 &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -782,7 +817,7 @@ For better performance of documentation generation, declare @OpenAPIDefinition a
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disabling the /v3/api-docs endpoint
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Disabling the /v3/api-docs endpoint
 springdoc.api-docs.enabled=false</code></pre>
 </div>
 </div>
@@ -794,7 +829,7 @@ springdoc.api-docs.enabled=false</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Disabling the swagger-ui
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Disabling the swagger-ui
 springdoc.swagger-ui.enabled=false</code></pre>
 </div>
 </div>
@@ -826,7 +861,7 @@ All these properties should be declared with the following prefix: <strong>sprin
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Packages to include
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Packages to include
 springdoc.packagesToScan=com.package1, com.package2</code></pre>
 </div>
 </div>
@@ -835,7 +870,7 @@ springdoc.packagesToScan=com.package1, com.package2</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties"># Paths to include
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Paths to include
 springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 </div>
@@ -853,7 +888,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 RouterFunction&lt;?&gt; routes() {
     return route().GET("/foo", HANDLER_FUNCTION, ops -&gt; ops
             .operationId("hello")
@@ -862,7 +897,8 @@ RouterFunction&lt;?&gt; routes() {
             .response(responseBuilder().responseCode("200").description("This is normal response description"))
             .response(responseBuilder().responseCode("404").description("This is another response description"))
     ).build();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -917,13 +953,14 @@ When using @RouterOperation, its not mandatory to fill the path</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperation(beanClass = EmployeeService.class, beanMethod = "findAllEmployees")
 RouterFunction&lt;ServerResponse&gt; getAllEmployeesRoute() {
    return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
          req -&gt; ok().body(
                employeeService().findAllEmployees(), Employee.class));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -948,7 +985,7 @@ Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandator
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 @RouterOperation(operation = @Operation(operationId = "findEmployeeById", summary = "Find purchase order by ID", tags = { "MyEmployee" },
       parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Employee Id") },
       responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Employee.class))),
@@ -958,7 +995,8 @@ RouterFunction&lt;ServerResponse&gt; getEmployeeByIdRoute() {
    return route(GET("/employees/{id}"),
          req -&gt; ok().body(
                employeeRepository().findEmployeeById(req.pathVariable("id")), Employee.class));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -974,7 +1012,7 @@ When using RouterOperations, its mandatory to fill the path property.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
+<pre class="highlight"><code class="language-java" data-lang="java">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
       @RouterOperation(path = "/getPerson/{id}", beanClass = PersonService.class, beanMethod = "getById"),
       @RouterOperation(path = "/createPerson", beanClass = PersonService.class, beanMethod = "save"),
       @RouterOperation(path = "/deletePerson/{id}", beanClass = PersonService.class, beanMethod = "delete") })
@@ -985,7 +1023,8 @@ public RouterFunction&lt;ServerResponse&gt; personRoute(PersonHandler handler) {
          .andRoute(GET("/getPerson/{id}").and(accept(MediaType.APPLICATION_STREAM_JSON)), handler::findById)
          .andRoute(POST("/createPerson").and(accept(MediaType.APPLICATION_JSON)), handler::save)
          .andRoute(DELETE("/deletePerson/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::delete);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1053,7 +1092,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
      &lt;groupId&gt;org.webjars&lt;/groupId&gt;
      &lt;artifactId&gt;webjars-locator-jboss-vfs&lt;/artifactId&gt;
      &lt;version&gt;0.1.0&lt;/version&gt;
@@ -1596,7 +1635,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">mvn verify</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn verify</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1604,7 +1643,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;plugin&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
     &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
     &lt;version&gt;${spring-boot-maven-plugin.version}&lt;/version&gt;
@@ -1653,10 +1692,11 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
       id("org.springframework.boot") version "2.6.6"
       id("org.springdoc.openapi-gradle-plugin") version "1.3.4"
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1674,7 +1714,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">gradle clean generateOpenApiDocs</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">gradle clean generateOpenApiDocs</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1719,7 +1759,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/pets.png" alt="pets.png">
+<img src="img/pets.png" alt="pets.png">
 </div>
 </div>
 </div>
@@ -1747,7 +1787,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">   &lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
       &lt;version&gt;2.0.0-M2&lt;/version&gt;
@@ -1804,7 +1844,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Bean
+<pre class="highlight"><code class="language-java" data-lang="java">  @Bean
   public Docket publicApi() {
       return new Docket(DocumentationType.SWAGGER_2)
               .select()
@@ -1825,7 +1865,8 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
               .build()
               .groupName("springshop-admin")
               .apiInfo(apiInfo());
-  }</code></pre>
+  }
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1833,7 +1874,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Bean
+<pre class="highlight"><code class="language-java" data-lang="java">  @Bean
   public GroupedOpenApi publicApi() {
       return GroupedOpenApi.builder()
               .group("springshop-public")
@@ -1847,7 +1888,8 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
               .pathsToMatch("/admin/**")
               .addMethodFilter(method -&gt; method.isAnnotationPresent(Admin.class))
               .build();
-  }</code></pre>
+  }
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1855,7 +1897,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.packagesToScan=package1, package2
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.packagesToScan=package1, package2
 springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 </div>
@@ -1868,7 +1910,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">  @Bean
+<pre class="highlight"><code class="language-java" data-lang="java">  @Bean
   public OpenAPI springShopOpenAPI() {
       return new OpenAPI()
               .info(new Info().title("SpringShop API")
@@ -1878,7 +1920,8 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
               .externalDocs(new ExternalDocumentation()
               .description("SpringShop Wiki Documentation")
               .url("https://springshop.wiki.github.org/docs"));
-  }</code></pre>
+  }
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -1975,7 +2018,92 @@ The artifacts can be viewed accessed at the following locations:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="thanks"><a class="anchor" href="#thanks"></a>10. Special Thanks</h2>
+<h2 id="sponsor"><a class="anchor" href="#sponsor"></a>10. Sponsor</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you find <code>springdoc-openapi</code> useful for your work, please consider asking your company to support this Open Source project by becoming a sponsor.</p>
+</div>
+<div class="paragraph">
+<p>You can also individually sponsor the project!</p>
+</div>
+<div class="paragraph">
+<p>This money is used to cover project expenses and your donation will help the project live and grow successfully.</p>
+</div>
+<div class="paragraph">
+<p>Thank you to our bronze sponsors!</p>
+</div>
+        <p style="text-align: center;">
+          <a href="https://opensource.mercedes-benz.com/" target="_blank">
+           <img src="img/mercedes-benz.png" height="10%" width="10%" />
+          </a>&nbsp;&nbsp;
+          <a href="https://www.dmtech.de" target="_blank">
+            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
+           </a>
+        </p>
+<div class="sect2">
+<h3 id="benefits-of-being-a-bronze-sponsor"><a class="anchor" href="#benefits-of-being-a-bronze-sponsor"></a>10.1. Benefits of being a bronze sponsor</h3>
+<div class="paragraph">
+<p>Bronze sponsors donate $50 per month to the project and get the following benefits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You will receive a Sponsor badge 🎖!. Visibility on the front page of  <a href="https://springdoc.org" class="bare">springdoc.org</a> in the <code>welcome</code> page (about 55,000 views/month on May, 2022).</p>
+</li>
+<li>
+<p>The ability to create 1 <code>issue</code> every month, non transferable.</p>
+</li>
+<li>
+<p>“Thank you” tweet from @springdoc.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="benefits-of-being-a-silver-sponsor"><a class="anchor" href="#benefits-of-being-a-silver-sponsor"></a>10.2. Benefits of being a silver sponsor</h3>
+<div class="paragraph">
+<p>Silver sponsors donate $100 per month to the project and get the following benefits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).</p>
+</li>
+<li>
+<p>The ability to create 2 <code>issues</code> every month, non transferable.</p>
+</li>
+<li>
+<p>If issues are not created by the end of the month, it is lost</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="benefits-of-being-a-gold-sponsor"><a class="anchor" href="#benefits-of-being-a-gold-sponsor"></a>10.3. Benefits of being a gold sponsor</h3>
+<div class="paragraph">
+<p>Gold sponsors donate $500 per month to the project and get the following benefits:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Same benefits as silver sponsors (visibility on main pages, and thank you tweet).</p>
+</li>
+<li>
+<p>The ability to create 10 <code>issues</code> every month, non transferable.</p>
+</li>
+<li>
+<p>Company logos on all <a href="https://springdoc.org" class="bare">springdoc.org</a> page footers</p>
+</li>
+<li>
+<p>If issues are not created by the end of the month, the remaining ones are lost.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="thanks"><a class="anchor" href="#thanks"></a>11. Special Thanks</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -1989,16 +2117,16 @@ The artifacts can be viewed accessed at the following locations:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/jetbrains.svg" alt="JetBrains">
+<img src="img/jetbrains.svg" alt="JetBrains">
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="anchor" href="#faq"></a>11. F.A.Q</h2>
+<h2 id="faq"><a class="anchor" href="#faq"></a>12. F.A.Q</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project"><a class="anchor" href="#how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project"></a>11.1. How can I define multiple OpenAPI definitions in one Spring Boot project?</h3>
+<h3 id="how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project"><a class="anchor" href="#how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project"></a>12.1. How can I define multiple OpenAPI definitions in one Spring Boot project?</h3>
 <div class="paragraph">
 <p>You can define your own groups of API based on the combination of: API paths and packages to scan. Each group should have a unique <code>groupName</code>.
 The OpenAPI description of this group, will be available by default on:</p>
@@ -2018,12 +2146,13 @@ The OpenAPI description of this group, will be available by default on:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public GroupedOpenApi storeOpenApi() {
    String paths[] = {"/store/**"};
    return GroupedOpenApi.builder().group("stores").pathsToMatch(paths)
          .build();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2031,12 +2160,13 @@ public GroupedOpenApi storeOpenApi() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public GroupedOpenApi userOpenApi() {
    String packagesToscan[] = {"test.org.springdoc.api.app68.api.user"};
    return GroupedOpenApi.builder().group("users").packagesToScan(packagesToscan)
          .build();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2044,12 +2174,13 @@ public GroupedOpenApi userOpenApi() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public GroupedOpenApi petOpenApi() {
    String paths[] = {"/pet/**"};
    return GroupedOpenApi.builder().group("pets").pathsToMatch(paths)
          .build();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2057,13 +2188,14 @@ public GroupedOpenApi petOpenApi() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public GroupedOpenApi groupOpenApi() {
    String paths[] = {"/v1/**"};
    String packagesToscan[] = {"test.org.springdoc.api.app68.api.user", "test.org.springdoc.api.app68.api.store"};
    return GroupedOpenApi.builder().group("groups").pathsToMatch(paths).packagesToScan(packagesToscan)
          .build();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2078,7 +2210,7 @@ public GroupedOpenApi groupOpenApi() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-configure-swagger-ui"><a class="anchor" href="#how-can-i-configure-swagger-ui"></a>11.2. How can I configure Swagger UI?</h3>
+<h3 id="how-can-i-configure-swagger-ui"><a class="anchor" href="#how-can-i-configure-swagger-ui"></a>12.2. How can I configure Swagger UI?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2103,7 +2235,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group"><a class="anchor" href="#how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group"></a>11.3. How can I filter the resources documented in the output specification by the provided group?</h3>
+<h3 id="how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group"><a class="anchor" href="#how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group"></a>12.3. How can I filter the resources documented in the output specification by the provided group?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2118,7 +2250,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-disableenable-swagger-ui-generation-based-on-env-variable"><a class="anchor" href="#how-can-i-disableenable-swagger-ui-generation-based-on-env-variable"></a>11.4. How can I disable/enable Swagger UI generation based on env variable?</h3>
+<h3 id="how-can-i-disableenable-swagger-ui-generation-based-on-env-variable"><a class="anchor" href="#how-can-i-disableenable-swagger-ui-generation-based-on-env-variable"></a>12.4. How can I disable/enable Swagger UI generation based on env variable?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2133,7 +2265,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui"><a class="anchor" href="#how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui"></a>11.5. How can I control the default expansion setting for the operations and tags, in the Swagger UI ,</h3>
+<h3 id="how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui"><a class="anchor" href="#how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui"></a>12.5. How can I control the default expansion setting for the operations and tags, in the Swagger UI ,</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2148,7 +2280,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-change-the-layout-of-the-swagger-ui"><a class="anchor" href="#how-can-i-change-the-layout-of-the-swagger-ui"></a>11.6. How can I change the layout of the <code>swagger-ui</code>?</h3>
+<h3 id="how-can-i-change-the-layout-of-the-swagger-ui"><a class="anchor" href="#how-can-i-change-the-layout-of-the-swagger-ui"></a>12.6. How can I change the layout of the <code>swagger-ui</code>?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2163,7 +2295,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-sort-endpoints-alphabetically"><a class="anchor" href="#how-can-i-sort-endpoints-alphabetically"></a>11.7. How can I sort endpoints alphabetically?</h3>
+<h3 id="how-can-i-sort-endpoints-alphabetically"><a class="anchor" href="#how-can-i-sort-endpoints-alphabetically"></a>12.7. How can I sort endpoints alphabetically?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2181,7 +2313,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-disable-the-try-it-out-button"><a class="anchor" href="#how-can-i-disable-the-try-it-out-button"></a>11.8. How can I disable the try it out button?</h3>
+<h3 id="how-can-i-disable-the-try-it-out-button"><a class="anchor" href="#how-can-i-disable-the-try-it-out-button"></a>12.8. How can I disable the try it out button?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2196,7 +2328,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-add-reusable-enums"><a class="anchor" href="#how-can-i-add-reusable-enums"></a>11.9. How can I add  Reusable Enums ?</h3>
+<h3 id="how-can-i-add-reusable-enums"><a class="anchor" href="#how-can-i-add-reusable-enums"></a>12.9. How can I add  Reusable Enums ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2206,7 +2338,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-explicitly-set-which-paths-to-filter"><a class="anchor" href="#how-can-i-explicitly-set-which-paths-to-filter"></a>11.10. How can I explicitly set which paths to filter?</h3>
+<h3 id="how-can-i-explicitly-set-which-paths-to-filter"><a class="anchor" href="#how-can-i-explicitly-set-which-paths-to-filter"></a>12.10. How can I explicitly set which paths to filter?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2221,7 +2353,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-explicitly-set-which-packages-to-scan"><a class="anchor" href="#how-can-i-explicitly-set-which-packages-to-scan"></a>11.11. How can I explicitly set which packages to scan?</h3>
+<h3 id="how-can-i-explicitly-set-which-packages-to-scan"><a class="anchor" href="#how-can-i-explicitly-set-which-packages-to-scan"></a>12.11. How can I explicitly set which packages to scan?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2236,25 +2368,26 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-set-swagger-properties-programmatically"><a class="anchor" href="#how-can-i-set-swagger-properties-programmatically"></a>11.12. How can I set Swagger properties programmatically?</h3>
+<h3 id="how-can-i-set-swagger-properties-programmatically"><a class="anchor" href="#how-can-i-set-swagger-properties-programmatically"></a>12.12. How can I set Swagger properties programmatically?</h3>
 <div class="paragraph">
 <p>These can be set by creating a <code>swaggerUiConfig</code> bean as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">---
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">---
 @Bean
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
     return config
 }
----</code></pre>
+---
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-ignore-some-field-of-model"><a class="anchor" href="#how-can-i-ignore-some-field-of-model"></a>11.13. How can I ignore some field of model ?</h3>
+<h3 id="how-can-i-ignore-some-field-of-model"><a class="anchor" href="#how-can-i-ignore-some-field-of-model"></a>12.13. How can I ignore some field of model ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2267,7 +2400,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-ignore-authenticationprincipal-parameter-from-spring-security"><a class="anchor" href="#how-can-i-ignore-authenticationprincipal-parameter-from-spring-security"></a>11.14. How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security ?</h3>
+<h3 id="how-can-i-ignore-authenticationprincipal-parameter-from-spring-security"><a class="anchor" href="#how-can-i-ignore-authenticationprincipal-parameter-from-spring-security"></a>12.14. How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2280,7 +2413,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-there-a-gradle-plugin-available"><a class="anchor" href="#is-there-a-gradle-plugin-available"></a>11.15. Is there a Gradle plugin available?</h3>
+<h3 id="is-there-a-gradle-plugin-available"><a class="anchor" href="#is-there-a-gradle-plugin-available"></a>12.15. Is there a Gradle plugin available?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2290,7 +2423,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-hide-a-parameter-from-the-documentation"><a class="anchor" href="#how-can-i-hide-a-parameter-from-the-documentation"></a>11.16. How can I hide a parameter from the documentation ?</h3>
+<h3 id="how-can-i-hide-a-parameter-from-the-documentation"><a class="anchor" href="#how-can-i-hide-a-parameter-from-the-documentation"></a>12.16. How can I hide a parameter from the documentation ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2300,7 +2433,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-parameters-annotation-supported"><a class="anchor" href="#is-parameters-annotation-supported"></a>11.17. Is <code>@Parameters</code> annotation supported ?</h3>
+<h3 id="is-parameters-annotation-supported"><a class="anchor" href="#is-parameters-annotation-supported"></a>12.17. Is <code>@Parameters</code> annotation supported ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2310,7 +2443,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="does-springdoc-openapi-support-jersey"><a class="anchor" href="#does-springdoc-openapi-support-jersey"></a>11.18. Does <code>springdoc-openapi</code> support Jersey?</h3>
+<h3 id="does-springdoc-openapi-support-jersey"><a class="anchor" href="#does-springdoc-openapi-support-jersey"></a>12.18. Does <code>springdoc-openapi</code> support Jersey?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2333,7 +2466,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="can-springdoc-openapi-generate-api-only-for-restcontroller"><a class="anchor" href="#can-springdoc-openapi-generate-api-only-for-restcontroller"></a>11.19. Can <code>springdoc-openapi</code> generate API only for <code>@RestController</code>?</h3>
+<h3 id="can-springdoc-openapi-generate-api-only-for-restcontroller"><a class="anchor" href="#can-springdoc-openapi-generate-api-only-for-restcontroller"></a>12.19. Can <code>springdoc-openapi</code> generate API only for <code>@RestController</code>?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2352,7 +2485,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero"><a class="anchor" href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero"></a>11.20. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</h3>
+<h3 id="are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero"><a class="anchor" href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero"></a>12.20. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2362,7 +2495,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui"><a class="anchor" href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui"></a>11.21. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</h3>
+<h3 id="how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui"><a class="anchor" href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui"></a>12.21. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</h3>
 <div class="paragraph">
 <p>The support for Pageable of spring-data-commons is available out-of-the box since <code>springdoc-openapi v1.6.0</code>.
 For this, you have to combine <code>@ParameterObject</code> annotation with the <code>Pageable</code> type.</p>
@@ -2379,10 +2512,11 @@ For this, you have to combine <code>@ParameterObject</code> annotation with the 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">static {
+<pre class="highlight"><code class="language-java" data-lang="java">static {
     getConfig().replaceParameterObjectWithClass(org.springframework.data.domain.Pageable.class, Pageable.class)
             .replaceParameterObjectWithClass(org.springframework.data.domain.PageRequest.class, Pageable.class);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -2407,7 +2541,7 @@ For this, you have to combine <code>@ParameterObject</code> annotation with the 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.model-converters.pageable-converter.enabled=false</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.model-converters.pageable-converter.enabled=false</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2424,7 +2558,7 @@ The property <code>springdoc.model-converters.pageable-converter.enabled</code> 
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-generate-enums-in-the-generated-description"><a class="anchor" href="#how-can-i-generate-enums-in-the-generated-description"></a>11.22. How can I generate enums in the generated description?</h3>
+<h3 id="how-can-i-generate-enums-in-the-generated-description"><a class="anchor" href="#how-can-i-generate-enums-in-the-generated-description"></a>12.22. How can I generate enums in the generated description?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2434,11 +2568,12 @@ The property <code>springdoc.model-converters.pageable-converter.enabled</code> 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@GetMapping("/example")
+<pre class="highlight"><code class="language-java" data-lang="java">@GetMapping("/example")
 public Object example(@Parameter(name ="json", schema = @Schema(description = "var 1",type = "string", allowableValues = {"1", "2"}))
 String json) {
    return null;
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -2450,16 +2585,17 @@ String json) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Override
+<pre class="highlight"><code class="language-java" data-lang="java">@Override
 @JsonValue
 public String toString() {
    return String.valueOf(action);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy"><a class="anchor" href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy"></a>11.23. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</h3>
+<h3 id="how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy"><a class="anchor" href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy"></a>12.23. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2508,7 +2644,7 @@ public String toString() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">server.forward-headers-strategy=framework</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">server.forward-headers-strategy=framework</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -2520,15 +2656,16 @@ public String toString() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 ForwardedHeaderFilter forwardedHeaderFilter() {
    return new ForwardedHeaderFilter();
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-jsonview-annotations-in-spring-mvc-apis-supported"><a class="anchor" href="#is-jsonview-annotations-in-spring-mvc-apis-supported"></a>11.24. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</h3>
+<h3 id="is-jsonview-annotations-in-spring-mvc-apis-supported"><a class="anchor" href="#is-jsonview-annotations-in-spring-mvc-apis-supported"></a>12.24. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2538,7 +2675,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page"><a class="anchor" href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page"></a>11.25. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</h3>
+<h3 id="adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page"><a class="anchor" href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page"></a>12.25. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2556,7 +2693,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-test-the-swagger-ui"><a class="anchor" href="#how-can-i-test-the-swagger-ui"></a>11.26. How can I test the Swagger UI?</h3>
+<h3 id="how-can-i-test-the-swagger-ui"><a class="anchor" href="#how-can-i-test-the-swagger-ui"></a>12.26. How can I test the Swagger UI?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2573,7 +2710,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-customise-the-openapi-object"><a class="anchor" href="#how-can-i-customise-the-openapi-object"></a>11.27. How can I customise the OpenAPI object ?</h3>
+<h3 id="how-can-i-customise-the-openapi-object"><a class="anchor" href="#how-can-i-customise-the-openapi-object"></a>12.27. How can I customise the OpenAPI object ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2593,11 +2730,12 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenApiCustomizer consumerTypeHeaderOpenAPICustomizer() {
 return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt; pathItem.readOperations().stream())
     .forEach(operation -&gt; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -2617,7 +2755,7 @@ This bean <code>OpenApiCustomizer</code> will be applied to the Default OpenAPI 
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-return-an-empty-content-as-response"><a class="anchor" href="#how-can-i-return-an-empty-content-as-response"></a>11.28. How can I return an empty content as response?</h3>
+<h3 id="how-can-i-return-an-empty-content-as-response"><a class="anchor" href="#how-can-i-return-an-empty-content-as-response"></a>12.28. How can I return an empty content as response?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2636,19 +2774,20 @@ This bean <code>OpenApiCustomizer</code> will be applied to the Default OpenAPI 
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Operation(summary = "Get thing", responses = {
+<pre class="highlight"><code class="language-java" data-lang="java">@Operation(summary = "Get thing", responses = {
       @ApiResponse(description = "Successful Operation", responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = String.class))),
       @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
       @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))) })
 @RequestMapping(path = "/testme", method = RequestMethod.GET)
 ResponseEntity&lt;String&gt; testme() {
    return ResponseEntity.ok("Hello");
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-are-endpoints-with-multiple-consuming-media-types-supported"><a class="anchor" href="#how-are-endpoints-with-multiple-consuming-media-types-supported"></a>11.29. How are endpoints with multiple consuming media types supported?</h3>
+<h3 id="how-are-endpoints-with-multiple-consuming-media-types-supported"><a class="anchor" href="#how-are-endpoints-with-multiple-consuming-media-types-supported"></a>12.29. How are endpoints with multiple consuming media types supported?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2661,7 +2800,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-get-yaml-and-json-openapi-in-compile-time"><a class="anchor" href="#how-can-i-get-yaml-and-json-openapi-in-compile-time"></a>11.30. How can I get yaml and json (OpenAPI) in compile time?</h3>
+<h3 id="how-can-i-get-yaml-and-json-openapi-in-compile-time"><a class="anchor" href="#how-can-i-get-yaml-and-json-openapi-in-compile-time"></a>12.30. How can I get yaml and json (OpenAPI) in compile time?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2681,7 +2820,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-are-the-ignored-types-in-the-documentation"><a class="anchor" href="#what-are-the-ignored-types-in-the-documentation"></a>11.31. What are the ignored types in the documentation?</h3>
+<h3 id="what-are-the-ignored-types-in-the-documentation"><a class="anchor" href="#what-are-the-ignored-types-in-the-documentation"></a>12.31. What are the ignored types in the documentation?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2701,18 +2840,19 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-disable-ignored-types"><a class="anchor" href="#how-can-i-disable-ignored-types"></a>11.32. How can i disable ignored types:</h3>
+<h3 id="how-can-i-disable-ignored-types"><a class="anchor" href="#how-can-i-disable-ignored-types"></a>12.32. How can i disable ignored types:</h3>
 <div class="paragraph">
 <p>If you don&#8217;t want to ignore the types <code>Principal</code>, <code>Locale</code>, <code>HttpServletRequest</code>, and others,:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class)</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class)
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-do-i-add-authorization-header-in-requests"><a class="anchor" href="#how-do-i-add-authorization-header-in-requests"></a>11.33. How do I add authorization header in requests?</h3>
+<h3 id="how-do-i-add-authorization-header-in-requests"><a class="anchor" href="#how-do-i-add-authorization-header-in-requests"></a>12.33. How do I add authorization header in requests?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2737,18 +2877,19 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
  public OpenAPI customOpenAPI() {
    return new OpenAPI()
           .components(new Components()
           .addSecuritySchemes("bearer-key",
           new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="differentiation-to-springfox-project"><a class="anchor" href="#differentiation-to-springfox-project"></a>11.34. Differentiation to Springfox project</h3>
+<h3 id="differentiation-to-springfox-project"><a class="anchor" href="#differentiation-to-springfox-project"></a>12.34. Differentiation to Springfox project</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2777,7 +2918,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-do-i-migrate-to-openapi-3-with-springdoc-openapi"><a class="anchor" href="#how-do-i-migrate-to-openapi-3-with-springdoc-openapi"></a>11.35. How do I migrate to OpenAPI 3 with springdoc-openapi</h3>
+<h3 id="how-do-i-migrate-to-openapi-3-with-springdoc-openapi"><a class="anchor" href="#how-do-i-migrate-to-openapi-3-with-springdoc-openapi"></a>12.35. How do I migrate to OpenAPI 3 with springdoc-openapi</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2801,7 +2942,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-set-a-global-header"><a class="anchor" href="#how-can-i-set-a-global-header"></a>11.36. How can I set a global header?</h3>
+<h3 id="how-can-i-set-a-global-header"><a class="anchor" href="#how-can-i-set-a-global-header"></a>12.36. How can I set a global header?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2820,7 +2961,7 @@ ResponseEntity&lt;String&gt; testme() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
  return new OpenAPI()
         .components(new Components().addSecuritySchemes("basicScheme", new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic"))
@@ -2831,12 +2972,13 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
         .description("This is a sample server Petstore server. You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/). For this sample, you can use the api key `special-key` to test the authorization filters.")
         .termsOfService("http://swagger.io/terms/")
         .license(new License().name("Apache 2.0").url("http://springdoc.org")));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="are-callbacks-supported"><a class="anchor" href="#are-callbacks-supported"></a>11.37. Are Callbacks supported?</h3>
+<h3 id="are-callbacks-supported"><a class="anchor" href="#are-callbacks-supported"></a>12.37. Are Callbacks supported?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2846,7 +2988,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-define-securityscheme"><a class="anchor" href="#how-can-i-define-securityscheme"></a>11.38. How can I define SecurityScheme ?</h3>
+<h3 id="how-can-i-define-securityscheme"><a class="anchor" href="#how-can-i-define-securityscheme"></a>12.38. How can I define SecurityScheme ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2859,19 +3001,20 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java"> @Bean
+<pre class="highlight"><code class="language-java" data-lang="java"> @Bean
  public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
   return new OpenAPI()
    .components(new Components().addSecuritySchemes("basicScheme",
    new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
    info(new Info().title("SpringShop API").version(appVersion)
    .license(new License().name("Apache 2.0").url("http://springdoc.org")));
- }</code></pre>
+ }
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-hide-an-operation-or-a-controller-from-documentation"><a class="anchor" href="#how-can-i-hide-an-operation-or-a-controller-from-documentation"></a>11.39. How can I hide an operation or a controller from documentation ?</h3>
+<h3 id="how-can-i-hide-an-operation-or-a-controller-from-documentation"><a class="anchor" href="#how-can-i-hide-an-operation-or-a-controller-from-documentation"></a>12.39. How can I hide an operation or a controller from documentation ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2887,7 +3030,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-to-configure-global-security-schemes"><a class="anchor" href="#how-to-configure-global-security-schemes"></a>11.40. How to configure global security schemes?</h3>
+<h3 id="how-to-configure-global-security-schemes"><a class="anchor" href="#how-to-configure-global-security-schemes"></a>12.40. How to configure global security schemes?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2897,18 +3040,19 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
     return new OpenAPI().components(new Components()
     .addSecuritySchemes("basicScheme", new SecurityScheme()
     .type(SecurityScheme.Type.HTTP).scheme("basic"))).info(new Info().title("Custom API")
     .version("100")).addTagsItem(new Tag().name("mytag"));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="can-i-use-spring-property-with-swagger-annotations"><a class="anchor" href="#can-i-use-spring-property-with-swagger-annotations"></a>11.41. Can I use spring property with swagger annotations?</h3>
+<h3 id="can-i-use-spring-property-with-swagger-annotations"><a class="anchor" href="#can-i-use-spring-property-with-swagger-annotations"></a>12.41. Can I use spring property with swagger annotations?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2939,7 +3083,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-is-server-url-generated"><a class="anchor" href="#how-is-server-url-generated"></a>11.42. How is server URL generated ?</h3>
+<h3 id="how-is-server-url-generated"><a class="anchor" href="#how-is-server-url-generated"></a>12.42. How is server URL generated ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2952,7 +3096,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-disable-springdoc-openapi-cache"><a class="anchor" href="#how-can-i-disable-springdoc-openapi-cache"></a>11.43. How can I disable springdoc-openapi cache?</h3>
+<h3 id="how-can-i-disable-springdoc-openapi-cache"><a class="anchor" href="#how-can-i-disable-springdoc-openapi-cache"></a>12.43. How can I disable springdoc-openapi cache?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2973,7 +3117,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui"><a class="anchor" href="#how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui"></a>11.44. How can I expose the mvc api-docs endpoints without using the <code>swagger-ui</code>?</h3>
+<h3 id="how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui"><a class="anchor" href="#how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui"></a>12.44. How can I expose the mvc api-docs endpoints without using the <code>swagger-ui</code>?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2983,7 +3127,7 @@ public OpenAPI customOpenAPI() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;dependency&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
   &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
   &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
   &lt;version&gt;latest.version&lt;/version&gt;
@@ -2992,7 +3136,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-disable-springdoc-openapi-endpoints"><a class="anchor" href="#how-can-i-disable-springdoc-openapi-endpoints"></a>11.45. How can I disable <code>springdoc-openapi</code> endpoints ?</h3>
+<h3 id="how-can-i-disable-springdoc-openapi-endpoints"><a class="anchor" href="#how-can-i-disable-springdoc-openapi-endpoints"></a>12.45. How can I disable <code>springdoc-openapi</code> endpoints ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3007,7 +3151,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-hide-schema-of-the-the-response"><a class="anchor" href="#how-can-i-hide-schema-of-the-the-response"></a>11.46. How can I hide Schema of the the response ?</h3>
+<h3 id="how-can-i-hide-schema-of-the-the-response"><a class="anchor" href="#how-can-i-hide-schema-of-the-the-response"></a>12.46. How can I hide Schema of the the response ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3036,7 +3180,7 @@ OR
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path"><a class="anchor" href="#what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path"></a>11.47. What is the URL of the <code>swagger-ui</code>, when I set a different context-path?</h3>
+<h3 id="what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path"><a class="anchor" href="#what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path"></a>12.47. What is the URL of the <code>swagger-ui</code>, when I set a different context-path?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3065,7 +3209,7 @@ OR
 </div>
 </div>
 <div class="sect2">
-<h3 id="can-i-customize-openapi-object-programmatically"><a class="anchor" href="#can-i-customize-openapi-object-programmatically"></a>11.48. Can I customize OpenAPI object programmatically?</h3>
+<h3 id="can-i-customize-openapi-object-programmatically"><a class="anchor" href="#can-i-customize-openapi-object-programmatically"></a>12.48. Can I customize OpenAPI object programmatically?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3075,14 +3219,15 @@ OR
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
    return new OpenAPI()
     .components(new Components().addSecuritySchemes("basicScheme",
             new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
     .info(new Info().title("SpringShop API").version(appVersion)
             .license(new License().name("Apache 2.0").url("http://springdoc.org")));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -3094,7 +3239,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomizer(customerGlobalHeaderOpenApiCustomizer())
+<pre class="highlight"><code class="language-java" data-lang="java">GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomizer(customerGlobalHeaderOpenApiCustomizer())
                 .build()
 
 @Bean
@@ -3103,12 +3248,13 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
    new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
    .addApiResponse("default",new ApiResponse().description("")
    .content(new Content().addMediaType("fatz", new MediaType()))))));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="where-can-i-find-the-source-code-of-the-demo-applications"><a class="anchor" href="#where-can-i-find-the-source-code-of-the-demo-applications"></a>11.49. Where can I find the source code of the demo applications?</h3>
+<h3 id="where-can-i-find-the-source-code-of-the-demo-applications"><a class="anchor" href="#where-can-i-find-the-source-code-of-the-demo-applications"></a>12.49. Where can I find the source code of the demo applications?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3125,7 +3271,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="does-this-library-supports-annotations-from-interfaces"><a class="anchor" href="#does-this-library-supports-annotations-from-interfaces"></a>11.50. Does this library supports annotations from interfaces?</h3>
+<h3 id="does-this-library-supports-annotations-from-interfaces"><a class="anchor" href="#does-this-library-supports-annotations-from-interfaces"></a>12.50. Does this library supports annotations from interfaces?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3135,7 +3281,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-the-list-of-the-excluded-parameter-types"><a class="anchor" href="#what-is-the-list-of-the-excluded-parameter-types"></a>11.51. What is the list of the excluded parameter types?</h3>
+<h3 id="what-is-the-list-of-the-excluded-parameter-types"><a class="anchor" href="#what-is-the-list-of-the-excluded-parameter-types"></a>12.51. What is the list of the excluded parameter types?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3145,7 +3291,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-file-upload-supported"><a class="anchor" href="#is-file-upload-supported"></a>11.52. Is file upload supported ?</h3>
+<h3 id="is-file-upload-supported"><a class="anchor" href="#is-file-upload-supported"></a>12.52. Is file upload supported ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3155,7 +3301,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="can-i-use-parameter-inside-operation-annotation"><a class="anchor" href="#can-i-use-parameter-inside-operation-annotation"></a>11.53. Can I use <code>@Parameter</code> inside <code>@Operation</code> annotation?</h3>
+<h3 id="can-i-use-parameter-inside-operation-annotation"><a class="anchor" href="#can-i-use-parameter-inside-operation-annotation"></a>12.53. Can I use <code>@Parameter</code> inside <code>@Operation</code> annotation?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3165,7 +3311,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="why-my-parameter-is-marked-as-required"><a class="anchor" href="#why-my-parameter-is-marked-as-required"></a>11.54. Why my parameter is marked as required?</h3>
+<h3 id="why-my-parameter-is-marked-as-required"><a class="anchor" href="#why-my-parameter-is-marked-as-required"></a>12.54. Why my parameter is marked as required?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3181,7 +3327,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters"><a class="anchor" href="#how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters"></a>11.55. How are overloaded methods with the same endpoints, but with different parameters</h3>
+<h3 id="how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters"><a class="anchor" href="#how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters"></a>12.55. How are overloaded methods with the same endpoints, but with different parameters</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3191,7 +3337,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml"><a class="anchor" href="#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml"></a>11.56. What is a proper way to set up Swagger UI to use provided spec.yml?</h3>
+<h3 id="what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml"><a class="anchor" href="#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml"></a>12.56. What is a proper way to set up Swagger UI to use provided spec.yml?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3213,7 +3359,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
@@ -3225,7 +3371,8 @@ SpringDocConfigProperties springDocConfigProperties() {
 @Bean
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -3242,7 +3389,7 @@ ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocCon
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-there-a-way-to-send-authorization-header-through-the-parameter-tag"><a class="anchor" href="#is-there-a-way-to-send-authorization-header-through-the-parameter-tag"></a>11.57. Is there a way to send authorization header through the @Parameter tag?</h3>
+<h3 id="is-there-a-way-to-send-authorization-header-through-the-parameter-tag"><a class="anchor" href="#is-there-a-way-to-send-authorization-header-through-the-parameter-tag"></a>12.57. Is there a way to send authorization header through the @Parameter tag?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3263,7 +3410,7 @@ ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocCon
 </div>
 </div>
 <div class="sect2">
-<h3 id="my-rest-controller-using-controller-annotation-is-ignored"><a class="anchor" href="#my-rest-controller-using-controller-annotation-is-ignored"></a>11.58. My Rest Controller using @Controller annotation is ignored?</h3>
+<h3 id="my-rest-controller-using-controller-annotation-is-ignored"><a class="anchor" href="#my-rest-controller-using-controller-annotation-is-ignored"></a>12.58. My Rest Controller using @Controller annotation is ignored?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3279,14 +3426,15 @@ ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocCon
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">static {
+<pre class="highlight"><code class="language-java" data-lang="java">static {
    SpringDocUtils.getConfig().addRestControllers(HelloController.class);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-define-groups-using-application-yml"><a class="anchor" href="#how-can-i-define-groups-using-application-yml"></a>11.59. How can I define groups using application.yml?</h3>
+<h3 id="how-can-i-define-groups-using-application-yml"><a class="anchor" href="#how-can-i-define-groups-using-application-yml"></a>12.59. How can I define groups using application.yml?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3326,7 +3474,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-extract-fields-from-parameter-object"><a class="anchor" href="#how-can-i-extract-fields-from-parameter-object"></a>11.60. How can I extract fields from parameter object ?</h3>
+<h3 id="how-can-i-extract-fields-from-parameter-object"><a class="anchor" href="#how-can-i-extract-fields-from-parameter-object"></a>12.60. How can I extract fields from parameter object ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3348,7 +3496,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-use-the-last-springdoc-openapi-snapshot"><a class="anchor" href="#how-can-i-use-the-last-springdoc-openapi-snapshot"></a>11.61. How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</h3>
+<h3 id="how-can-i-use-the-last-springdoc-openapi-snapshot"><a class="anchor" href="#how-can-i-use-the-last-springdoc-openapi-snapshot"></a>12.61. How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3361,7 +3509,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">     &lt;repositories&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">     &lt;repositories&gt;
        &lt;repository&gt;
          &lt;id&gt;snapshots-repo&lt;/id&gt;
          &lt;url&gt;https://s01.oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
@@ -3373,7 +3521,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-use-enable-springdoc-openapi-monetaryamount-support"><a class="anchor" href="#how-can-i-use-enable-springdoc-openapi-monetaryamount-support"></a>11.62. How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</h3>
+<h3 id="how-can-i-use-enable-springdoc-openapi-monetaryamount-support"><a class="anchor" href="#how-can-i-use-enable-springdoc-openapi-monetaryamount-support"></a>12.62. How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3383,7 +3531,8 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.models.MonetaryAmount.class);</code></pre>
+<pre class="highlight"><code class="language-java" data-lang="java">SpringDocUtils.getConfig().replaceWithClass(MonetaryAmount.class, org.springdoc.core.converters.models.MonetaryAmount.class);
+</code></pre>
 </div>
 </div>
 <div class="ulist">
@@ -3395,14 +3544,15 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
+<pre class="highlight"><code class="language-java" data-lang="java">SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSchema()
             .addProperties("amount", new NumberSchema()).example(99.96)
-            .addProperties("currency", new StringSchema().example("USD")));</code></pre>
+            .addProperties("currency", new StringSchema().example("USD")));
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application"><a class="anchor" href="#how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application"></a>11.63. How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</h3>
+<h3 id="how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application"><a class="anchor" href="#how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application"></a>12.63. How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</h3>
 <div class="paragraph">
 <p>The properties <code>springdoc.swagger-ui.urls.*</code>, are suitable to configure external (/v3/api-docs url).
 For example if you want to agreagte all the endpoints of other services, inside one single application.
@@ -3410,14 +3560,14 @@ IMPORTANT: Don&#8217;t forget that CORS needs to be enabled as well.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-use-custom-jsonyml-file-instead-of-generated-one"><a class="anchor" href="#how-can-use-custom-jsonyml-file-instead-of-generated-one"></a>11.64. How can use custom json/yml file instead of generated one ?</h3>
+<h3 id="how-can-use-custom-jsonyml-file-instead-of-generated-one"><a class="anchor" href="#how-can-use-custom-jsonyml-file-instead-of-generated-one"></a>12.64. How can use custom json/yml file instead of generated one ?</h3>
 <div class="paragraph">
 <p>If your file open-api.json, contains the OpenAPI documentation in OpenAPI 3 format.
 Then simply declare: The file name can be anything you want, from the moment your declaration is consistent yaml or json OpenAPI Spec.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">   springdoc.swagger-ui.url=/open-api.json</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">   springdoc.swagger-ui.url=/open-api.json</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3426,7 +3576,7 @@ No additional configuration is needed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-enable-csrf-support"><a class="anchor" href="#how-can-i-enable-csrf-support"></a>11.65. How can i enable CSRF support?</h3>
+<h3 id="how-can-i-enable-csrf-support"><a class="anchor" href="#how-can-i-enable-csrf-support"></a>12.65. How can i enable CSRF support?</h3>
 <div class="paragraph">
 <p>If you are using standard headers.( For example using spring-security headers)
 If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN during each HTTP REQUEST.</p>
@@ -3446,52 +3596,52 @@ If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.swagger-ui.csrf.enabled=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.swagger-ui.csrf.enabled=true</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-disable-the-default-swagger-petstore-url"><a class="anchor" href="#how-can-i-disable-the-default-swagger-petstore-url"></a>11.66. How can i disable the default swagger petstore URL?</h3>
+<h3 id="how-can-i-disable-the-default-swagger-petstore-url"><a class="anchor" href="#how-can-i-disable-the-default-swagger-petstore-url"></a>12.66. How can i disable the default swagger petstore URL?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.swagger-ui.disable-swagger-default-url=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.swagger-ui.disable-swagger-default-url=true</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation"><a class="anchor" href="#is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation"></a>11.67. Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?</h3>
+<h3 id="is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation"><a class="anchor" href="#is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation"></a>12.67. Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?</h3>
 <div class="paragraph">
 <p>Yes, you can use it in conjunction with  <code>@ParameterObject</code> annotation.
 Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.data.rest.default.</strong></code> properties are supported since v1.4.5</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-make-spring-security-login-endpoint-visible"><a class="anchor" href="#how-can-i-make-spring-security-login-endpoint-visible"></a>11.68. How can i make spring security login-endpoint visible ?</h3>
+<h3 id="how-can-i-make-spring-security-login-endpoint-visible"><a class="anchor" href="#how-can-i-make-spring-security-login-endpoint-visible"></a>12.68. How can i make spring security login-endpoint visible ?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.show-login-endpoint=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.show-login-endpoint=true</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-show-schema-definitions-even-the-schema-is-not-referenced"><a class="anchor" href="#how-can-i-show-schema-definitions-even-the-schema-is-not-referenced"></a>11.69. How can i show schema definitions even the schema is not referenced?</h3>
+<h3 id="how-can-i-show-schema-definitions-even-the-schema-is-not-referenced"><a class="anchor" href="#how-can-i-show-schema-definitions-even-the-schema-is-not-referenced"></a>12.69. How can i show schema definitions even the schema is not referenced?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.remove-broken-reference-definitions=false</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.remove-broken-reference-definitions=false</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-to-override-deprecated"><a class="anchor" href="#how-to-override-deprecated"></a>11.70. How to override @Deprecated?</h3>
+<h3 id="how-to-override-deprecated"><a class="anchor" href="#how-to-override-deprecated"></a>12.70. How to override @Deprecated?</h3>
 <div class="paragraph">
 <p>The whole idea of <code>springdoc-openapi</code> is to get your documentation the closest to the code, with minimal code changes.
 If the code contains <code>@Deprecated</code>, <code>sprindoc-openapi</code> will consider its schema as Deprecated as well.
@@ -3500,41 +3650,41 @@ You can use the following property that is available since release v1.4.3:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.model-converters.deprecating-converter.enabled=false</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.model-converters.deprecating-converter.enabled=false</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-display-a-method-that-returns-modelandview"><a class="anchor" href="#how-can-i-display-a-method-that-returns-modelandview"></a>11.71. How can i display a method that returns ModelAndView?</h3>
+<h3 id="how-can-i-display-a-method-that-returns-modelandview"><a class="anchor" href="#how-can-i-display-a-method-that-returns-modelandview"></a>12.71. How can i display a method that returns ModelAndView?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.model-and-view-allowed=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.model-and-view-allowed=true</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-have-pretty-printed-output-of-the-openapi-specification"><a class="anchor" href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification"></a>11.72. How can i have pretty-printed output of the OpenApi specification?</h3>
+<h3 id="how-can-i-have-pretty-printed-output-of-the-openapi-specification"><a class="anchor" href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification"></a>12.72. How can i have pretty-printed output of the OpenApi specification?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-properties hljs" data-lang="properties">springdoc.writer-with-default-pretty-printer=true</code></pre>
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.writer-with-default-pretty-printer=true</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-define-different-schemas-for-the-same-class"><a class="anchor" href="#how-can-i-define-different-schemas-for-the-same-class"></a>11.73. How can i define different schemas for the same class?</h3>
+<h3 id="how-can-i-define-different-schemas-for-the-same-class"><a class="anchor" href="#how-can-i-define-different-schemas-for-the-same-class"></a>12.73. How can i define different schemas for the same class?</h3>
 <div class="paragraph">
 <p>Complex objects are always resolved as a reference to a schema defined in components.
 For example let&#8217;s consider a <code>Instance</code> class with an <code>workAddress</code> and <code>homeAddress</code> attribute of type <code>Address</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class PersonDTO {
+<pre class="highlight"><code class="language-java" data-lang="java">public class PersonDTO {
 
     @JsonProperty
     private String email;
@@ -3560,7 +3710,8 @@ public class Address {
     @JsonProperty
     private String addressName;
 
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3568,7 +3719,7 @@ public class Address {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
 return new OpenAPI().components(new Components()
 .addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address" ))
@@ -3580,18 +3731,19 @@ ResolvedSchema resolvedSchema = ModelConverters.getInstance()
 .resolveAsResolvedSchema(
 new AnnotatedType(className).resolveAsRef(false));
 return resolvedSchema.schema.description(description);
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-define-different-description-for-a-class-attribute-depending-on-usage"><a class="anchor" href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage"></a>11.74. How can i define different description for a class attribute depending on usage?</h3>
+<h3 id="how-can-i-define-different-description-for-a-class-attribute-depending-on-usage"><a class="anchor" href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage"></a>12.74. How can i define different description for a class attribute depending on usage?</h3>
 <div class="paragraph">
 <p>For example let&#8217;s consider a <code>Instance</code> class with an <code>email</code> attribute:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class PersonDTO {
+<pre class="highlight"><code class="language-java" data-lang="java">public class PersonDTO {
 
     @JsonProperty
     private String email;
@@ -3603,7 +3755,8 @@ return resolvedSchema.schema.description(description);
     private String lastName;
 
 
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3611,7 +3764,7 @@ return resolvedSchema.schema.description(description);
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Bean
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
 return new OpenAPI().components(new Components()
 .addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email" ))
@@ -3623,12 +3776,13 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
             .resolveAsResolvedSchema(
                     new AnnotatedType(className).resolveAsRef(false));
     return resolvedSchema.schema.addProperties("email", new StringSchema().description(description));
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="customizing-swagger-static-resources"><a class="anchor" href="#customizing-swagger-static-resources"></a>11.75. Customizing swagger static resources</h3>
+<h3 id="customizing-swagger-static-resources"><a class="anchor" href="#customizing-swagger-static-resources"></a>12.75. Customizing swagger static resources</h3>
 <div class="paragraph">
 <p>You can customize swagger documentation static resources located in <code>META-INF/resources/webjars/swagger-ui/{swagger.version}/</code>. The list of resources includes:</p>
 </div>
@@ -3665,7 +3819,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">public class SwaggerCodeBlockTransformer
+<pre class="highlight"><code class="language-java" data-lang="java">public class SwaggerCodeBlockTransformer
        extends SwaggerIndexPageTransformer {
   // &lt; constructor &gt;
   @Override
@@ -3685,7 +3839,8 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
       return super.transform(request, resource, transformer);
   }
 
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3693,7 +3848,7 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-java hljs" data-lang="java">@Configuration
+<pre class="highlight"><code class="language-java" data-lang="java">@Configuration
 public class OpenApiConfig {
     @Bean
     public SwaggerIndexTransformer swaggerIndexTransformer(
@@ -3703,7 +3858,8 @@ public class OpenApiConfig {
             SwaggerWelcomeCommon d) {
         return new SwaggerCodeBlockTransformer(a, b, c, d);
     }
-}</code></pre>
+}
+</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3711,12 +3867,12 @@ public class OpenApiConfig {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/static_content_transformation.png" alt="Illustrative example">
+<img src="img/static_content_transformation.png" alt="Illustrative example">
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>11.76. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
+<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>12.76. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
@@ -3772,18 +3928,9 @@ public class OpenApiConfig {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-04-07 20:33:47 +0200
+Last updated 2022-05-01 14:12:29 +0200
 </div>
 </div>
-<script src="js/highlight/highlight.min.js"></script>
-<script>
-if (!hljs.initHighlighting.called) {
-  hljs.initHighlighting.called = true
-  ;[].slice.call(document.querySelectorAll('pre.highlight > code')).forEach(function (el) { hljs.highlightBlock(el) })
-}
-</script>
-<script type="text/javascript" src="js/tocbot/tocbot.min.js"></script>
-<script type="text/javascript" src="js/toc.js"></script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
 <script>
@@ -3793,5 +3940,8 @@ if (!hljs.initHighlighting.called) {
 
     gtag('config', 'G-1GEGWXWNH4');
 </script>
+</div>
+  </div>
+</div>
 </body>
 </html>

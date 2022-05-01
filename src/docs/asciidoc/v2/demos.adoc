@@ -9,7 +9,7 @@
 * link:http://144.24.171.248:8086/[Demo Spring Boot 3 and Spring Cloud Function Web MVC, window="_blank"]
 * link:http://144.24.171.248:8087/[Demo Spring Boot 3 and Spring Cloud Function WebFlux, window="_blank"]
 
-image::images/pets.png[pets.png]
+image::img/pets.png[pets.png]
 
 === Source code of the Demo Applications
 *   link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]

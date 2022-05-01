@@ -1,0 +1,43 @@
+[[sponsor]]
+== Sponsor
+
+If you find `springdoc-openapi` useful for your work, please consider asking your company to support this Open Source project by becoming a sponsor.
+
+You can also individually sponsor the project!
+
+This money is used to cover project expenses and your donation will help the project live and grow successfully.
+
+Thank you to our bronze sponsors!
+++++
+        <p style="text-align: center;">
+          <a href="https://opensource.mercedes-benz.com/" target="_blank">
+           <img src="img/mercedes-benz.png" height="10%" width="10%" />
+          </a>&nbsp;&nbsp;
+          <a href="https://www.dmtech.de" target="_blank">
+            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
+           </a>
+        </p>
+++++
+
+
+=== Benefits of being a bronze sponsor
+Bronze sponsors donate $50 per month to the project and get the following benefits:
+
+- You will receive a Sponsor badge 🎖!. Visibility on the front page of  https://springdoc.org in the `welcome` page (about 55,000 views/month on May, 2022).
+- The ability to create 1 `issue` every month, non transferable.
+- “Thank you” tweet from @springdoc.
+
+=== Benefits of being a silver sponsor
+Silver sponsors donate $100 per month to the project and get the following benefits:
+
+- Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).
+- The ability to create 2 `issues` every month, non transferable.
+- If issues are not created by the end of the month, it is lost
+
+=== Benefits of being a gold sponsor
+Gold sponsors donate $500 per month to the project and get the following benefits:
+
+- Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
+- The ability to create 10 `issues` every month, non transferable.
+- Company logos on all https://springdoc.org page footers
+- If issues are not created by the end of the month, the remaining ones are lost.

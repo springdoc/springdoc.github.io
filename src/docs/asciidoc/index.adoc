@@ -2,7 +2,19 @@
 Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
 include::_attributes.adoc[]
 
-link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:images/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
+link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:img/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
+
+This project is sponsored by
+++++
+        <p style="text-align: center;">
+          <a href="https://opensource.mercedes-benz.com/" target="_blank">
+           <img src="img/mercedes-benz.png" height="10%" width="10%" />
+          </a>&nbsp;&nbsp;
+          <a href="https://www.dmtech.de" target="_blank">
+            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
+           </a>
+        </p>
+++++
 
 include::intro.adoc[]
 
@@ -21,6 +33,8 @@ include::demos.adoc[]
 include::migrating-from-springfox.adoc[]
 
 include::other-resources.adoc[]
+
+include::sponsor.adoc[]
 
 include::thanks.adoc[]
 
