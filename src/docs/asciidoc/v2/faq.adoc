@@ -116,6 +116,15 @@ springdoc.swagger-ui.supportedSubmitMethods="get", "put", "post", "delete", "opt
 === How can I add  Reusable Enums ?
 * You should add `@Schema(enumAsRef = true)` on your enum.
 
+=== How can i apply `enumAsRef = true` to all enums ?
+* Declare the following property:
+[source,java]
+----
+static {
+    io.swagger.v3.core.jackson.ModelResolver.enumsAsRef = true;
+}
+----
+
 === How can I explicitly set which paths to filter?
 * You can set list of paths to include using the following property:
 [source,properties]
