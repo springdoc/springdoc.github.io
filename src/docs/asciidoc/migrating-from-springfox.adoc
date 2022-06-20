@@ -26,6 +26,8 @@ Package for swagger 3 annotations is `io.swagger.v3.oas.annotations`.
 - `@ApiParam` -> `@Parameter`
 - `@ApiResponse(code = 404, message = "foo")` -> `@ApiResponse(responseCode = "404", description = "foo")`
 
+* If you're using an object to capture multiple request query params, annotation that method argument with `@ParameterObject`
+
 * This step is optional: Only if you have **multiple** `Docket` beans replace them with `GroupedOpenApi` beans.
 
 Before:
