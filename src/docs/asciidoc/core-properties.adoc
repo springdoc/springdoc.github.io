@@ -33,7 +33,7 @@
 |springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
 |springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 |springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
-|springdoc.model-converters. deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
+|springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
 |springdoc.model-converters.polymorphic-converter.enabled | `true` | `Boolean`. To disable polymorphic model converter.
 |springdoc.model-converters.pageable-converter.enabled | `true` | `Boolean`. To disable pageable model converter.
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
