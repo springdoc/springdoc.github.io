@@ -36,6 +36,7 @@
 |springdoc.model-converters. deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
 |springdoc.model-converters.polymorphic-converter.enabled | `true` | `Boolean`. To disable polymorphic model converter.
 |springdoc.model-converters.pageable-converter.enabled | `true` | `Boolean`. To disable pageable model converter.
+|springdoc.model-converters.sort-converter.enabled | `true` | `Boolean`. To disable Sort converter.
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 |springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
 |springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
