@@ -1427,7 +1427,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable pretty print of the OpenApi specification.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters. deprecating-converter.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.deprecating-converter.enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable deprecating model converter.</p></td>
 </tr>
@@ -1971,6 +1971,9 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>If you&#8217;re using an object to capture multiple request query params, annotation that method argument with <code>@ParameterObject</code></p>
 </li>
 <li>
 <p>This step is optional: Only if you have <strong>multiple</strong> <code>Docket</code> beans replace them with <code>GroupedOpenApi</code> beans.</p>
