@@ -45,4 +45,6 @@
 |springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
 |springdoc.show-spring-cloud-functions | `true` |  `Boolean`. To display the spring-cloud-function web endpoints.
 |springdoc.api-docs.version | `openapi_3_0` | `String`. To Choose `OpenAPI 3.0` or `OpenAPI 3.1` (using the value `OPENAPI_3_1`).
+|springdoc.default-flat-paramObject | `false` | `Boolean`. To default flatten parameter.
+|springdoc.default-support-form-data | `true` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
 |===

@@ -46,7 +46,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v1.6.10</h1>
+<h1>springdoc-openapi v1.6.11</h1>
 <div class="details">
 <span id="author" class="author">The library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -280,7 +280,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -377,7 +377,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -429,7 +429,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -446,7 +446,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -462,7 +462,7 @@ This dependency enables the support of <code>spring-boot-starter-data-rest</code
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -478,7 +478,7 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -495,7 +495,7 @@ If the application uses <a href="https://docs.spring.io/spring-native/docs/curre
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-native&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -833,7 +833,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -859,7 +859,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -874,7 +874,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -1486,6 +1486,16 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>openapi_3_0</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. To Choose <code>OpenAPI 3.0</code> or <code>OpenAPI 3.1</code> (using the value <code>OPENAPI_3_1</code>).</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.default-flat-paramObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To default flatten parameter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.default-support-form-data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To default set parameters to form data when specifying api to accept form data.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1928,7 +1938,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.10&lt;/version&gt;
+      &lt;version&gt;1.6.11&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -4149,7 +4159,7 @@ public class OpenApiConfig {
 <p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 1.6.10.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 1.6.11.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
