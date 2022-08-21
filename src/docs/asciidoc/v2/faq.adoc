@@ -918,13 +918,13 @@ image::img/static_content_transformation.png[Illustrative example]
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
 `springdoc-openapi 2.x` is compatible with `spring-boot 3`.
 
-In general, **you should only pick the last stable version as per today 2.0.0-M4.**
+In general, **you should only pick the last stable version as per today 2.0.0-M5.**
 
 More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
 
 |===
 | spring-boot Versions | Minimum springdoc-openapi Versions
-|`3.0.x` | `2.0.0-M4`+
+|`3.0.x` | `2.0.0-M5`+
 |`2.6.x`, `1.5.x` | `1.6.0`+
 |`2.5.x`, `1.5.x` | `1.5.9`+
 |`2.4.x`, `1.5.x` | `1.5.0`+
