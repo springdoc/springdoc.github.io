@@ -107,7 +107,7 @@ This is the compatibility matrix which shows the tested/validated versions with 
 
 |===
 |springdoc-openapi Version | spring-native Version
-|`1.6.10` | `0.12.1`
+|`1.6.11` | `0.12.1`
 |`1.6.7` | `0.11.4`
 |`1.6.3` | `0.11.1`
 |`1.6.0` | `0.11.0`
