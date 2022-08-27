@@ -42,6 +42,7 @@
 							</includes>
 							<excludes>
 								<exclude>CNAME</exclude>
+								<exclude>ads.txt</exclude>
 							</excludes>
 						</fileset>
 					</filesets>
