@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
-<title>springdoc-openapi v2.0.0-M6</title>
+<title>springdoc-openapi v2.0.0-M7</title>
 <link rel="stylesheet" href="css/site.css">
 <style>
     #header #revnumber {
@@ -33,7 +33,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v2.0.0-M6</h1>
+<h1>springdoc-openapi v2.0.0-M7</h1>
 <div class="details">
 <span id="author" class="author">Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -202,6 +202,9 @@
           <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
             <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
            </a>
+	      <a href="https://www.contrastsecurity.com/" target="_blank">
+		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
+		  </a>
         </p>
 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -290,7 +293,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M6&lt;/version&gt;
+      &lt;version&gt;2.0.0-M7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -399,7 +402,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M6&lt;/version&gt;
+      &lt;version&gt;2.0.0-M7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -451,7 +454,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M6&lt;/version&gt;
+      &lt;version&gt;2.0.0-M7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -1433,7 +1436,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.default-support-form-data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To default set parameters to form data when specifying api to accept form data.</p></td>
 </tr>
 </tbody>
@@ -1908,7 +1911,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.0-M6&lt;/version&gt;
+      &lt;version&gt;2.0.0-M7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -2184,6 +2187,9 @@ The artifacts can be viewed accessed at the following locations:</p>
           <a href="https://www.dmtech.de" target="_blank">
             <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
            </a>
+          <a href="https://www.contrastsecurity.com/" target="_blank">
+		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
+		  </a>
         </p>
 <div class="sect2">
 <h3 id="benefits-of-being-a-bronze-sponsor"><a class="anchor" href="#benefits-of-being-a-bronze-sponsor"></a>10.1. Benefits of being a bronze sponsor</h3>
@@ -4060,7 +4066,7 @@ public class OpenApiConfig {
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.0.0-M6.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.0.0-M7.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -4077,7 +4083,11 @@ public class OpenApiConfig {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.0-M6</code>+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.0-M7</code>+</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.7.x</code>, <code>1.5.x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code>+</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.6.x</code>, <code>1.5.x</code></p></td>
@@ -4123,7 +4133,7 @@ public class OpenApiConfig {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-10-03 11:11:09 +0200
+Last updated 2022-10-17 01:33:34 +0200
 </div>
 </div>
 

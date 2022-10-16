@@ -1,4 +1,4 @@
-= springdoc-openapi v2.0.0-M6
+= springdoc-openapi v2.0.0-M7
 Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
 include::_attributes.adoc[]
 
@@ -13,6 +13,9 @@ This project is sponsored by
           <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
             <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
            </a>
+	      <a href="https://www.contrastsecurity.com/" target="_blank">
+		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
+		  </a>
         </p>
 
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"

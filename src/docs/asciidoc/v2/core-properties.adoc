@@ -52,5 +52,5 @@
 |springdoc.enable-data-rest | `true` |  `Boolean`. To enable spring-data-rest support.
 |springdoc.api-docs.version | `openapi_3_0` | `String`. To Choose `OpenAPI 3.0` or `OpenAPI 3.1` (using the value `OPENAPI_3_1`).
 |springdoc.default-flat-paramObject | `false` | `Boolean`. To default flatten parameter.
-|springdoc.default-support-form-data | `true` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
+|springdoc.default-support-form-data | `false` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
 |===
