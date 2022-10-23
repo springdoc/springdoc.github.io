@@ -1,85 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  ~ /*
-  ~  *
-  ~  *  *
-  ~  *  *  * Copyright 2019-2022 the original author or authors.
-  ~  *  *  *
-  ~  *  *  * Licensed under the Apache License, Version 2.0 (the "License");
-  ~  *  *  * you may not use this file except in compliance with the License.
-  ~  *  *  * You may obtain a copy of the License at
-  ~  *  *  *
-  ~  *  *  *      https://www.apache.org/licenses/LICENSE-2.0
-  ~  *  *  *
-  ~  *  *  * Unless required by applicable law or agreed to in writing, software
-  ~  *  *  * distributed under the License is distributed on an "AS IS" BASIS,
-  ~  *  *  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~  *  *  * See the License for the specific language governing permissions and
-  ~  *  *  * limitations under the License.
-  ~  *  *
-  ~  *
-  ~  */
-  -->
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://springdoc.org/</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/index.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/core-properties.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/demos.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/faq.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/features.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/getting-started.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/intro.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/migrating-from-springfox.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/modules.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/other-resources.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/plugins.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/properties.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/ui-properties.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/thanks.html</loc>
-		<lastmod>2022-05-04</lastmod>
+		<lastmod>2022-10-23</lastmod>
 	</url>
 </urlset>
