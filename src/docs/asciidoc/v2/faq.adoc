@@ -924,6 +924,7 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 
 |===
 | spring-boot Versions | Minimum springdoc-openapi Versions
+
 |`3.0.x` | `2.0.x`+
 |`2.7.x`, `1.5.x` | `1.6.0`+
 |`2.6.x`, `1.5.x` | `1.6.0`+

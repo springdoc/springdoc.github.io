@@ -9,6 +9,7 @@ The following table describes the main modules changes:
 
 |===
 |springdoc-openapi-v1 | springdoc-openapi-v2 | Description
+
 |`springdoc-openapi-common` |`springdoc-openapi-starter-common`  | Includes foundation `springdoc-openapi` features
 |`springdoc-openapi-data-rest` | `springdoc-openapi-starter-common` | For Spring Data Rest support
 |`springdoc-openapi-groovy` | `springdoc-openapi-starter-common` | For Groovy support
@@ -27,6 +28,7 @@ IMPORTANT: classes/annotations changes
 
 |===
 |springdoc-openapi-v1 | springdoc-openapi-v2
+
 |`org.springdoc.core.SpringDocUtils` | `org.springdoc.core.utils.SpringDocUtils`
 |`org.springdoc.api.annotations.ParameterObject` | `org.springdoc.core.annotations.ParameterObject`
 |`org.springdoc.core.GroupedOpenApi` | `org.springdoc.core.models.GroupedOpenApi`
