@@ -41,6 +41,8 @@ TIP: Migration tips
 
 The following modules are not anymore needed and can be removed:
 
+- `springdoc-openapi-javadoc`
+- `springdoc-openapi-kotlin`
 - `springdoc-openapi-data-rest`
 - `springdoc-openapi-security`
 - `springdoc-openapi-webmvc-core`

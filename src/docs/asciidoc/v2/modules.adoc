@@ -197,8 +197,8 @@ Some code samples are available on GITHUB of demos:
 For a project that uses Kotlin, you should use `springdoc-openapi-starter-common`.
 This dependency improves the support of Kotlin types.
 
-* If you are using spring-web, you should combine the `springdoc-openapi-kotlin` module with `springdoc-openapi-starter-webmvc-ui`.
-* If you are using spring-webflux, you should combine the `springdoc-openapi-kotlin` module  with `springdoc-openapi-starter-webflux-ui`.
+* If you are using spring-web, you should only use `springdoc-openapi-starter-webmvc-ui`.
+* If you are using spring-webflux, you should only use `springdoc-openapi-starter-webflux-ui`.
 
 === Groovy support
 For a project that uses Groovy, you should use `springdoc-openapi-starter-common`.

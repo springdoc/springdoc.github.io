@@ -750,10 +750,10 @@ This dependency improves the support of Kotlin types.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using spring-web, you should combine the <code>springdoc-openapi-kotlin</code> module with <code>springdoc-openapi-starter-webmvc-ui</code>.</p>
+<p>If you are using spring-web, you should only use <code>springdoc-openapi-starter-webmvc-ui</code>.</p>
 </li>
 <li>
-<p>If you are using spring-webflux, you should combine the <code>springdoc-openapi-kotlin</code> module  with <code>springdoc-openapi-starter-webflux-ui</code>.</p>
+<p>If you are using spring-webflux, you should only use <code>springdoc-openapi-starter-webflux-ui</code>.</p>
 </li>
 </ul>
 </div>
@@ -2055,6 +2055,12 @@ Migration tips
 <div class="ulist">
 <ul>
 <li>
+<p><code>springdoc-openapi-javadoc</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-kotlin</code></p>
+</li>
+<li>
 <p><code>springdoc-openapi-data-rest</code></p>
 </li>
 <li>
@@ -3145,7 +3151,7 @@ This bean <code>OpenApiCustomizer</code> will be applied to the Default OpenAPI 
 </table>
 </div>
 <div class="paragraph">
-<p>If you need the <code>OpenApiCustomizer</code> to applied to <code>GroupedOpenApi</code> as well, then use <code>GlobalOpenApiCustomiser</code> instead.</p>
+<p>If you need the <code>OpenApiCustomizer</code> to applied to <code>GroupedOpenApi</code> as well, then use <code>GlobalOpenApiCustomizer</code> instead.</p>
 </div>
 </div>
 <div class="sect2">
