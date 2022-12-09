@@ -181,7 +181,8 @@
 <li><a href="#how-can-i-define-different-schemas-for-the-same-class">13.74. How can i define different schemas for the same class?</a></li>
 <li><a href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage">13.75. How can i define different description for a class attribute depending on usage?</a></li>
 <li><a href="#customizing-swagger-static-resources">13.76. Customizing swagger static resources</a></li>
-<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.77. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
+<li><a href="#is-graalvm-supported">13.77. Is GraalVM supported ?</a></li>
+<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.78. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
 </ul>
 </li>
 </ul>
@@ -4265,6 +4266,17 @@ public class OpenApiConfig {
 <div class="paragraph">
 <p>Illustrative example</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="is-graalvm-supported"><a class="anchor" href="#is-graalvm-supported"></a>13.77. Is GraalVM supported ?</h3>
+<div class="paragraph">
+<p>The native support available added in spring-boot 3.
+If you have some time, do not hesitate to test it before the next release.</p>
+</div>
+<div class="paragraph">
+<p>For the OpenAPI REST endpoints, you just need to build your application with the spring <code>native</code> profile.
+For the UI, you will have to add <code>springdoc.enable-native-support=true</code>. This is mainly related to <a href="https://github.com/webjars/webjars-locator-core/issues/96" class="bare">github.com/webjars/webjars-locator-core/issues/96</a></p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="img/static_content_transformation.png" alt="Illustrative example">
@@ -4272,7 +4284,7 @@ public class OpenApiConfig {
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>13.77. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
+<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>13.78. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
