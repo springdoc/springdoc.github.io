@@ -913,14 +913,14 @@ public class OpenApiConfig {
 
 Illustrative example
 
+image::img/static_content_transformation.png[Illustrative example]
+
 === Is GraalVM supported ?
 The native support available added in spring-boot 3.
 If you have some time, do not hesitate to test it before the next release.
 
 For the OpenAPI REST endpoints, you just need to build your application with the spring `native` profile.
 For the UI, you will have to add `springdoc.enable-native-support=true`. This is mainly related to https://github.com/webjars/webjars-locator-core/issues/96
-
-image::img/static_content_transformation.png[Illustrative example]
 
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
 `springdoc-openapi 2.x` is compatible with `spring-boot 3`.
