@@ -1,4 +1,4 @@
-= springdoc-openapi v2.0.0
+= springdoc-openapi v2.0.1
 Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
 include::_attributes.adoc[]
 
