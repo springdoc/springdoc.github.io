@@ -213,12 +213,11 @@ This dependency improves the support of javadoc tags and comments:
 - ``@return ``: is resolved as the `@Operation` response description
 - The javadoc comment of an attribute: is resolved as '@Schema' description for this field.
 
-This dependency is based on the library https://github.com/dnault/therapi-runtime-javadoc[therapi-runtime-javadoc]
-
-NOTE: Make sure, you enable the annotation processor of `therapi-runtime-javadoc` in order to enable javadoc support for springdoc-openapi.
+NOTE: `springdoc-openapi-starter-common` relies on https://github.com/dnault/therapi-runtime-javadoc[`therapi-runtime-javadoc`] to read Javadoc comments at runtime. Ensure that you add it as well as its annotation processor to your project's dependencies. Otherwise, the Javadoc support will fail silently.
 
 [source,xml, subs="attributes+"]
 ----
+	<!--Annotation processor -->
 	<build>
 		<plugins>
 			<plugin>
@@ -236,6 +235,13 @@ NOTE: Make sure, you enable the annotation processor of `therapi-runtime-javadoc
 			</plugin>
 		</plugins>
 	</build>
+
+	<!-- Runtime library -->
+	<dependency>
+		<groupId>com.github.therapi</groupId>
+		<artifactId>therapi-runtime-javadoc</artifactId>
+		<version>0.15.0</version>
+	</dependency>
 ----
 
 TIP: If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.

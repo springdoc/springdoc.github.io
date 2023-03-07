@@ -249,7 +249,7 @@ public String toString() {
 * For example, using Apache 2, configuration:
 [source,properties]
 ----
-RequestHeader=set X-Forwarded-Prefix "/custom-path"
+RequestHeader set X-Forwarded-Prefix "/custom-path"
 ----
 * Then, in your Spring Boot application make sure your application handles this header: `X-Forwarded-For`. There are two ways to achieve this:
 [source,properties]
