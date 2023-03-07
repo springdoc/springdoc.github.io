@@ -554,7 +554,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 
 === Where can I find the source code of the demo applications?
 * The source code of the application is available at the following GitHub repository:
-** link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x[https://github.com/springdoc/springdoc-openapi-demos/tree/2.x, window="_blank"]
 
 === Does this library supports annotations from interfaces?
 * Yes
