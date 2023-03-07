@@ -785,9 +785,6 @@ This dependency improves the support of javadoc tags and comments:</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>This dependency is based on the library <a href="https://github.com/dnault/therapi-runtime-javadoc">therapi-runtime-javadoc</a></p>
-</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -795,14 +792,15 @@ This dependency improves the support of javadoc tags and comments:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Make sure, you enable the annotation processor of <code>therapi-runtime-javadoc</code> in order to enable javadoc support for springdoc-openapi.
+<code>springdoc-openapi-starter-common</code> relies on <a href="https://github.com/dnault/therapi-runtime-javadoc"><code>therapi-runtime-javadoc</code></a> to read Javadoc comments at runtime. Ensure that you add it as well as its annotation processor to your project&#8217;s dependencies. Otherwise, the Javadoc support will fail silently.
 </td>
 </tr>
 </table>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;build&gt;
+<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;!--Annotation processor --&gt;
+    &lt;build&gt;
         &lt;plugins&gt;
             &lt;plugin&gt;
                 &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
@@ -818,7 +816,14 @@ Make sure, you enable the annotation processor of <code>therapi-runtime-javadoc<
                 &lt;/configuration&gt;
             &lt;/plugin&gt;
         &lt;/plugins&gt;
-    &lt;/build&gt;</code></pre>
+    &lt;/build&gt;
+
+    &lt;!-- Runtime library --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.github.therapi&lt;/groupId&gt;
+        &lt;artifactId&gt;therapi-runtime-javadoc&lt;/artifactId&gt;
+        &lt;version&gt;0.15.0&lt;/version&gt;
+    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -3028,7 +3033,7 @@ public String toString() {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>RequestHeader=set X-Forwarded-Prefix "/custom-path"</pre>
+<pre>RequestHeader set X-Forwarded-Prefix "/custom-path"</pre>
 </div>
 </div>
 <div class="ulist">
