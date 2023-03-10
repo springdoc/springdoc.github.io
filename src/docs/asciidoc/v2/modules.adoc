@@ -18,7 +18,7 @@ image::img/common.png[Architecture]
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
-      <version>2.0.2</version>
+      <version>2.0.3</version>
    </dependency>
 ----
 
@@ -43,7 +43,7 @@ springdoc.api-docs.path=/api-docs
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
-      <version>2.0.2</version>
+      <version>2.0.3</version>
    </dependency>
 ----
 
@@ -199,6 +199,15 @@ This dependency improves the support of Kotlin types.
 
 * If you are using spring-web, you should only use `springdoc-openapi-starter-webmvc-ui`.
 * If you are using spring-webflux, you should only use `springdoc-openapi-starter-webflux-ui`.
+
+Your project should add `jackson-module-kotlin` to the list of dependencies:
+[source,xml, subs="attributes+"]
+----
+    <dependency>
+        <groupId>com.fasterxml.jackson.module</groupId>
+        <artifactId>jackson-module-kotlin</artifactId>
+    </dependency>
+----
 
 === Groovy support
 For a project that uses Groovy, you should use `springdoc-openapi-starter-common`.
