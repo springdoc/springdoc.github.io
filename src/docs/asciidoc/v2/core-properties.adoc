@@ -53,5 +53,5 @@
 |springdoc.default-flat-param-object | `false` | `Boolean`. To default flatten parameter.
 |springdoc.default-support-form-data | `false` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
 |springdoc.nullable-request-parameter-enabled | `true` | `Boolean`. To default Enable Support for nullable request parameters in Kotlin.
-|springdoc.show-oauth2-endpoint | `false` | `Boolean`. To make spring security oauth2-endpoint visible.
+|springdoc.show-oauth2-endpoints | `false` | `Boolean`. To make spring security oauth2-endpoint visible.
 |===

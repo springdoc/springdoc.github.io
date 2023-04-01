@@ -331,7 +331,23 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 <p>A solution workaround would be to use: <code>@Parameter(hidden = true)</code></p>
 </li>
 <li>
-<p>For a project that uses <code>spring-security</code>, you should add <code>springdoc-openapi-starter-common</code>:</p>
+<p>The projects that use <code>spring-boot-starter-security</code> or <code>spring-security-oauth2-authorization-server</code>  should use:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
+</li>
+<li>
+<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
+</li>
+<li>
+<p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
+</li>
+<li>
+<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1868,7 +1884,7 @@ If you have some time, do not hesitate to test it before the next release.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-02 00:10:29 +0200
+Last updated 2023-04-02 01:12:58 +0200
 </div>
 </div>
 </div>

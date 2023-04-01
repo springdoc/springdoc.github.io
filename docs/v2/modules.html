@@ -134,22 +134,34 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <h3 id="_spring_hateoas_support"><a class="anchor" href="#_spring_hateoas_support"></a>Spring Hateoas support</h3>
 <div class="paragraph">
 <p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
-The projects that use Spring Hateoas should combine this dependency with the springdoc-openapi-starter-webmvc-ui dependency.
-This dependency enables the support of Spring Hateoas format.</p>
+The projects that use <code>spring-boot-starter-hateoas</code> should use:
+- <code>springdoc-openapi-starter-webmvc-api</code> if they need only the access to the OpenAPI endpoints
+- OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they need also the access to the swagger-ui</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_spring_data_rest_support"><a class="anchor" href="#_spring_data_rest_support"></a>Spring Data Rest support</h3>
 <div class="paragraph">
-<p>The projects that use <code>spring-data-rest</code> can should use <code>springdoc-openapi-starter-common</code>.
-This dependency enables the support of <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
+<p><code>springdoc-openapi</code> project supports <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
+</div>
+<div class="paragraph">
+<p>The projects that use <code>spring-boot-starter-data-rest</code> should use:
+- <code>springdoc-openapi-starter-webmvc-api</code> if they need only the access to the OpenAPI endpoints
+- OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they need also the access to the swagger-ui</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_spring_security_support"><a class="anchor" href="#_spring_security_support"></a>Spring Security support</h3>
 <div class="paragraph">
-<p>For a project that uses spring-security, you should use <code>springdoc-openapi-starter-common</code>.
-This dependency helps ignoring @AuthenticationPrincipal in case it is used on REST Controllers.</p>
+<p><code>springdoc-openapi</code> helps ignoring @AuthenticationPrincipal type in case it is used on REST Controllers.
+<code>springdoc-openapi</code> supports also exposing Oauth2 endpoints of <code>spring-security-oauth2-authorization-server</code>.</p>
+</div>
+<div class="paragraph">
+<p>The projects that use <code>spring-boot-starter-security</code> or <code>spring-security-oauth2-authorization-server</code>  should use:
+- <code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.
+- OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </div>
 </div>
 <div class="sect2">
@@ -414,21 +426,26 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <div class="sect2">
 <h3 id="_kotlin_support"><a class="anchor" href="#_kotlin_support"></a>Kotlin support</h3>
 <div class="paragraph">
-<p>For a project that uses Kotlin, you should use <code>springdoc-openapi-starter-common</code>.
-This dependency improves the support of Kotlin types.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If you are using spring-web, you should only use <code>springdoc-openapi-starter-webmvc-ui</code>.</p>
-</li>
-<li>
-<p>If you are using spring-webflux, you should only use <code>springdoc-openapi-starter-webflux-ui</code>.</p>
-</li>
-</ul>
+<p><code>springdoc-openapi</code> supports Kotlin types.</p>
 </div>
 <div class="paragraph">
-<p>Your project should add <code>jackson-module-kotlin</code> to the list of dependencies:</p>
+<p>The projects that use <code>Kotlin</code> should use:
+- <code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.
+- OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In addition, your project should add <code>jackson-module-kotlin</code> as well to have the full support of <code>Kotlin</code> types:
+</td>
+</tr>
+</table>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -442,15 +459,17 @@ This dependency improves the support of Kotlin types.</p>
 <div class="sect2">
 <h3 id="_groovy_support"><a class="anchor" href="#_groovy_support"></a>Groovy support</h3>
 <div class="paragraph">
-<p>For a project that uses Groovy, you should use <code>springdoc-openapi-starter-common</code>.
-This dependency improves the support of Kotlin types:</p>
+<p>The projects that use <code>Groovy</code> should use:
+- <code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.
+- OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_javadoc_support"><a class="anchor" href="#_javadoc_support"></a>Javadoc support</h3>
 <div class="paragraph">
-<p>For a project that wants to enable javadoc support, you should use <code>springdoc-openapi-starter-common</code>.
-This dependency improves the support of javadoc tags and comments:</p>
+<p><code>springdoc-openapi</code> can introspect <code>Javadoc</code> annotations and comments:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -465,6 +484,13 @@ This dependency improves the support of javadoc tags and comments:</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The projects that needs <code>Javadoc</code> support should use:
+- <code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.
+- OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.
+- OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
+</div>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -472,7 +498,8 @@ This dependency improves the support of javadoc tags and comments:</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>springdoc-openapi-starter-common</code> relies on <a href="https://github.com/dnault/therapi-runtime-javadoc"><code>therapi-runtime-javadoc</code></a> to read Javadoc comments at runtime. Ensure that you add it as well as its annotation processor to your project&#8217;s dependencies. Otherwise, the Javadoc support will fail silently.
+In addition, your project should add <a href="https://github.com/dnault/therapi-runtime-javadoc"><code>therapi-runtime-javadoc</code></a> to read Javadoc comments at runtime.
+Ensure that you add it as well as its annotation processor to your project&#8217;s dependencies. Otherwise, the Javadoc support will fail silently.
 </td>
 </tr>
 </table>
@@ -524,7 +551,7 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-02 00:10:29 +0200
+Last updated 2023-04-02 01:11:55 +0200
 </div>
 </div>
 </div>
