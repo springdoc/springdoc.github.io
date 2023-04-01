@@ -13,4 +13,4 @@
 image::img/pets.png[pets.png]
 
 === Source code of the Demo Applications
-*   link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]
+*   link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x[https://github.com/springdoc/springdoc-openapi-demos/tree/2.x, window="_blank"]
