@@ -89,37 +89,6 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
    </dependency>
 ----
 
-=== Spring Native support
-`springdoc-openapi`, supports out of the box https://www.graalvm.org/[GraalVM] native images.
-If the application uses https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/[spring-native], you should add the following dependency, in combination with  the (`springdoc-openapi-ui` or `springdoc-openapi-webflux-ui`) dependency:
-- This dependency helps native support on springdoc-openapi (Only available since `v1.5.13`).
-
-[source,xml, subs="attributes+"]
-----
-   <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-native</artifactId>
-      <version>{springdoc-version}</version>
-   </dependency>
-----
-
-This is the compatibility matrix which shows the tested/validated versions with `springdoc-openapi`:
-
-|===
-|springdoc-openapi Version | spring-native Version
-|`1.6.11+` | `0.12.1`
-|`1.6.7` | `0.11.4`
-|`1.6.3` | `0.11.1`
-|`1.6.0` | `0.11.0`
-|`1.5.13` | `0.11-RC1`
-|`1.5.12` | `0.10.5`
-|`1.5.11` | `0.10.3`
-|`1.5.10` | `0.10.1`
-|`1.5.9` | `0.9.2`
-|===
-
-NOTE:  The url of the swagger-ui using native images, contains the version of the swagger-ui. This is related to the following enhancement request in GraalVM https://github.com/oracle/graal/issues/1108[#1108].
-
 === Actuator support
 
 * In order to display `spring-boot-actuator` endpoints, simply add the following property:

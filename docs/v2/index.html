@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
 <meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
-<title>springdoc-openapi v2.0.4</title>
+<title>springdoc-openapi v2.1.0</title>
 <link rel="stylesheet" href="css/site.css">
 <style>
     #header #revnumber {
@@ -33,7 +33,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v2.0.4</h1>
+<h1>springdoc-openapi v2.1.0</h1>
 <div class="details">
 <span id="author" class="author">Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -295,7 +295,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.4&lt;/version&gt;
+      &lt;version&gt;2.1.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -404,7 +404,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.0.4&lt;/version&gt;
+      &lt;version&gt;2.1.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -456,7 +456,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.4&lt;/version&gt;
+      &lt;version&gt;2.1.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -1428,11 +1428,6 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable Kotlin support.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.enable-native-support</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable spring-native support.</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.enable-hateoas</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable spring-hateoas support.</p></td>
@@ -1983,11 +1978,6 @@ It allows the support out of the box for <code>Actuator</code> / <code>Spring Cl
 <td class="tableblock halign-left valign-top"><p class="tableblock">For Kotlin support</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-native</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">For Spring Native support</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-security</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">For Spring Security support</p></td>
@@ -2149,7 +2139,7 @@ Migration tips
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.0.4&lt;/version&gt;
+      &lt;version&gt;2.1.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -4305,8 +4295,7 @@ public class OpenApiConfig {
 If you have some time, do not hesitate to test it before the next release.</p>
 </div>
 <div class="paragraph">
-<p>For the OpenAPI REST endpoints, you just need to build your application with the spring <code>native</code> profile.
-For the UI, you will have to add <code>springdoc.enable-native-support=true</code>. This is mainly related to <a href="https://github.com/webjars/webjars-locator-core/issues/96" class="bare">github.com/webjars/webjars-locator-core/issues/96</a></p>
+<p>For the OpenAPI REST endpoints, you just need to build your application with the spring <code>native</code> profile.</p>
 </div>
 </div>
 <div class="sect2">
@@ -4315,7 +4304,7 @@ For the UI, you will have to add <code>springdoc.enable-native-support=true</cod
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.0.4.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.1.0.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -4384,7 +4373,7 @@ For the UI, you will have to add <code>springdoc.enable-native-support=true</cod
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-15 00:51:13 +0100
+Last updated 2023-04-02 00:10:29 +0200
 </div>
 </div>
 

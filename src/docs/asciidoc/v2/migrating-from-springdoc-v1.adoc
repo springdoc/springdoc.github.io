@@ -16,7 +16,6 @@ The following table describes the main modules changes:
 |`springdoc-openapi-hateoas` | `springdoc-openapi-starter-common` | For Spring Hateoas support
 |`springdoc-openapi-javadoc` | `springdoc-openapi-starter-common` | For Javadoc support
 |`springdoc-openapi-kotlin`| `springdoc-openapi-starter-common` | For Kotlin support
-|`springdoc-openapi-native` | `springdoc-openapi-starter-common` | For Spring Native support
 |`springdoc-openapi-security` | `springdoc-openapi-starter-common` | For Spring Security support
 |`springdoc-openapi-webmvc-core`| `springdoc-openapi-starter-webmvc-api` | For Spring WebMvc support
 |`springdoc-openapi-webflux-core` | `springdoc-openapi-starter-webflux-api` | For Spring WebFlux support

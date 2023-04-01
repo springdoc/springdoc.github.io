@@ -8,7 +8,7 @@ For the integration between spring-boot and swagger-ui, add the library to the l
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.0.4</version>
+      <version>2.1.0</version>
    </dependency>
 ----
 

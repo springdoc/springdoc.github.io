@@ -45,7 +45,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v1.6.15</h1>
+<h1>springdoc-openapi v1.7.0</h1>
 <div class="details">
 <span id="author" class="author">The library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN</span><br>
 </div>
@@ -62,12 +62,11 @@
 <li><a href="#spring-hateoas-support">3.4. Spring Hateoas support</a></li>
 <li><a href="#spring-data-rest-support">3.5. Spring Data Rest support</a></li>
 <li><a href="#spring-security-support">3.6. Spring Security support</a></li>
-<li><a href="#spring-native-support">3.7. Spring Native support</a></li>
-<li><a href="#actuator-support">3.8. Actuator support</a></li>
-<li><a href="#spring-cloud-function-web-support">3.9. Spring Cloud Function Web support</a></li>
-<li><a href="#kotlin-support">3.10. Kotlin support</a></li>
-<li><a href="#groovy-support">3.11. Groovy support</a></li>
-<li><a href="#javadoc-support">3.12. Javadoc support</a></li>
+<li><a href="#actuator-support">3.7. Actuator support</a></li>
+<li><a href="#spring-cloud-function-web-support">3.8. Spring Cloud Function Web support</a></li>
+<li><a href="#kotlin-support">3.9. Kotlin support</a></li>
+<li><a href="#groovy-support">3.10. Groovy support</a></li>
+<li><a href="#javadoc-support">3.11. Javadoc support</a></li>
 </ul>
 </li>
 <li><a href="#features">4. Springdoc-openapi Features</a>
@@ -333,7 +332,7 @@ For <strong>spring-boot v3</strong> support, make sure you use <a href="https://
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -442,7 +441,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webmvc-core&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -494,7 +493,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -511,7 +510,7 @@ This dependency enables the support of Spring Hateoas format.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-hateoas&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -527,7 +526,7 @@ This dependency enables the support of <code>spring-boot-starter-data-rest</code
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-data-rest&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -543,93 +542,13 @@ This dependency helps ignoring @AuthenticationPrincipal in case its used on REST
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-security&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-native-support"><a class="anchor" href="#spring-native-support"></a>3.7. Spring Native support</h3>
-<div class="paragraph">
-<p><code>springdoc-openapi</code>, supports out of the box <a href="https://www.graalvm.org/">GraalVM</a> native images.
-If the application uses <a href="https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/">spring-native</a>, you should add the following dependency, in combination with  the (<code>springdoc-openapi-ui</code> or <code>springdoc-openapi-webflux-ui</code>) dependency:
-- This dependency helps native support on springdoc-openapi (Only available since <code>v1.5.13</code>).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
-      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-native&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
-   &lt;/dependency&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This is the compatibility matrix which shows the tested/validated versions with <code>springdoc-openapi</code>:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc-openapi Version</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">spring-native Version</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.11+</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.12.1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.7</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11.4</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.3</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11.1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11.0</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.13</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.11-RC1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.12</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.5</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.11</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.3</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.10</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.10.1</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.9</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.9.2</code></p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The url of the swagger-ui using native images, contains the version of the swagger-ui. This is related to the following enhancement request in GraalVM <a href="https://github.com/oracle/graal/issues/1108">#1108</a>.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="actuator-support"><a class="anchor" href="#actuator-support"></a>3.8. Actuator support</h3>
+<h3 id="actuator-support"><a class="anchor" href="#actuator-support"></a>3.7. Actuator support</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -793,7 +712,7 @@ If you want to reach the actuator endpoints for this case (different port from y
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-cloud-function-web-support"><a class="anchor" href="#spring-cloud-function-web-support"></a>3.9. Spring Cloud Function Web support</h3>
+<h3 id="spring-cloud-function-web-support"><a class="anchor" href="#spring-cloud-function-web-support"></a>3.8. Spring Cloud Function Web support</h3>
 <div class="paragraph">
 <p><code>spring-cloud-function-web</code> exposes Java Function as REST endpoint automatically.
 * Since version <code>v1.6.3</code>, the support of functional endpoints has been added.</p>
@@ -888,7 +807,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="kotlin-support"><a class="anchor" href="#kotlin-support"></a>3.10. Kotlin support</h3>
+<h3 id="kotlin-support"><a class="anchor" href="#kotlin-support"></a>3.9. Kotlin support</h3>
 <div class="paragraph">
 <p>For a project that uses Kotlin, you should add the following dependency.
 This dependency improves the support of Kotlin types:</p>
@@ -898,7 +817,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-kotlin&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -914,7 +833,7 @@ This dependency improves the support of Kotlin types:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="groovy-support"><a class="anchor" href="#groovy-support"></a>3.11. Groovy support</h3>
+<h3 id="groovy-support"><a class="anchor" href="#groovy-support"></a>3.10. Groovy support</h3>
 <div class="paragraph">
 <p>For a project that uses Groovy, you should add the following dependency, in combination with the springdoc-openapi-ui dependency:
 This dependency improves the support of Kotlin types:</p>
@@ -924,13 +843,13 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-groovy&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="javadoc-support"><a class="anchor" href="#javadoc-support"></a>3.12. Javadoc support</h3>
+<h3 id="javadoc-support"><a class="anchor" href="#javadoc-support"></a>3.11. Javadoc support</h3>
 <div class="paragraph">
 <p>For a project that wants to enable javadoc support, you should add the following dependency, in combination with the <code>springdoc-openapi-ui</code> dependency:</p>
 </div>
@@ -939,7 +858,7 @@ This dependency improves the support of Kotlin types:</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-javadoc&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -2073,7 +1992,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.6.15&lt;/version&gt;
+      &lt;version&gt;1.7.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -4345,7 +4264,7 @@ public class OpenApiConfig {
 <p><code>springdoc-openapi</code> is compatible with <code>spring-boot 1</code> and <code>spring-boot 2</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 1.6.15.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 1.7.0.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
