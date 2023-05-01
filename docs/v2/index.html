@@ -183,6 +183,7 @@
 <li><a href="#customizing-swagger-static-resources">13.76. Customizing swagger static resources</a></li>
 <li><a href="#is-graalvm-supported">13.77. Is GraalVM supported ?</a></li>
 <li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.78. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
+<li><a href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter">13.79. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</a></li>
 </ul>
 </li>
 </ul>
@@ -4466,6 +4467,31 @@ If you have some time, do not hesitate to test it before the next release.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"><a class="anchor" href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"></a>13.79. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</h3>
+<div class="paragraph">
+<p>When overriding the default spring-boot registered <code>HttpMessageConverter</code>, you should have <code>ByteArrayHttpMessageConverter</code> registered as well to have proper <code>springdoc-openapi</code> support.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">    converters.add(new ByteArrayHttpMessageConverter());
+    converters.add(new MappingJackson2HttpMessageConverter(jacksonBuilder.build()));
+</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Order is very important, when registering <code>HttpMessageConverters</code>.
+</td>
+</tr>
+</table>
+</div>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
              crossorigin="anonymous"></script>
         <!-- HEADER2 -->

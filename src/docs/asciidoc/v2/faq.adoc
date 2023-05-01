@@ -947,3 +947,14 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 |`2.0.x`, `1.5.x` | `1.0.0`+
 
 |===
+
+
+=== Why am i getting an error: `Swagger UI unable to render definition`, when overriding the default spring registered `HttpMessageConverter`?
+When overriding the default spring-boot registered `HttpMessageConverter`, you should have `ByteArrayHttpMessageConverter` registered as well to have proper `springdoc-openapi` support.
+
+[source,java]
+----
+    converters.add(new ByteArrayHttpMessageConverter());
+    converters.add(new MappingJackson2HttpMessageConverter(jacksonBuilder.build()));
+----
+NOTE:  Order is very important, when registering `HttpMessageConverters`.
