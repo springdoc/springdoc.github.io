@@ -3,13 +3,13 @@
 
 === springdoc applications demos
 * link:https://demos1.springdoc.org/demo-spring-boot-2-webmvc[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-spring-boot-2-webflux[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
+* link:https://demos1.springdoc.org/demo-spring-boot-2-webflux/swagger-ui.html[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
 * link:https://demos1.springdoc.org/demo-spring-boot-1-webmvc[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-spring-boot-2-webflux-functional[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
+* link:https://demos1.springdoc.org/demo-spring-boot-2-webflux-functional/swagger-ui.html[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
 * link:https://demos1.springdoc.org/demo-spring-hateoas[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-microservices[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
+* link:https://demos1.springdoc.org/demo-microservices/swagger-ui.html[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
 * link:https://demos1.springdoc.org/spring-cloud-function-webmvc[Demo Spring Boot 2 and Spring Cloud Function Web MVC, window="_blank"]
-* link:https://demos1.springdoc.org/spring-cloud-function-webflux[Demo Spring Boot 2 and Spring Cloud Function WebFlux, window="_blank"]
+* link:https://demos1.springdoc.org/spring-cloud-function-webflux/swagger-ui.html[Demo Spring Boot 2 and Spring Cloud Function WebFlux, window="_blank"]
 
 image::img/pets.png[pets.png]
 
