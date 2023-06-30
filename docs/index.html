@@ -28,7 +28,7 @@
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
 </head>
-<body class="article"><div id="banner-container" class="container" role="banner">
+<body class="book toc2 toc-left"><div id="banner-container" class="container" role="banner">
   <div id="banner" class="contained" role="banner">
     <div id="switch-theme">
       <input type="checkbox" id="switch-theme-checkbox" />
@@ -46,6 +46,157 @@
     <div id="doc" class="doc">
 <div id="header">
 <h1>springdoc-openapi v2.1.0</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#Introduction">1. Introduction</a></li>
+<li><a href="#getting-started">2. Getting Started</a></li>
+<li><a href="#modules">3. Springdoc-openapi Modules</a>
+<ul class="sectlevel2">
+<li><a href="#general-overview">3.1. General overview</a></li>
+<li><a href="#spring-webmvc-support">3.2. Spring WebMvc support</a></li>
+<li><a href="#spring-webflux-support">3.3. Spring WebFlux support</a></li>
+<li><a href="#spring-hateoas-support">3.4. Spring Hateoas support</a></li>
+<li><a href="#spring-data-rest-support">3.5. Spring Data Rest support</a></li>
+<li><a href="#spring-security-support">3.6. Spring Security support</a></li>
+<li><a href="#actuator-support">3.7. Actuator support</a></li>
+<li><a href="#spring-cloud-function-web-support">3.8. Spring Cloud Function Web support</a></li>
+<li><a href="#kotlin-support">3.9. Kotlin support</a></li>
+<li><a href="#groovy-support">3.10. Groovy support</a></li>
+<li><a href="#javadoc-support">3.11. Javadoc support</a></li>
+</ul>
+</li>
+<li><a href="#features">4. Springdoc-openapi Features</a>
+<ul class="sectlevel2">
+<li><a href="#adding-api-information-and-security-documentation">4.1. Adding API Information and Security documentation</a></li>
+<li><a href="#error-handling-for-rest-using-controlleradvice">4.2. Error Handling for REST using @ControllerAdvice</a></li>
+<li><a href="#disabling-the-springdoc-openapi-endpoints">4.3. Disabling the <code>springdoc-openapi</code> endpoints</a></li>
+<li><a href="#disabling-the-swagger-ui">4.4. Disabling the swagger-ui</a></li>
+<li><a href="#swagger-ui-configuration">4.5. Swagger-ui configuration</a></li>
+<li><a href="#selecting-the-rest-controllers-to-include-in-the-documentation">4.6. Selecting the Rest Controllers to include in the documentation</a></li>
+<li><a href="#spring-webfluxwebmvc-fn-with-functional-endpoints">4.7. Spring-webflux/WebMvc.fn with Functional Endpoints</a></li>
+<li><a href="#integration-with-wildfly">4.8. Integration with WildFly</a></li>
+</ul>
+</li>
+<li><a href="#properties">5. Springdoc-openapi Properties</a>
+<ul class="sectlevel2">
+<li><a href="#springdoc-openapi-core-properties">5.1. springdoc-openapi core properties</a></li>
+<li><a href="#swagger-ui-properties">5.2. swagger-ui properties</a></li>
+</ul>
+</li>
+<li><a href="#plugins">6. Springdoc-openapi Plugins</a>
+<ul class="sectlevel2">
+<li><a href="#maven-plugin">6.1. Maven plugin</a></li>
+<li><a href="#gradle-plugin">6.2. Gradle plugin</a></li>
+</ul>
+</li>
+<li><a href="#demos">7. Springdoc-openapi Demos</a>
+<ul class="sectlevel2">
+<li><a href="#springdoc-applications-demos">7.1. springdoc applications demos</a></li>
+<li><a href="#source-code-of-the-demo-applications">7.2. Source code of the Demo Applications</a></li>
+</ul>
+</li>
+<li><a href="#migrating-from-springdoc-v1">8. Migrating from springdoc-openapi v1</a></li>
+<li><a href="#migrating-from-springfox">9. Migrating from SpringFox</a></li>
+<li><a href="#other-resources">10. Other resources</a>
+<ul class="sectlevel2">
+<li><a href="#additional-resources-to-get-started">10.1. Additional resources to get started</a></li>
+<li><a href="#dependencies-repository">10.2. Dependencies repository</a></li>
+</ul>
+</li>
+<li><a href="#sponsor">11. Sponsor</a>
+<ul class="sectlevel2">
+<li><a href="#benefits-of-being-a-bronze-sponsor">11.1. Benefits of being a bronze sponsor</a></li>
+<li><a href="#benefits-of-being-a-silver-sponsor">11.2. Benefits of being a silver sponsor</a></li>
+<li><a href="#benefits-of-being-a-gold-sponsor">11.3. Benefits of being a gold sponsor</a></li>
+</ul>
+</li>
+<li><a href="#thanks">12. Special Thanks</a></li>
+<li><a href="#faq">13. F.A.Q</a>
+<ul class="sectlevel2">
+<li><a href="#how-can-i-define-multiple-openapi-definitions-in-one-spring-boot-project">13.1. How can I define multiple OpenAPI definitions in one Spring Boot project?</a></li>
+<li><a href="#how-can-i-configure-swagger-ui">13.2. How can I configure Swagger UI?</a></li>
+<li><a href="#how-can-i-filter-the-resources-documented-in-the-output-specification-by-the-provided-group">13.3. How can I filter the resources documented in the output specification by the provided group?</a></li>
+<li><a href="#how-can-i-disableenable-swagger-ui-generation-based-on-env-variable">13.4. How can I disable/enable Swagger UI generation based on env variable?</a></li>
+<li><a href="#how-can-i-control-the-default-expansion-setting-for-the-operations-and-tags-in-the-swagger-ui">13.5. How can I control the default expansion setting for the operations and tags, in the Swagger UI ,</a></li>
+<li><a href="#how-can-i-change-the-layout-of-the-swagger-ui">13.6. How can I change the layout of the <code>swagger-ui</code>?</a></li>
+<li><a href="#how-can-i-sort-endpoints-alphabetically">13.7. How can I sort endpoints alphabetically?</a></li>
+<li><a href="#how-can-i-disable-the-try-it-out-button">13.8. How can I disable the try it out button?</a></li>
+<li><a href="#how-can-i-add-reusable-enums">13.9. How can I add  Reusable Enums ?</a></li>
+<li><a href="#how-can-i-apply-enumasref-true-to-all-enums">13.10. How can i apply <code>enumAsRef = true</code> to all enums ?</a></li>
+<li><a href="#how-can-i-explicitly-set-which-paths-to-filter">13.11. How can I explicitly set which paths to filter?</a></li>
+<li><a href="#how-can-i-explicitly-set-which-packages-to-scan">13.12. How can I explicitly set which packages to scan?</a></li>
+<li><a href="#how-can-i-set-swagger-properties-programmatically">13.13. How can I set Swagger properties programmatically?</a></li>
+<li><a href="#how-can-i-ignore-some-field-of-model">13.14. How can I ignore some field of model ?</a></li>
+<li><a href="#how-can-i-ignore-authenticationprincipal-parameter-from-spring-security">13.15. How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security ?</a></li>
+<li><a href="#is-there-a-gradle-plugin-available">13.16. Is there a Gradle plugin available?</a></li>
+<li><a href="#how-can-i-hide-a-parameter-from-the-documentation">13.17. How can I hide a parameter from the documentation ?</a></li>
+<li><a href="#is-parameters-annotation-supported">13.18. Is <code>@Parameters</code> annotation supported ?</a></li>
+<li><a href="#does-springdoc-openapi-support-jersey">13.19. Does <code>springdoc-openapi</code> support Jersey?</a></li>
+<li><a href="#can-springdoc-openapi-generate-api-only-for-restcontroller">13.20. Can <code>springdoc-openapi</code> generate API only for <code>@RestController</code>?</a></li>
+<li><a href="#are-the-following-validation-annotations-supported-notempty-notblank-positiveorzero-negativeorzero">13.21. Are the following validation annotations supported : <code>@NotEmpty</code> <code>@NotBlank</code> <code>@PositiveOrZero</code> <code>@NegativeOrZero</code>?</a></li>
+<li><a href="#how-can-i-map-pageable-spring-data-commons-object-to-correct-url-parameter-in-swagger-ui">13.22. How can I map <code>Pageable</code> (spring-data-commons) object to correct URL-Parameter in Swagger UI?</a></li>
+<li><a href="#how-can-i-generate-enums-in-the-generated-description">13.23. How can I generate enums in the generated description?</a></li>
+<li><a href="#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">13.24. How can I deploy <code>springdoc-openapi-starter-webmvc-ui</code> behind a reverse proxy?</a></li>
+<li><a href="#is-jsonview-annotations-in-spring-mvc-apis-supported">13.25. Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</a></li>
+<li><a href="#adding-springdoc-openapi-starter-webmvc-ui-dependency-breaks-my-publicindex-html-welcome-page">13.26. Adding <code>springdoc-openapi-starter-webmvc-ui</code> dependency breaks my <code>public/index.html</code> welcome page</a></li>
+<li><a href="#how-can-i-test-the-swagger-ui">13.27. How can I test the Swagger UI?</a></li>
+<li><a href="#how-can-i-customise-the-openapi-object">13.28. How can I customise the OpenAPI object ?</a></li>
+<li><a href="#how-can-i-return-an-empty-content-as-response">13.29. How can I return an empty content as response?</a></li>
+<li><a href="#how-are-endpoints-with-multiple-consuming-media-types-supported">13.30. How are endpoints with multiple consuming media types supported?</a></li>
+<li><a href="#how-can-i-get-yaml-and-json-openapi-in-compile-time">13.31. How can I get yaml and json (OpenAPI) in compile time?</a></li>
+<li><a href="#what-are-the-ignored-types-in-the-documentation">13.32. What are the ignored types in the documentation?</a></li>
+<li><a href="#how-can-i-disable-ignored-types">13.33. How can i disable ignored types:</a></li>
+<li><a href="#how-do-i-add-authorization-header-in-requests">13.34. How do I add authorization header in requests?</a></li>
+<li><a href="#differentiation-to-springfox-project">13.35. Differentiation to Springfox project</a></li>
+<li><a href="#how-do-i-migrate-to-openapi-3-with-springdoc-openapi">13.36. How do I migrate to OpenAPI 3 with springdoc-openapi</a></li>
+<li><a href="#how-can-i-set-a-global-header">13.37. How can I set a global header?</a></li>
+<li><a href="#are-callbacks-supported">13.38. Are Callbacks supported?</a></li>
+<li><a href="#how-can-i-define-securityscheme">13.39. How can I define SecurityScheme ?</a></li>
+<li><a href="#how-can-i-hide-an-operation-or-a-controller-from-documentation">13.40. How can I hide an operation or a controller from documentation ?</a></li>
+<li><a href="#how-to-configure-global-security-schemes">13.41. How to configure global security schemes?</a></li>
+<li><a href="#can-i-use-spring-property-with-swagger-annotations">13.42. Can I use spring property with swagger annotations?</a></li>
+<li><a href="#how-is-server-url-generated">13.43. How is server URL generated ?</a></li>
+<li><a href="#how-can-i-disable-springdoc-openapi-cache">13.44. How can I disable springdoc-openapi cache?</a></li>
+<li><a href="#how-can-i-expose-the-mvc-api-docs-endpoints-without-using-the-swagger-ui">13.45. How can I expose the mvc api-docs endpoints without using the <code>swagger-ui</code>?</a></li>
+<li><a href="#how-can-i-disable-springdoc-openapi-endpoints">13.46. How can I disable <code>springdoc-openapi</code> endpoints ?</a></li>
+<li><a href="#how-can-i-hide-schema-of-the-the-response">13.47. How can I hide Schema of the the response ?</a></li>
+<li><a href="#what-is-the-url-of-the-swagger-ui-when-i-set-a-different-context-path">13.48. What is the URL of the <code>swagger-ui</code>, when I set a different context-path?</a></li>
+<li><a href="#can-i-customize-openapi-object-programmatically">13.49. Can I customize OpenAPI object programmatically?</a></li>
+<li><a href="#where-can-i-find-the-source-code-of-the-demo-applications">13.50. Where can I find the source code of the demo applications?</a></li>
+<li><a href="#does-this-library-supports-annotations-from-interfaces">13.51. Does this library supports annotations from interfaces?</a></li>
+<li><a href="#what-is-the-list-of-the-excluded-parameter-types">13.52. What is the list of the excluded parameter types?</a></li>
+<li><a href="#is-file-upload-supported">13.53. Is file upload supported ?</a></li>
+<li><a href="#can-i-use-parameter-inside-operation-annotation">13.54. Can I use <code>@Parameter</code> inside <code>@Operation</code> annotation?</a></li>
+<li><a href="#why-my-parameter-is-marked-as-required">13.55. Why my parameter is marked as required?</a></li>
+<li><a href="#how-are-overloaded-methods-with-the-same-endpoints-but-with-different-parameters">13.56. How are overloaded methods with the same endpoints, but with different parameters</a></li>
+<li><a href="#what-is-a-proper-way-to-set-up-swagger-ui-to-use-provided-spec-yml">13.57. What is a proper way to set up Swagger UI to use provided spec.yml?</a></li>
+<li><a href="#is-there-a-way-to-send-authorization-header-through-the-parameter-tag">13.58. Is there a way to send authorization header through the @Parameter tag?</a></li>
+<li><a href="#my-rest-controller-using-controller-annotation-is-ignored">13.59. My Rest Controller using @Controller annotation is ignored?</a></li>
+<li><a href="#how-can-i-define-groups-using-application-yml">13.60. How can I define groups using application.yml?</a></li>
+<li><a href="#how-can-i-extract-fields-from-parameter-object">13.61. How can I extract fields from parameter object ?</a></li>
+<li><a href="#how-can-i-use-the-last-springdoc-openapi-snapshot">13.62. How can I use the last <code>springdoc-openapi</code> SNAPSHOT ?</a></li>
+<li><a href="#how-can-i-use-enable-springdoc-openapi-monetaryamount-support">13.63. How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</a></li>
+<li><a href="#how-can-i-aggregate-external-endpoints-exposing-openapi-3-spec-inside-one-single-application">13.64. How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</a></li>
+<li><a href="#how-can-use-custom-jsonyml-file-instead-of-generated-one">13.65. How can use custom json/yml file instead of generated one ?</a></li>
+<li><a href="#how-can-i-enable-csrf-support">13.66. How can i enable CSRF support?</a></li>
+<li><a href="#how-can-i-disable-the-default-swagger-petstore-url">13.67. How can i disable the default swagger petstore URL?</a></li>
+<li><a href="#is-pageabledefault-supported-to-enhance-the-openapi-3-docuementation">13.68. Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?</a></li>
+<li><a href="#how-can-i-make-spring-security-login-endpoint-visible">13.69. How can i make spring security login-endpoint visible ?</a></li>
+<li><a href="#how-can-i-show-schema-definitions-even-the-schema-is-not-referenced">13.70. How can i show schema definitions even the schema is not referenced?</a></li>
+<li><a href="#how-to-override-deprecated">13.71. How to override @Deprecated?</a></li>
+<li><a href="#how-can-i-display-a-method-that-returns-modelandview">13.72. How can i display a method that returns ModelAndView?</a></li>
+<li><a href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification">13.73. How can i have pretty-printed output of the OpenApi specification?</a></li>
+<li><a href="#how-can-i-define-different-schemas-for-the-same-class">13.74. How can i define different schemas for the same class?</a></li>
+<li><a href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage">13.75. How can i define different description for a class attribute depending on usage?</a></li>
+<li><a href="#customizing-swagger-static-resources">13.76. Customizing swagger static resources</a></li>
+<li><a href="#is-graalvm-supported">13.77. Is GraalVM supported ?</a></li>
+<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.78. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
+<li><a href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter">13.79. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</a></li>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 <div id="content">
 <div id="preamble">
@@ -78,19 +229,6 @@ For more details, feel free to reach out: <a href="mailto:sales@springdoc.org">s
 		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
 		  </a>
         </p>
-
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-             crossorigin="anonymous"></script>
-        <!-- HEADER2 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8127371937306964"
-             data-ad-slot="2654893709"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
 </div>
 </div>
 <div class="sect1">
@@ -4376,7 +4514,7 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-30 14:01:07 +0200
+Last updated 2023-06-30 14:25:26 +0200
 </div>
 </div>
 
