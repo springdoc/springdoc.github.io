@@ -35,7 +35,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Remove springfox and swagger 2 dependencies. Add <code>springdoc-openapi-ui</code> dependency instead.</p>
+<p>Remove springfox and swagger 2 dependencies. Add <code>springdoc-openapi-starter-webmvc-ui</code> dependency instead.</p>
 </li>
 </ul>
 </div>
@@ -43,15 +43,15 @@
 <div class="content">
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-ui&lt;/artifactId&gt;
-      &lt;version&gt;1.7.0&lt;/version&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.1.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Replace swagger 2 annotations with swagger 3 annotations (it is already included with <code>springdoc-openapi-ui</code> dependency).
+<p>Replace swagger 2 annotations with swagger 3 annotations (it is already included with <code>springdoc-openapi-starter-webmvc-ui</code> dependency).
 Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.</p>
 <div class="ulist">
 <ul>
@@ -87,9 +87,6 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>If you&#8217;re using an object to capture multiple request query params, annotation that method argument with <code>@ParameterObject</code></p>
 </li>
 <li>
 <p>This step is optional: Only if you have <strong>multiple</strong> <code>Docket</code> beans replace them with <code>GroupedOpenApi</code> beans.</p>
@@ -188,7 +185,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="index.html#how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy">how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy</a></p>
+<p><a href="index.html#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy">how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy</a></p>
 </li>
 </ul>
 </div>
@@ -220,7 +217,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-02 00:47:06 +0200
+Last updated 2023-06-30 13:28:16 +0200
 </div>
 </div>
 </div>

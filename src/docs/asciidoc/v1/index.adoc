@@ -1,6 +1,8 @@
-= springdoc-openapi v2.1.0
-Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
-include::_attributes.adoc[]
+= springdoc-openapi v{springdoc-legacy-version}
+
+IMPORTANT: For *spring-boot v3* support, make sure you use https://springdoc.org[*springdoc-openapi v2*]
+
+include::v1/_attributes.adoc[]
 
 `springdoc-openapi` is on link:https://opencollective.com/springdoc[Open Collective, window="_blank"]. If you ❤️ this project consider becoming a link:https://github.com/sponsors/springdoc[sponsor, window="_blank"].
 
@@ -10,46 +12,26 @@ This project is sponsored by
           <a href="https://opensource.mercedes-benz.com/" target="_blank">
            <img src="img/mercedes-benz.png" height="10%" width="10%" />
           </a>&nbsp;&nbsp;
-          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
-            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
-           </a>
-	      <a href="https://www.contrastsecurity.com/" target="_blank">
+          <a href="https://www.contrastsecurity.com/" target="_blank">
 		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
 		  </a>
         </p>
 
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-             crossorigin="anonymous"></script>
-        <!-- HEADER2 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8127371937306964"
-             data-ad-slot="2654893709"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+			 crossorigin="anonymous"></script>
+		<!-- HEADER2 -->
+		<ins class="adsbygoogle"
+			 style="display:block"
+			 data-ad-client="ca-pub-8127371937306964"
+			 data-ad-slot="2654893709"
+			 data-ad-format="auto"
+			 data-full-width-responsive="true"></ins>
+		<script>
+			 (adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
 ++++
 
-include::v2/intro.adoc[]
-
-++++
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-             crossorigin="anonymous"></script>
-        <!-- HEADER2 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8127371937306964"
-             data-ad-slot="2654893709"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-++++
-
-include::v2/getting-started.adoc[]
+include::v1/intro.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -66,7 +48,7 @@ include::v2/getting-started.adoc[]
         </script>
 ++++
 
-include::v2/modules.adoc[]
+include::v1/getting-started.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -83,7 +65,7 @@ include::v2/modules.adoc[]
         </script>
 ++++
 
-include::v2/features.adoc[]
+include::v1/modules.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -100,7 +82,7 @@ include::v2/features.adoc[]
         </script>
 ++++
 
-include::v2/properties.adoc[]
+include::v1/features.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -117,7 +99,7 @@ include::v2/properties.adoc[]
         </script>
 ++++
 
-include::v2/plugins.adoc[]
+include::v1/properties.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -134,7 +116,7 @@ include::v2/plugins.adoc[]
         </script>
 ++++
 
-include::v2/demos.adoc[]
+include::v1/plugins.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -151,7 +133,7 @@ include::v2/demos.adoc[]
         </script>
 ++++
 
-include::v2/migrating-from-springdoc-v1.adoc[]
+include::v1/demos.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -168,7 +150,7 @@ include::v2/migrating-from-springdoc-v1.adoc[]
         </script>
 ++++
 
-include::v2/migrating-from-springfox.adoc[]
+include::v1/migrating-from-springfox.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -185,7 +167,7 @@ include::v2/migrating-from-springfox.adoc[]
         </script>
 ++++
 
-include::v2/other-resources.adoc[]
+include::v1/other-resources.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -202,7 +184,7 @@ include::v2/other-resources.adoc[]
         </script>
 ++++
 
-include::v2/sponsor.adoc[]
+include::v1/sponsor.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -219,7 +201,7 @@ include::v2/sponsor.adoc[]
         </script>
 ++++
 
-include::v2/thanks.adoc[]
+include::v1/thanks.adoc[]
 
 ++++
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
@@ -236,19 +218,4 @@ include::v2/thanks.adoc[]
         </script>
 ++++
 
-include::v2/faq.adoc[]
-
-++++
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-             crossorigin="anonymous"></script>
-        <!-- HEADER2 -->
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-8127371937306964"
-             data-ad-slot="2654893709"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-++++
+include::v1/faq.adoc[]

@@ -9,7 +9,8 @@
 	<version>3.1.2-SNAPSHOT</version>
 
 	<properties>
-		<springdoc.version>1.7.0</springdoc.version>
+		<springdoc.version>2.1.0</springdoc.version>
+		<springdoc-legacy.version>1.7.0</springdoc-legacy.version>
 		<java.version>1.8</java.version>
 		<refdocs.build.directory>${project.basedir}/docs</refdocs.build.directory>
 		<spring-doc-resources.version>0.2.5</spring-doc-resources.version>
@@ -55,6 +56,7 @@
 				<configuration>
 					<attributes>
 						<springdoc-version>${springdoc.version}</springdoc-version>
+						<springdoc-legacy-version>${springdoc-legacy.version}</springdoc-legacy-version>
 					</attributes>
 				</configuration>
 				<executions>
@@ -99,7 +101,7 @@
 									<directory>src/docs/asciidoc/img</directory>
 								</resource>
 								<resource>
-									<targetPath>${refdocs.build.directory}/v2/img</targetPath>
+									<targetPath>${refdocs.build.directory}/v1/img</targetPath>
 									<directory>src/docs/asciidoc/img</directory>
 								</resource>
 							</resources>

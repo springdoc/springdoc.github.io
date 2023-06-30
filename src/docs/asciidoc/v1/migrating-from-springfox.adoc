@@ -1,18 +1,18 @@
 [[migrating-from-springfox]]
 == Migrating from SpringFox
 
-* Remove springfox and swagger 2 dependencies. Add `springdoc-openapi-starter-webmvc-ui` dependency instead.
+* Remove springfox and swagger 2 dependencies. Add `springdoc-openapi-ui` dependency instead.
 
 [source,xml, subs="attributes+"]
 ----
    <dependency>
       <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>2.1.0</version>
+      <artifactId>springdoc-openapi-ui</artifactId>
+      <version>{springdoc-legacy-version}</version>
    </dependency>
 ----
 
-* Replace swagger 2 annotations with swagger 3 annotations (it is already included with `springdoc-openapi-starter-webmvc-ui` dependency).
+* Replace swagger 2 annotations with swagger 3 annotations (it is already included with `springdoc-openapi-ui` dependency).
 Package for swagger 3 annotations is `io.swagger.v3.oas.annotations`.
 
 - `@Api` -> `@Tag`
@@ -25,6 +25,8 @@ Package for swagger 3 annotations is `io.swagger.v3.oas.annotations`.
 - `@ApiOperation(value = "foo", notes = "bar")` -> `@Operation(summary = "foo", description = "bar")`
 - `@ApiParam` -> `@Parameter`
 - `@ApiResponse(code = 404, message = "foo")` -> `@ApiResponse(responseCode = "404", description = "foo")`
+
+* If you're using an object to capture multiple request query params, annotation that method argument with `@ParameterObject`
 
 * This step is optional: Only if you have **multiple** `Docket` beans replace them with `GroupedOpenApi` beans.
 
@@ -103,7 +105,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**
 ----
 
 * If the swagger-ui is served behind a proxy:
-   ** link:index.html#how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy[how-can-i-deploy-springdoc-openapi-starter-webmvc-ui-behind-a-reverse-proxy]
+   ** link:index.html#how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy[how-can-i-deploy-springdoc-openapi-ui-behind-a-reverse-proxy]
 * To customise the Swagger UI
    ** link:index.html#how-can-i-configure-swagger-ui[how-can-i-configure-swagger-ui]
 * To hide an operation or a controller from documentation

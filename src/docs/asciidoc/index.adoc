@@ -1,5 +1,9 @@
 = springdoc-openapi v{springdoc-version}
-The library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN
+
+IMPORTANT: ``springdoc-openapi v1.7.0 `` is the latest Open Source release supporting Spring Boot 2.x and 1.x. +
+An extended support for https://springdoc.org/v1[*springdoc-openapi v1*] project is now available for organizations that need support beyond 2023. +
+For more details, feel free to reach out: sales@springdoc.org
+
 include::_attributes.adoc[]
 
 `springdoc-openapi` is on link:https://opencollective.com/springdoc[Open Collective, window="_blank"]. If you ❤️ this project consider becoming a link:https://github.com/sponsors/springdoc[sponsor, window="_blank"].
@@ -10,26 +14,23 @@ This project is sponsored by
           <a href="https://opensource.mercedes-benz.com/" target="_blank">
            <img src="img/mercedes-benz.png" height="10%" width="10%" />
           </a>&nbsp;&nbsp;
-          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
-            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
-           </a>
-          <a href="https://www.contrastsecurity.com/" target="_blank">
+	      <a href="https://www.contrastsecurity.com/" target="_blank">
 		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
 		  </a>
         </p>
 
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-			 crossorigin="anonymous"></script>
-		<!-- HEADER2 -->
-		<ins class="adsbygoogle"
-			 style="display:block"
-			 data-ad-client="ca-pub-8127371937306964"
-			 data-ad-slot="2654893709"
-			 data-ad-format="auto"
-			 data-full-width-responsive="true"></ins>
-		<script>
-			 (adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+             crossorigin="anonymous"></script>
+        <!-- HEADER2 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8127371937306964"
+             data-ad-slot="2654893709"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
 ++++
 
 include::intro.adoc[]
@@ -151,6 +152,23 @@ include::demos.adoc[]
         </script>
 ++++
 
+include::migrating-from-springdoc-v1.adoc[]
+
+++++
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+             crossorigin="anonymous"></script>
+        <!-- HEADER2 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8127371937306964"
+             data-ad-slot="2654893709"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+++++
+
 include::migrating-from-springfox.adoc[]
 
 ++++
@@ -220,3 +238,18 @@ include::thanks.adoc[]
 ++++
 
 include::faq.adoc[]
+
+++++
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+             crossorigin="anonymous"></script>
+        <!-- HEADER2 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8127371937306964"
+             data-ad-slot="2654893709"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+++++

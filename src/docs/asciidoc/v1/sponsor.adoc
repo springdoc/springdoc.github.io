@@ -13,14 +13,12 @@ Thank you to our bronze sponsors!
           <a href="https://opensource.mercedes-benz.com/" target="_blank">
            <img src="img/mercedes-benz.png" height="10%" width="10%" />
           </a>&nbsp;&nbsp;
-          <a href="https://www.dmtech.de" target="_blank">
-            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
-           </a>
-          <a href="https://www.contrastsecurity.com/" target="_blank">
+		  <a href="https://www.contrastsecurity.com/" target="_blank">
 		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
 		  </a>
         </p>
 ++++
+
 
 === Benefits of being a bronze sponsor
 Bronze sponsors donate $50 per month to the project, and get the following benefits:

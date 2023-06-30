@@ -2,122 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://springdoc.org/</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/index.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/core-properties.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/demos.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/faq.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/features.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/getting-started.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/intro.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/migrating-from-springfox.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/modules.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/other-resources.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/plugins.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/properties.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/ui-properties.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
 		<loc>https://springdoc.org/thanks.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/index.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/index.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/core-properties.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/core-properties.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/demos.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/demos.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/faq.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/faq.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/features.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/features.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/getting-started.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/getting-started.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/intro.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/intro.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/migrating-from-springfox.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/migrating-from-springfox.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/modules.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/modules.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/other-resources.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/other-resources.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/plugins.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/plugins.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/properties.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/properties.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/ui-properties.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/ui-properties.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 	<url>
-		<loc>https://springdoc.org/v2/thanks.html</loc>
-		<lastmod>2022-11-24</lastmod>
+		<loc>https://springdoc.org/v1/thanks.html</loc>
+		<lastmod>2023-06-30</lastmod>
 	</url>
 </urlset>

@@ -60,7 +60,7 @@ public GroupedOpenApi groupOpenApi() {
 
 For more details about the usage, you can have a look at the following sample Test:
 
-* link:https://github.com/springdoc/springdoc-openapi/tree/2.x/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68, window="_blank"]
 
 === How can I configure Swagger UI?
 * The support of the swagger official properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
@@ -158,14 +158,16 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 
 === How can I ignore `@AuthenticationPrincipal` parameter from spring-security ?
 * A solution workaround would be to use: `@Parameter(hidden = true)`
-* The projects that use `spring-boot-starter-security` or `spring-security-oauth2-authorization-server`  should use:
+* For a project that uses `spring-security`, you should add the following dependency, in combination with the `springdoc-openapi-ui` dependency:
 
-- `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
-- OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
-
-
+[source,xml]
+----
+<dependency>
+   <groupId>org.springdoc</groupId>
+   <artifactId>springdoc-openapi-security</artifactId>
+   <version>last.version</version>
+</dependency>
+----
 
 === Is there a Gradle plugin available?
 * Yes. More details are available, in the link:https://springdoc.org/#gradle-plugin[gradle plugin] section.
@@ -244,7 +246,8 @@ public String toString() {
 }
 ----
 
-=== How can I deploy `springdoc-openapi-starter-webmvc-ui` behind a reverse proxy?
+
+=== How can I deploy `springdoc-openapi-ui` behind a reverse proxy?
 * If your application is running behind a proxy, a load-balancer or in the cloud, the request information (like the host, port, scheme…​) might change along the way. Your application may be running on `10.10.10.10:8080`, but HTTP clients should only see `example.org`.
 
 * link:https://tools.ietf.org/html/rfc7239[RFC7239 "Forwarded Headers", window="_blank"] defines the Forwarded HTTP header; proxies can use this header to provide information about the original request. You can configure your application to read those headers and automatically use that information when creating links and sending them to clients in HTTP 302 responses, JSON documents or HTML pages. There are also non-standard headers, like `X-Forwarded-Host`, `X-Forwarded-Port`, `X-Forwarded-Proto`, `X-Forwarded-Ssl`, and `X-Forwarded-Prefix`.
@@ -263,7 +266,7 @@ RequestHeader set X-Forwarded-Prefix "/custom-path"
 server.use-forward-headers=true
 ----
 * If this is not enough, Spring Framework provides a `ForwardedHeaderFilter`. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.
-* Since Spring Boot 3.2, this is the new property to handle reverse proxy headers:
+* Since Spring Boot 2.2, this is the new property to handle reverse proxy headers:
 
 [source,properties]
 ----
@@ -283,8 +286,8 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 ===  Is `@JsonView` annotations in Spring MVC APIs supported?
 * Yes
 
-=== Adding `springdoc-openapi-starter-webmvc-ui` dependency breaks my `public/index.html` welcome page
-* If you already have static content on your root, and you don't want it to be overridden by `springdoc-openapi-starter-webmvc-ui` configuration, you can just define a custom configuration of the `swagger-ui`, in order not to override the configuration of your files from in your context-root:
+=== Adding `springdoc-openapi-ui` dependency breaks my `public/index.html` welcome page
+* If you already have static content on your root, and you don't want it to be overridden by `springdoc-openapi-ui` configuration, you can just define a custom configuration of the `swagger-ui`, in order not to override the configuration of your files from in your context-root:
 * For example use:
 [source,properties]
 ----
@@ -293,17 +296,17 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 
 === How can I test the Swagger UI?
 * You can have a look on this sample test of the UI:
-** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
 
 === How can I customise the OpenAPI object ?
 * You can write your own implementation of `OpenApiCustomizer`.
 * An example is available on:
-** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
 
 [source,java]
 ----
 @Bean
-public OpenApiCustomizer consumerTypeHeaderOpenAPICustomizer() {
+public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
 return openApi -> openApi.getPaths().values().stream().flatMap(pathItem -> pathItem.readOperations().stream())
     .forEach(operation -> operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
 }
@@ -390,7 +393,7 @@ SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class
 === How do I migrate to OpenAPI 3 with springdoc-openapi
 * There is no relation between `springdoc-openapi` and `springfox`.If you want to migrate to OpenAPI 3:
 * Remove all the dependencies and the related code to springfox
-* Add `springdoc-openapi-starter-webmvc-ui` dependency
+* Add `springdoc-openapi-ui` dependency
 * If you don't want to serve the UI from your root path or there is a conflict with an existing configuration, you can just change the following property:
 [source,properties]
 ----
@@ -490,7 +493,7 @@ springdoc.cache.disabled= true
 ----
 <dependency>
   <groupId>org.springdoc</groupId>
-  <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+  <artifactId>springdoc-openapi-webmvc-core</artifactId>
   <version>latest.version</version>
 </dependency>
 ----
@@ -541,15 +544,15 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
             .license(new License().name("Apache 2.0").url("http://springdoc.org")));
 }
 ----
-* If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomizer to your GroupedOpenApi definition.
+* If you need the definitions to appear within a specific group, and respect the conditions specified on the GroupedOpenApi, you can add OpenApiCustomiser to your GroupedOpenApi definition.
 
 [source,java]
 ----
-GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomizer(customerGlobalHeaderOpenApiCustomizer())
+GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packagedToMatch).addOpenApiCustomiser(customerGlobalHeaderOpenApiCustomiser())
                 .build()
 
 @Bean
-public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
+public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
    return openApi -> openApi.path("/foo",
    new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
    .addApiResponse("default",new ApiResponse().description("")
@@ -560,7 +563,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 
 === Where can I find the source code of the demo applications?
 * The source code of the application is available at the following GitHub repository:
-** link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x[https://github.com/springdoc/springdoc-openapi-demos/tree/2.x, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]
 
 === Does this library supports annotations from interfaces?
 * Yes
@@ -651,6 +654,80 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
 * This is compatible with Spring MVC request parameters mapping to POJO object.
 * This annotation does not support nested parameter objects.
 * POJO object must contain getters for fields with mandatory prefix `get`. Otherwise, the swagger documentation will not show the fields of the annotated entity.
+
+=== How to Integrate Open API 3 with Spring project (not Spring Boot)?
+When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.
+
+For example, lets assume you want load the swagger-ui in spring-mvc application:
+
+* You mainly, need to add the springdoc-openapi module
+
+[source,xml]
+----
+<dependency>
+   <groupId>org.springdoc</groupId>
+   <artifactId>springdoc-openapi-ui</artifactId>
+   <version>last.version</version>
+</dependency>
+----
+
+* If you don't have the spring-boot and spring-boot-autoconfigure dependencies, you need to add them. And pay attention to the compatibility matrix, between you spring.version and spring-boot.version. For example, in this case (spring.version=5.1.12.RELEASE):
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot</artifactId>
+    <version>2.1.11.RELEASE</version>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-autoconfigure</artifactId>
+    <version>2.1.11.RELEASE</version>
+</dependency>
+----
+
+* Scan for the `springdoc-openapi` 'auto-configuration classes that spring-boot automatically loads for you.
+* Depending on your module, you can find them on the file: `spring.factories` of each `springdoc-openapi` module.
+
+[source,java]
+----
+@EnableWebMvc
+public class AppInitializer implements WebApplicationInitializer {
+
+   @Override
+   public void onStartup(ServletContext servletContext) throws ServletException {
+      WebApplicationContext context = getContext();
+      servletContext.addListener(new ContextLoaderListener(context));
+      ServletRegistration.Dynamic dispatcher = servletContext.addServlet("RestServlet",
+            new DispatcherServlet(context));
+      dispatcher.setLoadOnStartup(1);
+      dispatcher.addMapping("/*");
+   }
+
+   private AnnotationConfigWebApplicationContext getContext() {
+      AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+      context.scan("rest");
+      context.register(this.getClass(), org.springdoc.webmvc.ui.SwaggerConfig.class,
+            org.springdoc.core.SwaggerUiConfigProperties.class, org.springdoc.core.SwaggerUiOAuthProperties.class,
+            org.springdoc.webmvc.core.SpringDocWebMvcConfiguration.class,
+            org.springdoc.webmvc.core.MultipleOpenApiSupportConfiguration.class,
+            org.springdoc.core.SpringDocConfiguration.class, org.springdoc.core.SpringDocConfigProperties.class,
+            org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration.class);
+
+      return context;
+   }
+}
+----
+
+* Depending on your module, you can find them on the file: `spring.factories` of each `springdoc-openapi` module.
+* For groups usage make sure your  `GroupedOpenApi` Beans are scanned.
+* If additionally, you are using custom `context path`: `/my-servlet-path`. Make sure you declare the following property:
+[source,properties]
+----
+spring.mvc.servlet.path=/my-servlet-path
+----
+
 
 === How can I use the last `springdoc-openapi` SNAPSHOT ?
 * For testing purposes only, you can test temporarily using the last `springdoc-openapi` SNAPSHOT
@@ -921,16 +998,10 @@ Illustrative example
 
 image::img/static_content_transformation.png[Illustrative example]
 
-=== Is GraalVM supported ?
-The native support available added in spring-boot 3.
-If you have some time, do not hesitate to test it before the next release.
-
-For the OpenAPI REST endpoints, you just need to build your application with the spring `native` profile.
-
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
-`springdoc-openapi 2.x` is compatible with `spring-boot 3`.
+`springdoc-openapi` is compatible with `spring-boot 1` and `spring-boot 2`.
 
-In general, **you should only pick the last stable version as per today 2.1.0.**
+In general, **you should only pick the last stable version as per today {springdoc-legacy-version}.**
 
 More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
 
@@ -938,7 +1009,7 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 | spring-boot Versions | Minimum springdoc-openapi Versions
 
 |`3.0.x` | `2.0.x`+
-|`2.7.x`, `1.5.x` | `1.6.0`+
+|`2.7.x`, `1.5.x` | `1.6.11`+
 |`2.6.x`, `1.5.x` | `1.6.0`+
 |`2.5.x`, `1.5.x` | `1.5.9`+
 |`2.4.x`, `1.5.x` | `1.5.0`+
@@ -947,7 +1018,6 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 |`2.0.x`, `1.5.x` | `1.0.0`+
 
 |===
-
 
 === Why am i getting an error: `Swagger UI unable to render definition`, when overriding the default spring registered `HttpMessageConverter`?
 When overriding the default spring-boot registered `HttpMessageConverter`, you should have `ByteArrayHttpMessageConverter` registered as well to have proper `springdoc-openapi` support.
