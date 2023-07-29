@@ -597,6 +597,7 @@ springdoc.api-docs.enabled=false
 SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
+
 @Bean
 SpringDocConfigProperties springDocConfigProperties() {
    return new SpringDocConfigProperties();
@@ -605,6 +606,11 @@ SpringDocConfigProperties springDocConfigProperties() {
 @Bean
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
+}
+
+@Bean
+SpringDocsUIConfiguration springDocsUiConfiguration(Optional<SwaggerUiConfigProperties> optionalSwaggerUiConfigProperties){
+    return new SpringDocsUIConfiguration(optionalSwaggerUiConfigProperties);
 }
 ----
 
