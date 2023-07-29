@@ -15,7 +15,7 @@
 |springdoc.swagger-ui.oauth2RedirectUrl | `/swagger-ui/oauth2-redirect.html` | `String`. OAuth redirect URL.
 |springdoc.swagger-ui.displayOperationId | `false` | `Boolean`. Controls the display of operationId in operations list. The default is `false`.
 |springdoc.swagger-ui.displayRequestDuration | `false` | `Boolean`. Controls the display of the request duration (in milliseconds) for "Try it out" requests.
-|springdoc.swagger-ui.deepLinking | `false` | `Boolean`. If set to `true`, enables deep linking for tags and operations. See the [Deep Linking documentation](/docs/usage/deep-linking.md) for more information.
+|springdoc.swagger-ui.deepLinking | `false` | `Boolean`. If set to `true`, enables deep linking for tags and operations. See the [Deep Linking documentation](https://swagger.io/docs/open-source-tools/swagger-ui/usage/deep-linking) for more information.
 |springdoc.swagger-ui.defaultModelsExpandDepth | `1` | `Number`. The default expansion depth for models (set to -1 completely hide the models).
 |springdoc.swagger-ui.defaultModelExpandDepth | `1` | `Number`. The default expansion depth for the model on the model-example section.
 |springdoc.swagger-ui.defaultModelRendering |  | `String=["example"*, "model"]`. Controls how the model is shown when the API is first rendered. (The user can always switch the rendering for a given model by clicking the 'Model' and 'Example Value' links.)
