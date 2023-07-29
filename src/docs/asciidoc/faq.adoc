@@ -928,6 +928,15 @@ If you have some time, do not hesitate to test it before the next release.
 
 For the OpenAPI REST endpoints, you just need to build your application with the spring `native` profile.
 
+If you give `@OpenAPIDefinition` or `@SecurityScheme` to a class that has no implementation, that class will disappear when you natively compile.
+To avoid this, give the class a `@Configuration`.
+----
+@Configuration
+@OpenAPIDefinition(info = @Info(title = "My App", description = "description"))
+public class OpenAPIConfig {
+}
+----
+
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
 `springdoc-openapi 2.x` is compatible with `spring-boot 3`.
 
