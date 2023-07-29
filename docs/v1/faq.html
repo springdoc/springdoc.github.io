@@ -172,7 +172,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_control_the_default_expansion_setting_for_the_operations_and_tags_in_the_swagger_ui"><a class="anchor" href="#_how_can_i_control_the_default_expansion_setting_for_the_operations_and_tags_in_the_swagger_ui"></a>How can I control the default expansion setting for the operations and tags, in the Swagger UI ,</h3>
+<h3 id="_how_can_i_control_the_default_expansion_setting_for_the_operations_and_tags_in_the_swagger_ui"><a class="anchor" href="#_how_can_i_control_the_default_expansion_setting_for_the_operations_and_tags_in_the_swagger_ui"></a>How can I control the default expansion setting for the operations and tags, in the Swagger UI,</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -235,7 +235,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_add_reusable_enums"><a class="anchor" href="#_how_can_i_add_reusable_enums"></a>How can I add  Reusable Enums ?</h3>
+<h3 id="_how_can_i_add_reusable_enums"><a class="anchor" href="#_how_can_i_add_reusable_enums"></a>How can I add  Reusable Enums?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -245,7 +245,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_apply_enumasref_true_to_all_enums"><a class="anchor" href="#_how_can_i_apply_enumasref_true_to_all_enums"></a>How can i apply <code>enumAsRef = true</code> to all enums ?</h3>
+<h3 id="_how_can_i_apply_enumasref_true_to_all_enums"><a class="anchor" href="#_how_can_i_apply_enumasref_true_to_all_enums"></a>How can i apply <code>enumAsRef = true</code> to all enums?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -300,6 +300,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 <div class="content">
 <pre class="highlight"><code class="language-kotlin" data-lang="kotlin">---
 @Bean
+@Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
@@ -311,7 +312,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_ignore_some_field_of_model"><a class="anchor" href="#_how_can_i_ignore_some_field_of_model"></a>How can I ignore some field of model ?</h3>
+<h3 id="_how_can_i_ignore_some_field_of_model"><a class="anchor" href="#_how_can_i_ignore_some_field_of_model"></a>How can I ignore some field of model?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -324,7 +325,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_ignore_authenticationprincipal_parameter_from_spring_security"><a class="anchor" href="#_how_can_i_ignore_authenticationprincipal_parameter_from_spring_security"></a>How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security ?</h3>
+<h3 id="_how_can_i_ignore_authenticationprincipal_parameter_from_spring_security"><a class="anchor" href="#_how_can_i_ignore_authenticationprincipal_parameter_from_spring_security"></a>How can I ignore <code>@AuthenticationPrincipal</code> parameter from spring-security?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -356,7 +357,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_hide_a_parameter_from_the_documentation"><a class="anchor" href="#_how_can_i_hide_a_parameter_from_the_documentation"></a>How can I hide a parameter from the documentation ?</h3>
+<h3 id="_how_can_i_hide_a_parameter_from_the_documentation"><a class="anchor" href="#_how_can_i_hide_a_parameter_from_the_documentation"></a>How can I hide a parameter from the documentation?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -366,7 +367,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 </div>
 </div>
 <div class="sect2">
-<h3 id="_is_parameters_annotation_supported"><a class="anchor" href="#_is_parameters_annotation_supported"></a>Is <code>@Parameters</code> annotation supported ?</h3>
+<h3 id="_is_parameters_annotation_supported"><a class="anchor" href="#_is_parameters_annotation_supported"></a>Is <code>@Parameters</code> annotation supported?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -502,7 +503,7 @@ The property <code>springdoc.model-converters.pageable-converter.enabled</code> 
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">@GetMapping("/example")
-public Object example(@Parameter(name ="json", schema = @Schema(description = "var 1",type = "string", allowableValues = {"1", "2"}))
+public Object example(@Parameter(name = "json", schema = @Schema(description = "var 1", type = "string", allowableValues = {"1", "2"}))
 String json) {
    return null;
 }
@@ -643,7 +644,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_customise_the_openapi_object"><a class="anchor" href="#_how_can_i_customise_the_openapi_object"></a>How can I customise the OpenAPI object ?</h3>
+<h3 id="_how_can_i_customise_the_openapi_object"><a class="anchor" href="#_how_can_i_customise_the_openapi_object"></a>How can I customise the OpenAPI object?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -811,11 +812,11 @@ ResponseEntity&lt;String&gt; testme() {
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">@Bean
- public OpenAPI customOpenAPI() {
-   return new OpenAPI()
-          .components(new Components()
-          .addSecuritySchemes("bearer-key",
-          new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
+public OpenAPI customOpenAPI() {
+    return new OpenAPI()
+        .components(new Components()
+        .addSecuritySchemes("bearer-key",
+        new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
 }
 </code></pre>
 </div>
@@ -882,7 +883,7 @@ ResponseEntity&lt;String&gt; testme() {
 <p>You may have global parameters with Standard OpenAPI description.</p>
 </li>
 <li>
-<p>If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.</p>
+<p>If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi, you can use OpenAPI Bean.</p>
 </li>
 <li>
 <p>You can define common parameters under parameters in the global components section and reference them elsewhere via <code>$ref</code>. You can also define global header parameters.</p>
@@ -921,7 +922,7 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_define_securityscheme"><a class="anchor" href="#_how_can_i_define_securityscheme"></a>How can I define SecurityScheme ?</h3>
+<h3 id="_how_can_i_define_securityscheme"><a class="anchor" href="#_how_can_i_define_securityscheme"></a>How can I define SecurityScheme?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -934,20 +935,20 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-java" data-lang="java"> @Bean
- public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
-  return new OpenAPI()
-   .components(new Components().addSecuritySchemes("basicScheme",
-   new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
-   info(new Info().title("SpringShop API").version(appVersion)
-   .license(new License().name("Apache 2.0").url("http://springdoc.org")));
- }
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
+    return new OpenAPI()
+        .components(new Components().addSecuritySchemes("basicScheme",
+            new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
+        .info(new Info().title("SpringShop API").version(appVersion)
+            .license(new License().name("Apache 2.0").url("http://springdoc.org")));
+}
 </code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_hide_an_operation_or_a_controller_from_documentation"><a class="anchor" href="#_how_can_i_hide_an_operation_or_a_controller_from_documentation"></a>How can I hide an operation or a controller from documentation ?</h3>
+<h3 id="_how_can_i_hide_an_operation_or_a_controller_from_documentation"><a class="anchor" href="#_how_can_i_hide_an_operation_or_a_controller_from_documentation"></a>How can I hide an operation or a controller from documentation?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -976,9 +977,9 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 <pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
     return new OpenAPI().components(new Components()
-    .addSecuritySchemes("basicScheme", new SecurityScheme()
-    .type(SecurityScheme.Type.HTTP).scheme("basic"))).info(new Info().title("Custom API")
-    .version("100")).addTagsItem(new Tag().name("mytag"));
+        .addSecuritySchemes("basicScheme", new SecurityScheme()
+            .type(SecurityScheme.Type.HTTP).scheme("basic"))).info(new Info().title("Custom API")
+        .version("100")).addTagsItem(new Tag().name("mytag"));
 }
 </code></pre>
 </div>
@@ -1016,7 +1017,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_is_server_url_generated"><a class="anchor" href="#_how_is_server_url_generated"></a>How is server URL generated ?</h3>
+<h3 id="_how_is_server_url_generated"><a class="anchor" href="#_how_is_server_url_generated"></a>How is server URL generated?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1069,7 +1070,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_disable_springdoc_openapi_endpoints"><a class="anchor" href="#_how_can_i_disable_springdoc_openapi_endpoints"></a>How can I disable <code>springdoc-openapi</code> endpoints ?</h3>
+<h3 id="_how_can_i_disable_springdoc_openapi_endpoints"><a class="anchor" href="#_how_can_i_disable_springdoc_openapi_endpoints"></a>How can I disable <code>springdoc-openapi</code> endpoints?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1084,7 +1085,7 @@ public OpenAPI customOpenAPI() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_hide_schema_of_the_the_response"><a class="anchor" href="#_how_can_i_hide_schema_of_the_the_response"></a>How can I hide Schema of the the response ?</h3>
+<h3 id="_how_can_i_hide_schema_of_the_the_response"><a class="anchor" href="#_how_can_i_hide_schema_of_the_the_response"></a>How can I hide Schema of the the response?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1146,7 +1147,7 @@ OR
 <div class="ulist">
 <ul>
 <li>
-<p>You can Define your own OpenAPI Bean: If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.</p>
+<p>You can Define your own OpenAPI Bean: If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi, you can use OpenAPI Bean.</p>
 </li>
 </ul>
 </div>
@@ -1154,10 +1155,10 @@ OR
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
-   return new OpenAPI()
-    .components(new Components().addSecuritySchemes("basicScheme",
+    return new OpenAPI()
+        .components(new Components().addSecuritySchemes("basicScheme",
             new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
-    .info(new Info().title("SpringShop API").version(appVersion)
+        .info(new Info().title("SpringShop API").version(appVersion)
             .license(new License().name("Apache 2.0").url("http://springdoc.org")));
 }
 </code></pre>
@@ -1177,10 +1178,10 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 
 @Bean
 public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
-   return openApi -&gt; openApi.path("/foo",
-   new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
-   .addApiResponse("default",new ApiResponse().description("")
-   .content(new Content().addMediaType("fatz", new MediaType()))))));
+    return openApi -&gt; openApi.path("/foo",
+        new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
+            .addApiResponse("default", new ApiResponse().description("")
+                .content(new Content().addMediaType("fatz", new MediaType()))))));
 }
 </code></pre>
 </div>
@@ -1224,7 +1225,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_is_file_upload_supported"><a class="anchor" href="#_is_file_upload_supported"></a>Is file upload supported ?</h3>
+<h3 id="_is_file_upload_supported"><a class="anchor" href="#_is_file_upload_supported"></a>Is file upload supported?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1296,6 +1297,7 @@ public OpenApiCustomiser customerGlobalHeaderOpenApiCustomiser() {
 SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
+
 @Bean
 SpringDocConfigProperties springDocConfigProperties() {
    return new SpringDocConfigProperties();
@@ -1304,6 +1306,11 @@ SpringDocConfigProperties springDocConfigProperties() {
 @Bean
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
+}
+
+@Bean
+SpringDocsUIConfiguration springDocsUiConfiguration(Optional&lt;SwaggerUiConfigProperties&gt; optionalSwaggerUiConfigProperties){
+    return new SpringDocsUIConfiguration(optionalSwaggerUiConfigProperties);
 }
 </code></pre>
 </div>
@@ -1407,7 +1414,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_extract_fields_from_parameter_object"><a class="anchor" href="#_how_can_i_extract_fields_from_parameter_object"></a>How can I extract fields from parameter object ?</h3>
+<h3 id="_how_can_i_extract_fields_from_parameter_object"><a class="anchor" href="#_how_can_i_extract_fields_from_parameter_object"></a>How can I extract fields from parameter object?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1559,7 +1566,7 @@ public class AppInitializer implements WebApplicationInitializer {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_use_enable_springdoc_openapi_monetaryamount_support"><a class="anchor" href="#_how_can_i_use_enable_springdoc_openapi_monetaryamount_support"></a>How can I use enable <code>springdoc-openapi</code> MonetaryAmount support ?</h3>
+<h3 id="_how_can_i_use_enable_springdoc_openapi_monetaryamount_support"><a class="anchor" href="#_how_can_i_use_enable_springdoc_openapi_monetaryamount_support"></a>How can I use enable <code>springdoc-openapi</code> MonetaryAmount support?</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1593,12 +1600,12 @@ public class AppInitializer implements WebApplicationInitializer {
 <h3 id="_how_can_i_aggregate_external_endpoints_exposing_openapi_3_spec_inside_one_single_application"><a class="anchor" href="#_how_can_i_aggregate_external_endpoints_exposing_openapi_3_spec_inside_one_single_application"></a>How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?</h3>
 <div class="paragraph">
 <p>The properties <code>springdoc.swagger-ui.urls.*</code>, are suitable to configure external (/v3/api-docs url).
-For example if you want to agreagte all the endpoints of other services, inside one single application.
+For example, if you want to aggregate all the endpoints of other services, inside one single application.
 IMPORTANT: Don&#8217;t forget that CORS needs to be enabled as well.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_use_custom_jsonyml_file_instead_of_generated_one"><a class="anchor" href="#_how_can_use_custom_jsonyml_file_instead_of_generated_one"></a>How can use custom json/yml file instead of generated one ?</h3>
+<h3 id="_how_can_use_custom_jsonyml_file_instead_of_generated_one"><a class="anchor" href="#_how_can_use_custom_jsonyml_file_instead_of_generated_one"></a>How can use custom json/yml file instead of generated one?</h3>
 <div class="paragraph">
 <p>If your file open-api.json, contains the OpenAPI documentation in OpenAPI 3 format.
 Then simply declare: The file name can be anything you want, from the moment your declaration is consistent yaml or json OpenAPI Spec.</p>
@@ -1616,7 +1623,7 @@ No additional configuration is needed.</p>
 <div class="sect2">
 <h3 id="_how_can_i_enable_csrf_support"><a class="anchor" href="#_how_can_i_enable_csrf_support"></a>How can i enable CSRF support?</h3>
 <div class="paragraph">
-<p>If you are using standard headers.( For example using spring-security headers)
+<p>If you are using standard headers. (For example, using spring-security headers)
 If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN during each HTTP REQUEST.</p>
 </div>
 <div class="paragraph">
@@ -1650,14 +1657,14 @@ If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN
 </div>
 </div>
 <div class="sect2">
-<h3 id="_is_pageabledefault_supported_to_enhance_the_openapi_3_docuementation"><a class="anchor" href="#_is_pageabledefault_supported_to_enhance_the_openapi_3_docuementation"></a>Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?</h3>
+<h3 id="_is_pageabledefault_supported_to_enhance_the_openapi_3_documentation"><a class="anchor" href="#_is_pageabledefault_supported_to_enhance_the_openapi_3_documentation"></a>Is @PageableDefault supported, to enhance the OpenAPI 3 documentation?</h3>
 <div class="paragraph">
 <p>Yes, you can use it in conjunction with  <code>@ParameterObject</code> annotation.
 Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.data.rest.default.</strong></code> properties are supported since v1.4.5</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_make_spring_security_login_endpoint_visible"><a class="anchor" href="#_how_can_i_make_spring_security_login_endpoint_visible"></a>How can i make spring security login-endpoint visible ?</h3>
+<h3 id="_how_can_i_make_spring_security_login_endpoint_visible"><a class="anchor" href="#_how_can_i_make_spring_security_login_endpoint_visible"></a>How can I make spring security login-endpoint visible?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
@@ -1668,7 +1675,7 @@ Also, the spring-boot <code>spring.data.web.<strong></code> and <code>spring.dat
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_show_schema_definitions_even_the_schema_is_not_referenced"><a class="anchor" href="#_how_can_i_show_schema_definitions_even_the_schema_is_not_referenced"></a>How can i show schema definitions even the schema is not referenced?</h3>
+<h3 id="_how_can_i_show_schema_definitions_even_if_the_schema_is_not_referenced"><a class="anchor" href="#_how_can_i_show_schema_definitions_even_if_the_schema_is_not_referenced"></a>How can I show schema definitions even if the schema is not referenced?</h3>
 <div class="paragraph">
 <p>You can use the following property:</p>
 </div>
@@ -1718,7 +1725,7 @@ You can use the following property that is available since release v1.4.3:</p>
 <h3 id="_how_can_i_define_different_schemas_for_the_same_class"><a class="anchor" href="#_how_can_i_define_different_schemas_for_the_same_class"></a>How can i define different schemas for the same class?</h3>
 <div class="paragraph">
 <p>Complex objects are always resolved as a reference to a schema defined in components.
-For example let&#8217;s consider a <code>Instance</code> class with an <code>workAddress</code> and <code>homeAddress</code> attribute of type <code>Address</code>:</p>
+For example, let&#8217;s consider a <code>Instance</code> class with an <code>workAddress</code> and <code>homeAddress</code> attribute of type <code>Address</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1759,16 +1766,16 @@ public class Address {
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
-return new OpenAPI().components(new Components()
-.addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address" ))
-.addSchemas("HomeAddressSchema", getSchemaWithDifferentDescription(Address.class, "home Address" )));
+    return new OpenAPI().components(new Components()
+        .addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address"))
+        .addSchemas("HomeAddressSchema", getSchemaWithDifferentDescription(Address.class, "home Address")));
 }
 
-private Schema getSchemaWithDifferentDescription(Class className, String description){
-ResolvedSchema resolvedSchema = ModelConverters.getInstance()
-.resolveAsResolvedSchema(
-new AnnotatedType(className).resolveAsRef(false));
-return resolvedSchema.schema.description(description);
+private Schema getSchemaWithDifferentDescription(Class className, String description) {
+    ResolvedSchema resolvedSchema = ModelConverters.getInstance()
+        .resolveAsResolvedSchema(
+            new AnnotatedType(className).resolveAsRef(false));
+    return resolvedSchema.schema.description(description);
 }
 </code></pre>
 </div>
@@ -1777,7 +1784,7 @@ return resolvedSchema.schema.description(description);
 <div class="sect2">
 <h3 id="_how_can_i_define_different_description_for_a_class_attribute_depending_on_usage"><a class="anchor" href="#_how_can_i_define_different_description_for_a_class_attribute_depending_on_usage"></a>How can i define different description for a class attribute depending on usage?</h3>
 <div class="paragraph">
-<p>For example let&#8217;s consider a <code>Instance</code> class with an <code>email</code> attribute:</p>
+<p>For example, let&#8217;s consider a <code>Instance</code> class with an <code>email</code> attribute:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1804,15 +1811,15 @@ return resolvedSchema.schema.description(description);
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">@Bean
 public OpenAPI customOpenAPI() {
-return new OpenAPI().components(new Components()
-.addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email" ))
-.addSchemas("PersonDTO2", getFieldSchemaWithDifferentDescription(PersonDTO.class, "home email" )));
+    return new OpenAPI().components(new Components()
+        .addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email"))
+        .addSchemas("PersonDTO2", getFieldSchemaWithDifferentDescription(PersonDTO.class, "home email")));
 }
 
-private Schema getFieldSchemaWithDifferentDescription(Class className, String description){
+private Schema getFieldSchemaWithDifferentDescription(Class className, String description) {
     ResolvedSchema resolvedSchema = ModelConverters.getInstance()
-            .resolveAsResolvedSchema(
-                    new AnnotatedType(className).resolveAsRef(false));
+        .resolveAsResolvedSchema(
+            new AnnotatedType(className).resolveAsRef(false));
     return resolvedSchema.schema.addProperties("email", new StringSchema().description(description));
 }
 </code></pre>
@@ -1997,7 +2004,7 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-30 13:49:00 +0200
+Last updated 2023-07-29 16:42:00 +0200
 </div>
 </div>
 </div>

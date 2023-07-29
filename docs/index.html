@@ -1496,6 +1496,11 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Pre-loading setting to load OpenAPI on application startup.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.pre-loading-locales</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>.The list of locales to load OpenAPI on application startup.(comma separated) If not specified, it will preload with the default Locale.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.writer-with-order-by-keys</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable a deterministic/alphabetical ordering.</p></td>
@@ -1669,7 +1674,7 @@ All these properties should be declared with the following prefix: <code>springd
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.deepLinking</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. If set to <code>true</code>, enables deep linking for tags and operations. See the [Deep Linking documentation](/docs/usage/deep-linking.md) for more information.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. If set to <code>true</code>, enables deep linking for tags and operations. See the [Deep Linking documentation](<a href="https://swagger.io/docs/open-source-tools/swagger-ui/usage/deep-linking" class="bare">swagger.io/docs/open-source-tools/swagger-ui/usage/deep-linking</a>) for more information.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.defaultModelsExpandDepth</p></td>
@@ -2893,6 +2898,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 <div class="content">
 <pre class="highlight"><code class="language-kotlin" data-lang="kotlin">---
 @Bean
+@Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
@@ -3896,6 +3902,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
+
 @Bean
 SpringDocConfigProperties springDocConfigProperties() {
    return new SpringDocConfigProperties();
@@ -3904,6 +3911,11 @@ SpringDocConfigProperties springDocConfigProperties() {
 @Bean
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
+}
+
+@Bean
+SpringDocsUIConfiguration springDocsUiConfiguration(Optional&lt;SwaggerUiConfigProperties&gt; optionalSwaggerUiConfigProperties){
+    return new SpringDocsUIConfiguration(optionalSwaggerUiConfigProperties);
 }
 </code></pre>
 </div>
@@ -4412,6 +4424,18 @@ If you have some time, do not hesitate to test it before the next release.</p>
 </div>
 <div class="paragraph">
 <p>For the OpenAPI REST endpoints, you just need to build your application with the spring <code>native</code> profile.</p>
+</div>
+<div class="paragraph">
+<p>If you give <code>@OpenAPIDefinition</code> or <code>@SecurityScheme</code> to a class that has no implementation, that class will disappear when you natively compile.
+To avoid this, give the class a <code>@Configuration</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@Configuration
+@OpenAPIDefinition(info = @Info(title = "My App", description = "description"))
+public class OpenAPIConfig {
+}</pre>
+</div>
 </div>
 </div>
 <div class="sect2">

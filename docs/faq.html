@@ -300,6 +300,7 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 <div class="content">
 <pre class="highlight"><code class="language-kotlin" data-lang="kotlin">---
 @Bean
+@Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
@@ -1303,6 +1304,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 SpringDocConfiguration springDocConfiguration(){
    return new SpringDocConfiguration();
 }
+
 @Bean
 SpringDocConfigProperties springDocConfigProperties() {
    return new SpringDocConfigProperties();
@@ -1311,6 +1313,11 @@ SpringDocConfigProperties springDocConfigProperties() {
 @Bean
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
+}
+
+@Bean
+SpringDocsUIConfiguration springDocsUiConfiguration(Optional&lt;SwaggerUiConfigProperties&gt; optionalSwaggerUiConfigProperties){
+    return new SpringDocsUIConfiguration(optionalSwaggerUiConfigProperties);
 }
 </code></pre>
 </div>
@@ -1820,6 +1827,18 @@ If you have some time, do not hesitate to test it before the next release.</p>
 <div class="paragraph">
 <p>For the OpenAPI REST endpoints, you just need to build your application with the spring <code>native</code> profile.</p>
 </div>
+<div class="paragraph">
+<p>If you give <code>@OpenAPIDefinition</code> or <code>@SecurityScheme</code> to a class that has no implementation, that class will disappear when you natively compile.
+To avoid this, give the class a <code>@Configuration</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@Configuration
+@OpenAPIDefinition(info = @Info(title = "My App", description = "description"))
+public class OpenAPIConfig {
+}</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_what_is_the_compatibility_matrix_of_springdoc_openapi_with_spring_boot"><a class="anchor" href="#_what_is_the_compatibility_matrix_of_springdoc_openapi_with_spring_boot"></a>What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
@@ -1909,7 +1928,7 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-06-30 13:28:16 +0200
+Last updated 2023-07-29 16:41:55 +0200
 </div>
 </div>
 </div>
