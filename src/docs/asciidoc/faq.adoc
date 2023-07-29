@@ -82,7 +82,7 @@ springdoc.swagger-ui.filter=group-a
 ----
 springdoc.swagger-ui.enabled=false
 ----
-=== How can I control the default expansion setting for the operations and tags, in the Swagger UI ,
+=== How can I control the default expansion setting for the operations and tags, in the Swagger UI,
 * You can set this property in your application.yml like so for example:
 [source,properties]
 ----
@@ -113,10 +113,10 @@ springdoc.swagger-ui.tagsSorter=alpha
 springdoc.swagger-ui.supportedSubmitMethods="get", "put", "post", "delete", "options", "head", "patch", "trace"
 ----
 
-=== How can I add  Reusable Enums ?
+=== How can I add  Reusable Enums?
 * You should add `@Schema(enumAsRef = true)` on your enum.
 
-=== How can i apply `enumAsRef = true` to all enums ?
+=== How can i apply `enumAsRef = true` to all enums?
 * Declare the following property:
 [source,java]
 ----
@@ -153,11 +153,11 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 }
 ---
 
-=== How can I ignore some field of model ?
+=== How can I ignore some field of model?
 * You can use the following annotation on the top of the field that you want to hide:
 * `@Schema(hidden = true)`
 
-=== How can I ignore `@AuthenticationPrincipal` parameter from spring-security ?
+=== How can I ignore `@AuthenticationPrincipal` parameter from spring-security?
 * A solution workaround would be to use: `@Parameter(hidden = true)`
 * The projects that use `spring-boot-starter-security` or `spring-security-oauth2-authorization-server`  should use:
 
@@ -171,10 +171,10 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 === Is there a Gradle plugin available?
 * Yes. More details are available, in the link:https://springdoc.org/#gradle-plugin[gradle plugin] section.
 
-=== How can I hide a parameter from the documentation ?
+=== How can I hide a parameter from the documentation?
 * You can use `@Parameter(hidden = true)`
 
-=== Is `@Parameters` annotation supported ?
+=== Is `@Parameters` annotation supported?
 * Yes
 
 === Does `springdoc-openapi` support Jersey?
@@ -228,7 +228,7 @@ NOTE: The property `springdoc.model-converters.pageable-converter.enabled` is on
 [source,java]
 ----
 @GetMapping("/example")
-public Object example(@Parameter(name ="json", schema = @Schema(description = "var 1",type = "string", allowableValues = {"1", "2"}))
+public Object example(@Parameter(name = "json", schema = @Schema(description = "var 1", type = "string", allowableValues = {"1", "2"}))
 String json) {
    return null;
 }
@@ -296,7 +296,7 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 * You can have a look on this sample test of the UI:
 ** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
 
-=== How can I customise the OpenAPI object ?
+=== How can I customise the OpenAPI object?
 * You can write your own implementation of `OpenApiCustomizer`.
 * An example is available on:
 ** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
@@ -346,7 +346,7 @@ ResponseEntity<String> testme() {
 * Full documentation here:
 ** link:https://docs.spring.io/spring/docs/5.1.x/spring-framework-reference/web.html#mvc-ann-arguments[https://docs.spring.io/spring/docs/5.1.x/spring-framework-reference/web.html#mvc-ann-arguments, window="_blank"]
 
-=== How can i disable ignored types:
+=== How can I disable ignored types:
 
 If you don't want to ignore the types `Principal`, `Locale`, `HttpServletRequest`, and others,:
 
@@ -367,11 +367,11 @@ SpringDocUtils.getConfig().removeRequestWrapperToIgnore(HttpServletRequest.class
 [source,java]
 ----
 @Bean
- public OpenAPI customOpenAPI() {
-   return new OpenAPI()
-          .components(new Components()
-          .addSecuritySchemes("bearer-key",
-          new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
+public OpenAPI customOpenAPI() {
+    return new OpenAPI()
+        .components(new Components()
+        .addSecuritySchemes("bearer-key",
+        new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")));
 }
 ----
 
@@ -400,7 +400,7 @@ springdoc.swagger-ui.path=/you-path/swagger-ui.html
 
 === How can I set a global header?
 * You may have global parameters with Standard OpenAPI description.
-* If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.
+* If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi, you can use OpenAPI Bean.
 * You can define common parameters under parameters in the global components section and reference them elsewhere via `$ref`. You can also define global header parameters.
 * For this, you can override to OpenAPI Bean, and set the global headers or parameters definition on the components level.
 
@@ -423,29 +423,26 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 === Are Callbacks supported?
 * Yes
 
-=== How can I define SecurityScheme ?
+=== How can I define SecurityScheme?
 * You can use: `@SecurityScheme` annotation.
 * Or you can define it programmatically, by overriding OpenAPI Bean:
 
 [source,java]
 ----
- @Bean
- public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
-  return new OpenAPI()
-   .components(new Components().addSecuritySchemes("basicScheme",
-   new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
-   info(new Info().title("SpringShop API").version(appVersion)
-   .license(new License().name("Apache 2.0").url("http://springdoc.org")));
- }
+@Bean
+public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
+    return new OpenAPI()
+        .components(new Components().addSecuritySchemes("basicScheme",
+            new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
+        .info(new Info().title("SpringShop API").version(appVersion)
+            .license(new License().name("Apache 2.0").url("http://springdoc.org")));
+}
 ----
 
-=== How can I hide an operation or a controller from documentation ?
+=== How can I hide an operation or a controller from documentation?
 * You can use `@io.swagger.v3.oas.annotations.Hidden` annotation at `@RestController`, `@RestControllerAdvice` and method level
 * The `@Hidden` annotation on exception handler methods, is considered when building generic (error) responses from `@ControllerAdvice` exception handlers.
 * Or use: `@Operation(hidden = true)`
-
-
-
 
 === How to configure global security schemes?
 * For global SecurityScheme, you can add it inside your own OpenAPI definition:
@@ -455,9 +452,9 @@ public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
 @Bean
 public OpenAPI customOpenAPI() {
     return new OpenAPI().components(new Components()
-    .addSecuritySchemes("basicScheme", new SecurityScheme()
-    .type(SecurityScheme.Type.HTTP).scheme("basic"))).info(new Info().title("Custom API")
-    .version("100")).addTagsItem(new Tag().name("mytag"));
+        .addSecuritySchemes("basicScheme", new SecurityScheme()
+            .type(SecurityScheme.Type.HTTP).scheme("basic"))).info(new Info().title("Custom API")
+        .version("100")).addTagsItem(new Tag().name("mytag"));
 }
 ----
 
@@ -471,7 +468,7 @@ public OpenAPI customOpenAPI() {
 * Its also possible to declare security URLs for `@OAuthFlow`: `openIdConnectUrl` * `authorizationUrl` * `refreshUrl` * `tokenUrl`
 * The support of spring property resolver for `@Schema`: `name` * `title` * `description` , by setting `springdoc.api-docs.resolve-schema-properties` to `true`
 
-===  How is server URL generated ?
+===  How is server URL generated?
 * Generating automatically server URL may be useful, if the documentation is not present.
 * If the server annotations are present, they will be used instead.
 
@@ -495,13 +492,13 @@ springdoc.cache.disabled= true
   <version>latest.version</version>
 </dependency>
 ----
-=== How can I disable `springdoc-openapi` endpoints ?
+=== How can I disable `springdoc-openapi` endpoints?
 * Use the following property:
 ----
 springdoc.api-docs.enabled=false
 ----
 
-=== How can I hide Schema of the the response ?
+=== How can I hide Schema of the the response?
 
 * To hide the response element, using `@Schema` annotation, as follows, at operation level:
 
@@ -529,16 +526,16 @@ server.servlet.context-path= /foo
 
 === Can I customize OpenAPI object programmatically?
 
-* You can Define your own OpenAPI Bean: If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi , you can use OpenAPI Bean.
+* You can Define your own OpenAPI Bean: If you need the definitions to appear globally (within every group), no matter if the group fulfills the conditions specified on the GroupedOpenApi, you can use OpenAPI Bean.
 
 [source,java]
 ----
 @Bean
 public OpenAPI customOpenAPI(@Value("${springdoc.version}") String appVersion) {
-   return new OpenAPI()
-    .components(new Components().addSecuritySchemes("basicScheme",
+    return new OpenAPI()
+        .components(new Components().addSecuritySchemes("basicScheme",
             new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("basic")))
-    .info(new Info().title("SpringShop API").version(appVersion)
+        .info(new Info().title("SpringShop API").version(appVersion)
             .license(new License().name("Apache 2.0").url("http://springdoc.org")));
 }
 ----
@@ -551,10 +548,10 @@ GroupedOpenApi.builder().group("users").pathsToMatch(paths).packagesToScan(packa
 
 @Bean
 public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
-   return openApi -> openApi.path("/foo",
-   new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
-   .addApiResponse("default",new ApiResponse().description("")
-   .content(new Content().addMediaType("fatz", new MediaType()))))));
+    return openApi -> openApi.path("/foo",
+        new PathItem().get(new Operation().operationId("foo").responses(new ApiResponses()
+            .addApiResponse("default", new ApiResponse().description("")
+                .content(new Content().addMediaType("fatz", new MediaType()))))));
 }
 ----
 
@@ -569,7 +566,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 === What is the list of the excluded parameter types?
 * link:https://docs.spring.io/spring/docs/5.1.x/spring-framework-reference/web.html#mvc-ann-arguments[https://docs.spring.io/spring/docs/5.1.x/spring-framework-reference/web.html#mvc-ann-arguments, window="_blank"].
 
-=== Is file upload supported ?
+=== Is file upload supported?
 * The library supports the main file types: `MultipartFile`,  `@RequestPart`, `FilePart`
 
 === Can I use `@Parameter` inside `@Operation` annotation?
@@ -646,14 +643,14 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
 * The list of properties under this prefix, are available here:
 ** link:index.html#properties[springdoc-openapi-properties]
 
-=== How can I extract fields from parameter object ?
+=== How can I extract fields from parameter object?
 * You can use springdoc annotation @ParameterObject.
 * Request parameter annotated with @ParameterObject will help adding each field of the parameter as a separate request parameter.
 * This is compatible with Spring MVC request parameters mapping to POJO object.
 * This annotation does not support nested parameter objects.
 * POJO object must contain getters for fields with mandatory prefix `get`. Otherwise, the swagger documentation will not show the fields of the annotated entity.
 
-=== How can I use the last `springdoc-openapi` SNAPSHOT ?
+=== How can I use the last `springdoc-openapi` SNAPSHOT?
 * For testing purposes only, you can test temporarily using the last `springdoc-openapi` SNAPSHOT
 * To achieve that, you can on your pom.xml or your settings.xml the following section:
 
@@ -669,7 +666,7 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api
      </repositories>
 ----
 
-=== How can I use enable `springdoc-openapi` MonetaryAmount support ?
+=== How can I use enable `springdoc-openapi` MonetaryAmount support?
 * If an application wants to enable the `springdoc-openapi` support, it declares:
 
 [source,java]
@@ -686,12 +683,12 @@ SpringDocUtils.getConfig().replaceWithSchema(MonetaryAmount.class, new ObjectSch
             .addProperties("currency", new StringSchema().example("USD")));
 ----
 
-=== How can i aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?
+=== How can I aggregate external endpoints (exposing OPENAPI 3 spec) inside one single application?
 The properties `springdoc.swagger-ui.urls.*`, are suitable to configure external (/v3/api-docs url).
-For example if you want to agreagte all the endpoints of other services, inside one single application.
+For example, if you want to aggregate all the endpoints of other services, inside one single application.
 IMPORTANT: Don't forget that CORS needs to be enabled as well.
 
-=== How can use custom json/yml file instead of generated one ?
+=== How can use custom json/yml file instead of generated one?
 If your file open-api.json, contains the OpenAPI documentation in OpenAPI 3 format.
 Then simply declare: The file name can be anything you want, from the moment your declaration is consistent yaml or json OpenAPI Spec.
 [source,properties]
@@ -702,8 +699,8 @@ Then simply declare: The file name can be anything you want, from the moment you
 Then the file open-api.json, should be located in: src/main/resources/static
 No additional configuration is needed.
 
-=== How can i enable CSRF support?
-If you are using standard headers.( For example using spring-security headers)
+=== How can I enable CSRF support?
+If you are using standard headers. (For example, using spring-security headers)
 If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN during each HTTP REQUEST.
 
 If your XSRF-TOKEN isn't standards-based, you can use a requestInterceptor to manually capture and attach the latest xsrf token to requests programmatically via spring resource transformer:
@@ -716,25 +713,25 @@ Starting from release v1.4.4 of springdoc-openapi, a new property is added to en
 springdoc.swagger-ui.csrf.enabled=true
 ----
 
-=== How can i disable the default swagger petstore URL?
+=== How can I disable the default swagger petstore URL?
 You can use the following property:
 [source,properties]
 ----
 springdoc.swagger-ui.disable-swagger-default-url=true
 ----
 
-=== Is @PageableDefault supported, to enhance the OpenAPI 3 docuementation?
+=== Is @PageableDefault supported, to enhance the OpenAPI 3 documentation?
 Yes, you can use it in conjunction with  `@ParameterObject` annotation.
 Also, the spring-boot `spring.data.web.*` and `spring.data.rest.default.*` properties are supported since v1.4.5
 
-=== How can i make spring security login-endpoint visible ?
+=== How can I make spring security login-endpoint visible?
 You can use the following property:
 [source,properties]
 ----
 springdoc.show-login-endpoint=true
 ----
 
-=== How can i show schema definitions even the schema is not referenced?
+=== How can I show schema definitions even if the schema is not referenced?
 You can use the following property:
 [source,properties]
 ----
@@ -751,7 +748,7 @@ You can use the following property that is available since release v1.4.3:
 springdoc.model-converters.deprecating-converter.enabled=false
 ----
 
-=== How can i display a method that returns ModelAndView?
+=== How can I display a method that returns ModelAndView?
 
 You can use the following property:
 [source,properties]
@@ -760,7 +757,7 @@ springdoc.model-and-view-allowed=true
 ----
 
 
-=== How can i have pretty-printed output of the OpenApi specification?
+=== How can I have pretty-printed output of the OpenApi specification?
 
 You can use the following property:
 [source,properties]
@@ -768,9 +765,9 @@ You can use the following property:
 springdoc.writer-with-default-pretty-printer=true
 ----
 
-=== How can i define different schemas for the same class?
+=== How can I define different schemas for the same class?
 Complex objects are always resolved as a reference to a schema defined in components.
-For example let's consider a `Instance` class with an `workAddress` and `homeAddress` attribute of type `Address`:
+For example, let's consider a `Instance` class with an `workAddress` and `homeAddress` attribute of type `Address`:
 
 [source,java]
 ----
@@ -809,21 +806,21 @@ If you want to define two different schemas for this class, you can set up 2 dif
 ----
 @Bean
 public OpenAPI customOpenAPI() {
-return new OpenAPI().components(new Components()
-.addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address" ))
-.addSchemas("HomeAddressSchema", getSchemaWithDifferentDescription(Address.class, "home Address" )));
+    return new OpenAPI().components(new Components()
+        .addSchemas("WorkAddressSchema", getSchemaWithDifferentDescription(Address.class, "work Address"))
+        .addSchemas("HomeAddressSchema", getSchemaWithDifferentDescription(Address.class, "home Address")));
 }
 
-private Schema getSchemaWithDifferentDescription(Class className, String description){
-ResolvedSchema resolvedSchema = ModelConverters.getInstance()
-.resolveAsResolvedSchema(
-new AnnotatedType(className).resolveAsRef(false));
-return resolvedSchema.schema.description(description);
+private Schema getSchemaWithDifferentDescription(Class className, String description) {
+    ResolvedSchema resolvedSchema = ModelConverters.getInstance()
+        .resolveAsResolvedSchema(
+            new AnnotatedType(className).resolveAsRef(false));
+    return resolvedSchema.schema.description(description);
 }
 ----
 
-=== How can i define different description for a class attribute depending on usage?
-For example let's consider a `Instance` class with an `email` attribute:
+=== How can I define different description for a class attribute depending on usage?
+For example, let's consider a `Instance` class with an `email` attribute:
 
 [source,java]
 ----
@@ -848,15 +845,15 @@ If you want to define two different description for the  `email`, you can set up
 ----
 @Bean
 public OpenAPI customOpenAPI() {
-return new OpenAPI().components(new Components()
-.addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email" ))
-.addSchemas("PersonDTO2", getFieldSchemaWithDifferentDescription(PersonDTO.class, "home email" )));
+    return new OpenAPI().components(new Components()
+        .addSchemas("PersonDTO1", getFieldSchemaWithDifferentDescription(PersonDTO.class, "work email"))
+        .addSchemas("PersonDTO2", getFieldSchemaWithDifferentDescription(PersonDTO.class, "home email")));
 }
 
-private Schema getFieldSchemaWithDifferentDescription(Class className, String description){
+private Schema getFieldSchemaWithDifferentDescription(Class className, String description) {
     ResolvedSchema resolvedSchema = ModelConverters.getInstance()
-            .resolveAsResolvedSchema(
-                    new AnnotatedType(className).resolveAsRef(false));
+        .resolveAsResolvedSchema(
+            new AnnotatedType(className).resolveAsRef(false));
     return resolvedSchema.schema.addProperties("email", new StringSchema().description(description));
 }
 ----
@@ -922,18 +919,18 @@ Illustrative example
 
 image::img/static_content_transformation.png[Illustrative example]
 
-=== Is GraalVM supported ?
+=== Is GraalVM supported?
 The native support available added in spring-boot 3.
 If you have some time, do not hesitate to test it before the next release.
 
 For the OpenAPI REST endpoints, you just need to build your application with the spring `native` profile.
 
-=== What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
+=== What is the compatibility matrix of `springdoc-openapi` with `spring-boot`?
 `springdoc-openapi 2.x` is compatible with `spring-boot 3`.
 
 In general, **you should only pick the last stable version as per today {springdoc-version}.**
 
-More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
+More precisely, this is the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
 
 |===
 | spring-boot Versions | Minimum springdoc-openapi Versions
@@ -950,7 +947,7 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 |===
 
 
-=== Why am i getting an error: `Swagger UI unable to render definition`, when overriding the default spring registered `HttpMessageConverter`?
+=== Why am I getting an error: `Swagger UI unable to render definition`, when overriding the default spring registered `HttpMessageConverter`?
 When overriding the default spring-boot registered `HttpMessageConverter`, you should have `ByteArrayHttpMessageConverter` registered as well to have proper `springdoc-openapi` support.
 
 [source,java]
