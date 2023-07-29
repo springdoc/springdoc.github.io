@@ -145,6 +145,7 @@ These can be set by creating a `swaggerUiConfig` bean as follows:
 [source,kotlin]
 ---
 @Bean
+@Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
