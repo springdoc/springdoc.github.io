@@ -40,6 +40,7 @@
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 |springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
 |springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
+|springdoc.pre-loading-locales  | | `List of Strings`.The list of locales to load OpenAPI on application startup.(comma separated) If not specified, it will preload with the default Locale.
 |springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
 |springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
 |springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
