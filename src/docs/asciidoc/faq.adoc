@@ -609,8 +609,8 @@ ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocCon
 }
 
 @Bean
-SpringDocsUIConfiguration springDocsUiConfiguration(Optional<SwaggerUiConfigProperties> optionalSwaggerUiConfigProperties){
-    return new SpringDocsUIConfiguration(optionalSwaggerUiConfigProperties);
+SpringDocUIConfiguration SpringDocUIConfiguration(Optional<SwaggerUiConfigProperties> optionalSwaggerUiConfigProperties){
+    return new SpringDocUIConfiguration(optionalSwaggerUiConfigProperties);
 }
 ----
 
