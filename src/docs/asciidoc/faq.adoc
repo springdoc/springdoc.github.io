@@ -60,7 +60,7 @@ public GroupedOpenApi groupOpenApi() {
 
 For more details about the usage, you can have a look at the following sample Test:
 
-* link:https://github.com/springdoc/springdoc-openapi/tree/2.x/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
 
 === How can I configure Swagger UI?
 * The support of the swagger official properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
@@ -294,12 +294,12 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 
 === How can I test the Swagger UI?
 * You can have a look on this sample test of the UI:
-** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
 
 === How can I customise the OpenAPI object ?
 * You can write your own implementation of `OpenApiCustomizer`.
 * An example is available on:
-** link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java[https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java[https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
 
 [source,java]
 ----
@@ -714,7 +714,7 @@ If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN
 
 If your XSRF-TOKEN isn't standards-based, you can use a requestInterceptor to manually capture and attach the latest xsrf token to requests programmatically via spring resource transformer:
 
-* link:https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#requestinterceptor[https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#requestinterceptor, window="_blank"]
+* link:https://github.com/swagger-api/swagger-ui/blob/main/docs/usage/configuration.md#requestinterceptor[https://github.com/swagger-api/swagger-ui/blob/main/docs/usage/configuration.md#requestinterceptor, window="_blank"]
 
 Starting from release v1.4.4 of springdoc-openapi, a new property is added to enable CSRF support, while using standard header names:
 [source,properties]
