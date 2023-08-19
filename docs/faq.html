@@ -605,6 +605,34 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 </div>
 </div>
+<ul>
+<li><p>If you need to manually adjust the URL displayed in the Swagger UI, implement the <code>ServerBaseUrlCustomizer</code> interface.  This might be necessary to remove the port number for example.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+public class CustomServerBaseUrlCustomizer implements ServerBaseUrlCustomizer {
+    @Override
+    public String customize(String serverBaseUrl) {
+        try {
+            URL url = new URL(serverBaseUrl);
+            if (url.getHost().contains(".com")) {
+                serverBaseUrl = new URL(url.getProtocol(),url.getHost(),url.getFile()).toString();
+            }
+        } catch (MalformedURLException ex) {
+            // nothing we can do
+        }
+
+        return serverBaseUrl;
+    }
+}
+</code></pre>
+</div>
+</div>
+</div>
+
 <div class="sect2">
 <h3 id="_is_jsonview_annotations_in_spring_mvc_apis_supported"><a class="anchor" href="#_is_jsonview_annotations_in_spring_mvc_apis_supported"></a>Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</h3>
 <div class="ulist">
@@ -1633,29 +1661,29 @@ For example let&#8217;s consider a <code>Instance</code> class with an <code>wor
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">public class PersonDTO {
 
-	@JsonProperty
-	private String email;
+    @JsonProperty
+    private String email;
 
-	@JsonProperty
-	private String firstName;
+    @JsonProperty
+    private String firstName;
 
-	@JsonProperty
-	private String lastName;
+    @JsonProperty
+    private String lastName;
 
-	@Schema(ref = "WorkAddressSchema")
-	@JsonProperty
-	private Address workAddress;
+    @Schema(ref = "WorkAddressSchema")
+    @JsonProperty
+    private Address workAddress;
 
-	@Schema(ref = "HomeAddressSchema")
-	@JsonProperty
-	private Address homeAddress;
+    @Schema(ref = "HomeAddressSchema")
+    @JsonProperty
+    private Address homeAddress;
 
 }
 
 public class Address {
 
-	@JsonProperty
-	private String addressName;
+    @JsonProperty
+    private String addressName;
 
 }
 </code></pre>
@@ -1692,14 +1720,14 @@ return resolvedSchema.schema.description(description);
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">public class PersonDTO {
 
-	@JsonProperty
-	private String email;
+    @JsonProperty
+    private String email;
 
-	@JsonProperty
-	private String firstName;
+    @JsonProperty
+    private String firstName;
 
-	@JsonProperty
-	private String lastName;
+    @JsonProperty
+    private String lastName;
 
 
 }
