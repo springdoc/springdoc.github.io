@@ -61,7 +61,7 @@ This plugin allows you to generate an OpenAPI 3 specification for a Spring Boot 
 ----
 plugins {
       id("org.springframework.boot") version "2.7.0"
-      id("org.springdoc.openapi-gradle-plugin") version "1.7.0"
+      id("org.springdoc.openapi-gradle-plugin") version "1.8.0"
 }
 ----
 
