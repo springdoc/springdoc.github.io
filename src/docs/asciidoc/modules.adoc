@@ -42,7 +42,7 @@ springdoc.api-docs.path=/api-docs
 ----
    <dependency>
       <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+      <artifactId>springdoc-openapi-starter-webflux-api</artifactId>
       <version>{springdoc-version}</version>
    </dependency>
 ----
