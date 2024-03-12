@@ -470,6 +470,7 @@ public OpenAPI customOpenAPI() {
 * The support of spring property resolver for `@ApiResponse`: `description`
 * Its also possible to declare security URLs for `@OAuthFlow`: `openIdConnectUrl` * `authorizationUrl` * `refreshUrl` * `tokenUrl`
 * The support of spring property resolver for `@Schema`: `name` * `title` * `description` , by setting `springdoc.api-docs.resolve-schema-properties` to `true`
+* The support of spring property resolver for `@ExtensionProperty` by setting `springdoc.api-docs.resolve-extensions-properties` to `true`
 
 ===  How is server URL generated ?
 * Generating automatically server URL may be useful, if the documentation is not present.
@@ -974,3 +975,20 @@ When overriding the default spring-boot registered `HttpMessageConverter`, you s
     converters.add(new MappingJackson2HttpMessageConverter(jacksonBuilder.build()));
 ----
 NOTE:  Order is very important, when registering `HttpMessageConverters`.
+
+=== Some parameters are not generated in the resulting OpenAPI spec.
+
+The issue is caused by the changes introduced by link:https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes[Spring-Boot 3.2.0, window="_blank"]
+in particular for the **Parameter Name Discovery**.
+This can be fixed by adding the `-parameters` arg to the Maven Compiler Plugin.
+
+[source,xml, subs="attributes+"]
+----
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <configuration>
+        <parameters>true</parameters>
+    </configuration>
+</plugin>
+----

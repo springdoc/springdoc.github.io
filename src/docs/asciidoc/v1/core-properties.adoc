@@ -50,4 +50,6 @@
 |springdoc.default-support-form-data | `false` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
 |springdoc.nullable-request-parameter-enabled | `true` | `Boolean`. To default Enable Support for nullable request parameters in Kotlin.
 |springdoc.show-oauth2-endpoints | `false` | `Boolean`. To make spring security oauth2-endpoint visible.
+|springdoc.api-docs.resolve-extensions-properties | `false` | `Boolean`. To enable  support of spring property resolver for `@ExtensionProperty`.
+|springdoc.enable-default-api-docs | `true` | `Boolean`. To enable default OpenAPI endpoint `/v3/api-docs`.
 |===

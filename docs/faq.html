@@ -1020,6 +1020,9 @@ public OpenAPI customOpenAPI() {
 <li>
 <p>The support of spring property resolver for <code>@Schema</code>: <code>name</code> * <code>title</code> * <code>description</code> , by setting <code>springdoc.api-docs.resolve-schema-properties</code> to <code>true</code></p>
 </li>
+<li>
+<p>The support of spring property resolver for <code>@ExtensionProperty</code> by setting <code>springdoc.api-docs.resolve-extensions-properties</code> to <code>true</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1846,7 +1849,7 @@ public class OpenAPIConfig {
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.3.0.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.4.0.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -1923,12 +1926,31 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_some_parameters_are_not_generated_in_the_resulting_openapi_spec"><a class="anchor" href="#_some_parameters_are_not_generated_in_the_resulting_openapi_spec"></a>Some parameters are not generated in the resulting OpenAPI spec.</h3>
+<div class="paragraph">
+<p>The issue is caused by the changes introduced by <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes" target="_blank" rel="noopener">Spring-Boot 3.2.0</a>
+in particular for the <strong>Parameter Name Discovery</strong>.
+This can be fixed by adding the <code>-parameters</code> arg to the Maven Compiler Plugin.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;parameters&gt;true&lt;/parameters&gt;
+    &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-07-31 10:41:23 +0200
+Last updated 2024-02-28 22:28:18 +0100
 </div>
 </div>
 </div>
