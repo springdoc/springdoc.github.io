@@ -7,7 +7,7 @@
 |springdoc.swagger-ui.enabled | `true` | `Boolean`. To disable the swagger-ui endpoint (/swagger-ui.html by default).
 |springdoc.swagger-ui.configUrl | `/v3/api-docs/swagger-config` |  `String`. URL to fetch external configuration document from.
 |springdoc.swagger-ui.layout | `BaseLayout`  | `String`. The name of a component available via the plugin system to use as the top-level layout for Swagger UI.
-|springdoc.swagger-ui.validatorUrl | `https://validator.swagger.io/validator` | By default, Swagger UI attempts to validate specs against swagger.io's online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators link:https://github.com/swagger-api/validator-badge[Validator Badge, window="_blank"]. Setting it to either `none`, `127.0.0.1` or `localhost` will disable validation.
+|springdoc.swagger-ui.validatorUrl |  | By default, Swagger UI does not validate specs. You can use this parameter to set a validator URL, for example for against swagger.io’s online validator.
 |springdoc.swagger-ui.tryItOutEnabled | `false` |`Boolean`. Controls whether the "Try it out" section should be enabled by default.
 |springdoc.swagger-ui.filter | `false` | `Boolean OR String`. If set, enables filtering. The top bar will show an edit box that you can use to filter the tagged operations that are shown. Can be Boolean to enable or disable, or a string, in which case filtering will be enabled using that string as the filter expression. Filtering is case sensitive matching the filter expression anywhere inside the tag.
 |springdoc.swagger-ui.operationsSorter | | `Function=(a => a)`. Apply a sort to the operation list of each API. It can be 'alpha' (sort by paths alphanumerically), 'method' (sort by HTTP method) or a function (see Array.prototype.sort() to know how sort function works). Default is the order returned by the server unchanged.
@@ -49,6 +49,3 @@
 |springdoc.swagger-ui.use-root-path | `false` | `Boolean`. If set to true, the swagger-ui will be accessible from the application root path directly.
 
 |===
-
-
-
