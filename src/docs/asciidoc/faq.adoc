@@ -264,7 +264,7 @@ RequestHeader set X-Forwarded-Prefix "/custom-path"
 server.use-forward-headers=true
 ----
 * If this is not enough, Spring Framework provides a `ForwardedHeaderFilter`. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.
-* Since Spring Boot 3.2, this is the new property to handle reverse proxy headers:
+* Since Spring Boot 2.2, this is the new property to handle reverse proxy headers:
 
 [source,properties]
 ----
