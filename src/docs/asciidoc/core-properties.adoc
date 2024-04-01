@@ -57,4 +57,5 @@
 |springdoc.show-oauth2-endpoints | `false` | `Boolean`. To make spring security oauth2-endpoint visible.
 |springdoc.api-docs.resolve-extensions-properties | `false` | `Boolean`. To enable  support of spring property resolver for `@ExtensionProperty`.
 |springdoc.enable-default-api-docs | `true` | `Boolean`. To enable default OpenAPI endpoint `/v3/api-docs`.
+|springdoc.trim-kotlin-indent | `false` | `Boolean`. Adjust indentation when parsing the `@Operation` annotation in Kotlin.
 |===
