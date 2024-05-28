@@ -60,7 +60,7 @@ public GroupedOpenApi groupOpenApi() {
 
 For more details about the usage, you can have a look at the following sample Test:
 
-* link:https://github.com/springdoc/springdoc-openapi/tree/2.x/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app68, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
 
 === How can I configure Swagger UI?
 * The support of the swagger official properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
@@ -562,7 +562,7 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 
 === Where can I find the source code of the demo applications?
 * The source code of the application is available at the following GitHub repository:
-** link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x[https://github.com/springdoc/springdoc-openapi-demos/tree/2.x, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi-demos[https://github.com/springdoc/springdoc-openapi-demos, window="_blank"]
 
 === Does this library supports annotations from interfaces?
 * Yes
