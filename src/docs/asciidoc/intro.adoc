@@ -20,8 +20,8 @@ This library supports:
 The following video introduces the Library:
 
 
-[link=https://youtu.be/utRxyPfFlDw,window=_blank]
-image::img/springdoc-openapi-prez.gif[spring.io conference]
+[link=https://youtu.be/ondlnm5ZoFM?t=9,window=_blank]
+image::img/spring-io-24.png[spring.io conference]
 
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
