@@ -16,3 +16,4 @@ include::core-properties.adoc[]
 NOTE: All these properties should be declared with the following prefix: `springdoc.swagger-ui`
 
 include::ui-properties.adoc[]
+

@@ -54,3 +54,18 @@
 |springdoc.enable-default-api-docs | `true` | `Boolean`. To enable default OpenAPI endpoint `/v3/api-docs`.
 |springdoc.trim-kotlin-indent | `false` | `Boolean`. Adjust indentation when parsing the `@Operation` annotation in Kotlin.
 |===
+
+++++
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+             crossorigin="anonymous"></script>
+        <!-- HEADER2 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8127371937306964"
+             data-ad-slot="2654893709"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+++++
