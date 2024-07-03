@@ -1,7 +1,7 @@
 [[properties]]
 == Springdoc-openapi Properties
 
-`springdoc-openapi` relies on standard link:https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config[spring configuration properties, window="_blank"] (yml or properties) using the standard files locations.
+`springdoc-openapi` relies on standard link:https://docs.spring.io/spring-boot/reference/features/external-config.html[spring configuration properties, window="_blank"] (yml or properties) using the standard files locations.
 
 
 === springdoc-openapi core properties
