@@ -143,7 +143,7 @@ springdoc.packagesToScan=package1, package2
 
 These can be set by creating a `swaggerUiConfig` bean as follows:
 [source,kotlin]
----
+----
 @Bean
 @Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
@@ -151,7 +151,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
     config.queryConfigEnabled = true
     return config
 }
----
+----
 
 === How can I ignore some field of model ?
 * You can use the following annotation on the top of the field that you want to hide:
