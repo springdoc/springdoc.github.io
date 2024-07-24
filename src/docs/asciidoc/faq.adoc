@@ -572,6 +572,35 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 
 === Is file upload supported ?
 * The library supports the main file types: `MultipartFile`,  `@RequestPart`, `FilePart`
+* You can upload a file as follows:
+
+[source,java]
+----
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Encoding;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+@PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+public ResponseEntity<?> upload(@Parameter(description = "file") final MultipartFile file) {
+    return null;
+}
+
+@PostMapping(value = "/uploadFileWithQuery", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+public ResponseEntity<?> uploadFileWithQuery(@Parameter(description = "file") @RequestPart("file") final MultipartFile file,
+        @Parameter(description = "An extra query parameter") @RequestParam String name) {
+    return null;
+}
+
+@PostMapping(value = "/uploadFileWithJson", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {
+        MediaType.APPLICATION_JSON_VALUE})
+public ResponseEntity<?> uploadFileWithJson(
+        @RequestBody(content = @Content(encoding = @Encoding(name = "jsonRequest", contentType = MediaType.APPLICATION_JSON_VALUE)))
+        @Parameter(description = "An extra JSON payload sent with file") @RequestPart("jsonRequest") final JsonRequest jsonRequest,
+        @RequestPart("file") final MultipartFile file) {
+    return null;
+}
+----
 
 === Can I use `@Parameter` inside `@Operation` annotation?
 * Yes, it's supported
