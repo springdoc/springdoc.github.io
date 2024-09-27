@@ -298,15 +298,13 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">---
-@Bean
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">@Bean
 @Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
     return config
 }
----
 </code></pre>
 </div>
 </div>
@@ -579,7 +577,7 @@ public String toString() {
 <p>If this is not enough, Spring Framework provides a <code>ForwardedHeaderFilter</code>. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.</p>
 </li>
 <li>
-<p>Since Spring Boot 3.2, this is the new property to handle reverse proxy headers:</p>
+<p>Since Spring Boot 2.2, this is the new property to handle reverse proxy headers:</p>
 </li>
 </ul>
 </div>
@@ -1241,7 +1239,39 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 <li>
 <p>The library supports the main file types: <code>MultipartFile</code>,  <code>@RequestPart</code>, <code>FilePart</code></p>
 </li>
+<li>
+<p>You can upload a file as follows:</p>
+</li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="fold-block hide-when-folded">import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Encoding;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+</span><span class="fold-block">@PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+public ResponseEntity&lt;?&gt; upload(@Parameter(description = "file") final MultipartFile file) {
+    return null;
+}
+
+@PostMapping(value = "/uploadFileWithQuery", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+public ResponseEntity&lt;?&gt; uploadFileWithQuery(@Parameter(description = "file") @RequestPart("file") final MultipartFile file,
+        @Parameter(description = "An extra query parameter") @RequestParam String name) {
+    return null;
+}
+
+@PostMapping(value = "/uploadFileWithJson", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {
+        MediaType.APPLICATION_JSON_VALUE})
+public ResponseEntity&lt;?&gt; uploadFileWithJson(
+        @RequestBody(content = @Content(encoding = @Encoding(name = "jsonRequest", contentType = MediaType.APPLICATION_JSON_VALUE)))
+        @Parameter(description = "An extra JSON payload sent with file") @RequestPart("jsonRequest") final JsonRequest jsonRequest,
+        @RequestPart("file") final MultipartFile file) {
+    return null;
+}
+</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -2066,7 +2096,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-27 22:52:27 +0200
+Last updated 2024-09-27 22:58:30 +0200
 </div>
 </div>
 </div>

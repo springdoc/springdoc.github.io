@@ -1334,7 +1334,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <h2 id="properties"><a class="anchor" href="#properties"></a>5. Springdoc-openapi Properties</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>springdoc-openapi</code> relies on standard <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config" target="_blank" rel="noopener">spring configuration properties</a> (yml or properties) using the standard files locations.</p>
+<p><code>springdoc-openapi</code> relies on standard <a href="https://docs.spring.io/spring-boot/reference/features/external-config.html" target="_blank" rel="noopener">spring configuration properties</a> (yml or properties) using the standard files locations.</p>
 </div>
 <div class="sect2">
 <h3 id="springdoc-openapi-core-properties"><a class="anchor" href="#springdoc-openapi-core-properties"></a>5.1. springdoc-openapi core properties</h3>
@@ -1697,8 +1697,8 @@ All these properties should be declared with the following prefix: <code>springd
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.validatorUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://validator.swagger.io/validator" class="bare">validator.swagger.io/validator</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI attempts to validate specs against swagger.io&#8217;s online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators <a href="https://github.com/swagger-api/validator-badge" target="_blank" rel="noopener">Validator Badge</a>. Setting it to either <code>none</code>, <code>127.0.0.1</code> or <code>localhost</code> will disable validation.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI does not validate specs. You can use this parameter to set a validator URL, for example for against swagger.io’s online validator.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.tryItOutEnabled</p></td>
@@ -2335,7 +2335,7 @@ Package for swagger 3 annotations is <code>io.swagger.v3.oas.annotations</code>.
 <p><code>@ApiModel</code> &#8594; <code>@Schema</code></p>
 </li>
 <li>
-<p><code>@ApiModelProperty(hidden = true)</code> &#8594; <code>@Schema(accessMode = READ_ONLY)</code></p>
+<p><code>@ApiModelProperty(allowEmptyValue = true)</code> &#8594; <code>@Schema(nullable = true)</code></p>
 </li>
 <li>
 <p><code>@ApiModelProperty</code> &#8594; <code>@Schema</code></p>
@@ -2960,15 +2960,13 @@ springdoc.swagger-ui.tagsSorter=alpha</pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">---
-@Bean
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">@Bean
 @Primary
 fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigProperties {
     config.showCommonExtensions = true
     config.queryConfigEnabled = true
     return config
 }
----
 </code></pre>
 </div>
 </div>
@@ -3241,7 +3239,7 @@ public String toString() {
 <p>If this is not enough, Spring Framework provides a <code>ForwardedHeaderFilter</code>. You can register it as a Servlet Filter in your application by setting server.forward-headers-strategy is set to FRAMEWORK.</p>
 </li>
 <li>
-<p>Since Spring Boot 3.2, this is the new property to handle reverse proxy headers:</p>
+<p>Since Spring Boot 2.2, this is the new property to handle reverse proxy headers:</p>
 </li>
 </ul>
 </div>
@@ -3903,7 +3901,39 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 <li>
 <p>The library supports the main file types: <code>MultipartFile</code>,  <code>@RequestPart</code>, <code>FilePart</code></p>
 </li>
+<li>
+<p>You can upload a file as follows:</p>
+</li>
 </ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java"><span class="fold-block hide-when-folded">import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Encoding;
+import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
+</span><span class="fold-block">@PostMapping(value = "/upload", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+public ResponseEntity&lt;?&gt; upload(@Parameter(description = "file") final MultipartFile file) {
+    return null;
+}
+
+@PostMapping(value = "/uploadFileWithQuery", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+public ResponseEntity&lt;?&gt; uploadFileWithQuery(@Parameter(description = "file") @RequestPart("file") final MultipartFile file,
+        @Parameter(description = "An extra query parameter") @RequestParam String name) {
+    return null;
+}
+
+@PostMapping(value = "/uploadFileWithJson", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE}, produces = {
+        MediaType.APPLICATION_JSON_VALUE})
+public ResponseEntity&lt;?&gt; uploadFileWithJson(
+        @RequestBody(content = @Content(encoding = @Encoding(name = "jsonRequest", contentType = MediaType.APPLICATION_JSON_VALUE)))
+        @Parameter(description = "An extra JSON payload sent with file") @RequestPart("jsonRequest") final JsonRequest jsonRequest,
+        @RequestPart("file") final MultipartFile file) {
+    return null;
+}
+</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">

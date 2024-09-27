@@ -33,7 +33,7 @@
 <h2 id="properties"><a class="anchor" href="#properties"></a>Springdoc-openapi Properties</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>springdoc-openapi</code> relies on standard <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config" target="_blank" rel="noopener">spring configuration properties</a> (yml or properties) using the standard files locations.</p>
+<p><code>springdoc-openapi</code> relies on standard <a href="https://docs.spring.io/spring-boot/reference/features/external-config.html" target="_blank" rel="noopener">spring configuration properties</a> (yml or properties) using the standard files locations.</p>
 </div>
 <div class="sect2">
 <h3 id="_springdoc_openapi_core_properties"><a class="anchor" href="#_springdoc_openapi_core_properties"></a>springdoc-openapi core properties</h3>
@@ -396,8 +396,8 @@ All these properties should be declared with the following prefix: <code>springd
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.validatorUrl</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://validator.swagger.io/validator" class="bare">https://validator.swagger.io/validator</a></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI attempts to validate specs against swagger.io&#8217;s online validator. You can use this parameter to set a different validator URL, for example for locally deployed validators <a href="https://github.com/swagger-api/validator-badge" target="_blank" rel="noopener">Validator Badge</a>. Setting it to either <code>none</code>, <code>127.0.0.1</code> or <code>localhost</code> will disable validation.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">By default, Swagger UI does not validate specs. You can use this parameter to set a validator URL, for example for against swagger.io’s online validator.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.tryItOutEnabled</p></td>
@@ -614,7 +614,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-18 01:22:46 +0200
+Last updated 2024-09-27 22:58:30 +0200
 </div>
 </div>
 </div>
