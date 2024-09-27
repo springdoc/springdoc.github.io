@@ -1844,6 +1844,110 @@ public class OpenAPIConfig {
 </div>
 </div>
 <div class="sect2">
+<h3 id="_how_to_integrate_open_api_3_with_spring_project_not_spring_boot"><a class="anchor" href="#_how_to_integrate_open_api_3_with_spring_project_not_spring_boot"></a>How to Integrate Open API 3 with Spring project (not Spring Boot)?</h3>
+<div class="paragraph">
+<p>When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.</p>
+</div>
+<div class="paragraph">
+<p>For example, lets assume you want load the swagger-ui in spring-mvc application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You mainly, need to add the springdoc-openapi module</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;dependency&gt;
+   &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+   &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+   &lt;version&gt;last.version&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you don&#8217;t have the spring-boot and spring-boot-autoconfigure dependencies, you need to add them. And pay attention to the compatibility matrix, between you spring.version and spring-boot.version. For example, in this case (spring.version=5.1.12.RELEASE):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">		&lt;dependency&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-autoconfigure&lt;/artifactId&gt;
+			&lt;version&gt;3.3.3&lt;/version&gt;
+		&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Scan for the <code>springdoc-openapi</code> 'auto-configuration classes that spring-boot automatically loads for you.</p>
+</li>
+<li>
+<p>Depending on your module, you can find them on the file: <code>spring.factories</code> of each <code>springdoc-openapi</code> module.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Configuration
+@EnableWebMvc
+public class WebConfig implements WebApplicationInitializer {
+
+	@Override
+	public void onStartup(ServletContext servletContext)  {
+		WebApplicationContext context = getContext();
+		servletContext.addListener(new ContextLoaderListener(context));
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("RestServlet",
+				new DispatcherServlet(context));
+		dispatcher.setLoadOnStartup(1);
+		dispatcher.addMapping("/*");
+	}
+
+	private AnnotationConfigWebApplicationContext getContext() {
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.register(this.getClass(),
+				SpringDocConfiguration.class,
+				SpringDocConfigProperties.class,
+				SpringDocSpecPropertiesConfiguration.class,
+				SpringDocWebMvcConfiguration.class,
+				MultipleOpenApiSupportConfiguration.class,
+				SwaggerConfig.class,
+				SwaggerUiConfigProperties.class,
+				SwaggerUiOAuthProperties.class,
+				SpringDocUIConfiguration.class
+		);
+		return context;
+	}
+}
+</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Depending on your module, you can find them on the file: <code>org.springframework.boot.autoconfigure.AutoConfiguration.imports</code> of each <code>springdoc-openapi</code> module.</p>
+</li>
+<li>
+<p>For groups usage make sure your  <code>GroupedOpenApi</code> Beans are scanned.</p>
+</li>
+<li>
+<p>If additionally, you are using custom <code>context path</code>: <code>/my-servlet-path</code>. Make sure you declare the following property:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>spring.mvc.servlet.path=/my-servlet-path</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_what_is_the_compatibility_matrix_of_springdoc_openapi_with_spring_boot"><a class="anchor" href="#_what_is_the_compatibility_matrix_of_springdoc_openapi_with_spring_boot"></a>What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
@@ -1962,7 +2066,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-06-18 01:20:05 +0200
+Last updated 2024-09-27 22:52:27 +0200
 </div>
 </div>
 </div>

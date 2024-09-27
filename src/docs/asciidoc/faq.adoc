@@ -944,6 +944,78 @@ public class OpenAPIConfig {
 }
 ----
 
+=== How to Integrate Open API 3 with Spring project (not Spring Boot)?
+When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.
+
+For example, lets assume you want load the swagger-ui in spring-mvc application:
+
+* You mainly, need to add the springdoc-openapi module
+
+[source,xml]
+----
+<dependency>
+   <groupId>org.springdoc</groupId>
+   <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+   <version>last.version</version>
+</dependency>
+----
+
+* If you don't have the spring-boot and spring-boot-autoconfigure dependencies, you need to add them. And pay attention to the compatibility matrix, between you spring.version and spring-boot.version. For example, in this case (spring.version=5.1.12.RELEASE):
+
+[source,xml]
+----
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-autoconfigure</artifactId>
+			<version>3.3.3</version>
+		</dependency>
+----
+
+* Scan for the `springdoc-openapi` 'auto-configuration classes that spring-boot automatically loads for you.
+* Depending on your module, you can find them on the file: `spring.factories` of each `springdoc-openapi` module.
+
+[source,java]
+----
+@Configuration
+@EnableWebMvc
+public class WebConfig implements WebApplicationInitializer {
+
+	@Override
+	public void onStartup(ServletContext servletContext)  {
+		WebApplicationContext context = getContext();
+		servletContext.addListener(new ContextLoaderListener(context));
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("RestServlet",
+				new DispatcherServlet(context));
+		dispatcher.setLoadOnStartup(1);
+		dispatcher.addMapping("/*");
+	}
+
+	private AnnotationConfigWebApplicationContext getContext() {
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.register(this.getClass(),
+				SpringDocConfiguration.class,
+				SpringDocConfigProperties.class,
+				SpringDocSpecPropertiesConfiguration.class,
+				SpringDocWebMvcConfiguration.class, 
+				MultipleOpenApiSupportConfiguration.class,
+				SwaggerConfig.class,
+				SwaggerUiConfigProperties.class,
+				SwaggerUiOAuthProperties.class,
+				SpringDocUIConfiguration.class
+		);
+		return context;
+	}
+}
+----
+
+* Depending on your module, you can find them on the file: `org.springframework.boot.autoconfigure.AutoConfiguration.imports` of each `springdoc-openapi` module.
+* For groups usage make sure your  `GroupedOpenApi` Beans are scanned.
+* If additionally, you are using custom `context path`: `/my-servlet-path`. Make sure you declare the following property:
+[source,properties]
+----
+spring.mvc.servlet.path=/my-servlet-path
+----
+
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
 `springdoc-openapi 2.x` is compatible with `spring-boot 3`.
 
