@@ -602,6 +602,34 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </code></pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you need to manually adjust the URL displayed in the Swagger UI, implement the <code>ServerBaseUrlCustomizer</code> interface. This might be necessary to remove the port number, for example.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+public class CustomServerBaseUrlCustomizer implements ServerBaseUrlCustomizer {
+    @Override
+    public String customize(String serverBaseUrl) {
+        try {
+            URL url = new URL(serverBaseUrl);
+            if (url.getHost().contains(".com")) {
+                serverBaseUrl = new URL(url.getProtocol(),url.getHost(),url.getFile()).toString();
+            }
+        } catch (MalformedURLException ex) {
+            // nothing we can do
+        }
+
+        return serverBaseUrl;
+    }
+}
+</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_is_jsonview_annotations_in_spring_mvc_apis_supported"><a class="anchor" href="#_is_jsonview_annotations_in_spring_mvc_apis_supported"></a>Is <code>@JsonView</code> annotations in Spring MVC APIs supported?</h3>
@@ -2096,7 +2124,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-27 22:58:30 +0200
+Last updated 2024-09-27 23:06:26 +0200
 </div>
 </div>
 </div>

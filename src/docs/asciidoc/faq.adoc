@@ -281,6 +281,28 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 }
 ----
 
+* If you need to manually adjust the URL displayed in the Swagger UI, implement the `ServerBaseUrlCustomizer` interface. This might be necessary to remove the port number, for example.
+
+[source,java]
+----
+@Bean
+public class CustomServerBaseUrlCustomizer implements ServerBaseUrlCustomizer {
+    @Override
+    public String customize(String serverBaseUrl) {
+        try {
+            URL url = new URL(serverBaseUrl);
+            if (url.getHost().contains(".com")) {
+                serverBaseUrl = new URL(url.getProtocol(),url.getHost(),url.getFile()).toString();
+            }
+        } catch (MalformedURLException ex) {
+            // nothing we can do
+        }
+
+        return serverBaseUrl;
+    }
+}
+----
+
 ===  Is `@JsonView` annotations in Spring MVC APIs supported?
 * Yes
 
