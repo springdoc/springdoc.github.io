@@ -1116,5 +1116,3 @@ This can be fixed by adding the `-parameters` arg to the Maven Compiler Plugin.
 </plugin>
 ----
 
-++++
-++++

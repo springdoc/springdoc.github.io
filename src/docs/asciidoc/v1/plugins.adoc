@@ -79,5 +79,3 @@ For more custom configuration of `springdoc-openapi-gradle-plugin` ,you can cons
 
 * link:https://github.com/springdoc/springdoc-openapi-gradle-plugin[https://github.com/springdoc/springdoc-openapi-gradle-plugin, window="_blank"]
 
-++++
-++++

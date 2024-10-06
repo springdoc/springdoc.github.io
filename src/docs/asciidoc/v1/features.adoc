@@ -179,5 +179,3 @@ And some project tests: (from app69 to app75)
    </dependency>
 ----
 
-++++
-++++

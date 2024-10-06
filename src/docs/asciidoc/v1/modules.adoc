@@ -294,5 +294,3 @@ NOTE: Make sure, you enable the annotation processor of `therapi-runtime-javadoc
 
 TIP: If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.
 
-++++
-++++

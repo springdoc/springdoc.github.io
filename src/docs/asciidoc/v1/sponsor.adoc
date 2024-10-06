@@ -44,5 +44,3 @@ Gold sponsors donate $500 per month to the project, and get the following benefi
 - Company logos on all https://springdoc.org page footers
 - If issues are not created by the end of the month, the remaining ones are lost.
 
-++++
-++++

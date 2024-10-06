@@ -31,5 +31,3 @@ TIP: For custom path of the swagger documentation in HTML format, add a custom s
 springdoc.swagger-ui.path=/swagger-ui.html
 ----
 
-++++
-++++

@@ -24,5 +24,3 @@ image::img/springdoc-openapi-prez.gif[spring.io conference]
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
 
-++++
-++++

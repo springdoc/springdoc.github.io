@@ -58,5 +58,3 @@
 |springdoc.trim-kotlin-indent | `false` | `Boolean`. Adjust indentation when parsing the `@Operation` annotation in Kotlin.
 |===
 
-++++
-++++

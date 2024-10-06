@@ -288,5 +288,3 @@ Ensure that you add it as well as its annotation processor to your project's dep
 
 TIP: If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.
 
-++++
-++++

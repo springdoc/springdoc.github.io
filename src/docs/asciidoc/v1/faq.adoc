@@ -1032,5 +1032,3 @@ When overriding the default spring-boot registered `HttpMessageConverter`, you s
 ----
 NOTE:  Order is very important, when registering `HttpMessageConverters`.
 
-++++
-++++

@@ -24,5 +24,4 @@ Snapshots:
 
 * link:https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/[https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/, window="_blank", window="_blank"]
 
-++++
-++++
+

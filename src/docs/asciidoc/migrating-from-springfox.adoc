@@ -110,5 +110,4 @@ springdoc.pathsToMatch=/v1, /api/balance/**
    ** link:index.html#how-can-i-hide-an-operation-or-a-controller-from-documentation[how-can-i-hide-an-operation-or-a-controller-from-documentation]
 
 
-++++
-++++
+
