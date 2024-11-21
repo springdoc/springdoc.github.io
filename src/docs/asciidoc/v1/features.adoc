@@ -81,7 +81,7 @@ Here is the link for some sample codes:
 
 And the Demo code, using the functional endpoints DSL:
 
-- link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional[Sample webflux application using functional DSL]
+- link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional[Sample webflux application using functional DSL]
 
 Since version `v1.3.8`, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: `@RouterOperations` and `@RouterOperation`.
@@ -160,7 +160,7 @@ For that, `@RouterOperation` fields must help identify uniquely the concerned ro
 
 Some code samples are available on GITHUB of demos:
 
-* link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional[Sample application with Functional Endpoints documentation, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional[Sample application with Functional Endpoints documentation, window="_blank"]
 
 And some project tests: (from app69 to app75)
 
