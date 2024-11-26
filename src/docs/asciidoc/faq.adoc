@@ -1075,9 +1075,12 @@ In general, **you should only pick the last stable version as per today {springd
 More precisely, this the exhaustive list of spring-boot versions against which `springdoc-openapi` has been built:
 
 |===
-| spring-boot Versions | Minimum springdoc-openapi Versions
-|`3.4.x` | `2.7.x`+
-|`3.0.x` | `2.0.x`+
+| Spring Boot Versions | Springdoc OpenAPI Versions
+|`3.4.x` | `2.7.x`
+|`3.3.x` | `2.6.x`
+|`3.2.x` | `2.3.x` - `2.5.x`
+|`3.1.x` | `2.2.x`
+|`3.0.x` | `2.0.x` - `2.1.x`
 |`2.7.x`, `1.5.x` | `1.6.0`+
 |`2.6.x`, `1.5.x` | `1.6.0`+
 |`2.5.x`, `1.5.x` | `1.5.9`+
