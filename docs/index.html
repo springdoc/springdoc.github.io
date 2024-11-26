@@ -791,7 +791,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-cloud-function" target="_blank" rel="noopener">Sample applications with Spring Cloud Function Web</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-cloud-function" target="_blank" rel="noopener">Sample applications with Spring Cloud Function Web</a></p>
 </li>
 </ul>
 </div>
@@ -1071,19 +1071,19 @@ RouterFunction&lt;?&gt; routes() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/HelloRouter.java">HelloRouter</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/HelloRouter.java">HelloRouter</a></p>
 </li>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java">QuotesRouter</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java">QuotesRouter</a></p>
 </li>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java">BookRouter</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java">BookRouter</a></p>
 </li>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java">EmployeeRouter</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java">EmployeeRouter</a></p>
 </li>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java">PositionRouter</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java">PositionRouter</a></p>
 </li>
 </ul>
 </div>
@@ -1230,7 +1230,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/springdoc-openapi-spring-boot-2-webflux-functional" target="_blank" rel="noopener">Sample application with Functional Endpoints documentation</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional" target="_blank" rel="noopener">Sample application with Functional Endpoints documentation</a></p>
 </li>
 </ul>
 </div>
@@ -1240,7 +1240,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api" target="_blank" rel="noopener">Sample code with Functional Endpoints documentation</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api" target="_blank" rel="noopener">Sample code with Functional Endpoints documentation</a></p>
 </li>
 </ul>
 </div>
@@ -4113,7 +4113,7 @@ If the CSRF Token is required, swagger-ui automatically sends the new XSRF-TOKEN
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/swagger-api/swagger-ui/blob/main/docs/usage/configuration.md#requestinterceptor" target="_blank" rel="noopener">https://github.com/swagger-api/swagger-ui/blob/main/docs/usage/configuration.md#requestinterceptor</a></p>
+<p><a href="https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#requestinterceptor" target="_blank" rel="noopener">https://github.com/swagger-api/swagger-ui/blob/main/docs/usage/configuration.md#requestinterceptor</a></p>
 </li>
 </ul>
 </div>
@@ -4541,16 +4541,28 @@ public class WebConfig implements WebApplicationInitializer {
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">spring-boot Versions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Minimum springdoc-openapi Versions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spring Boot Versions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Springdoc OpenAPI Versions</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.4.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.7.x</code>+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.7.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.3.x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.6.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.2.x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.3.x</code> - <code>2.5.x</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.1.x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.x</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code>+</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code> - <code>2.1.x</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.7.x</code>, <code>1.5.x</code></p></td>
