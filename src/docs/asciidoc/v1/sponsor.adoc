@@ -20,7 +20,7 @@ Thank you to our bronze sponsors!
 		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
 		  </a>
          <a href="https://www.lvm.de/" target="_blank">
-		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="10%" />
+		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="25%" />
 		  </a>
         </p>
 ++++
