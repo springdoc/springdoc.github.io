@@ -48,7 +48,7 @@
 |springdoc.enable-kotlin | `true` |  `Boolean`. To enable Kotlin support.
 |springdoc.enable-hateoas | `true` |  `Boolean`. To enable spring-hateoas support.
 |springdoc.enable-data-rest | `true` |  `Boolean`. To enable spring-data-rest support.
-|springdoc.api-docs.version | `openapi_3_0` | `String`. To choose `OpenAPI 3.0` or `OpenAPI 3.1` (using the value `OPENAPI_3_1`).
+|springdoc.api-docs.version | `openapi_3_1` | `String`. To choose `OpenAPI 3.0` or `OpenAPI 3.1` (using the value `OPENAPI_3_1`).
 |springdoc.default-flat-param-object | `false` | `Boolean`. To default flatten parameter.
 |springdoc.default-support-form-data | `false` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
 |springdoc.nullable-request-parameter-enabled | `true` | `Boolean`. To default Enable Support for nullable request parameters in Kotlin.
