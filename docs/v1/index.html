@@ -3517,11 +3517,6 @@ SpringDocConfigProperties springDocConfigProperties() {
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
 }
-
-@Bean
-SpringDocUIConfiguration SpringDocUIConfiguration(Optional&lt;SwaggerUiConfigProperties&gt; optionalSwaggerUiConfigProperties){
-    return new SpringDocUIConfiguration(optionalSwaggerUiConfigProperties);
-}
 </code></pre>
 </div>
 </div>

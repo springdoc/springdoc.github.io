@@ -659,11 +659,6 @@ SpringDocConfigProperties springDocConfigProperties() {
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
 }
-
-@Bean
-SpringDocUIConfiguration SpringDocUIConfiguration(Optional<SwaggerUiConfigProperties> optionalSwaggerUiConfigProperties){
-    return new SpringDocUIConfiguration(optionalSwaggerUiConfigProperties);
-}
 ----
 
 * Then configure, the path of your custom UI yaml file.
@@ -1052,7 +1047,6 @@ public class WebConfig implements WebApplicationInitializer {
 				SwaggerConfig.class,
 				SwaggerUiConfigProperties.class,
 				SwaggerUiOAuthProperties.class,
-				SpringDocUIConfiguration.class
 		);
 		return context;
 	}

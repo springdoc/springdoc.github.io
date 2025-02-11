@@ -1375,11 +1375,6 @@ SpringDocConfigProperties springDocConfigProperties() {
 ObjectMapperProvider objectMapperProvider(SpringDocConfigProperties springDocConfigProperties){
     return new ObjectMapperProvider(springDocConfigProperties);
 }
-
-@Bean
-SpringDocUIConfiguration SpringDocUIConfiguration(Optional&lt;SwaggerUiConfigProperties&gt; optionalSwaggerUiConfigProperties){
-    return new SpringDocUIConfiguration(optionalSwaggerUiConfigProperties);
-}
 </code></pre>
 </div>
 </div>
@@ -1978,7 +1973,6 @@ public class WebConfig implements WebApplicationInitializer {
 				SwaggerConfig.class,
 				SwaggerUiConfigProperties.class,
 				SwaggerUiOAuthProperties.class,
-				SpringDocUIConfiguration.class
 		);
 		return context;
 	}
@@ -2126,7 +2120,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-01-03 22:34:49 +0100
+Last updated 2025-02-11 21:37:22 +0100
 </div>
 </div>
 </div>
