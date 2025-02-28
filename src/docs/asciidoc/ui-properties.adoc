@@ -24,7 +24,7 @@
 |springdoc.swagger-ui.showExtensions | `false` | `Boolean`. Controls the display of vendor extension (`x-`) fields and values for Operations, Parameters, and Schema.
 |springdoc.swagger-ui.url |  | `String`.To configure, the path of a custom OpenAPI file . Will be ignored if `urls` is used.
 |springdoc.swagger-ui.showCommonExtensions | `false` | `Boolean`. Controls the display of extensions (`pattern`, `maxLength`, `minLength`, `maximum`, `minimum`) fields and values for Parameters.
-|springdoc.swagger-ui.supportedSubmitMethods |  | `Array=["get", "put", "post", "delete", "options", "head", "patch", "trace"]`. List of HTTP methods that have the "Try it out" feature enabled. An empty array disables "Try it out" for all operations. This does not filter the operations from the display.
+|springdoc.swagger-ui.supportedSubmitMethods |  | `Array=[get, put, post, delete, options, head, patch, trace]`. List of HTTP methods that have the "Try it out" feature enabled. An empty array disables "Try it out" for all operations. This does not filter the operations from the display.
 |springdoc.swagger-ui.queryConfigEnabled | `false` | `Boolean`. Disabled since `v1.6.0`. This parameter enables (legacy) overriding configuration parameters via URL search params. link:https://github.com/swagger-api/swagger-ui/security/advisories/GHSA-qrmm-w75w-3wpx[See security advisory , window="_blank"] before enabling this feature.
 |springdoc.swagger-ui.oauth. additionalQueryStringParams |  | `String`. Additional query parameters added to authorizationUrl and tokenUrl.
 |springdoc.swagger-ui.disable-swagger-default-url | `false` | `Boolean`. To disable the swagger-ui default petstore url. (Available since v1.4.1).

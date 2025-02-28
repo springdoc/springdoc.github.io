@@ -110,7 +110,7 @@ springdoc.swagger-ui.tagsSorter=alpha
 * You have to set the following property:
 [source,properties]
 ----
-springdoc.swagger-ui.supportedSubmitMethods="get", "put", "post", "delete", "options", "head", "patch", "trace"
+springdoc.swagger-ui.supportedSubmitMethods=get, put, post, delete, options, head, patch, trace
 ----
 
 === How can I add  Reusable Enums?
