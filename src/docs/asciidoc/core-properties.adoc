@@ -57,5 +57,6 @@
 |springdoc.enable-default-api-docs | `true` | `Boolean`. To enable default OpenAPI endpoint `/v3/api-docs`.
 |springdoc.trim-kotlin-indent | `false` | `Boolean`. Adjust indentation when parsing the `@Operation` annotation in Kotlin.
 |springdoc.allowed-locales | | `List of Strings`. The list of allowed locales for OpenAPI (comma separated, for example `US,fr-CA`).
+|springdoc.enable-extra-schemas | `true` | `Boolean`. To enable default support for extra Schemas, from `java.time` package like `LocalTime`, `Duration`, but also other Java classes like `java.util.Locale` or `java.nio.charset.Charset`
 |===
 
