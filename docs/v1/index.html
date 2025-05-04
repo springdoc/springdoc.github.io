@@ -2865,7 +2865,7 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webmvc-core/src/test/java/test/org/springdoc/api/app39/SpringDocApp39Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/v31/app39/SpringDocTestApp.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-api/src/test/java/test/org/springdoc/api/v31/app39/SpringDocTestApp.java</a></p>
 </li>
 </ul>
 </div>
@@ -2875,9 +2875,9 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-java" data-lang="java">@Bean
-public OpenApiCustomiser consumerTypeHeaderOpenAPICustomiser() {
-return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt; pathItem.readOperations().stream())
-    .forEach(operation -&gt; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myConsumerTypeHeader")));
+public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
+    return openApi -&gt; openApi.getPaths().values().stream().flatMap(pathItem -&gt; pathItem.readOperations().stream())
+            .forEach(operation -&gt; operation.addParametersItem(new HeaderParameter().$ref("#/components/parameters/myGlobalHeader")));
 }
 </code></pre>
 </div>
