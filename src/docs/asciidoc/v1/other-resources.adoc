@@ -18,10 +18,10 @@ The artifacts can be viewed accessed at the following locations:
 
 Releases:
 
-* link:https://s01.oss.sonatype.org/content/groups/public/org/springdoc/[https://s01.oss.sonatype.org/content/groups/public/org/springdoc/, window="_blank"]
+* link:https://central.sonatype.com/search?q=g:org.springdoc[https://central.sonatype.com/search?q=g:org.springdoc, window="_blank"]
 
 Snapshots:
 
-* link:https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/[https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/, window="_blank", window="_blank"]
+* link:https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/org/springdoc/[https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/org/springdoc/, window="_blank", window="_blank"]
 
 

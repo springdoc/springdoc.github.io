@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="OpenAPI 3 Library for spring-boot" />
 <meta property="og:image" content="https://springdoc.org/img/banner-logo.svg" />
 <meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
-<title>springdoc-openapi v2.8.6</title>
+<title>springdoc-openapi v2.8.7</title>
 <link rel="stylesheet" href="css/site.css">
 <style>
     #header #revnumber {
@@ -55,7 +55,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v2.8.6</h1>
+<h1>springdoc-openapi v2.8.7</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -74,6 +74,7 @@
 <li><a href="#kotlin-support">3.9. Kotlin support</a></li>
 <li><a href="#groovy-support">3.10. Groovy support</a></li>
 <li><a href="#javadoc-support">3.11. Javadoc support</a></li>
+<li><a href="#springdoc-openapi-bom">3.12. Springdoc-openapi BOM</a></li>
 </ul>
 </li>
 <li><a href="#features">4. Springdoc-openapi Features</a>
@@ -312,7 +313,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.8.6&lt;/version&gt;
+      &lt;version&gt;2.8.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -420,7 +421,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.8.6&lt;/version&gt;
+      &lt;version&gt;2.8.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -472,7 +473,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;2.8.6&lt;/version&gt;
+      &lt;version&gt;2.8.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -959,6 +960,28 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="springdoc-openapi-bom"><a class="anchor" href="#springdoc-openapi-bom"></a>3.12. Springdoc-openapi BOM</h3>
+<div class="paragraph">
+<p>Starting from version <code>v2.8.7</code>, <code>springdoc-openapi</code> provides a BOM (Bill of Materials) to manage the dependencies of the project.
+You can declare it in your project as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;dependencyManagement&gt;
+        &lt;dependencies&gt;
+            &lt;dependency&gt;
+                &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+                &lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
+                &lt;version&gt;2.8.7&lt;/version&gt;
+                &lt;type&gt;pom&lt;/type&gt;
+                &lt;scope&gt;import&lt;/scope&gt;
+            &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+    &lt;/dependencyManagement&gt;</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -1580,6 +1603,16 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To enable default support for extra Schemas, from <code>java.time</code> package like <code>LocalTime</code>, <code>Duration</code>, but also other Java classes like <code>java.util.Locale</code> or <code>java.nio.charset.Charset</code></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.explicit-object-schema</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Set explicit-object-schema to <code>true</code> to always include <code>type: object</code> in the schema, or to <code>false</code> to omit <code>type: object</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.use-arbitrary-schemas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. When set to <code>true</code>, schemas without a defined type will be deserialized as an <code>ArbitrarySchema</code> (with no type), instead of an <code>ObjectSchema</code> with <code>type: object</code>.</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1899,7 +1932,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 &lt;plugin&gt;
     &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
     &lt;artifactId&gt;springdoc-openapi-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;1.4&lt;/version&gt;
+    &lt;version&gt;1.5&lt;/version&gt;
     &lt;executions&gt;
         &lt;execution&gt;
             &lt;id&gt;integration-test&lt;/id&gt;
@@ -2228,7 +2261,7 @@ Migration tips
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.8.6&lt;/version&gt;
+      &lt;version&gt;2.8.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -2441,7 +2474,7 @@ The artifacts can be viewed accessed at the following locations:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://s01.oss.sonatype.org/content/groups/public/org/springdoc/" target="_blank" rel="noopener">https://s01.oss.sonatype.org/content/groups/public/org/springdoc/</a></p>
+<p><a href="https://central.sonatype.com/search?q=g:org.springdoc" target="_blank" rel="noopener">https://central.sonatype.com/search?q=g:org.springdoc</a></p>
 </li>
 </ul>
 </div>
@@ -2451,7 +2484,7 @@ The artifacts can be viewed accessed at the following locations:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/" target="_blank" rel="noopener">https://s01.oss.sonatype.org/content/repositories/snapshots/org/springdoc/</a></p>
+<p><a href="https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/org/springdoc/" target="_blank" rel="noopener">https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/org/springdoc/</a></p>
 </li>
 </ul>
 </div>
@@ -4046,20 +4079,25 @@ springdoc.group-configs[0].packages-to-scan=test.org.springdoc.api</pre>
 <p>For testing purposes only, you can test temporarily using the last <code>springdoc-openapi</code> SNAPSHOT</p>
 </li>
 <li>
-<p>To achieve that, you can on your pom.xml or your settings.xml the following section:</p>
+<p>To achieve that, configure your pom.xml file with the following <code>&lt;repositories&gt;</code> section:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">     &lt;repositories&gt;
-       &lt;repository&gt;
-         &lt;id&gt;snapshots-repo&lt;/id&gt;
-         &lt;url&gt;https://s01.oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
-         &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;
-         &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
-       &lt;/repository&gt;
-     &lt;/repositories&gt;</code></pre>
+<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;repositories&gt;
+      &lt;repository&gt;
+        &lt;name&gt;Central Portal Snapshots&lt;/name&gt;
+        &lt;id&gt;central-portal-snapshots&lt;/id&gt;
+        &lt;url&gt;https://central.sonatype.com/repository/maven-snapshots/&lt;/url&gt;
+        &lt;releases&gt;
+          &lt;enabled&gt;false&lt;/enabled&gt;
+        &lt;/releases&gt;
+        &lt;snapshots&gt;
+          &lt;enabled&gt;true&lt;/enabled&gt;
+        &lt;/snapshots&gt;
+      &lt;/repository&gt;
+    &lt;/repositories&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -4545,7 +4583,7 @@ public class WebConfig implements WebApplicationInitializer {
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.8.6.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.8.7.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>

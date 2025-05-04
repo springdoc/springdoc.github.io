@@ -288,3 +288,21 @@ Ensure that you add it as well as its annotation processor to your project's dep
 
 TIP: If both a swagger-annotation description and a javadoc comment are present. The value of the swagger-annotation description will be used.
 
+=== Springdoc-openapi BOM
+Starting from version `v2.8.7`, `springdoc-openapi` provides a BOM (Bill of Materials) to manage the dependencies of the project.
+You can declare it in your project as follows:
+
+[source,xml, subs="attributes+"]
+----
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-bom</artifactId>
+                <version>{springdoc-version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+----

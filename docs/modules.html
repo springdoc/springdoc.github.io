@@ -73,7 +73,7 @@
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.8.6&lt;/version&gt;
+      &lt;version&gt;2.8.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -125,7 +125,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;2.8.6&lt;/version&gt;
+      &lt;version&gt;2.8.7&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -614,12 +614,34 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_springdoc_openapi_bom"><a class="anchor" href="#_springdoc_openapi_bom"></a>Springdoc-openapi BOM</h3>
+<div class="paragraph">
+<p>Starting from version <code>v2.8.7</code>, <code>springdoc-openapi</code> provides a BOM (Bill of Materials) to manage the dependencies of the project.
+You can declare it in your project as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">	&lt;dependencyManagement&gt;
+		&lt;dependencies&gt;
+			&lt;dependency&gt;
+				&lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+				&lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
+                &lt;version&gt;2.8.7&lt;/version&gt;
+				&lt;type&gt;pom&lt;/type&gt;
+				&lt;scope&gt;import&lt;/scope&gt;
+			&lt;/dependency&gt;
+		&lt;/dependencies&gt;
+	&lt;/dependencyManagement&gt;</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-11-26 16:21:53 +0100
+Last updated 2025-05-04 16:11:48 +0200
 </div>
 </div>
 </div>

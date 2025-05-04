@@ -37,7 +37,7 @@ In order to use this functionality, you need to add the plugin declaration on th
 <plugin>
     <groupId>org.springdoc</groupId>
     <artifactId>springdoc-openapi-maven-plugin</artifactId>
-    <version>1.4</version>
+    <version>1.5</version>
     <executions>
         <execution>
             <id>integration-test</id>

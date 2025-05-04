@@ -1541,20 +1541,25 @@ public class AppInitializer implements WebApplicationInitializer {
 <p>For testing purposes only, you can test temporarily using the last <code>springdoc-openapi</code> SNAPSHOT</p>
 </li>
 <li>
-<p>To achieve that, you can on your pom.xml or your settings.xml the following section:</p>
+<p>To achieve that, configure your pom.xml file with the following <code>&lt;repositories&gt;</code> section:</p>
 </li>
 </ul>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-xml" data-lang="xml">     &lt;repositories&gt;
-       &lt;repository&gt;
-         &lt;id&gt;snapshots-repo&lt;/id&gt;
-         &lt;url&gt;https://s01.oss.sonatype.org/content/repositories/snapshots&lt;/url&gt;
-         &lt;releases&gt;&lt;enabled&gt;false&lt;/enabled&gt;&lt;/releases&gt;
-         &lt;snapshots&gt;&lt;enabled&gt;true&lt;/enabled&gt;&lt;/snapshots&gt;
-       &lt;/repository&gt;
-     &lt;/repositories&gt;</code></pre>
+<pre class="highlight"><code class="language-xml" data-lang="xml">    &lt;repositories&gt;
+      &lt;repository&gt;
+        &lt;name&gt;Central Portal Snapshots&lt;/name&gt;
+        &lt;id&gt;central-portal-snapshots&lt;/id&gt;
+        &lt;url&gt;https://central.sonatype.com/repository/maven-snapshots/&lt;/url&gt;
+        &lt;releases&gt;
+          &lt;enabled&gt;false&lt;/enabled&gt;
+        &lt;/releases&gt;
+        &lt;snapshots&gt;
+          &lt;enabled&gt;true&lt;/enabled&gt;
+        &lt;/snapshots&gt;
+      &lt;/repository&gt;
+    &lt;/repositories&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -1997,7 +2002,7 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-28 20:11:22 +0100
+Last updated 2025-05-04 16:36:35 +0200
 </div>
 </div>
 </div>

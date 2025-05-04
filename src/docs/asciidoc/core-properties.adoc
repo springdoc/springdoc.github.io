@@ -58,5 +58,7 @@
 |springdoc.trim-kotlin-indent | `false` | `Boolean`. Adjust indentation when parsing the `@Operation` annotation in Kotlin.
 |springdoc.allowed-locales | | `List of Strings`. The list of allowed locales for OpenAPI (comma separated, for example `US,fr-CA`).
 |springdoc.enable-extra-schemas | `true` | `Boolean`. To enable default support for extra Schemas, from `java.time` package like `LocalTime`, `Duration`, but also other Java classes like `java.util.Locale` or `java.nio.charset.Charset`
+|springdoc.explicit-object-schema | `false` | `Boolean`. Set explicit-object-schema to `true` to always include `type: object` in the schema, or to `false` to omit `type: object`.
+|springdoc.use-arbitrary-schemas | `false` | `Boolean`. When set to `true`, schemas without a defined type will be deserialized as an `ArbitrarySchema` (with no type), instead of an `ObjectSchema` with `type: object`.
 |===
 
