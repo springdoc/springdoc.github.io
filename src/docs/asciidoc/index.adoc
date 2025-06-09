@@ -28,6 +28,8 @@ This project is sponsored by
         </p>
 ++++
 
+link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:img/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
+
 include::intro.adoc[]
 
 include::getting-started.adoc[]
