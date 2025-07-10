@@ -5,5 +5,5 @@
 
 * Thanks a lot link:https://www.jetbrains.com/?from=springdoc-openapi[JetBrains, window="_blank"] for supporting springdoc-openapi project.
 
-image::img/jetbrains.svg[JetBrains]
+image::https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg[JetBrains logo]
 
