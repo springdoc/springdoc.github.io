@@ -1075,6 +1075,7 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 
 |===
 | Spring Boot Versions | Springdoc OpenAPI Versions
+|`3.5.x` | `2.8.x` 
 |`3.4.x` | `2.7.x` - `2.8.x`
 |`3.3.x` | `2.6.x`
 |`3.2.x` | `2.3.x` - `2.5.x`
