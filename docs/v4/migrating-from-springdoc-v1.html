@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Migrating from springdoc-openapi v1</title>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
+</head>
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="migrating-from-springdoc-v1"><a class="anchor" href="#migrating-from-springdoc-v1"></a>Migrating from springdoc-openapi v1</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All the modules have been renamed.
+<code>springdoc-openapi-starter-common</code> integrates many spring modules support in order to hide the maximum of complexity.
+It allows the support out of the box for <code>Actuator</code> / <code>Spring Cloud Function</code> / <code>Spring Data Rest</code>/ <code>Spring Native</code>/ <code>Spring Hateoas</code> / <code>Spring Securtiy</code> / <code>Kotlin</code>/ <code>Javadoc</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following table describes the main modules changes:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">springdoc-openapi-v1</th>
+<th class="tableblock halign-left valign-top">springdoc-openapi-v2</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Includes foundation <code>springdoc-openapi</code> features</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-data-rest</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Spring Data Rest support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-groovy</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Groovy support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-hateoas</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Spring Hateoas support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-javadoc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Javadoc support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-kotlin</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Kotlin support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-security</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Spring Security support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-webmvc-core</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-webmvc-api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Spring WebMvc support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-webflux-core</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-webflux-api</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For Spring WebFlux support</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-ui</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-webmvc-ui</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For using the Swagger-UI in a Spring WebMvc context</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-webflux-ui</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>springdoc-openapi-starter-webflux-ui</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For using the Swagger-UI in a Spring WebFlux context</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+classes/annotations changes
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">springdoc-openapi-v1</th>
+<th class="tableblock halign-left valign-top">springdoc-openapi-v2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.SpringDocUtils</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.utils.SpringDocUtils</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.api.annotations.ParameterObject</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.annotations.ParameterObject</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.GroupedOpenApi</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.models.GroupedOpenApi</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.customizers.OpenApiCustomiser</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.customizers.OpenApiCustomizer</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.Constants</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.utils.Constants</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.SwaggerUiConfigParameters</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>org.springdoc.core.properties.SwaggerUiConfigParameters</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Migration tips
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following modules are not anymore needed and can be removed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>springdoc-openapi-javadoc</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-kotlin</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-data-rest</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-security</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-webmvc-core</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-webflux-core</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-hateoas</code></p>
+</li>
+<li>
+<p><code>springdoc-openapi-groovy</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In addition:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Replace <code>springdoc-openapi-ui</code> by <code>springdoc-openapi-starter-webmvc-ui</code></p>
+</li>
+<li>
+<p>Replace <code>springdoc-openapi-webflux-ui</code> by <code>springdoc-openapi-starter-webflux-ui</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2024-10-06 14:24:00 +0200
+</div>
+</div>
+</div>
+  </div>
+</div>
+</body>
+</html>

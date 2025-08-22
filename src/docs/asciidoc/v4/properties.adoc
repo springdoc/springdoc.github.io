@@ -1,0 +1,18 @@
+[[properties]]
+== Springdoc-openapi Properties
+
+`springdoc-openapi` relies on standard link:https://docs.spring.io/spring-boot/reference/features/external-config.html[spring configuration properties, window="_blank"] (yml or properties) using the standard files locations.
+
+
+=== springdoc-openapi core properties
+
+include::core-properties.adoc[]
+
+=== swagger-ui properties
+- The support of the swagger-ui properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
+
+- You can use the same swagger-ui properties in the documentation as Spring Boot properties.
+
+NOTE: All these properties should be declared with the following prefix: `springdoc.swagger-ui`
+
+include::ui-properties.adoc[]

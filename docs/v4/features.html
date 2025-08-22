@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Springdoc-openapi Features</title>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
+</head>
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="features"><a class="anchor" href="#features"></a>Springdoc-openapi Features</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_adding_api_information_and_security_documentation"><a class="anchor" href="#_adding_api_information_and_security_documentation"></a>Adding API Information and Security documentation</h3>
+<div class="paragraph">
+<p>The library uses spring-boot application auto-configured packages to scan for the following annotations in spring beans: OpenAPIDefinition and Info.
+These annotations declare, API Information: Title, version, licence, security, servers, tags, security and externalDocs.
+For better performance of documentation generation, declare @OpenAPIDefinition and @SecurityScheme annotations within a spring managed bean.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_error_handling_for_rest_using_controlleradvice"><a class="anchor" href="#_error_handling_for_rest_using_controlleradvice"></a>Error Handling for REST using @ControllerAdvice</h3>
+<div class="paragraph">
+<p>To generate documentation automatically, make sure all the methods declare the HTTP Code responses using the annotation: @ResponseStatus</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_disabling_the_springdoc_openapi_endpoints"><a class="anchor" href="#_disabling_the_springdoc_openapi_endpoints"></a>Disabling the <code>springdoc-openapi</code> endpoints</h3>
+<div class="paragraph">
+<p>In order to disable the <code>springdoc-openapi</code> endpoint (/v3/api-docs by default) use the following property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Disabling the /v3/api-docs endpoint
+springdoc.api-docs.enabled=false</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_disabling_the_swagger_ui"><a class="anchor" href="#_disabling_the_swagger_ui"></a>Disabling the swagger-ui</h3>
+<div class="paragraph">
+<p>In order to disable the swagger-ui, use the following property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Disabling the swagger-ui
+springdoc.swagger-ui.enabled=false</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_swagger_ui_configuration"><a class="anchor" href="#_swagger_ui_configuration"></a>Swagger-ui configuration</h3>
+<div class="paragraph">
+<p>The library supports the swagger-ui official properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/" target="_blank" rel="noopener">https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You need to declare swagger-ui properties as spring-boot properties.
+All these properties should be declared with the following prefix: <strong>springdoc.swagger-ui</strong></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_selecting_the_rest_controllers_to_include_in_the_documentation"><a class="anchor" href="#_selecting_the_rest_controllers_to_include_in_the_documentation"></a>Selecting the Rest Controllers to include in the documentation</h3>
+<div class="paragraph">
+<p>Additionally, to @Hidden annotation from swagger-annotations, its possible to restrict the generated OpenAPI description using package or path configuration.</p>
+</div>
+<div class="paragraph">
+<p>For the list of packages to include, use the following property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Packages to include
+springdoc.packagesToScan=com.package1, com.package2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For the list of paths to include, use the following property:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties"># Paths to include
+springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_spring_webfluxwebmvc_fn_with_functional_endpoints"><a class="anchor" href="#_spring_webfluxwebmvc_fn_with_functional_endpoints"></a>Spring-webflux/WebMvc.fn with Functional Endpoints</h3>
+<div class="paragraph">
+<p>Since version v1.5.0, a functional DSL has been introduced, thanks to this enhancement in the spring-framework: <a href="https://github.com/spring-projects/spring-framework/issues/25938">#25938</a></p>
+</div>
+<div class="paragraph">
+<p>It&#8217;s an alternative functional API to the <code>@RouterOperations</code> annotations.</p>
+</div>
+<div class="paragraph">
+<p>This is a sample DSL, to generate OpenAPI description to the webflux/WebMvc.fn REST endpoints:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+RouterFunction&lt;?&gt; routes() {
+    return route().GET("/foo", HANDLER_FUNCTION, ops -&gt; ops
+            .operationId("hello")
+            .parameter(parameterBuilder().name("key1").description("My key1 description"))
+            .parameter(parameterBuilder().name("key2").description("My key2 description"))
+            .response(responseBuilder().responseCode("200").description("This is normal response description"))
+            .response(responseBuilder().responseCode("404").description("This is another response description"))
+    ).build();
+}
+</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here is the link for some sample codes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/HelloRouter.java">HelloRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java">QuotesRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java">BookRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java">EmployeeRouter</a></p>
+</li>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java">PositionRouter</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And the Demo code, using the functional endpoints DSL:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional">Sample webflux application using functional DSL</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since version <code>v1.3.8</code>, the support of functional endpoints has been added.
+Two main annotations have been added for this purpose: <code>@RouterOperations</code> and <code>@RouterOperation</code>.</p>
+</div>
+<div class="paragraph">
+<p>Only REST APIs with the <code>@RouterOperations</code> and <code>@RouterOperation</code> can be displayed on the swagger-ui.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@RouterOperation</code>: It can be used alone, if the Router bean contains one single route related to the REST API..
+When using @RouterOperation, its not mandatory to fill the path</p>
+</li>
+<li>
+<p><code>@RouterOperation</code>, can reference directly a spring Bean (beanClass property) and the underlying method (beanMethod property): Springdoc-openapi, will then inspect this method and the swagger annotations on this method level.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+@RouterOperation(beanClass = EmployeeService.class, beanMethod = "findAllEmployees")
+RouterFunction&lt;ServerResponse&gt; getAllEmployeesRoute() {
+   return route(GET("/employees").and(accept(MediaType.APPLICATION_JSON)),
+         req -&gt; ok().body(
+               employeeService().findAllEmployees(), Employee.class));
+}
+</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@RouterOperation</code>, contains the <code>@Operation</code> annotation.
+The <code>@Operation</code> annotation can also be placed on the bean method level if the property beanMethod is declared.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Don&#8217;t forget to set <strong>operationId</strong> which is <strong>mandatory</strong>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+@RouterOperation(operation = @Operation(operationId = "findEmployeeById", summary = "Find purchase order by ID", tags = { "MyEmployee" },
+      parameters = { @Parameter(in = ParameterIn.PATH, name = "id", description = "Employee Id") },
+      responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Employee.class))),
+            @ApiResponse(responseCode = "400", description = "Invalid Employee ID supplied"),
+            @ApiResponse(responseCode = "404", description = "Employee not found") }))
+RouterFunction&lt;ServerResponse&gt; getEmployeeByIdRoute() {
+   return route(GET("/employees/{id}"),
+         req -&gt; ok().body(
+               employeeRepository().findEmployeeById(req.pathVariable("id")), Employee.class));
+}
+</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@RouterOperations</code>: This annotation should be used if the Router bean contains multiple routes.
+When using RouterOperations, its mandatory to fill the path property.</p>
+</li>
+<li>
+<p>A <code>@RouterOperations</code>, contains many <code>@RouterOperation</code>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@RouterOperations({ @RouterOperation(path = "/getAllPersons", beanClass = PersonService.class, beanMethod = "getAll"),
+      @RouterOperation(path = "/getPerson/{id}", beanClass = PersonService.class, beanMethod = "getById"),
+      @RouterOperation(path = "/createPerson", beanClass = PersonService.class, beanMethod = "save"),
+      @RouterOperation(path = "/deletePerson/{id}", beanClass = PersonService.class, beanMethod = "delete") })
+@Bean
+public RouterFunction&lt;ServerResponse&gt; personRoute(PersonHandler handler) {
+   return RouterFunctions
+         .route(GET("/getAllPersons").and(accept(MediaType.APPLICATION_JSON)), handler::findAll)
+         .andRoute(GET("/getPerson/{id}").and(accept(MediaType.APPLICATION_STREAM_JSON)), handler::findById)
+         .andRoute(POST("/createPerson").and(accept(MediaType.APPLICATION_JSON)), handler::save)
+         .andRoute(DELETE("/deletePerson/{id}").and(accept(MediaType.APPLICATION_JSON)), handler::delete);
+}
+</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All the documentations filled using @RouterOperation, might be completed by the router function data.
+For that, <code>@RouterOperation</code> fields must help identify uniquely the concerned route.
+<code>springdoc-openpi</code> scans for a unique route related to a <code>@RouterOperation</code> annotation, using on the following criteria:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>by path</p>
+</li>
+<li>
+<p>by path and RequestMethod</p>
+</li>
+<li>
+<p>by path and produces</p>
+</li>
+<li>
+<p>by path and consumes</p>
+</li>
+<li>
+<p>by path and RequestMethod and produces</p>
+</li>
+<li>
+<p>by path and RequestMethod and consumes</p>
+</li>
+<li>
+<p>by path and produces and consumes</p>
+</li>
+<li>
+<p>by path and RequestMethod and produces and consumes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Some code samples are available on GITHUB of demos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional" target="_blank" rel="noopener">Sample application with Functional Endpoints documentation</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>And some project tests: (from app69 to app75)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api" target="_blank" rel="noopener">Sample code with Functional Endpoints documentation</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integration_with_wildfly"><a class="anchor" href="#_integration_with_wildfly"></a>Integration with WildFly</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>For WildFly users, you need to add the following dependency to make the swagger-ui work:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+     &lt;groupId&gt;org.webjars&lt;/groupId&gt;
+     &lt;artifactId&gt;webjars-locator-jboss-vfs&lt;/artifactId&gt;
+     &lt;version&gt;0.1.0&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8127371937306964"
+     data-ad-slot="6163211104"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2024-11-26 16:21:53 +0100
+</div>
+</div>
+</div>
+  </div>
+</div>
+</body>
+</html>

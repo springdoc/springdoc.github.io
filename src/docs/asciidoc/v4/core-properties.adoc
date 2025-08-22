@@ -1,0 +1,64 @@
+[[core-properties]]
+
+|===
+|Parameter name | Default Value | Description
+
+|springdoc.api-docs.path | `/v3/api-docs` | `String`, For custom path of the OpenAPI documentation in Json format.
+|springdoc.api-docs.enabled | `true` | `Boolean`. To disable the springdoc-openapi endpoint (/v3/api-docs by default).
+|springdoc.packages-to-scan | `*`| `List of Strings`. The list of packages to scan (comma separated)
+|springdoc.paths-to-match | `/*`| `List of Strings`. The list of paths to match (comma separated)
+|springdoc.produces-to-match | `/*`| `List of Strings`. The list of produces mediaTypes to match (comma separated)
+|springdoc.headers-to-match | `/*`| `List of Strings`. The list of headers to match (comma separated)
+|springdoc.consumes-to-match | `/*`| `List of Strings`. The list of consumes mediaTypes to match (comma separated)
+|springdoc.paths-to-exclude | | `List of Strings`. The list of paths to exclude (comma separated)
+|springdoc.packages-to-exclude | | `List of Strings`. The list of packages to exclude (comma separated)
+|springdoc.default-consumes-media-type | `application/json` | `String`. The default consumes media type.
+|springdoc.default-produces-media-type | `*/*` | `String`. The default produces media type.
+|springdoc.cache.disabled | `false` | `Boolean`. To disable the springdoc-openapi cache of the calculated OpenAPI.
+|springdoc.show-actuator | `false` |  `Boolean`. To display the actuator endpoints.
+|springdoc.auto-tag-classes | `true` | `Boolean`. To disable the springdoc-openapi automatic tags.
+|springdoc.model-and-view-allowed | `false` | `Boolean`. To allow RestControllers with ModelAndView return to appear in the OpenAPI description.
+|springdoc.override-with-generic-response | `true` | `Boolean`. When true, automatically adds @ControllerAdvice responses to all the generated responses.
+|springdoc.group-configs[0].group | | `String`. The group name
+|springdoc.group-configs[0].display-name | | `String`. The display name of the group.
+|springdoc.group-configs[0].packages-to-scan | `*`| `List of Strings`. The list of packages to scan for a group (comma separated)
+|springdoc.group-configs[0].paths-to-match | `/*`| `List of Strings`. The list of paths to match for a group (comma separated)
+|springdoc.group-configs[0].paths-to-exclude | ``| `List of Strings`. The list of paths to exclude for a group (comma separated)
+|springdoc.group-configs[0].packages-to-exclude | | `List of Strings`. The list of packages to exclude for a group (comma separated)
+|springdoc.group-configs[0].produces-to-match | `/*`| `List of Strings`. The list of produces mediaTypes to match (comma separated)
+|springdoc.group-configs[0].consumes-to-match | `/*`| `List of Strings`. The list of consumes mediaTypes to match (comma separated)
+|springdoc.group-configs[0].headers-to-match | `/*`| `List of Strings`. The list of headers to match (comma separated)
+|springdoc.webjars.prefix | `/webjars` |`String`. To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.
+|springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
+|springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
+|springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
+|springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
+|springdoc.model-converters.polymorphic-converter.enabled | `true` | `Boolean`. To disable polymorphic model converter.
+|springdoc.model-converters.pageable-converter.enabled | `true` | `Boolean`. To disable pageable model converter.
+|springdoc.model-converters.sort-converter.enabled | `true` | `Boolean`. To disable Sort converter.
+|springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
+|springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
+|springdoc.pre-loading-locales  | | `List of Strings`. The list of locales to load OpenAPI on application startup (comma separated). If not specified, it will preload with the default Locale.
+|springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
+|springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
+|springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
+|springdoc.show-spring-cloud-functions | `true` |  `Boolean`. To display the spring-cloud-function web endpoints.
+|springdoc.enable-groovy | `true` |  `Boolean`. To enable Groovy support.
+|springdoc.enable-spring-security | `true` |  `Boolean`. To enable spring-security support.
+|springdoc.enable-kotlin | `true` |  `Boolean`. To enable Kotlin support.
+|springdoc.enable-hateoas | `true` |  `Boolean`. To enable spring-hateoas support.
+|springdoc.enable-data-rest | `true` |  `Boolean`. To enable spring-data-rest support.
+|springdoc.api-docs.version | `openapi_3_1` | `String`. To choose `OpenAPI 3.0` or `OpenAPI 3.1` (using the value `OPENAPI_3_1`).
+|springdoc.default-flat-param-object | `false` | `Boolean`. To default flatten parameter.
+|springdoc.default-support-form-data | `false` | `Boolean`. To default set parameters to form data when specifying api to accept form data.
+|springdoc.nullable-request-parameter-enabled | `true` | `Boolean`. To default Enable Support for nullable request parameters in Kotlin.
+|springdoc.show-oauth2-endpoints | `false` | `Boolean`. To make spring security oauth2-endpoint visible.
+|springdoc.api-docs.resolve-extensions-properties | `false` | `Boolean`. To enable  support of spring property resolver for `@ExtensionProperty`.
+|springdoc.enable-default-api-docs | `true` | `Boolean`. To enable default OpenAPI endpoint `/v3/api-docs`.
+|springdoc.trim-kotlin-indent | `false` | `Boolean`. Adjust indentation when parsing the `@Operation` annotation in Kotlin.
+|springdoc.allowed-locales | | `List of Strings`. The list of allowed locales for OpenAPI (comma separated, for example `US,fr-CA`).
+|springdoc.enable-extra-schemas | `true` | `Boolean`. To enable default support for extra Schemas, from `java.time` package like `LocalTime`, `Duration`, but also other Java classes like `java.util.Locale` or `java.nio.charset.Charset`
+|springdoc.explicit-object-schema | `false` | `Boolean`. Set explicit-object-schema to `true` to always include `type: object` in the schema, or to `false` to omit `type: object`.
+|springdoc.use-arbitrary-schemas | `false` | `Boolean`. When set to `true`, schemas without a defined type will be deserialized as an `ArbitrarySchema` (with no type), instead of an `ObjectSchema` with `type: object`.
+|===
+

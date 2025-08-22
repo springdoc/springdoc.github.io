@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Springdoc-openapi Plugins</title>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
+</head>
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="plugins"><a class="anchor" href="#plugins"></a>Springdoc-openapi Plugins</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_maven_plugin"><a class="anchor" href="#_maven_plugin"></a>Maven plugin</h3>
+<div class="paragraph">
+<p>The aim of <code>springdoc-openapi-maven-plugin</code> is to generate json and yaml OpenAPI description  during build time.
+The plugin works during integration-tests phase, and generate the OpenAPI description.
+The plugin works in conjunction with spring-boot-maven plugin.</p>
+</div>
+<div class="paragraph">
+<p>You can test it during the integration tests phase using the maven command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">mvn verify</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In order to use this functionality, you need to add the plugin declaration on the plugins section of your pom.xml:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${spring-boot-maven-plugin.version}&lt;/version&gt;
+    &lt;configuration&gt;
+        &lt;jvmArguments&gt;-Dspring.application.admin.enabled=true&lt;/jvmArguments&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;start&lt;/goal&gt;
+                &lt;goal&gt;stop&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+&lt;plugin&gt;
+    &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+    &lt;artifactId&gt;springdoc-openapi-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;1.5&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;integration-test&lt;/id&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;generate&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more custom settings of the springdoc-openapi-maven-plugin, you can consult the plugin documentation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-maven-plugin" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi-maven-plugin</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_gradle_plugin"><a class="anchor" href="#_gradle_plugin"></a>Gradle plugin</h3>
+<div class="paragraph">
+<p>This plugin allows you to generate an OpenAPI 3 specification for a Spring Boot application from a Gradle build.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
+      id("org.springframework.boot") version "3.1.2"
+      id("org.springdoc.openapi-gradle-plugin") version "1.9.0"
+}
+</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When you add this plugin and its runtime dependency plugins to your build file, the plugin creates the following tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>forkedSpringBootRun</p>
+</li>
+<li>
+<p>generateOpenApiDocs</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">gradle clean generateOpenApiDocs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more custom configuration of <code>springdoc-openapi-gradle-plugin</code> ,you can consult the plugin documentation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/springdoc/springdoc-openapi-gradle-plugin" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi-gradle-plugin</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2025-05-04 15:06:04 +0200
+</div>
+</div>
+</div>
+  </div>
+</div>
+</body>
+</html>

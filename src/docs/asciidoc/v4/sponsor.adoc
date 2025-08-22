@@ -1,0 +1,53 @@
+[[sponsor]]
+== Sponsor
+
+`springdoc-openapi` is on link:https://opencollective.com/springdoc[Open Collective, window="_blank"].
+
+If you ❤️ this project consider becoming a link:https://github.com/sponsors/springdoc[sponsor, window="_blank"].
+
+This money is used to cover project expenses and your donation will help the project live and grow successfully.
+
+Thank you to our bronze sponsors!
+++++
+        <p style="text-align: center;">
+          <a href="https://opensource.mercedes-benz.com/" target="_blank">
+           <img src="img/mercedes-benz.png" height="10%" width="10%" />
+          </a>&nbsp;&nbsp;
+          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
+            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
+           </a>
+          <a href="https://www.contrastsecurity.com/" target="_blank">
+		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
+		  </a>
+         <a href="https://www.lvm.de/" target="_blank">
+		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="25%" />
+		  </a>
+         <a href="https://gdnext.com/" target="_blank">
+		   <img src="img/gdnext.png" height="10%" width="10%" />
+		  </a>
+        </p>
+++++
+
+=== Benefits of being a bronze sponsor
+Bronze sponsors donate $50 per month to the project, and get the following benefits:
+
+- You will receive a Sponsor badge 🎖!. Visibility on the front page of  https://springdoc.org in the `welcome` page (about 55,000 views/month on May, 2022).
+- “Thank you” tweet from `springdoc team'.
+
+=== Benefits of being a silver sponsor
+Silver sponsors donate $100 per month to the project, and get the following benefits:
+
+- Same benefits as bronze sponsors (visibility on main pages, and thank you tweet).
+- The ability to get support for 2 `issues` every month, non transferable.
+- If issues are not created by the end of the month, it is lost
+
+=== Benefits of being a gold sponsor
+Gold sponsors donate $500 per month to the project, and get the following benefits:
+
+- Same benefits as silver sponsors (visibility on main pages, and thank you tweet).
+- The ability to get support for 10 `issues` every month, non transferable.
+- Company logos on all https://springdoc.org page footers
+- If issues are not created by the end of the month, the remaining ones are lost.
+
+
+

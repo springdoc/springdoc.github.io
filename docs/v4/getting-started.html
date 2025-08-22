@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.15">
+<title>Getting Started</title>
+<link rel="stylesheet" href="css/site.css">
+<script src="js/setup.js"></script><script defer src="js/site.js"></script>
+
+</head>
+<body class="article"><div id="banner-container" class="container" role="banner">
+  <div id="banner" class="contained" role="banner">
+    <div id="switch-theme">
+      <input type="checkbox" id="switch-theme-checkbox" />
+      <label for="switch-theme-checkbox">Dark Theme</label>
+    </div>
+  </div>
+</div>
+<div id="tocbar-container" class="container" role="navigation">
+  <div id="tocbar" class="contained" role="navigation">
+    <button id="toggle-toc"></button>
+  </div>
+</div>
+<div id="main-container" class="container">
+  <div id="main" class="contained">
+    <div id="doc" class="doc">
+<div id="header">
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="getting-started"><a class="anchor" href="#getting-started"></a>Getting Started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For the integration between spring-boot and swagger-ui, add the library to the list of your project dependencies (No additional configuration is needed)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;3.0.0-M1&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will automatically deploy swagger-ui to a spring-boot application:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Documentation will be available in HTML format, using the official <a href="https://github.com/swagger-api/swagger-ui.git" target="_blank" rel="noopener">swagger-ui jars</a></p>
+</li>
+<li>
+<p>The Swagger UI page will then be available at <code>http://server:port/context-path/swagger-ui.html</code> and the OpenAPI description will be available at the following url for json format: <code>http://server:port/context-path/v3/api-docs</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>server: The server name or IP</p>
+</li>
+<li>
+<p>port: The server port</p>
+</li>
+<li>
+<p>context-path: The context path of the application</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yaml</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file: .
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties"># swagger-ui custom path
+springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
+</div>
+</div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8127371937306964"
+     data-ad-slot="6163211104"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2025-08-22 12:50:06 +0200
+</div>
+</div>
+</div>
+  </div>
+</div>
+</body>
+</html>
