@@ -60,7 +60,7 @@ public GroupedOpenApi groupOpenApi() {
 
 For more details about the usage, you can have a look at the following sample Test:
 
-* link:https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi/tree/spring-boot-4/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/spring-boot-4/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
 
 === How can I configure Swagger UI?
 * The support of the swagger official properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
@@ -316,12 +316,12 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 
 === How can I test the Swagger UI?
 * You can have a look on this sample test of the UI:
-** link:https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
 
 === How can I customise the OpenAPI object ?
 * You can write your own implementation of `OpenApiCustomizer`.
 * An example is available on:
-** link:https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java[https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java[https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
 
 [source,java]
 ----

@@ -206,7 +206,7 @@ public Function<Flux<String>, Flux<String>> lowercase() {
 
 Some code samples are available on GITHUB of demos:
 
-* link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-cloud-function[Sample applications with Spring Cloud Function Web, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-cloud-function[Sample applications with Spring Cloud Function Web, window="_blank"]
 
 
 === Kotlin support
