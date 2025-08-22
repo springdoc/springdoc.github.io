@@ -200,20 +200,6 @@
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-<code>springdoc-openapi v1.8.0 </code> is the latest Open Source release supporting Spring Boot 2.x and 1.x.<br>
-An extended support for <a href="https://springdoc.org/v1"><strong>springdoc-openapi v1</strong></a> project is now available for organizations that need support beyond 2023.<br>
-For more details, feel free to reach out: <a href="mailto:sales@springdoc.org">sales@springdoc.org</a>
-</td>
-</tr>
-</table>
-</div>
 <div class="paragraph">
 <p><code>springdoc-openapi</code> is on <a href="https://opencollective.com/springdoc" target="_blank" rel="noopener">Open Collective</a>. If you ❤️ this project consider becoming a <a href="https://github.com/sponsors/springdoc" target="_blank" rel="noopener">sponsor</a>.</p>
 </div>
@@ -262,7 +248,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <p>OpenAPI 3</p>
 </li>
 <li>
-<p>Spring-boot v3 (Java 17 &amp; Jakarta EE 9)</p>
+<p>Spring-boot v4 (Java 17 &amp; Jakarta EE 9)</p>
 </li>
 <li>
 <p>JSR-303, specifically for @NotNull, @Min, @Max, and @Size.</p>
@@ -302,7 +288,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.8.10&lt;/version&gt;
+      &lt;version&gt;3.0.0-M1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -410,7 +396,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.8.10&lt;/version&gt;
+      &lt;version&gt;3.0.0-M1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -462,7 +448,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;2.8.10&lt;/version&gt;
+      &lt;version&gt;3.0.0-M1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -787,7 +773,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-cloud-function" target="_blank" rel="noopener">Sample applications with Spring Cloud Function Web</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-cloud-function" target="_blank" rel="noopener">Sample applications with Spring Cloud Function Web</a></p>
 </li>
 </ul>
 </div>
@@ -964,7 +950,7 @@ You can declare it in your project as follows:</p>
             &lt;dependency&gt;
                 &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
                 &lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
-                &lt;version&gt;2.8.10&lt;/version&gt;
+                &lt;version&gt;3.0.0-M1&lt;/version&gt;
                 &lt;type&gt;pom&lt;/type&gt;
                 &lt;scope&gt;import&lt;/scope&gt;
             &lt;/dependency&gt;
@@ -1111,7 +1097,7 @@ RouterFunction&lt;?&gt; routes() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional">Sample webflux application using functional DSL</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-boot-webflux-functional">Sample webflux application using functional DSL</a></p>
 </li>
 </ul>
 </div>
@@ -1248,7 +1234,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional" target="_blank" rel="noopener">Sample application with Functional Endpoints documentation</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-boot-webflux-functional" target="_blank" rel="noopener">Sample application with Functional Endpoints documentation</a></p>
 </li>
 </ul>
 </div>
@@ -1997,22 +1983,22 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://demos.springdoc.org/demo-spring-boot-3-webmvc" target="_blank" rel="noopener">Demo Spring Boot 3 Web MVC with OpenAPI 3</a></p>
+<p><a href="https://demos1.springdoc.org/demo-spring-boot-webmvc" target="_blank" rel="noopener">Demo Spring Boot 4 Web MVC with OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="https://demos.springdoc.org/demo-spring-boot-3-webflux-functional/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 3 WebFlux with Functional endpoints OpenAPI 3</a></p>
+<p><a href="https://demos1.springdoc.org/demo-spring-boot-webflux-functional/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 4 WebFlux with Functional endpoints OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="https://demos.springdoc.org/demo-spring-hateoas" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Hateoas with OpenAPI 3</a></p>
+<p><a href="https://demos1.springdoc.org/demo-spring-hateoas" target="_blank" rel="noopener">Demo Spring Boot 4 and Spring Hateoas with OpenAPI 3</a></p>
 </li>
 <li>
-<p><a href="https://demos.springdoc.org/spring-cloud-function-webmvc" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Cloud Function Web MVC</a></p>
+<p><a href="https://demos1.springdoc.org/spring-cloud-function-webmvc" target="_blank" rel="noopener">Demo Spring Boot 4 and Spring Cloud Function Web MVC</a></p>
 </li>
 <li>
-<p><a href="https://demos.springdoc.org/spring-cloud-function-webflux/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Cloud Function WebFlux</a></p>
+<p><a href="https://demos1.springdoc.org/spring-cloud-function-webflux/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 4 and Spring Cloud Function WebFlux</a></p>
 </li>
 <li>
-<p><a href="https://demos.springdoc.org/demo-microservices/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 3 and Spring Cloud Gateway</a></p>
+<p><a href="https://demos1.springdoc.org/demo-microservices/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 4 and Spring Cloud Gateway</a></p>
 </li>
 </ul>
 </div>
@@ -2027,7 +2013,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/master" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi-demos/tree/master</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi-demos/tree/4.x" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi-demos/tree/4.x</a></p>
 </li>
 </ul>
 </div>
@@ -2060,7 +2046,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.8.10&lt;/version&gt;
+      &lt;version&gt;3.0.0-M1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -2483,7 +2469,7 @@ public GroupedOpenApi groupOpenApi() {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/tree/spring-boot-4/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/tree/spring-boot-4/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68</a></p>
 </li>
 </ul>
 </div>
@@ -3040,7 +3026,7 @@ public class CustomServerBaseUrlCustomizer implements ServerBaseUrlCustomizer {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java</a></p>
 </li>
 </ul>
 </div>
@@ -3060,7 +3046,7 @@ public class CustomServerBaseUrlCustomizer implements ServerBaseUrlCustomizer {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java</a></p>
+<p><a href="https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java" target="_blank" rel="noopener">https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java</a></p>
 </li>
 </ul>
 </div>
@@ -4379,10 +4365,10 @@ public class WebConfig implements WebApplicationInitializer {
 <div class="sect2">
 <h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>12.79. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
-<p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
+<p><code>springdoc-openapi 3.x</code> is compatible with <code>spring-boot 4</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.8.10.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 3.0.0-M1.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -4398,56 +4384,8 @@ public class WebConfig implements WebApplicationInitializer {
 <td class="tableblock halign-left valign-top"><p class="tableblock">Springdoc OpenAPI Versions</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.8.x</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.4.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.7.x</code> - <code>2.8.x</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.3.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.6.x</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.2.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.3.x</code> - <code>2.5.x</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.1.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.x</code></p></td>
-</tr>
-<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4.0.x</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code> - <code>2.1.x</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.7.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code>+</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.6.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.6.0</code>+</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.5.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.9</code>+</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.4.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.5.0</code>+</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.3.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.4.0</code>+</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.2.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.2.1</code>+</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.0.x</code>, <code>1.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1.0.0</code>+</p></td>
 </tr>
 </tbody>
 </table>
@@ -4501,7 +4439,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-08-22 12:55:06 +0200
+Last updated 2025-08-22 15:01:19 +0200
 </div>
 </div>
 </div>
