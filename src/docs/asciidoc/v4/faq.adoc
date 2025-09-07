@@ -162,9 +162,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 * The projects that use `spring-boot-starter-security` or `spring-security-oauth2-authorization-server`  should use:
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
 
 
 

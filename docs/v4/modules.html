@@ -131,6 +131,87 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_swagger_ui_support"><a class="anchor" href="#_swagger_ui_support"></a>Swagger-UI support</h3>
+<div class="paragraph">
+<p><a href="https://swagger.io/tools/swagger-ui/">Swagger UI</a> allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-web</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-webflux</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scalar_support"><a class="anchor" href="#_scalar_support"></a>Scalar support</h3>
+<div class="paragraph">
+<p><a href="https://swagger.io/tools/swagger-ui/">Scalar</a> Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
+It’s particularly aimed at improving the developer experience when exploring APIs.</p>
+</div>
+<div class="paragraph">
+<p><code>springdoc-openapi</code> extends <code>Scalar</code> configuration to make it compatible with Spring Boot applications.
+You can rely on native Scalar configuration properties, using the prefix <code>scalar</code>, as explained in the <a href="https://guides.scalar.com/scalar/scalar-api-references/integrations/spring-boot#configuration-properties">Scalar documentation</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-web</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-scalar&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-webflux</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webflux-scalar&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_spring_hateoas_support"><a class="anchor" href="#_spring_hateoas_support"></a>Spring Hateoas support</h3>
 <div class="paragraph">
 <p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.</p>
@@ -185,13 +266,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -373,10 +448,10 @@ If you want to reach the actuator endpoints for this case (different port from y
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-starter-webmvc-ui</code> dependency.</p>
+<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-starter-webmvc-api</code> dependency.</p>
 </li>
 <li>
-<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-starter-webflux-ui</code> dependency.</p>
+<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-starter-webflux-api</code> dependency.</p>
 </li>
 </ul>
 </div>
@@ -469,13 +544,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -511,13 +580,7 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -549,13 +612,7 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -641,7 +698,7 @@ You can declare it in your project as follows:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-08-22 13:21:12 +0200
+Last updated 2025-09-07 15:04:39 +0200
 </div>
 </div>
 </div>

@@ -47,6 +47,61 @@ springdoc.api-docs.path=/api-docs
    </dependency>
 ----
 
+=== Swagger-UI support
+
+link:https://swagger.io/tools/swagger-ui/[Swagger UI] allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.
+
+*   If your project is using `spring-boot-starter-web` and you need the access to the swagger-ui, add the following dependency:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+*   If your project is using `spring-boot-starter-webflux` and you need the access to the swagger-ui, add the following dependency:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+=== Scalar support
+
+link:https://swagger.io/tools/swagger-ui/[Scalar] Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
+It’s particularly aimed at improving the developer experience when exploring APIs.
+
+`springdoc-openapi` extends `Scalar` configuration to make it compatible with Spring Boot applications.
+You can rely on native Scalar configuration properties, using the prefix `scalar`, as explained in the link:https://guides.scalar.com/scalar/scalar-api-references/integrations/spring-boot#configuration-properties[Scalar documentation].
+
+*   If your project is using `spring-boot-starter-web` and you need the access to the swagger-ui, add the following dependency:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-scalar</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+*   If your project is using `spring-boot-starter-webflux` and you need the access to the swagger-ui, add the following dependency:
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webflux-scalar</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
 
 === Spring Hateoas support
 The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
@@ -75,9 +130,7 @@ The projects that use `spring-boot-starter-data-rest` should use:
 The projects that use `spring-boot-starter-security` or `spring-security-oauth2-authorization-server`  should use:
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
 
 === Actuator support
 
@@ -163,8 +216,8 @@ Note: The naming of these new endpoints beneath the actuator base path cannot be
 * Since version `v1.6.3`, the support of functional endpoints has been added.
 
 * These starters will display the OpenAPI description of the `spring-cloud-function-web` endpoints.
-- If you are using `spring-web`, simply add the `springdoc-openapi-starter-webmvc-ui` dependency.
-- If you are using `spring-webflux`, simply add the `springdoc-openapi-starter-webflux-ui` dependency.
+- If you are using `spring-web`, simply add the `springdoc-openapi-starter-webmvc-api` dependency.
+- If you are using `spring-webflux`, simply add the `springdoc-openapi-starter-webflux-api` dependency.
 
 
 The customisation of the output can be achieved programmatically through  `OpenApiCustomizer` or with the annotations: `@RouterOperations` and `@RouterOperation`.
@@ -216,9 +269,7 @@ Some code samples are available on GITHUB of demos:
 The projects that use `Kotlin` should use:
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
 
 NOTE: In addition, your project should add `jackson-module-kotlin` as well to have the full support of `Kotlin` types:
 [source,xml, subs="attributes+"]
@@ -234,10 +285,7 @@ NOTE: In addition, your project should add `jackson-module-kotlin` as well to ha
 The projects that use `Groovy` should use:
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
-
 
 === Javadoc support
 
@@ -250,9 +298,7 @@ The projects that use `Groovy` should use:
 The projects that needs `Javadoc` support should use:
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
 
 NOTE: In addition, your project should add https://github.com/dnault/therapi-runtime-javadoc[`therapi-runtime-javadoc`] to read Javadoc comments at runtime.
 Ensure that you add it as well as its annotation processor to your project's dependencies. Otherwise, the Javadoc support will fail silently.

@@ -53,15 +53,17 @@
 <li><a href="#general-overview">3.1. General overview</a></li>
 <li><a href="#spring-webmvc-support">3.2. Spring WebMvc support</a></li>
 <li><a href="#spring-webflux-support">3.3. Spring WebFlux support</a></li>
-<li><a href="#spring-hateoas-support">3.4. Spring Hateoas support</a></li>
-<li><a href="#spring-data-rest-support">3.5. Spring Data Rest support</a></li>
-<li><a href="#spring-security-support">3.6. Spring Security support</a></li>
-<li><a href="#actuator-support">3.7. Actuator support</a></li>
-<li><a href="#spring-cloud-function-web-support">3.8. Spring Cloud Function Web support</a></li>
-<li><a href="#kotlin-support">3.9. Kotlin support</a></li>
-<li><a href="#groovy-support">3.10. Groovy support</a></li>
-<li><a href="#javadoc-support">3.11. Javadoc support</a></li>
-<li><a href="#springdoc-openapi-bom">3.12. Springdoc-openapi BOM</a></li>
+<li><a href="#swagger-ui-support">3.4. Swagger-UI support</a></li>
+<li><a href="#scalar-support">3.5. Scalar support</a></li>
+<li><a href="#spring-hateoas-support">3.6. Spring Hateoas support</a></li>
+<li><a href="#spring-data-rest-support">3.7. Spring Data Rest support</a></li>
+<li><a href="#spring-security-support">3.8. Spring Security support</a></li>
+<li><a href="#actuator-support">3.9. Actuator support</a></li>
+<li><a href="#spring-cloud-function-web-support">3.10. Spring Cloud Function Web support</a></li>
+<li><a href="#kotlin-support">3.11. Kotlin support</a></li>
+<li><a href="#groovy-support">3.12. Groovy support</a></li>
+<li><a href="#javadoc-support">3.13. Javadoc support</a></li>
+<li><a href="#springdoc-openapi-bom">3.14. Springdoc-openapi BOM</a></li>
 </ul>
 </li>
 <li><a href="#features">4. Springdoc-openapi Features</a>
@@ -454,7 +456,88 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-hateoas-support"><a class="anchor" href="#spring-hateoas-support"></a>3.4. Spring Hateoas support</h3>
+<h3 id="swagger-ui-support"><a class="anchor" href="#swagger-ui-support"></a>3.4. Swagger-UI support</h3>
+<div class="paragraph">
+<p><a href="https://swagger.io/tools/swagger-ui/">Swagger UI</a> allows anyone — be it your development team or your end consumers — to visualize and interact with the API’s resources without having any of the implementation logic in place. It’s automatically generated from your OpenAPI (formerly known as Swagger) Specification, with the visual documentation making it easy for back end implementation and client side consumption.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-web</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-webflux</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scalar-support"><a class="anchor" href="#scalar-support"></a>3.5. Scalar support</h3>
+<div class="paragraph">
+<p><a href="https://swagger.io/tools/swagger-ui/">Scalar</a> Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
+It’s particularly aimed at improving the developer experience when exploring APIs.</p>
+</div>
+<div class="paragraph">
+<p><code>springdoc-openapi</code> extends <code>Scalar</code> configuration to make it compatible with Spring Boot applications.
+You can rely on native Scalar configuration properties, using the prefix <code>scalar</code>, as explained in the <a href="https://guides.scalar.com/scalar/scalar-api-references/integrations/spring-boot#configuration-properties">Scalar documentation</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-web</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-scalar&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If your project is using <code>spring-boot-starter-webflux</code> and you need the access to the swagger-ui, add the following dependency:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webflux-scalar&lt;/artifactId&gt;
+      &lt;version&gt;2.8.13&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="spring-hateoas-support"><a class="anchor" href="#spring-hateoas-support"></a>3.6. Spring Hateoas support</h3>
 <div class="paragraph">
 <p>The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.</p>
 </div>
@@ -473,7 +556,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-data-rest-support"><a class="anchor" href="#spring-data-rest-support"></a>3.5. Spring Data Rest support</h3>
+<h3 id="spring-data-rest-support"><a class="anchor" href="#spring-data-rest-support"></a>3.7. Spring Data Rest support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code> project supports <code>spring-boot-starter-data-rest</code> types like: <code>@RepositoryRestResource</code> and <code>QuerydslPredicate</code> annotations.</p>
 </div>
@@ -492,7 +575,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-security-support"><a class="anchor" href="#spring-security-support"></a>3.6. Spring Security support</h3>
+<h3 id="spring-security-support"><a class="anchor" href="#spring-security-support"></a>3.8. Spring Security support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code> helps ignoring @AuthenticationPrincipal type in case it is used on REST Controllers.</p>
 </div>
@@ -508,19 +591,13 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="actuator-support"><a class="anchor" href="#actuator-support"></a>3.7. Actuator support</h3>
+<h3 id="actuator-support"><a class="anchor" href="#actuator-support"></a>3.9. Actuator support</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -684,7 +761,7 @@ If you want to reach the actuator endpoints for this case (different port from y
 </div>
 </div>
 <div class="sect2">
-<h3 id="spring-cloud-function-web-support"><a class="anchor" href="#spring-cloud-function-web-support"></a>3.8. Spring Cloud Function Web support</h3>
+<h3 id="spring-cloud-function-web-support"><a class="anchor" href="#spring-cloud-function-web-support"></a>3.10. Spring Cloud Function Web support</h3>
 <div class="paragraph">
 <p><code>spring-cloud-function-web</code> exposes Java Function as REST endpoint automatically.
 * Since version <code>v1.6.3</code>, the support of functional endpoints has been added.</p>
@@ -696,10 +773,10 @@ If you want to reach the actuator endpoints for this case (different port from y
 <div class="ulist">
 <ul>
 <li>
-<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-starter-webmvc-ui</code> dependency.</p>
+<p>If you are using <code>spring-web</code>, simply add the <code>springdoc-openapi-starter-webmvc-api</code> dependency.</p>
 </li>
 <li>
-<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-starter-webflux-ui</code> dependency.</p>
+<p>If you are using <code>spring-webflux</code>, simply add the <code>springdoc-openapi-starter-webflux-api</code> dependency.</p>
 </li>
 </ul>
 </div>
@@ -779,7 +856,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 </div>
 </div>
 <div class="sect2">
-<h3 id="kotlin-support"><a class="anchor" href="#kotlin-support"></a>3.9. Kotlin support</h3>
+<h3 id="kotlin-support"><a class="anchor" href="#kotlin-support"></a>3.11. Kotlin support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code> supports Kotlin types.</p>
 </div>
@@ -792,13 +869,7 @@ public Function&lt;Flux&lt;String&gt;, Flux&lt;String&gt;&gt; lowercase() {
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -824,7 +895,7 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
 </div>
 </div>
 <div class="sect2">
-<h3 id="groovy-support"><a class="anchor" href="#groovy-support"></a>3.10. Groovy support</h3>
+<h3 id="groovy-support"><a class="anchor" href="#groovy-support"></a>3.12. Groovy support</h3>
 <div class="paragraph">
 <p>The projects that use <code>Groovy</code> should use:</p>
 </div>
@@ -834,19 +905,13 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="javadoc-support"><a class="anchor" href="#javadoc-support"></a>3.11. Javadoc support</h3>
+<h3 id="javadoc-support"><a class="anchor" href="#javadoc-support"></a>3.13. Javadoc support</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi</code> can introspect <code>Javadoc</code> annotations and comments:</p>
 </div>
@@ -872,13 +937,7 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -938,7 +997,7 @@ If both a swagger-annotation description and a javadoc comment are present. The 
 </div>
 </div>
 <div class="sect2">
-<h3 id="springdoc-openapi-bom"><a class="anchor" href="#springdoc-openapi-bom"></a>3.12. Springdoc-openapi BOM</h3>
+<h3 id="springdoc-openapi-bom"><a class="anchor" href="#springdoc-openapi-bom"></a>3.14. Springdoc-openapi BOM</h3>
 <div class="paragraph">
 <p>Starting from version <code>v2.8.7</code>, <code>springdoc-openapi</code> provides a BOM (Bill of Materials) to manage the dependencies of the project.
 You can declare it in your project as follows:</p>
@@ -1989,6 +2048,12 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <p><a href="https://demos1.springdoc.org/demo-spring-boot-webflux/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 4 WebFlux with OpenAPI 3</a></p>
 </li>
 <li>
+<p><a href="https://demos1.springdoc.org/demo-spring-boot-webmvc-scalar/scalar" target="_blank" rel="noopener">Demo Spring Boot 4  Web MVC with OpenAPI 3 and Scalar</a></p>
+</li>
+<li>
+<p><a href="https://demos1.springdoc.org/demo-spring-boot-webflux-scalar/scalar" target="_blank" rel="noopener">Demo Spring Boot 4 WebFlux with OpenAPI 3 and Scalar</a></p>
+</li>
+<li>
 <p><a href="https://demos1.springdoc.org/demo-spring-boot-webflux-functional/swagger-ui.html" target="_blank" rel="noopener">Demo Spring Boot 4 WebFlux with Functional endpoints OpenAPI 3</a></p>
 </li>
 <li>
@@ -2698,13 +2763,7 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
