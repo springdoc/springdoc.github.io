@@ -75,11 +75,16 @@ link:https://swagger.io/tools/swagger-ui/[Swagger UI] allows anyone — be it yo
 
 === Scalar support
 
-link:https://swagger.io/tools/swagger-ui/[Scalar] Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
+link:https://scalar.com/[Scalar] is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
 It’s particularly aimed at improving the developer experience when exploring APIs.
 
 `springdoc-openapi` extends `Scalar` configuration to make it compatible with Spring Boot applications.
 You can rely on native Scalar configuration properties, using the prefix `scalar`, as explained in the link:https://guides.scalar.com/scalar/scalar-api-references/integrations/spring-boot#configuration-properties[Scalar documentation].
+
+*   The Swagger UI page will then be available at `\http://server:port/context-path/scalar` and the OpenAPI description will be available at the following url for json format: `\http://server:port/context-path/v3/api-docs`
+**  server: The server name or IP
+**  port: The server port
+**  context-path: The context path of the application
 
 *   If your project is using `spring-boot-starter-web` and you need the access to the swagger-ui, add the following dependency:
 

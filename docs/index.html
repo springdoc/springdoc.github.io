@@ -287,6 +287,9 @@ This documentation can be completed by comments using swagger-api annotations.</
 <p>Swagger-ui</p>
 </li>
 <li>
+<p>Scalar</p>
+</li>
+<li>
 <p>OAuth 2</p>
 </li>
 <li>
@@ -358,7 +361,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file: .
+For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file.
 </td>
 </tr>
 </table>
@@ -437,7 +440,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui.
+This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui or Scalar.
 </td>
 </tr>
 </table>
@@ -524,7 +527,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <div class="sect2">
 <h3 id="scalar-support"><a class="anchor" href="#scalar-support"></a>3.5. Scalar support</h3>
 <div class="paragraph">
-<p><a href="https://swagger.io/tools/swagger-ui/">Scalar</a> Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
+<p><a href="https://scalar.com/">Scalar</a> is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
 It’s particularly aimed at improving the developer experience when exploring APIs.</p>
 </div>
 <div class="paragraph">
@@ -533,6 +536,22 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>The Swagger UI page will then be available at <code>http://server:port/context-path/scalar</code> and the OpenAPI description will be available at the following url for json format: <code>http://server:port/context-path/v3/api-docs</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>server: The server name or IP</p>
+</li>
+<li>
+<p>port: The server port</p>
+</li>
+<li>
+<p>context-path: The context path of the application</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>If your project is using <code>spring-boot-starter-web</code> and you need the access to the swagger-ui, add the following dependency:</p>
 </li>
@@ -619,13 +638,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <p><code>springdoc-openapi-starter-webmvc-api</code> if they depend on <code>spring-boot-starter-web</code> and they only need the access to the OpenAPI endpoints.</p>
 </li>
 <li>
-<p>OR <code>springdoc-openapi-starter-webmvc-ui</code>, if they depend on <code>spring-boot-starter-web</code> and they also need the access to the swagger-ui.</p>
-</li>
-<li>
 <p>OR <code>springdoc-openapi-starter-webflux-api</code> if they depend on <code>spring-boot-starter-webflux</code> and they only the access to the OpenAPI endpoints.</p>
-</li>
-<li>
-<p>OR <code>springdoc-openapi-starter-webflux-ui</code>, if they depend on <code>spring-boot-starter-webflux</code> and they also need the access to the swagger-ui.</p>
 </li>
 </ul>
 </div>
@@ -660,13 +673,15 @@ The actuator management port has to be different from the application port.
 </table>
 </div>
 <div class="paragraph">
-<p>To expose the swagger-ui, on the management port, you should set</p>
+<p>To expose the swagger-ui and Scalar, on the management port, you should set</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.use-management-port=true
 # This property enables the openapi and swagger-ui endpoints to be exposed beneath the actuator base path.
-management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
+management.endpoints.web.exposure.include=openapi, swagger-ui
+# This property enables the openapi and scalar endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, scalar</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -677,7 +692,7 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 <p>For example, if you have the following settings:</p>
 </div>
 <div class="paragraph">
-<p>Two endpoints will be available:</p>
+<p>These endpoints will be available:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -701,6 +716,16 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 </ul>
 </div>
 </li>
+<li>
+<p>Or An Endpoint, that routes to the scalar:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/scalar</code></p>
+</li>
+</ul>
+</div>
+</li>
 </ol>
 </div>
 <div class="listingblock">
@@ -709,7 +734,7 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For the example, you should also be able to see the springdoc-openapi endpoints:</p>
+<p>For the example, you should also be able to see the springdoc-openapi endpoints depending on the chosen UI:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -717,7 +742,7 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 <p><code>http://serverName:9090/actuator</code></p>
 </li>
 <li>
-<p><code>http://serverName:9090/actuator/swagger-ui</code></p>
+<p><code>http://serverName:9090/actuator/swagger-ui</code> or <code>http://serverName:9090/actuator/scalar</code></p>
 </li>
 <li>
 <p><code>http://serverName:9090/actuator/openapi</code></p>
@@ -734,13 +759,13 @@ management.endpoints.web.exposure.include=openapi, swagger-ui</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, <code>CORS for your endpoints</code> on your application level should be enabled.
+If you want to reach the application endpoints, from the swagger-ui/scalar deployed beneath the actuator base path, using a different port from your application, <code>CORS for your endpoints</code> on your application level should be enabled.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.</p>
+<p>Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui/scalar.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -763,12 +788,25 @@ If you want to reach the application endpoints, from the swagger-ui deployed ben
 </ul>
 </div>
 <div class="paragraph">
+<p>The scalar UI will be then accessible through the actuator port:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>http://serverName:managementPort/actuator/scalar</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p>If the management port is different from the application port and <code>springdoc.use-management-port</code> is not defined but <code>springdoc.show-actuator</code> is set to true:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>The swagger-ui will be then accessible through the application port. For example: <code>http://serverName:applicationPort/swagger-ui.html</code></p>
+</li>
+<li>
+<p>The scalar UI will be then accessible through the application port. For example: <code>http://serverName:applicationPort/scalar</code></p>
 </li>
 <li>
 <p>A dedicated group for the actuator endpoints will be by default added.</p>
@@ -1584,7 +1622,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.use-management-port</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui on the actuator management port.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui/scalar on the actuator management port.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.disable-i18n</p></td>
@@ -2475,7 +2513,7 @@ springdoc.pathsToMatch=/v1, /api/balance/**</code></pre>
 <div class="ulist">
 <ul>
 <li>
-<p>If the swagger-ui is served behind a proxy:</p>
+<p>If the swagger-ui/scalar is served behind a proxy:</p>
 <div class="ulist">
 <ul>
 <li>

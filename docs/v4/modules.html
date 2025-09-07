@@ -171,7 +171,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <div class="sect2">
 <h3 id="_scalar_support"><a class="anchor" href="#_scalar_support"></a>Scalar support</h3>
 <div class="paragraph">
-<p><a href="https://swagger.io/tools/swagger-ui/">Scalar</a> Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
+<p><a href="https://scalar.com/">Scalar</a> is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications.
 It’s particularly aimed at improving the developer experience when exploring APIs.</p>
 </div>
 <div class="paragraph">
@@ -180,6 +180,22 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>The Swagger UI page will then be available at <code>http://server:port/context-path/scalar</code> and the OpenAPI description will be available at the following url for json format: <code>http://server:port/context-path/v3/api-docs</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>server: The server name or IP</p>
+</li>
+<li>
+<p>port: The server port</p>
+</li>
+<li>
+<p>context-path: The context path of the application</p>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p>If your project is using <code>spring-boot-starter-web</code> and you need the access to the swagger-ui, add the following dependency:</p>
 </li>
@@ -698,7 +714,7 @@ You can declare it in your project as follows:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-09-07 15:04:39 +0200
+Last updated 2025-09-07 17:07:48 +0200
 </div>
 </div>
 </div>

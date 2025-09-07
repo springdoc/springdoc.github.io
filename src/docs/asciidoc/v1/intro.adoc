@@ -13,6 +13,7 @@ This library supports:
 *  Spring-boot (v1, v2 and v3)
 *  JSR-303, specifically for @NotNull, @Min, @Max, and @Size.
 *  Swagger-ui
+*  Scalar
 *  OAuth 2
 *  GraalVM native images
 

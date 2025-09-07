@@ -22,7 +22,7 @@ This will automatically deploy swagger-ui to a spring-boot application:
 **  context-path: The context path of the application
 *   Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yaml
 
-TIP: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file: .
+TIP: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file.
 
 
 [source,properties]

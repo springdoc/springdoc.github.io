@@ -22,7 +22,7 @@ image::img/common.png[Architecture]
    </dependency>
 ----
 
-NOTE: This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui.
+NOTE: This dependency is relevant if you want to generate the OpenAPI description without using the swagger-ui or Scalar.
 
 TIP: For custom path of the OpenAPI documentation in Json format, add a custom springdoc property, in your spring-boot configuration file:
 
@@ -75,11 +75,16 @@ link:https://swagger.io/tools/swagger-ui/[Swagger UI] allows anyone — be it yo
 
 === Scalar support
 
-link:https://swagger.io/tools/swagger-ui/[Scalar] Scalar is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications. 
+link:https://scalar.com/[Scalar] is an open-source API platform, designed for creating beautiful, interactive API documentation and providing a built-in REST API client, with first-class support for OpenAPI (formerly Swagger) specifications. 
 It’s particularly aimed at improving the developer experience when exploring APIs.
 
 `springdoc-openapi` extends `Scalar` configuration to make it compatible with Spring Boot applications.
 You can rely on native Scalar configuration properties, using the prefix `scalar`, as explained in the link:https://guides.scalar.com/scalar/scalar-api-references/integrations/spring-boot#configuration-properties[Scalar documentation].
+
+*   The Swagger UI page will then be available at `\http://server:port/context-path/scalar` and the OpenAPI description will be available at the following url for json format: `\http://server:port/context-path/v3/api-docs`
+**  server: The server name or IP
+**  port: The server port
+**  context-path: The context path of the application
 
 *   If your project is using `spring-boot-starter-web` and you need the access to the swagger-ui, add the following dependency:
 
@@ -130,9 +135,7 @@ The projects that use `spring-boot-starter-data-rest` should use:
 The projects that use `spring-boot-starter-security` or `spring-security-oauth2-authorization-server`  should use:
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webmvc-ui`, if they depend on `spring-boot-starter-web` and they also need the access to the swagger-ui.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
-- OR `springdoc-openapi-starter-webflux-ui`, if they depend on `spring-boot-starter-webflux` and they also need the access to the swagger-ui.
 
 === Actuator support
 
@@ -147,13 +150,15 @@ Starting from the release `1.5.1`, it will be possible to expose the **swagger-u
 
 NOTE: The actuator management port has to be different from the application port.
 
-To expose the swagger-ui, on the management port, you should set
+To expose the swagger-ui and Scalar, on the management port, you should set
 
 [source,properties]
 ----
 springdoc.use-management-port=true
 # This property enables the openapi and swagger-ui endpoints to be exposed beneath the actuator base path.
 management.endpoints.web.exposure.include=openapi, swagger-ui
+# This property enables the openapi and scalar endpoints to be exposed beneath the actuator base path.
+management.endpoints.web.exposure.include=openapi, scalar
 ----
 
 Once enabled, you should also be able to see the springdoc-openapi endpoints under: (host and port depends on your settings)
@@ -161,7 +166,7 @@ Once enabled, you should also be able to see the springdoc-openapi endpoints und
 
 For example, if you have the following settings:
 
-Two endpoints will be available:
+These endpoints will be available:
 
 . REST API that holdes the OpenAPI definition:
 
@@ -171,22 +176,26 @@ Two endpoints will be available:
 
 - `\http://serverName:managementPort/actuator/swagger-ui`
 
+. Or An Endpoint, that routes to the scalar:
+
+- `\http://serverName:managementPort/actuator/scalar`
+
 [source,properties]
 ----
 management.server.port=9090
 ----
 
-For the example, you should also be able to see the springdoc-openapi endpoints:
+For the example, you should also be able to see the springdoc-openapi endpoints depending on the chosen UI:
 
 - `\http://serverName:9090/actuator`
-- `\http://serverName:9090/actuator/swagger-ui`
+- `\http://serverName:9090/actuator/swagger-ui` or `\http://serverName:9090/actuator/scalar`
 - `\http://serverName:9090/actuator/openapi`
 
 All the path `springdoc-openapi` properties are not applicable when `springdoc.use-management-port=true`.
 
-TIP: If you want to reach the application endpoints, from the swagger-ui deployed beneath the actuator base path, using a different port from your application, `CORS for your endpoints` on your application level should be enabled.
+TIP: If you want to reach the application endpoints, from the swagger-ui/scalar deployed beneath the actuator base path, using a different port from your application, `CORS for your endpoints` on your application level should be enabled.
 
-Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui.
+Additionally, it is also possible to combine this property, with the existing property to display the actuator endpoints in the swagger-ui/scalar.
 
 [source,properties]
 ----
@@ -201,9 +210,14 @@ The swagger-ui will be then accessible through the actuator port:
 
 - `\http://serverName:managementPort/actuator/swagger-ui`
 
+The scalar UI will be then accessible through the actuator port:
+
+- `\http://serverName:managementPort/actuator/scalar`
+
 If the management port is different from the application port and `springdoc.use-management-port` is not defined but `springdoc.show-actuator` is set to true:
 
 - The swagger-ui will be then accessible through the application port. For example: `\http://serverName:applicationPort/swagger-ui.html`
+- The scalar UI will be then accessible through the application port. For example: `\http://serverName:applicationPort/scalar`
 - A dedicated group for the actuator endpoints will be by default added.
 - If no group is defined for the application, a default one will be added.
 
