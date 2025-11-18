@@ -36,7 +36,7 @@
 |springdoc.swagger-ui.oauth.realm |  | `String`. realm query parameter (for OAuth 1) added to authorizationUrl and tokenUrl.
 |springdoc.swagger-ui.oauth.appName |  | `String`. OAuth application name, displayed in authorization popup.
 |springdoc.swagger-ui.oauth.scopeSeparator |  | `String`. OAuth scope separator for passing scopes, encoded before calling, default value is a space (encoded value %20).
-|springdoc.swagger-ui.oauth.scopes |  | string array or scope separator (i.e. space) separated string of initially selected oauth scopes, default is empty array
+|springdoc.swagger-ui.oauth.scopes |  | `List of Strings`. List of Strings or scope separator (i.e. space) separated string of initially selected oauth scopes, default is empty array.
 |springdoc.swagger-ui.csrf.enabled | `false` | `Boolean`. To enable CSRF support
 |springdoc.swagger-ui.csrf.use-local-storage | `false` | `Boolean`. To get the CSRF token from the Local Storage.
 |springdoc.swagger-ui.csrf.use-session-storage | `false` | `Boolean`. To get the CSRF token from the Session Storage.
