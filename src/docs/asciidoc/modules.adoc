@@ -68,7 +68,7 @@ link:https://swagger.io/tools/swagger-ui/[Swagger UI] allows anyone — be it yo
 ----
    <dependency>
       <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+      <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
       <version>{springdoc-version}</version>
    </dependency>
 ----
