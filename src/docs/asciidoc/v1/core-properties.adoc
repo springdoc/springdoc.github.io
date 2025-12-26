@@ -28,7 +28,6 @@
 |springdoc.group-configs[0].produces-to-match | `/*`| `List of Strings`.The list of produces mediaTypes to match (comma separated)
 |springdoc.group-configs[0].consumes-to-match | `/*`| `List of Strings`.The list of consumes mediaTypes to match (comma separated)
 |springdoc.group-configs[0].headers-to-match | `/*`| `List of Strings`.The list of headers to match (comma separated)
-|springdoc.webjars.prefix | `/webjars` |`String`, To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.
 |springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
 |springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 |springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.

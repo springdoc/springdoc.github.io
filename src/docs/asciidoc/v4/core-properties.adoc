@@ -28,7 +28,6 @@
 |springdoc.group-configs[0].produces-to-match | `/*`| `List of Strings`. The list of produces mediaTypes to match (comma separated)
 |springdoc.group-configs[0].consumes-to-match | `/*`| `List of Strings`. The list of consumes mediaTypes to match (comma separated)
 |springdoc.group-configs[0].headers-to-match | `/*`| `List of Strings`. The list of headers to match (comma separated)
-|springdoc.webjars.prefix | `/webjars` |`String`. To change the webjars prefix that is visible the URL of swagger-ui for spring-webflux.
 |springdoc.api-docs.resolve-schema-properties | `false` | `Boolean`. To enable  property resolver on @Schema (name, title and description).
 |springdoc.remove-broken-reference-definitions | `true` | `Boolean`. To disable removal of broken reference definitions.
 |springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
@@ -38,6 +37,7 @@
 |springdoc.model-converters.sort-converter.enabled | `true` | `Boolean`. To disable Sort converter.
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
 |springdoc.show-login-endpoint | `false` | `Boolean`. To make spring security login-endpoint visible.
+|springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
 |springdoc.pre-loading-locales  | | `List of Strings`. The list of locales to load OpenAPI on application startup (comma separated). If not specified, it will preload with the default Locale.
 |springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
 |springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
