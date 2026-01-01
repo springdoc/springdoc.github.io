@@ -514,7 +514,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <div class="content">
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
-      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
       &lt;version&gt;2.8.15&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
@@ -1895,6 +1895,11 @@ All these properties should be declared with the following prefix: <code>springd
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.scopeSeparator</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. OAuth scope separator for passing scopes, encoded before calling, default value is a space (encoded value %20).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.oauth.scopes</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>. List of Strings or scope separator (i.e. space) separated string of initially selected oauth scopes, default is empty array.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.swagger-ui.csrf.enabled</p></td>
