@@ -73,11 +73,11 @@ RouterFunction<?> routes() {
 
 Here is the link for some sample codes:
 
-- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/HelloRouter.java[HelloRouter]
-- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/quotes/QuotesRouter.java[QuotesRouter]
-- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/book/BookRouter.java[BookRouter]
-- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/employee/EmployeeRouter.java[EmployeeRouter]
-- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/app90/position/PositionRouter.java[PositionRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/v31/app90/HelloRouter.java[HelloRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/v31/app90/quotes/QuotesRouter.java[QuotesRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/v31/app90/book/BookRouter.java[BookRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/v31/app90/employee/EmployeeRouter.java[EmployeeRouter]
+- link:https://github.com/springdoc/springdoc-openapi/blob/master/springdoc-openapi-webflux-core/src/test/java/test/org/springdoc/api/v31/app90/position/PositionRouter.java[PositionRouter]
 
 And the Demo code, using the functional endpoints DSL:
 
