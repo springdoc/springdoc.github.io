@@ -34,6 +34,8 @@ include::v4/modules.adoc[]
 
 include::v4/features.adoc[]
 
+include::v4/mcp.adoc[]
+
 include::v4/properties.adoc[]
 
 include::v4/plugins.adoc[]

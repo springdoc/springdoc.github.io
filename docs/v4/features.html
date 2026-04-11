@@ -318,6 +318,84 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 </div>
 </div>
 <div class="sect2">
+<h3 id="_mcp_integration_ai_agent_support"><a class="anchor" href="#_mcp_integration_ai_agent_support"></a>MCP Integration (AI Agent Support)</h3>
+<div class="paragraph">
+<p><code>springdoc-openapi</code> provides built-in support for the <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener">Model Context Protocol (MCP)</a>, enabling your REST API endpoints to be automatically discovered and used as tools by AI agents.</p>
+</div>
+<div class="paragraph">
+<p>Key features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Auto-Discovery</strong>: Automatically turns your documented <code>@RestController</code> endpoints into AI Tools.</p>
+</li>
+<li>
+<p><strong>Semantic Mapping</strong>: Maps OpenAPI descriptions to AI tool metadata so LLMs understand context.</p>
+</li>
+<li>
+<p><strong>MCP Dashboard</strong>: Built-in web UI for discovering and testing MCP tools, with tools grouped by OpenAPI tags.</p>
+</li>
+<li>
+<p><strong>Agent Ready</strong>: Compatible with Claude Desktop, Cursor, and other MCP-enabled clients.</p>
+</li>
+<li>
+<p><strong>Customizable</strong>: Extension points to rename, redescribe, filter, or exclude tools.</p>
+</li>
+<li>
+<p><strong>AI-Optimized Descriptions</strong>: <code>@McpToolDescription</code> annotation for writing descriptions specifically for AI agents.</p>
+</li>
+<li>
+<p><strong>Tool Grouping</strong>: Tools are automatically organized by their <code>@Tag</code> annotation, matching how OpenAPI operations are grouped in Swagger UI.</p>
+</li>
+<li>
+<p><strong>Return Type Descriptions</strong>: Tool descriptions are enriched with human-readable return type information for better AI comprehension.</p>
+</li>
+<li>
+<p><strong>MCP Guardrails</strong>: Safe/mutating tool classification and Human-in-the-Loop (HITL) support&#8201;&#8212;&#8201;mutating operations require human approval before execution by default.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Add the dependency matching your web stack:</p>
+</div>
+<div class="paragraph">
+<p><strong>For Spring WebMvc:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webmvc-mcp&lt;/artifactId&gt;
+      &lt;version&gt;3.0.3&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>For Spring WebFlux:</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
+      &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+      &lt;artifactId&gt;springdoc-openapi-starter-webflux-mcp&lt;/artifactId&gt;
+      &lt;version&gt;3.0.3&lt;/version&gt;
+   &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then enable the integration:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.ai.mcp.enabled=true</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Your <code>@RestController</code> endpoints are now available as MCP tools. For detailed configuration, extension points, guardrails, and dashboard usage, see the <a href="#mcp">[mcp]</a> section.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_integration_with_wildfly"><a class="anchor" href="#_integration_with_wildfly"></a>Integration with WildFly</h3>
 <div class="ulist">
 <ul>
@@ -352,7 +430,7 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-02-27 00:55:54 +0100
+Last updated 2026-03-18 02:51:26 +0100
 </div>
 </div>
 </div>

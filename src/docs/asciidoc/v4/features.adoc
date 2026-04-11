@@ -166,6 +166,55 @@ And some project tests: (from app69 to app75)
 
 * link:https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api[Sample code with Functional Endpoints documentation, window="_blank"]
 
+=== MCP Integration (AI Agent Support)
+
+`springdoc-openapi` provides built-in support for the link:https://modelcontextprotocol.io/[Model Context Protocol (MCP), window="_blank"], enabling your REST API endpoints to be automatically discovered and used as tools by AI agents.
+
+Key features:
+
+- *Auto-Discovery*: Automatically turns your documented `@RestController` endpoints into AI Tools.
+- *Semantic Mapping*: Maps OpenAPI descriptions to AI tool metadata so LLMs understand context.
+- *MCP Dashboard*: Built-in web UI for discovering and testing MCP tools, with tools grouped by OpenAPI tags.
+- *Agent Ready*: Compatible with Claude Desktop, Cursor, and other MCP-enabled clients.
+- *Customizable*: Extension points to rename, redescribe, filter, or exclude tools.
+- *AI-Optimized Descriptions*: `@McpToolDescription` annotation for writing descriptions specifically for AI agents.
+- *Tool Grouping*: Tools are automatically organized by their `@Tag` annotation, matching how OpenAPI operations are grouped in Swagger UI.
+- *Return Type Descriptions*: Tool descriptions are enriched with human-readable return type information for better AI comprehension.
+- *MCP Guardrails*: Safe/mutating tool classification and Human-in-the-Loop (HITL) support -- mutating operations require human approval before execution by default.
+
+Add the dependency matching your web stack:
+
+*For Spring WebMvc:*
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-mcp</artifactId>
+      <version>{springdoc-upcoming-version}</version>
+   </dependency>
+----
+
+*For Spring WebFlux:*
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webflux-mcp</artifactId>
+      <version>{springdoc-upcoming-version}</version>
+   </dependency>
+----
+
+Then enable the integration:
+
+[source,properties]
+----
+springdoc.ai.mcp.enabled=true
+----
+
+Your `@RestController` endpoints are now available as MCP tools. For detailed configuration, extension points, guardrails, and dashboard usage, see the <<mcp>> section.
+
 === Integration with WildFly
 
 *   For WildFly users, you need to add the following dependency to make the swagger-ui work:
