@@ -60,7 +60,7 @@ public GroupedOpenApi groupOpenApi() {
 
 For more details about the usage, you can have a look at the following sample Test:
 
-* link:https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/v31/app68[https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/v31/app68, window="_blank"]
 
 === How can I configure Swagger UI?
 * The support of the swagger official properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
