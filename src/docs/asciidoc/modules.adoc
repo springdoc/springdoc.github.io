@@ -58,7 +58,7 @@ link:https://swagger.io/tools/swagger-ui/[Swagger UI] allows anyone — be it yo
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-      <version>{springdoc-version2}</version>
+      <version>{springdoc-version}</version>
    </dependency>
 ----
 
@@ -69,7 +69,7 @@ link:https://swagger.io/tools/swagger-ui/[Swagger UI] allows anyone — be it yo
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
-      <version>{springdoc-version2}</version>
+      <version>{springdoc-version}</version>
    </dependency>
 ----
 
@@ -93,7 +93,7 @@ You can rely on native Scalar configuration properties, using the prefix `scalar
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webmvc-scalar</artifactId>
-      <version>{springdoc-version2}</version>
+      <version>{springdoc-version}</version>
    </dependency>
 ----
 
@@ -104,7 +104,7 @@ You can rely on native Scalar configuration properties, using the prefix `scalar
    <dependency>
       <groupId>org.springdoc</groupId>
       <artifactId>springdoc-openapi-starter-webflux-scalar</artifactId>
-      <version>{springdoc-version2}</version>
+      <version>{springdoc-version}</version>
    </dependency>
 ----
 
