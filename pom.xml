@@ -9,9 +9,9 @@
 	<version>3.1.2-SNAPSHOT</version>
 
 	<properties>
-		<springdoc.version>2.8.17</springdoc.version>
+		<springdoc.version2>2.8.17</springdoc.version2>
 		<springdoc-legacy.version>1.8.0</springdoc-legacy.version>
-		<springdoc-upcoming.version>3.0.3</springdoc-upcoming.version>
+		<springdoc.version>3.0.3</springdoc.version>
 		<java.version>1.8</java.version>
 		<refdocs.build.directory>${project.basedir}/docs</refdocs.build.directory>
 		<spring-doc-resources.version>0.2.5</spring-doc-resources.version>
@@ -57,8 +57,8 @@
 				<configuration>
 					<attributes>
 						<springdoc-version>${springdoc.version}</springdoc-version>
+						<springdoc-version2>${springdoc.version2}</springdoc-version2>
 						<springdoc-legacy-version>${springdoc-legacy.version}</springdoc-legacy-version>
-						<springdoc-upcoming-version>${springdoc-upcoming.version}</springdoc-upcoming-version>
 					</attributes>
 				</configuration>
 				<executions>
@@ -107,10 +107,36 @@
 									<directory>src/docs/asciidoc/img</directory>
 								</resource>
 								<resource>
-									<targetPath>${refdocs.build.directory}/v4/img</targetPath>
+									<targetPath>${refdocs.build.directory}/v2/img</targetPath>
 									<directory>src/docs/asciidoc/img</directory>
 								</resource>
 							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<!-- Inject SEO/social meta tags into the root index.html only (for indexing).
+					     Runs after the asciidoctor plugin in the generate-resources phase.
+					     The tags live in src/docs/seo/index-head.html (single source of truth)
+					     and must not be applied to the archived v1/v2 index pages. -->
+					<execution>
+						<id>inject-root-seo-meta</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<loadfile property="seo.head" srcFile="src/docs/seo/index-head.html"/>
+								<replace file="${refdocs.build.directory}/index.html"
+										 token="&lt;title&gt;springdoc-openapi v${springdoc.version}&lt;/title&gt;"
+										 value="${seo.head}${line.separator}&lt;title&gt;springdoc-openapi v${springdoc.version}&lt;/title&gt;"/>
+							</target>
 						</configuration>
 					</execution>
 				</executions>

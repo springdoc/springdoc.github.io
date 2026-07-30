@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>Untitled</title>
+<title>springdoc-openapi MCP properties</title>
 <link rel="stylesheet" href="css/site.css">
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
@@ -231,7 +231,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.use-management-port</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui/scalar on the actuator management port.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui on the actuator management port.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.disable-i18n</p></td>
@@ -330,10 +330,89 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="_springdoc_openapi_mcp_properties"><a class="anchor" href="#_springdoc_openapi_mcp_properties"></a>springdoc-openapi MCP properties</h3>
+<div class="paragraph">
+<p>All properties are under the <code>springdoc.ai.mcp</code> prefix. These properties require the <code>springdoc-openapi-starter-webmvc-mcp</code> or <code>springdoc-openapi-starter-webflux-mcp</code> dependency.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter name</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable the MCP tool integration.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.base-url</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>http://localhost:8080</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Base URL for tool execution HTTP calls. If not set, defaults to <code>http://localhost:{server.port}</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.init-timeout-seconds</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code>. Timeout in seconds waiting for the OpenAPI spec at startup.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.paths-to-exclude</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>. List of ant patterns for paths to exclude from MCP tool generation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.mcp-endpoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/mcp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The MCP server endpoint path.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.dashboard-enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable the MCP Developer Dashboard UI.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.dashboard-path</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/mcp-ui</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The dashboard UI mount path.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. When <code>true</code>, calling a mutating tool (POST/PUT/DELETE/PATCH) via MCP returns an approval-required response instead of executing the HTTP call.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.guardrails.safe-methods</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET,HEAD,OPTIONS</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>. Comma-separated list of HTTP methods considered safe (read-only). All other methods are treated as mutating.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When MCP is enabled, <code>springdoc.pre-loading-enabled</code> is automatically forced to <code>true</code> by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-02-28 15:35:27 +0100
+Last updated 2026-07-30 23:56:58 +0200
 </div>
 </div>
 </div>

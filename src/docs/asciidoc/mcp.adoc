@@ -1,0 +1,299 @@
+[[mcp]]
+== MCP Support
+
+`springdoc-openapi` provides integration with the link:https://modelcontextprotocol.io/[Model Context Protocol (MCP), window="_blank"], bridging your REST API with AI Agents using link:https://docs.spring.io/spring-ai/reference/[Spring AI, window="_blank"].
+
+This integration automatically turns your documented `@RestController` endpoints into AI Tools, making them discoverable and callable by MCP-enabled clients such as Claude Desktop, Cursor, and other AI agents.
+
+=== Modules
+
+|===
+|Module | Description
+
+|`springdoc-openapi-starter-common-mcp` | Core engine: properties, tool callbacks, schema converter, customizers, annotations, MCP dashboard controller, and frontend assets.
+|`springdoc-openapi-starter-webmvc-mcp` | WebMvc integration: static resource configurer, servlet API version strategy, `@McpToolDescription` scanning, and dashboard initializer.
+|`springdoc-openapi-starter-webflux-mcp` | WebFlux integration: reactive resource configurer, reactive API version strategy, `@McpToolDescription` scanning, and dashboard initializer.
+|===
+
+=== Getting Started
+
+Add the dependency matching your web stack:
+
+*For WebMvc (Spring MVC / Servlet):*
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-mcp</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+*For WebFlux (Reactive):*
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webflux-mcp</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+Enable the integration in your `application.properties`:
+
+[source,properties]
+----
+springdoc.ai.mcp.enabled=true
+----
+
+That's it. Your `@RestController` endpoints are now available as MCP tools. AI agents connecting to your MCP server will automatically discover them.
+
+NOTE: When MCP is enabled, `springdoc.pre-loading-enabled` is automatically forced to `true` by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
+
+=== How It Works
+
+1. At startup, springdoc scans your `@RestController` endpoints and builds the OpenAPI specification (pre-loading is forced automatically).
+2. Each OpenAPI operation is converted into a `ToolCallback` with:
+   - A *name* derived from the `operationId` (converted to `snake_case` for better LLM tokenization, e.g., `getUserById` becomes `get_user_by_id`).
+   - A *description* from `summary`/`description`, enriched with return type information (e.g., "Returns User (id, name, email)").
+   - A *JSON Schema* input schema from parameters and request body.
+   - A *group* from the first `@Tag` annotation on the controller.
+3. The customizer chain runs on each tool definition, applying `@McpToolDescription` annotations first, then any user-registered `McpToolCustomizer` beans.
+4. AI agents connect to the MCP server, discover the available tools, and can invoke your API endpoints directly.
+5. When an MCP server (`McpSyncServer`) is present, tools are registered dynamically after all singletons are instantiated via a deferred registration mechanism to avoid startup deadlocks.
+
+=== MCP Guardrails
+
+Guardrails protect your API from unintended mutations triggered by AI agents. Two complementary safety features are built in:
+
+==== Safe vs. Mutating Classification
+
+Every MCP tool is automatically classified based on its HTTP method:
+
+|===
+|Classification | HTTP Methods
+
+|*Safe* (read-only) | `GET`, `HEAD`, `OPTIONS` (configurable via `guardrails.safe-methods`)
+|*Mutating* | `POST`, `PUT`, `DELETE`, `PATCH`, and any other method
+|===
+
+Individual endpoints can override this classification by calling `context.setSafeEndpoint(Boolean)` inside a `McpToolCustomizer` bean, which takes precedence over the global `safe-methods` list.
+
+==== Human-in-the-Loop (HITL)
+
+When `require-approval-for-mutating-tools` is `true` (the default), calling a mutating tool through the MCP protocol does *not* execute the underlying HTTP request. Instead, the agent receives a structured JSON response:
+
+[source,json]
+----
+{
+  "requires_human_approval": true,
+  "tool_name": "create_book",
+  "http_method": "POST",
+  "path": "/books",
+  "arguments": { "title": "...", "author": "..." },
+  "message": "This mutating operation (POST /books) requires human approval before execution."
+}
+----
+
+The AI agent is expected to relay this to the user, who can then confirm or reject the action.
+
+To allow AI agents to call mutating tools freely (e.g., in a trusted internal environment):
+
+[source,properties]
+----
+springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools=false
+----
+
+=== Extension Points
+
+==== McpToolCustomizer
+
+Register a `McpToolCustomizer` bean to modify the tool name, description, or input schema for any operation. Return `null` to exclude a tool entirely. Multiple customizers are applied in order.
+
+[source,java]
+----
+@Bean
+McpToolCustomizer rewriteDescriptions() {
+    return (context, path, method, operation) -> {
+        // Rename a tool
+        if ("listUsers".equals(context.getName())) {
+            context.setName("fetchAllUsers");
+        }
+        // Rewrite a description
+        if ("getUserById".equals(context.getName())) {
+            context.setDescription("Look up a single user by their unique ID");
+        }
+        // Exclude a tool by returning null
+        if (path.startsWith("/internal")) {
+            return null;
+        }
+        return context;
+    };
+}
+----
+
+The `McpToolDefinitionContext` passed to each customizer exposes:
+
+|===
+|Getter / Setter | Description
+
+|`getName()` / `setName(String)` | The tool name (defaults to the `operationId`).
+|`getDescription()` / `setDescription(String)` | The tool description shown to AI agents.
+|`getInputSchema()` / `setInputSchema(String)` | The JSON Schema string for tool input.
+|`isExclude()` / `setExclude(boolean)` | Set to `true` to drop this endpoint from the MCP tool list entirely. Preferred over returning `null`.
+|`getSafeEndpoint()` / `setSafeEndpoint(Boolean)` | Override the safe/mutating classification for this endpoint. `true` = safe, `false` = mutating, `null` = use global `safe-methods` config (default).
+|===
+
+*Excluding endpoints* via `context.setExclude(true)`:
+
+[source,java]
+----
+@Bean
+McpToolCustomizer excludeDeleteAndInternal() {
+    return (context, path, method, operation) -> {
+        if (method == PathItem.HttpMethod.DELETE || path.startsWith("/internal")) {
+            context.setExclude(true);
+        }
+        return context;
+    };
+}
+----
+
+*Per-endpoint safety override* via `context.setSafeEndpoint(Boolean)`:
+
+[source,java]
+----
+@Bean
+McpToolCustomizer overrideSafety() {
+    return (context, path, method, operation) -> {
+        // Treat POST /reports/generate as safe (read-only despite POST method)
+        if (method == PathItem.HttpMethod.POST && "/reports/generate".equals(path)) {
+            context.setSafeEndpoint(true);
+        }
+        // Treat GET /cache/invalidate as mutating despite GET method
+        else if (method == PathItem.HttpMethod.GET && "/cache/invalidate".equals(path)) {
+            context.setSafeEndpoint(false);
+        }
+        return context;
+    };
+}
+----
+
+==== @McpToolDescription Annotation
+
+Place `@McpToolDescription` on a controller method to provide an AI-optimized description that overrides the OpenAPI `summary`/`description` in the MCP tool definition. Optionally override the tool name.
+
+[source,java]
+----
+@GetMapping("/orders/{id}")
+@Operation(summary = "Get an order by ID", operationId = "getOrderById")
+@McpToolDescription(value = "Look up a single order by its unique identifier",
+        name = "findOrder")
+public Order getOrderById(@PathVariable String id) { ... }
+----
+
+|===
+|Attribute | Required | Description
+
+|`value` | yes | AI-optimized description for the tool.
+|`name` | no | Tool name override. When empty, the `operationId` is used.
+|===
+
+The built-in `McpToolDescriptionCustomizer` reads these annotations and runs at `Ordered.HIGHEST_PRECEDENCE`, so user-registered `McpToolCustomizer` beans can further modify the annotation-provided values.
+
+=== Tool Grouping
+
+Tools in the MCP dashboard are automatically organized into groups:
+
+- *OpenAPI-generated tools* are grouped by their first `@Tag` annotation. For example, a controller annotated with `@Tag(name = "Users")` will have all its operations grouped under "Users".
+- *Native MCP tools* (from `@McpTool`/`@Tool` annotated methods) are grouped under `"mcp-tools"`.
+- *Tools without a tag* appear under "Other" in the dashboard.
+
+[source,java]
+----
+@RestController
+@Tag(name = "Users")
+public class UserController {
+
+    @GetMapping("/users")
+    @Operation(operationId = "listUsers")
+    public List<User> listUsers() { ... }     // group: "Users"
+
+    @GetMapping("/users/{id}")
+    @Operation(operationId = "getUserById")
+    public User getUserById(@PathVariable String id) { ... }  // group: "Users"
+}
+
+@RestController
+@Tag(name = "Products")
+public class ProductController {
+
+    @GetMapping("/products")
+    @Operation(operationId = "listProducts")
+    public List<Product> listProducts() { ... }  // group: "Products"
+}
+----
+
+=== MCP Dashboard
+
+The built-in MCP Developer Dashboard is a web UI served at the configured `dashboard-path` (default: `/mcp-ui`). Enable it with:
+
+[source,properties]
+----
+springdoc.ai.mcp.dashboard-enabled=true
+----
+
+It provides:
+
+- *Tool Discovery*: Lists all registered MCP tools grouped by their OpenAPI tags, with names, descriptions, HTTP methods, paths, and input schemas.
+- *Tool Execution*: Execute any tool directly from the browser with JSON input, view response body, status code, and execution duration.
+- *Guardrail Indicators*: Mutating tools that require human approval are marked with an amber warning badge in the tool list. Executing a blocked tool shows an `Approval Required` response.
+- *Header Forwarding*: Authentication headers (e.g., `Authorization`, API keys) are automatically forwarded from the dashboard to the underlying API calls.
+- *Security Settings*: Configure authentication credentials (Bearer tokens, Basic auth, API keys) in the dashboard UI.
+- *Multi-Source Support*: Discovers tools from both `ToolCallbackProvider` beans (OpenAPI-backed tools) and `McpSyncServer` tool specifications (`@McpTool` annotated methods).
+- *cURL Export*: Copy tool invocations as cURL commands for use outside the dashboard.
+- *Latency Attribution*: The audit tab displays a stacked latency bar per tool call with a tooltip showing the full breakdown.
+- *Payload Size & Token Impact*: Trace viewer tabs show byte sizes and estimated token counts for MCP arguments, request bodies, and response bodies. Responses larger than 2 KB trigger an orange warning suggesting lightweight DTOs to reduce context window usage.
+
+==== Dashboard Endpoints
+
+The dashboard REST API is served at `/api/mcp-admin`:
+
+|===
+|Method | Path | Description
+
+|`GET` | `/api/mcp-admin/tools` | Lists all available MCP tools (includes `group` field).
+|`POST` | `/api/mcp-admin/tools/execute` | Executes a tool by name with JSON arguments.
+|===
+
+==== Audit Logging
+
+Every MCP tool execution produces a structured JSON audit event logged at `INFO` level to the `org.springdoc.ai.mcp.audit` logger. When the dashboard is active, events are also stored in-memory for the audit tab.
+
+=== Schema Conversion
+
+The `OpenApiSchemaConverter` translates OpenAPI operations into JSON Schema suitable for AI tool input. It handles:
+
+- *Parameters*: Path, query, and header parameters with types, descriptions, and required markers.
+- *Undeclared Path Variables*: Detects `{var}` in path templates not declared as parameters and adds them as required string properties.
+- *Request Body*: Mapped as a `body` property; supports `$ref` resolution and multiple media types (prefers `application/json`).
+- *Composed Schemas*: `allOf` (merged), `anyOf`, `oneOf` composition keywords.
+- *Nested Objects*: Recursive property processing with circular reference detection.
+- *Validation Constraints*: `pattern`, `minimum`/`maximum`, `exclusiveMinimum`/`exclusiveMaximum`, `minLength`/`maxLength`, `minItems`/`maxItems`, `multipleOf`, `enum`, `default`.
+- *Response Descriptions*: Appends a human-readable return type description (e.g., "Returns an array of User (id, name, email)") to the tool description.
+
+++++
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-8127371937306964"
+     data-ad-slot="6163211104"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+++++

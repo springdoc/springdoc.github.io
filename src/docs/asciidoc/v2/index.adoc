@@ -1,0 +1,57 @@
+= springdoc-openapi v{springdoc-version2}
+include::v2/_attributes.adoc[]
+
+IMPORTANT: ``springdoc-openapi v1.8.0 `` is the latest Open Source release supporting Spring Boot 2.x and 1.x. +
+An extended support for https://springdoc.org/v1[*springdoc-openapi v1*] project is now available for organizations that need support beyond 2023. +
+For more details, feel free to reach out: sales@springdoc.org
+
+`springdoc-openapi` is on link:https://opencollective.com/springdoc[Open Collective, window="_blank"]. If you ❤️ this project consider becoming a link:https://github.com/sponsors/springdoc[sponsor, window="_blank"].
+
+This project is sponsored by
+++++
+        <p style="text-align: center;">
+          <a href="https://opensource.mercedes-benz.com/" target="_blank">
+           <img src="img/mercedes-benz.png" height="10%" width="10%" />
+          </a>&nbsp;&nbsp;
+          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
+            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
+           </a>
+          <a href="https://www.contrastsecurity.com/" target="_blank">
+		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
+		  </a>
+          <a href="https://www.lvm.de/" target="_blank">
+		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="25%" />
+		  </a>
+          <a href="https://gdnext.com/" target="_blank">
+		   <img src="img/gdnext.png" height="10%" width="10%" />
+		  </a>
+        </p>
+++++
+
+link:https://github.com/springdoc/springdoc-openapi[View project on GitHub, window="_blank"] image:img/github-logo.png[link="https://github.com/springdoc/springdoc-openapi"]
+
+include::v2/intro.adoc[]
+
+include::v2/getting-started.adoc[]
+
+include::v2/modules.adoc[]
+
+include::v2/features.adoc[]
+
+include::v2/properties.adoc[]
+
+include::v2/plugins.adoc[]
+
+include::v2/demos.adoc[]
+
+include::v2/migrating-from-springdoc-v1.adoc[]
+
+include::v2/migrating-from-springfox.adoc[]
+
+include::v2/other-resources.adoc[]
+
+include::v2/sponsor.adoc[]
+
+include::v2/thanks.adoc[]
+
+include::v2/faq.adoc[]

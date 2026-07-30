@@ -60,7 +60,7 @@ public GroupedOpenApi groupOpenApi() {
 
 For more details about the usage, you can have a look at the following sample Test:
 
-* link:https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/main/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi/tree/spring-boot-4/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68[https://github.com/springdoc/springdoc-openapi/tree/spring-boot-4/springdoc-openapi-tests/springdoc-openapi-actuator-webmvc-tests/src/test/java/test/org/springdoc/api/app68, window="_blank"]
 
 === How can I configure Swagger UI?
 * The support of the swagger official properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
@@ -163,6 +163,8 @@ fun swaggerUiConfig(config: SwaggerUiConfigProperties): SwaggerUiConfigPropertie
 
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
+
+
 
 === Is there a Gradle plugin available?
 * Yes. More details are available, in the link:https://springdoc.org/#gradle-plugin[gradle plugin] section.
@@ -312,12 +314,12 @@ springdoc.swagger-ui.path= /swagger-ui/api-docs.html
 
 === How can I test the Swagger UI?
 * You can have a look on this sample test of the UI:
-** link:https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java[https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webmvc-ui/src/test/java/test/org/springdoc/ui/app1/SpringDocApp1Test.java, window="_blank"]
 
 === How can I customise the OpenAPI object ?
 * You can write your own implementation of `OpenApiCustomizer`.
 * An example is available on:
-** link:https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java[https://github.com/springdoc/springdoc-openapi/blob/main/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
+** link:https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java[https://github.com/springdoc/springdoc-openapi/blob/spring-boot-4/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api/app39/SpringDocTestApp.java, window="_blank"]
 
 [source,java]
 ----
@@ -1063,7 +1065,7 @@ spring.mvc.servlet.path=/my-servlet-path
 ----
 
 === What is the compatibility matrix of `springdoc-openapi` with `spring-boot` ?
-`springdoc-openapi 2.x` is compatible with `spring-boot 3`.
+`springdoc-openapi 3.x` is compatible with `spring-boot 4`.
 
 In general, **you should only pick the last stable version as per today {springdoc-version}.**
 
@@ -1071,20 +1073,7 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 
 |===
 | Spring Boot Versions | Springdoc OpenAPI Versions
-|`4.x.x` | `3.x.x`
-|`3.5.x` | `2.8.x`
-|`3.4.x` | `2.7.x` - `2.8.x`
-|`3.3.x` | `2.6.x`
-|`3.2.x` | `2.3.x` - `2.5.x`
-|`3.1.x` | `2.2.x`
-|`3.0.x` | `2.0.x` - `2.1.x`
-|`2.7.x`, `1.5.x` | `1.6.0`+
-|`2.6.x`, `1.5.x` | `1.6.0`+
-|`2.5.x`, `1.5.x` | `1.5.9`+
-|`2.4.x`, `1.5.x` | `1.5.0`+
-|`2.3.x`, `1.5.x` | `1.4.0`+
-|`2.2.x`, `1.5.x` | `1.2.1`+
-|`2.0.x`, `1.5.x` | `1.0.0`+
+|`4.0.x` | `3.0.x` 
 
 |===
 

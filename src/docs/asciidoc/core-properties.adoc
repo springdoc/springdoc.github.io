@@ -40,7 +40,7 @@
 |springdoc.pre-loading-enabled  | `false` | `Boolean`. Pre-loading setting to load OpenAPI on application startup.
 |springdoc.pre-loading-locales  | | `List of Strings`. The list of locales to load OpenAPI on application startup (comma separated). If not specified, it will preload with the default Locale.
 |springdoc.writer-with-order-by-keys | `false` | `Boolean`. Enable a deterministic/alphabetical ordering.
-|springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui/scalar on the actuator management port.
+|springdoc.use-management-port | `false` | `Boolean`. To expose the swagger-ui on the actuator management port.
 |springdoc.disable-i18n | `false` | `Boolean`. To disable automatic translation using i18n.
 |springdoc.show-spring-cloud-functions | `true` |  `Boolean`. To display the spring-cloud-function web endpoints.
 |springdoc.enable-groovy | `true` |  `Boolean`. To enable Groovy support.
@@ -61,4 +61,24 @@
 |springdoc.explicit-object-schema | `false` | `Boolean`. Set explicit-object-schema to `true` to always include `type: object` in the schema, or to `false` to omit `type: object`.
 |springdoc.use-arbitrary-schemas | `false` | `Boolean`. When set to `true`, schemas without a defined type will be deserialized as an `ArbitrarySchema` (with no type), instead of an `ObjectSchema` with `type: object`.
 |===
+
+=== springdoc-openapi MCP properties
+
+All properties are under the `springdoc.ai.mcp` prefix. These properties require the `springdoc-openapi-starter-webmvc-mcp` or `springdoc-openapi-starter-webflux-mcp` dependency.
+
+|===
+|Parameter name | Default Value | Description
+
+|springdoc.ai.mcp.enabled | `true` | `Boolean`. Enable the MCP tool integration.
+|springdoc.ai.mcp.base-url | `\http://localhost:8080` | `String`. Base URL for tool execution HTTP calls. If not set, defaults to `\http://localhost:{server.port}`.
+|springdoc.ai.mcp.init-timeout-seconds | `30` | `Integer`. Timeout in seconds waiting for the OpenAPI spec at startup.
+|springdoc.ai.mcp.paths-to-exclude | | `List of Strings`. List of ant patterns for paths to exclude from MCP tool generation.
+|springdoc.ai.mcp.mcp-endpoint | `/mcp` | `String`. The MCP server endpoint path.
+|springdoc.ai.mcp.dashboard-enabled | `false` | `Boolean`. Enable the MCP Developer Dashboard UI.
+|springdoc.ai.mcp.dashboard-path | `/mcp-ui` | `String`. The dashboard UI mount path.
+|springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools | `true` | `Boolean`. When `true`, calling a mutating tool (POST/PUT/DELETE/PATCH) via MCP returns an approval-required response instead of executing the HTTP call.
+|springdoc.ai.mcp.guardrails.safe-methods | `GET,HEAD,OPTIONS` | `List of Strings`. Comma-separated list of HTTP methods considered safe (read-only). All other methods are treated as mutating.
+|===
+
+NOTE: When MCP is enabled, `springdoc.pre-loading-enabled` is automatically forced to `true` by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
 

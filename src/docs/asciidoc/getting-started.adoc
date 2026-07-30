@@ -3,6 +3,7 @@
 
 For the integration between spring-boot and swagger-ui, add the library to the list of your project dependencies (No additional configuration is needed)
 
+=== Maven
 [source,xml, subs="attributes+"]
 ----
    <dependency>
@@ -12,6 +13,16 @@ For the integration between spring-boot and swagger-ui, add the library to the l
    </dependency>
 ----
 
+=== Gradle 
+[source,gradle, subs="attributes+"]
+implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:{springdoc-version}'
+
+
+For example, using version 2.8.11:
+[source,gradle]
+----
+implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.11'
+----
 
 This will automatically deploy swagger-ui to a spring-boot application:
 
@@ -22,7 +33,7 @@ This will automatically deploy swagger-ui to a spring-boot application:
 **  context-path: The context path of the application
 *   Documentation will be available in yaml format as well, on the following path : /v3/api-docs.yaml
 
-TIP: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file.
+TIP: For custom path of the swagger documentation in HTML format, add a custom springdoc property, in your spring-boot configuration file: .
 
 
 [source,properties]

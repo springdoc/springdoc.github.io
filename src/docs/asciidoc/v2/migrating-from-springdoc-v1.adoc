@@ -1,0 +1,56 @@
+[[migrating-from-springdoc-v1]]
+== Migrating from springdoc-openapi v1
+
+All the modules have been renamed.
+`springdoc-openapi-starter-common` integrates many spring modules support in order to hide the maximum of complexity.
+It allows the support out of the box for `Actuator` / `Spring Cloud Function` / `Spring Data Rest`/ `Spring Native`/ `Spring Hateoas` / `Spring Securtiy` / `Kotlin`/ `Javadoc`.
+
+The following table describes the main modules changes:
+
+|===
+|springdoc-openapi-v1 | springdoc-openapi-v2 | Description
+
+|`springdoc-openapi-common` |`springdoc-openapi-starter-common`  | Includes foundation `springdoc-openapi` features
+|`springdoc-openapi-data-rest` | `springdoc-openapi-starter-common` | For Spring Data Rest support
+|`springdoc-openapi-groovy` | `springdoc-openapi-starter-common` | For Groovy support
+|`springdoc-openapi-hateoas` | `springdoc-openapi-starter-common` | For Spring Hateoas support
+|`springdoc-openapi-javadoc` | `springdoc-openapi-starter-common` | For Javadoc support
+|`springdoc-openapi-kotlin`| `springdoc-openapi-starter-common` | For Kotlin support
+|`springdoc-openapi-security` | `springdoc-openapi-starter-common` | For Spring Security support
+|`springdoc-openapi-webmvc-core`| `springdoc-openapi-starter-webmvc-api` | For Spring WebMvc support
+|`springdoc-openapi-webflux-core` | `springdoc-openapi-starter-webflux-api` | For Spring WebFlux support
+|`springdoc-openapi-ui` | `springdoc-openapi-starter-webmvc-ui` | For using the Swagger-UI in a Spring WebMvc context
+|`springdoc-openapi-webflux-ui` | `springdoc-openapi-starter-webflux-ui` | For using the Swagger-UI in a Spring WebFlux context
+|===
+
+IMPORTANT: classes/annotations changes
+
+|===
+|springdoc-openapi-v1 | springdoc-openapi-v2
+
+|`org.springdoc.core.SpringDocUtils` | `org.springdoc.core.utils.SpringDocUtils`
+|`org.springdoc.api.annotations.ParameterObject` | `org.springdoc.core.annotations.ParameterObject`
+|`org.springdoc.core.GroupedOpenApi` | `org.springdoc.core.models.GroupedOpenApi`
+|`org.springdoc.core.customizers.OpenApiCustomiser` | `org.springdoc.core.customizers.OpenApiCustomizer`
+|`org.springdoc.core.Constants` | `org.springdoc.core.utils.Constants`
+|`org.springdoc.core.SwaggerUiConfigParameters` | `org.springdoc.core.properties.SwaggerUiConfigParameters`
+|===
+
+TIP: Migration tips
+
+The following modules are not anymore needed and can be removed:
+
+- `springdoc-openapi-javadoc`
+- `springdoc-openapi-kotlin`
+- `springdoc-openapi-data-rest`
+- `springdoc-openapi-security`
+- `springdoc-openapi-webmvc-core`
+- `springdoc-openapi-webflux-core`
+- `springdoc-openapi-hateoas`
+- `springdoc-openapi-groovy`
+
+In addition:
+
+* Replace `springdoc-openapi-ui` by `springdoc-openapi-starter-webmvc-ui`
+* Replace `springdoc-openapi-webflux-ui` by `springdoc-openapi-starter-webflux-ui`
+

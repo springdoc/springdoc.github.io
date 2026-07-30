@@ -81,7 +81,7 @@ Here is the link for some sample codes:
 
 And the Demo code, using the functional endpoints DSL:
 
-- link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional[Sample webflux application using functional DSL]
+- link:https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-boot-webflux-functional[Sample webflux application using functional DSL]
 
 Since version `v1.3.8`, the support of functional endpoints has been added.
 Two main annotations have been added for this purpose: `@RouterOperations` and `@RouterOperation`.
@@ -160,11 +160,60 @@ For that, `@RouterOperation` fields must help identify uniquely the concerned ro
 
 Some code samples are available on GITHUB of demos:
 
-* link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-boot-3-webflux-functional[Sample application with Functional Endpoints documentation, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-boot-webflux-functional[Sample application with Functional Endpoints documentation, window="_blank"]
 
 And some project tests: (from app69 to app75)
 
 * link:https://github.com/springdoc/springdoc-openapi/tree/master/springdoc-openapi-starter-webflux-api/src/test/java/test/org/springdoc/api[Sample code with Functional Endpoints documentation, window="_blank"]
+
+=== MCP Integration (AI Agent Support)
+
+`springdoc-openapi` provides built-in support for the link:https://modelcontextprotocol.io/[Model Context Protocol (MCP), window="_blank"], enabling your REST API endpoints to be automatically discovered and used as tools by AI agents.
+
+Key features:
+
+- *Auto-Discovery*: Automatically turns your documented `@RestController` endpoints into AI Tools.
+- *Semantic Mapping*: Maps OpenAPI descriptions to AI tool metadata so LLMs understand context.
+- *MCP Dashboard*: Built-in web UI for discovering and testing MCP tools, with tools grouped by OpenAPI tags.
+- *Agent Ready*: Compatible with Claude Desktop, Cursor, and other MCP-enabled clients.
+- *Customizable*: Extension points to rename, redescribe, filter, or exclude tools.
+- *AI-Optimized Descriptions*: `@McpToolDescription` annotation for writing descriptions specifically for AI agents.
+- *Tool Grouping*: Tools are automatically organized by their `@Tag` annotation, matching how OpenAPI operations are grouped in Swagger UI.
+- *Return Type Descriptions*: Tool descriptions are enriched with human-readable return type information for better AI comprehension.
+- *MCP Guardrails*: Safe/mutating tool classification and Human-in-the-Loop (HITL) support -- mutating operations require human approval before execution by default.
+
+Add the dependency matching your web stack:
+
+*For Spring WebMvc:*
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webmvc-mcp</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+*For Spring WebFlux:*
+
+[source,xml, subs="attributes+"]
+----
+   <dependency>
+      <groupId>org.springdoc</groupId>
+      <artifactId>springdoc-openapi-starter-webflux-mcp</artifactId>
+      <version>{springdoc-version}</version>
+   </dependency>
+----
+
+Then enable the integration:
+
+[source,properties]
+----
+springdoc.ai.mcp.enabled=true
+----
+
+Your `@RestController` endpoints are now available as MCP tools. For detailed configuration, extension points, guardrails, and dashboard usage, see the <<mcp>> section.
 
 === Integration with WildFly
 
