@@ -90,7 +90,11 @@
 				<executions>
 					<execution>
 						<id>copy-resource-one</id>
-						<phase>process-resources</phase>
+						<!-- Bound to generate-resources (after the asciidoctor plugin, which is declared
+						     earlier in this build) so the springdoc images overwrite the backend's theme
+						     assets and every version directory (root, v1, v2) gets the full image set even
+						     when the build is invoked with the generate-resources goal. -->
+						<phase>generate-resources</phase>
 						<goals>
 							<goal>copy-resources</goal>
 						</goals>
