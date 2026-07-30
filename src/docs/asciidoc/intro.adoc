@@ -21,8 +21,8 @@ This library supports:
 The following video introduces the Library:
 
 
-[link=https://youtu.be/ondlnm5ZoFM?t=9,window=_blank]
-image::img/spring-io-24.png[spring.io conference]
+[link=https://www.youtube.com/watch?v=nfIcjkR4KZ8,window=_blank]
+image::img/spring-io-26.png[spring.io conference]
 
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).
