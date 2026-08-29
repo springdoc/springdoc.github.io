@@ -1,3 +1,12 @@
+ifndef::springdoc-aggregate[]
+= Getting Started with springdoc-openapi
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+endif::[]
+
 [[getting-started]]
 == Getting Started
 
@@ -43,10 +52,8 @@ springdoc.swagger-ui.path=/swagger-ui.html
 ----
 
 ++++
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-     crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
+     style="display:block; text-align:center; min-height:280px;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8127371937306964"

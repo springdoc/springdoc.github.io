@@ -1,3 +1,4 @@
+:springdoc-aggregate:
 :doctype: book
 :idprefix:
 :idseparator: -

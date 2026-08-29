@@ -59,6 +59,10 @@
 						<springdoc-version>${springdoc.version}</springdoc-version>
 						<springdoc-version2>${springdoc.version2}</springdoc-version2>
 						<springdoc-legacy-version>${springdoc-legacy.version}</springdoc-legacy-version>
+						<!-- Applies to every document, not just the three index pages: it is what lets the
+						     standalone pages pick up docinfo.html (analytics) and their own
+						     <page>-docinfo.html (title, description, canonical, structured data). -->
+						<docinfo>shared,private</docinfo>
 					</attributes>
 				</configuration>
 				<executions>
@@ -124,22 +128,51 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>3.1.0</version>
 				<executions>
-					<!-- Inject SEO/social meta tags into the root index.html only (for indexing).
-					     Runs after the asciidoctor plugin in the generate-resources phase.
-					     The tags live in src/docs/seo/index-head.html (single source of truth)
-					     and must not be applied to the archived v1/v2 index pages. -->
+					<!-- Every other page gets its SEO head from an Asciidoctor docinfo file. The three
+					     index pages cannot: their <title> is derived from the document title, which is
+					     also the visible <h1>, so the search-friendly title has to be swapped in here. -->
 					<execution>
-						<id>inject-root-seo-meta</id>
+						<id>rewrite-index-titles</id>
 						<phase>generate-resources</phase>
 						<goals>
 							<goal>run</goal>
 						</goals>
 						<configuration>
 							<target>
-								<loadfile property="seo.head" srcFile="src/docs/seo/index-head.html"/>
 								<replace file="${refdocs.build.directory}/index.html"
 										 token="&lt;title&gt;springdoc-openapi v${springdoc.version}&lt;/title&gt;"
-										 value="${seo.head}${line.separator}&lt;title&gt;springdoc-openapi v${springdoc.version}&lt;/title&gt;"/>
+										 value="&lt;title&gt;springdoc-openapi &amp;#8212; OpenAPI 3 &amp;amp; Swagger UI for Spring Boot&lt;/title&gt;"/>
+								<replace file="${refdocs.build.directory}/v2/index.html"
+										 token="&lt;title&gt;springdoc-openapi v${springdoc.version2}&lt;/title&gt;"
+										 value="&lt;title&gt;springdoc-openapi v2 &amp;#8212; OpenAPI 3 for Spring Boot 3&lt;/title&gt;"/>
+								<replace file="${refdocs.build.directory}/v1/index.html"
+										 token="&lt;title&gt;springdoc-openapi v${springdoc-legacy.version}&lt;/title&gt;"
+										 value="&lt;title&gt;springdoc-openapi v1 &amp;#8212; OpenAPI 3 for Spring Boot 2&lt;/title&gt;"/>
+							</target>
+						</configuration>
+					</execution>
+					<!-- The spring-html backend unconditionally copies its own asset bundle into every
+					     output directory. Font Awesome (fonts/ + css/font-awesome.css) and the three
+					     sourcemaps are never referenced by any generated page - site.css declares no
+					     @font-face and draws its icons from img/octicons-16.svg - so they are ~1.6 MB
+					     of dead weight per version directory. Delete them after every build. -->
+					<execution>
+						<id>delete-unreferenced-assets</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<delete includeemptydirs="true">
+									<fileset dir="${refdocs.build.directory}">
+										<include name="fonts/**"/>
+										<include name="v1/fonts/**"/>
+										<include name="v2/fonts/**"/>
+										<include name="**/css/font-awesome.css"/>
+										<include name="**/*.map"/>
+									</fileset>
+								</delete>
 							</target>
 						</configuration>
 					</execution>

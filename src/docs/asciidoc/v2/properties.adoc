@@ -1,3 +1,16 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi Configuration Properties (v2)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v2
+
+IMPORTANT: You are reading the documentation for *springdoc-openapi v2* (Spring Boot 3.x). See the https://springdoc.org[current springdoc-openapi documentation] for the latest release.
+endif::[]
+
+:springdoc-aggregate:
 [[properties]]
 == Springdoc-openapi Properties
 

@@ -1,3 +1,15 @@
+ifndef::springdoc-aggregate[]
+= Privacy Policy (v1)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v1
+
+IMPORTANT: You are reading the archived documentation for *springdoc-openapi v1* (Spring Boot 1.x and 2.x), which is no longer maintained. See the https://springdoc.org[current springdoc-openapi documentation] for supported releases.
+endif::[]
+
 Privacy Policy
 
 Within the entire Springdoc organization and while accessing the website www.springdoc.org, your privacy is one of our fundamental commitments, and therefore, we take utmost care to process your personal data in accordance with the principles set forth in the applicable legislation, including without limitation the General Data Protection Regulation no. 679/2016 (“GDPR”).

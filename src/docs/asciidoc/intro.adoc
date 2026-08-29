@@ -1,3 +1,12 @@
+ifndef::springdoc-aggregate[]
+= Introduction to springdoc-openapi
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+endif::[]
+
 [[Introduction]]
 == Introduction
 
@@ -22,7 +31,7 @@ The following video introduces the Library:
 
 
 [link=https://www.youtube.com/watch?v=nfIcjkR4KZ8,window=_blank]
-image::img/spring-io-26.png[spring.io conference]
+image::img/spring-io-26.webp[springdoc-openapi talk at the Spring I/O 2026 conference,1200,702]
 
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).

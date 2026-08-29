@@ -1,8 +1,17 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi Modules
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+endif::[]
+
 [[modules]]
 == Springdoc-openapi Modules
 
 === General overview
-image::img/archi-springdoc.png[Architecture]
+image::img/archi-springdoc.webp[springdoc-openapi module architecture overview,1600,760]
 
 === Spring WebMvc support
 

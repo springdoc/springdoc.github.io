@@ -1,3 +1,5 @@
+:docinfodir: v2
+:springdoc-aggregate:
 :doctype: book
 :idprefix:
 :idseparator: -

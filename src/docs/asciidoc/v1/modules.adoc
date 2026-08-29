@@ -1,8 +1,20 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi Modules (v1)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v1
+
+IMPORTANT: You are reading the archived documentation for *springdoc-openapi v1* (Spring Boot 1.x and 2.x), which is no longer maintained. See the https://springdoc.org[current springdoc-openapi documentation] for supported releases.
+endif::[]
+
 [[modules]]
 == Springdoc-openapi Modules
 
 === General overview
-image::img/common.jpg[Architecture]
+image::img/common-v1.webp[springdoc-openapi v1 module architecture overview,1200,442]
 
 === Spring WebMvc support
 

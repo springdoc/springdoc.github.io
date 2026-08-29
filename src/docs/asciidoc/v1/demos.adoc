@@ -1,3 +1,15 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi Live Demos (v1)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v1
+
+IMPORTANT: You are reading the archived documentation for *springdoc-openapi v1* (Spring Boot 1.x and 2.x), which is no longer maintained. See the https://springdoc.org[current springdoc-openapi documentation] for supported releases.
+endif::[]
+
 [[demos]]
 == Springdoc-openapi Demos
 
@@ -11,7 +23,7 @@
 * link:https://demos1.springdoc.org/spring-cloud-function-webmvc[Demo Spring Boot 2 and Spring Cloud Function Web MVC, window="_blank"]
 * link:https://demos1.springdoc.org/spring-cloud-function-webflux/swagger-ui.html[Demo Spring Boot 2 and Spring Cloud Function WebFlux, window="_blank"]
 
-image::img/pets.png[pets.png]
+image::img/pets.webp[Swagger UI rendering the Pet Store OpenAPI demo,1200,555]
 
 === Source code of the Demo Applications
 *   link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]

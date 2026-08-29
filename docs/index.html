@@ -5,24 +5,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<meta name="author" content="OpenAPI 3 Library for spring-boot By Badr NASS LAHSEN">
-<title>OpenAPI 3 Library for spring-boot</title>
-<meta property="og:title" content="OpenAPI 3 Library for spring-boot" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="OpenAPI 3 Library for spring boot projects. Is based on swagger-ui, to display the OpenAPI description.Generates automatically the OpenAPI file." />
-<meta property="og:description" content="Library for OpenAPI 3 with spring boot projects. Is based on swagger-ui, to display the OpenAPI description.Generates automatically the OpenAPI file." />
-<link rel="canonical" href="http://springdoc.org/" />
-<meta property="og:url" content="http://springdoc.org/" />
-<meta property="og:site_name" content="OpenAPI 3 Library for spring-boot" />
-<meta property="og:image" content="https://springdoc.org/img/banner-logo.svg" />
-<meta name="author" content="Library for OpenAPI 3 with spring-boot By Badr NASS LAHSEN">
-<title>springdoc-openapi v3.1.0</title>
+<title>springdoc-openapi &#8212; OpenAPI 3 &amp; Swagger UI for Spring Boot</title>
 <link rel="stylesheet" href="css/site.css">
 <style>
     #header #revnumber {
         display: none
     }
+    /* reserve the ad slot so filling it cannot push the article down */
+    ins.adsbygoogle { min-height: 280px }
 </style>
+
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#6db33f">
+<link rel="icon" href="https://springdoc.org/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="https://springdoc.org/img/springdoc/springdoc-favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="springdoc-openapi">
+<meta property="og:image" content="https://springdoc.org/img/og-springdoc.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="springdoc-openapi - OpenAPI 3 and Swagger UI for Spring Boot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://springdoc.org/img/og-springdoc.png">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
@@ -33,6 +39,44 @@
 
     gtag('config', 'G-1GEGWXWNH4');
 </script>
+<meta name="description" content="springdoc-openapi generates OpenAPI 3 documentation and serves Swagger UI for Spring Boot applications automatically, from your controllers, annotations and constraints.">
+<link rel="canonical" href="https://springdoc.org/">
+<meta property="og:title" content="springdoc-openapi - OpenAPI 3 &amp; Swagger UI for Spring Boot">
+<meta property="og:description" content="springdoc-openapi generates OpenAPI 3 documentation and serves Swagger UI for Spring Boot applications automatically, from your controllers, annotations and constraints.">
+<meta property="og:url" content="https://springdoc.org/">
+<meta name="twitter:title" content="springdoc-openapi - OpenAPI 3 &amp; Swagger UI for Spring Boot">
+<meta name="twitter:description" content="springdoc-openapi generates OpenAPI 3 documentation and serves Swagger UI for Spring Boot applications automatically, from your controllers, annotations and constraints.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "springdoc-openapi",
+  "description": "springdoc-openapi generates OpenAPI 3 documentation and serves Swagger UI for Spring Boot applications automatically, from your controllers, annotations and constraints.",
+  "url": "https://springdoc.org/",
+  "codeRepository": "https://github.com/springdoc/springdoc-openapi",
+  "programmingLanguage": "Java",
+  "runtimePlatform": "Spring Boot 4",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "author": {
+    "@type": "Organization",
+    "name": "springdoc",
+    "url": "https://github.com/springdoc"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "springdoc-openapi",
+  "url": "https://springdoc.org/"
+}
+</script>
+
+<!-- Loaded once per page here; the article body only carries the <ins> slots. -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964" crossorigin="anonymous"></script>
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
 </head>
@@ -266,23 +310,23 @@ Looking for an older release? Documentation for <a href="https://springdoc.org/v
 <div class="paragraph">
 <p>This project is sponsored by</p>
 </div>
-        <p style="text-align: center;">
-          <a href="https://opensource.mercedes-benz.com/" target="_blank">
-           <img src="img/mercedes-benz.png" height="10%" width="10%" />
-          </a>&nbsp;&nbsp;
-          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
-            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
-           </a>
-          <a href="https://www.contrastsecurity.com/" target="_blank">
-		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
-		  </a>
-          <a href="https://www.lvm.de/" target="_blank">
-		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="25%" />
-		  </a>
-          <a href="https://gdnext.com/" target="_blank">
-		   <img src="img/gdnext.png" height="10%" width="10%" />
-		  </a>
-        </p>
+<p class="sponsor-logos" style="text-align:center;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.75rem">
+  <a href="https://opensource.mercedes-benz.com/" target="_blank" rel="noopener">
+    <img src="img/mercedes-benz.webp" alt="Mercedes-Benz — springdoc-openapi sponsor" width="72" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&amp;wt_mc=.display.github.sponsoring.logo" target="_blank" rel="noopener">
+    <img src="img/dmTECH_Logo.webp" alt="dmTECH — springdoc-openapi sponsor" width="72" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.contrastsecurity.com/" target="_blank" rel="noopener">
+    <img src="img/contrastsecurity.svg" alt="Contrast Security — springdoc-openapi sponsor" width="200" height="48" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.lvm.de/" target="_blank" rel="noopener">
+    <img src="img/lvm-logo.webp" alt="LVM Versicherung — springdoc-openapi sponsor" width="164" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://gdnext.com/" target="_blank" rel="noopener">
+    <img src="img/gdnext.webp" alt="GDNext — springdoc-openapi sponsor" width="135" height="47" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+</p>
 <div class="paragraph">
 <p><a href="https://github.com/springdoc/springdoc-openapi" target="_blank" rel="noopener">View project on GitHub</a> <span class="image"><a class="image" href="https://github.com/springdoc/springdoc-openapi"><img src="img/github-logo.png" alt="github logo"></a></span></p>
 </div>
@@ -332,7 +376,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 </div>
 <div class="imageblock">
 <div class="content">
-<a class="image" href="https://www.youtube.com/watch?v=nfIcjkR4KZ8" target="_blank" rel="noopener"><img src="img/spring-io-26.png" alt="spring.io conference"></a>
+<a class="image" href="https://www.youtube.com/watch?v=nfIcjkR4KZ8" target="_blank" rel="noopener"><img src="img/spring-io-26.webp" alt="springdoc-openapi talk at the Spring I/O 2026 conference" width="1200" height="702"></a>
 </div>
 </div>
 <div class="paragraph">
@@ -420,10 +464,8 @@ For custom path of the swagger documentation in HTML format, add a custom spring
 springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 </div>
 </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-     crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
+     style="display:block; text-align:center; min-height:280px;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8127371937306964"
@@ -441,7 +483,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <h3 id="general-overview"><a class="anchor" href="#general-overview"></a>3.1. General overview</h3>
 <div class="imageblock">
 <div class="content">
-<img src="img/archi-springdoc.png" alt="Architecture">
+<img src="img/archi-springdoc.webp" alt="springdoc-openapi module architecture overview" width="1600" height="760">
 </div>
 </div>
 </div>
@@ -1538,10 +1580,8 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-     crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
+     style="display:block; text-align:center; min-height:280px;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8127371937306964"
@@ -2058,10 +2098,8 @@ public class ProductController {
 </li>
 </ul>
 </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-     crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
+     style="display:block; text-align:center; min-height:280px;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8127371937306964"
@@ -2726,10 +2764,8 @@ All these properties should be declared with the following prefix: <code>springd
 </tr>
 </tbody>
 </table>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-     crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
+     style="display:block; text-align:center; min-height:280px;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8127371937306964"
@@ -2891,7 +2927,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="img/pets.png" alt="pets.png">
+<img src="img/pets.webp" alt="Swagger UI rendering the Pet Store OpenAPI demo" width="1200" height="555">
 </div>
 </div>
 </div>
@@ -2904,10 +2940,8 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </li>
 </ul>
 </div>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964"
-     crossorigin="anonymous"></script>
 <ins class="adsbygoogle"
-     style="display:block; text-align:center;"
+     style="display:block; text-align:center; min-height:280px;"
      data-ad-layout="in-article"
      data-ad-format="fluid"
      data-ad-client="ca-pub-8127371937306964"
@@ -3178,23 +3212,23 @@ The artifacts can be viewed accessed at the following locations:</p>
 <div class="paragraph">
 <p>Thank you to our bronze sponsors!</p>
 </div>
-        <p style="text-align: center;">
-          <a href="https://opensource.mercedes-benz.com/" target="_blank">
-           <img src="img/mercedes-benz.png" height="10%" width="10%" />
-          </a>&nbsp;&nbsp;
-          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
-            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
-           </a>
-          <a href="https://www.contrastsecurity.com/" target="_blank">
-		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
-		  </a>
-         <a href="https://www.lvm.de/" target="_blank">
-		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="25%" />
-		  </a>
-         <a href="https://gdnext.com/" target="_blank">
-		   <img src="img/gdnext.png" height="10%" width="10%" />
-		  </a>
-        </p>
+<p class="sponsor-logos" style="text-align:center;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.75rem">
+  <a href="https://opensource.mercedes-benz.com/" target="_blank" rel="noopener">
+    <img src="img/mercedes-benz.webp" alt="Mercedes-Benz — springdoc-openapi sponsor" width="72" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&amp;wt_mc=.display.github.sponsoring.logo" target="_blank" rel="noopener">
+    <img src="img/dmTECH_Logo.webp" alt="dmTECH — springdoc-openapi sponsor" width="72" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.contrastsecurity.com/" target="_blank" rel="noopener">
+    <img src="img/contrastsecurity.svg" alt="Contrast Security — springdoc-openapi sponsor" width="200" height="48" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.lvm.de/" target="_blank" rel="noopener">
+    <img src="img/lvm-logo.webp" alt="LVM Versicherung — springdoc-openapi sponsor" width="164" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://gdnext.com/" target="_blank" rel="noopener">
+    <img src="img/gdnext.webp" alt="GDNext — springdoc-openapi sponsor" width="135" height="47" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+</p>
 <div class="sect2">
 <h3 id="benefits-of-being-a-bronze-sponsor"><a class="anchor" href="#benefits-of-being-a-bronze-sponsor"></a>11.1. Benefits of being a bronze sponsor</h3>
 <div class="paragraph">
@@ -5114,7 +5148,7 @@ public class OpenApiConfig {
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="img/static_content_transformation.png" alt="Illustrative example">
+<img src="img/static_content_transformation.webp" alt="Diagram: springdoc-openapi static content transformation" width="680" height="320">
 </div>
 </div>
 </div>
@@ -5320,7 +5354,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-07-31 00:02:31 +0200
+Last updated 2026-08-29 20:40:15 +0200
 </div>
 </div>
 </div>

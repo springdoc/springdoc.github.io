@@ -1,3 +1,15 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi FAQ (v2)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v2
+
+IMPORTANT: You are reading the documentation for *springdoc-openapi v2* (Spring Boot 3.x). See the https://springdoc.org[current springdoc-openapi documentation] for the latest release.
+endif::[]
+
 [[faq]]
 == F.A.Q
 
@@ -974,7 +986,7 @@ public class OpenApiConfig {
 
 Illustrative example
 
-image::img/static_content_transformation.png[Illustrative example]
+image::img/static_content_transformation.webp[Diagram: springdoc-openapi static content transformation,680,320]
 
 === Is GraalVM supported ?
 The native support available added in spring-boot 3.

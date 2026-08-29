@@ -1,3 +1,15 @@
+ifndef::springdoc-aggregate[]
+= Migrating from springdoc-openapi v1 (v2)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v2
+
+IMPORTANT: You are reading the documentation for *springdoc-openapi v2* (Spring Boot 3.x). See the https://springdoc.org[current springdoc-openapi documentation] for the latest release.
+endif::[]
+
 [[migrating-from-springdoc-v1]]
 == Migrating from springdoc-openapi v1
 

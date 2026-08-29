@@ -5,12 +5,99 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>Getting Started</title>
+<title>Getting Started with springdoc-openapi (v1)</title>
 <link rel="stylesheet" href="css/site.css">
+<style>
+    #header #revnumber {
+        display: none
+    }
+    /* reserve the ad slot so filling it cannot push the article down */
+    ins.adsbygoogle { min-height: 280px }
+</style>
+
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="theme-color" content="#6db33f">
+<link rel="icon" href="https://springdoc.org/v1/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="https://springdoc.org/v1/img/springdoc/springdoc-favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="springdoc-openapi">
+<meta property="og:image" content="https://springdoc.org/img/og-springdoc.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="springdoc-openapi - OpenAPI 3 and Swagger UI for Spring Boot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://springdoc.org/img/og-springdoc.png">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1GEGWXWNH4"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-1GEGWXWNH4');
+</script>
+<meta name="description" content="springdoc-openapi v1 docs (Spring Boot 2.x). Add springdoc-openapi to a Spring Boot project with one Maven or Gradle dependency and get /v3/api-docs and Swagger UI with no extra configuration.">
+<link rel="canonical" href="https://springdoc.org/v1/getting-started.html">
+<meta property="og:title" content="Getting Started - springdoc-openapi (v1)">
+<meta property="og:description" content="springdoc-openapi v1 docs (Spring Boot 2.x). Add springdoc-openapi to a Spring Boot project with one Maven or Gradle dependency and get /v3/api-docs and Swagger UI with no extra configuration.">
+<meta property="og:url" content="https://springdoc.org/v1/getting-started.html">
+<meta name="twitter:title" content="Getting Started - springdoc-openapi (v1)">
+<meta name="twitter:description" content="springdoc-openapi v1 docs (Spring Boot 2.x). Add springdoc-openapi to a Spring Boot project with one Maven or Gradle dependency and get /v3/api-docs and Swagger UI with no extra configuration.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Getting Started - springdoc-openapi (v1)",
+  "description": "springdoc-openapi v1 docs (Spring Boot 2.x). Add springdoc-openapi to a Spring Boot project with one Maven or Gradle dependency and get /v3/api-docs and Swagger UI with no extra configuration.",
+  "url": "https://springdoc.org/v1/getting-started.html",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "springdoc-openapi",
+    "url": "https://springdoc.org/"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "springdoc",
+    "url": "https://github.com/springdoc"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "springdoc-openapi",
+      "item": "https://springdoc.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "v1",
+      "item": "https://springdoc.org/v1/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Getting Started",
+      "item": "https://springdoc.org/v1/getting-started.html"
+    }
+  ]
+}
+</script>
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
 </head>
-<body class="article"><div id="banner-container" class="container" role="banner">
+<body class="article toc2 toc-left"><div id="banner-container" class="container" role="banner">
   <div id="banner" class="contained" role="banner">
     <div id="switch-theme">
       <input type="checkbox" id="switch-theme-checkbox" />
@@ -27,8 +114,31 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
+<h1>Getting Started with springdoc-openapi (v1)</h1>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<span id="back-to-index"><a href="index.html">Back to index</a></span><ul class="sectlevel1">
+<li><a href="#getting-started">Getting Started</a></li>
+</ul>
+</div>
 </div>
 <div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You are reading the archived documentation for <strong>springdoc-openapi v1</strong> (Spring Boot 1.x and 2.x), which is no longer maintained. See the <a href="https://springdoc.org">current springdoc-openapi documentation</a> for supported releases.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 <div class="sect1">
 <h2 id="getting-started"><a class="anchor" href="#getting-started"></a>Getting Started</h2>
 <div class="sectionbody">
@@ -96,7 +206,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-05-04 17:47:09 +0200
+Last updated 2026-08-29 20:55:24 +0200
 </div>
 </div>
 </div>

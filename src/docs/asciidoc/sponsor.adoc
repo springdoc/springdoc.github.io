@@ -1,3 +1,12 @@
+ifndef::springdoc-aggregate[]
+= Sponsor springdoc-openapi
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+endif::[]
+
 [[sponsor]]
 == Sponsor
 
@@ -9,23 +18,23 @@ This money is used to cover project expenses and your donation will help the pro
 
 Thank you to our bronze sponsors!
 ++++
-        <p style="text-align: center;">
-          <a href="https://opensource.mercedes-benz.com/" target="_blank">
-           <img src="img/mercedes-benz.png" height="10%" width="10%" />
-          </a>&nbsp;&nbsp;
-          <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&wt_mc=.display.github.sponsoring.logo" target="_blank">
-            <img src="img/dmTECH_Logo.jpg" height="10%" width="10%" />
-           </a>
-          <a href="https://www.contrastsecurity.com/" target="_blank">
-		   <img src="img/contrastsecurity.svg" height="10%" width="30%" />
-		  </a>
-         <a href="https://www.lvm.de/" target="_blank">
-		   <img src="img/LVM_Versicherung_2010_logo.svg.png" height="10%" width="25%" />
-		  </a>
-         <a href="https://gdnext.com/" target="_blank">
-		   <img src="img/gdnext.png" height="10%" width="10%" />
-		  </a>
-        </p>
+<p class="sponsor-logos" style="text-align:center;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.75rem">
+  <a href="https://opensource.mercedes-benz.com/" target="_blank" rel="noopener">
+    <img src="img/mercedes-benz.webp" alt="Mercedes-Benz — springdoc-openapi sponsor" width="72" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.dm-jobs.com/dmTECH/?locale=de_DE&amp;wt_mc=.display.github.sponsoring.logo" target="_blank" rel="noopener">
+    <img src="img/dmTECH_Logo.webp" alt="dmTECH — springdoc-openapi sponsor" width="72" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.contrastsecurity.com/" target="_blank" rel="noopener">
+    <img src="img/contrastsecurity.svg" alt="Contrast Security — springdoc-openapi sponsor" width="200" height="48" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://www.lvm.de/" target="_blank" rel="noopener">
+    <img src="img/lvm-logo.webp" alt="LVM Versicherung — springdoc-openapi sponsor" width="164" height="72" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+  <a href="https://gdnext.com/" target="_blank" rel="noopener">
+    <img src="img/gdnext.webp" alt="GDNext — springdoc-openapi sponsor" width="135" height="47" loading="lazy" decoding="async" style="max-width:100%;height:auto">
+  </a>
+</p>
 ++++
 
 === Benefits of being a bronze sponsor

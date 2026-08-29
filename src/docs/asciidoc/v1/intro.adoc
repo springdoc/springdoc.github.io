@@ -1,3 +1,15 @@
+ifndef::springdoc-aggregate[]
+= Introduction to springdoc-openapi (v1)
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+:docinfodir: v1
+
+IMPORTANT: You are reading the archived documentation for *springdoc-openapi v1* (Spring Boot 1.x and 2.x), which is no longer maintained. See the https://springdoc.org[current springdoc-openapi documentation] for supported releases.
+endif::[]
+
 [[Introduction]]
 == Introduction
 
@@ -20,7 +32,7 @@ This library supports:
 The following video introduces the Library:
 
 [link=https://youtu.be/utRxyPfFlDw,window=_blank]
-image::img/springdoc-openapi-prez.gif[spring.io conference]
+image::img/springdoc-openapi-prez.webp[springdoc-openapi presentation,520,292]
 
 
 This is a community-based project, not maintained by the Spring Framework Contributors (Pivotal).

@@ -1,3 +1,13 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi Configuration Properties
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+endif::[]
+
+:springdoc-aggregate:
 [[properties]]
 == Springdoc-openapi Properties
 

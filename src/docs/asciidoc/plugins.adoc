@@ -1,3 +1,12 @@
+ifndef::springdoc-aggregate[]
+= springdoc-openapi Maven and Gradle Plugins
+:toc: left
+:toclevels: 3
+:sectanchors:
+:icons: font
+:hide-uri-scheme:
+endif::[]
+
 [[plugins]]
 == Springdoc-openapi Plugins
 
