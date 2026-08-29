@@ -1,0 +1,5 @@
+# https://springdoc.org - reference documentation for springdoc-openapi
+User-agent: *
+Allow: /
+
+Sitemap: https://springdoc.org/sitemap.xml
