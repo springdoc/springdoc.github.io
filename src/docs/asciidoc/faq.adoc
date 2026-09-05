@@ -513,6 +513,11 @@ public OpenAPI customOpenAPI() {
 ----
 springdoc.cache.disabled= true
 ----
+* One description is cached per requested locale (`Accept-Language`). Since `v3.1.1` the number of cached descriptions is bounded, and can be tuned with:
+[source,properties]
+----
+springdoc.cache.max-entries= 100
+----
 
 === How can I expose the mvc api-docs endpoints without using the `swagger-ui`?
 * You should use the `springdoc-openapi-core` dependency only:
