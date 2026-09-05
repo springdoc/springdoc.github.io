@@ -24,6 +24,7 @@ endif::[]
 |springdoc.default-consumes-media-type | `application/json` | `String`. The default consumes media type.
 |springdoc.default-produces-media-type | `\*/*` | `String`. The default produces media type.
 |springdoc.cache.disabled | `false` | `Boolean`. To disable the springdoc-openapi cache of the calculated OpenAPI.
+|springdoc.cache.max-entries | `100` | `Integer`. The maximum number of OpenAPI descriptions kept in the cache. One entry is cached per requested locale (`Accept-Language`); the least recently used entry is evicted once the limit is reached.
 |springdoc.show-actuator | `false` |  `Boolean`. To display the actuator endpoints.
 |springdoc.auto-tag-classes | `true` | `Boolean`. To disable the springdoc-openapi automatic tags.
 |springdoc.model-and-view-allowed | `false` | `Boolean`. To allow RestControllers with ModelAndView return to appear in the OpenAPI description.
@@ -78,7 +79,7 @@ All properties are under the `springdoc.ai.mcp` prefix. These properties require
 |===
 |Parameter name | Default Value | Description
 
-|springdoc.ai.mcp.enabled | `true` | `Boolean`. Enable the MCP tool integration.
+|springdoc.ai.mcp.enabled | `false` | `Boolean`. Enable the MCP tool integration. Since `v3.1.1`, the MCP surface is opt-in: nothing is registered unless this property is explicitly set to `true`.
 |springdoc.ai.mcp.base-url | `\http://localhost:8080` | `String`. Base URL for tool execution HTTP calls. If not set, defaults to `\http://localhost:{server.port}`.
 |springdoc.ai.mcp.init-timeout-seconds | `30` | `Integer`. Timeout in seconds waiting for the OpenAPI spec at startup.
 |springdoc.ai.mcp.paths-to-exclude | | `List of Strings`. List of ant patterns for paths to exclude from MCP tool generation.
@@ -87,7 +88,10 @@ All properties are under the `springdoc.ai.mcp` prefix. These properties require
 |springdoc.ai.mcp.dashboard-path | `/mcp-ui` | `String`. The dashboard UI mount path.
 |springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools | `true` | `Boolean`. When `true`, calling a mutating tool (POST/PUT/DELETE/PATCH) via MCP returns an approval-required response instead of executing the HTTP call.
 |springdoc.ai.mcp.guardrails.safe-methods | `GET,HEAD,OPTIONS` | `List of Strings`. Comma-separated list of HTTP methods considered safe (read-only). All other methods are treated as mutating.
+|springdoc.ai.mcp.audit.redact | `true` | `Boolean`. When `true`, values carried by secret-shaped keys (`authorization`, `password`, `token`, `api-key`, `cookie`, …) are masked in the audit event before it is logged or stored for the dashboard.
 |===
 
 NOTE: When MCP is enabled, `springdoc.pre-loading-enabled` is automatically forced to `true` by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
+
+WARNING: The MCP endpoints (`/mcp`, `/mcp-ui` and `/api/mcp-admin/**`) are integration surfaces, exactly like `/swagger-ui`: they provide no authentication or authorization of their own and must be secured by your application. In particular, `springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools` is a human-in-the-loop confirmation step, not an access-control boundary.
 

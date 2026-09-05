@@ -50,7 +50,7 @@ Add the dependency matching your web stack:
    </dependency>
 ----
 
-Enable the integration in your `application.properties`:
+The integration is *opt-in*: adding the dependency alone registers nothing. Enable it explicitly in your `application.properties`:
 
 [source,properties]
 ----
@@ -60,6 +60,23 @@ springdoc.ai.mcp.enabled=true
 That's it. Your `@RestController` endpoints are now available as MCP tools. AI agents connecting to your MCP server will automatically discover them.
 
 NOTE: When MCP is enabled, `springdoc.pre-loading-enabled` is automatically forced to `true` by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
+
+IMPORTANT: Since `v3.1.1`, `springdoc.ai.mcp.enabled` defaults to `false` and no MCP bean, endpoint or dashboard is registered until you set it to `true`. Previously, adding the starter was enough to expose `/mcp`.
+
+==== Securing the MCP endpoints
+
+The MCP endpoints - `/mcp`, the dashboard at `/mcp-ui` and its REST API at `/api/mcp-admin/**` - are integration surfaces, exactly like `/swagger-ui`. *They provide no authentication or authorization of their own*: they let an MCP client discover and invoke your API endpoints, so securing them is your application's responsibility, for example with Spring Security.
+
+[source,java]
+----
+@Bean
+SecurityFilterChain mcpSecurity(HttpSecurity http) throws Exception {
+    return http.securityMatcher("/mcp", "/mcp-ui/**", "/api/mcp-admin/**")
+            .authorizeHttpRequests(requests -> requests.anyRequest().hasRole("MCP_ADMIN"))
+            .httpBasic(Customizer.withDefaults())
+            .build();
+}
+----
 
 === How It Works
 
@@ -91,6 +108,8 @@ Every MCP tool is automatically classified based on its HTTP method:
 Individual endpoints can override this classification by calling `context.setSafeEndpoint(Boolean)` inside a `McpToolCustomizer` bean, which takes precedence over the global `safe-methods` list.
 
 ==== Human-in-the-Loop (HITL)
+
+WARNING: HITL is a *confirmation step, not an authorization control*. It gives a human operator the chance to review a mutating tool call before it runs. It does not authenticate or authorize the caller, and it is not designed to withstand a caller that deliberately confirms its own call: whoever can reach the MCP endpoint can also complete the confirmation - by repeating the call through `/mcp`, or by sending `approved: true` to `/api/mcp-admin/tools/execute`. Do not use it as an access-control boundary; secure `/mcp` and `/api/mcp-admin/**` in your application instead.
 
 When `require-approval-for-mutating-tools` is `true` (the default), calling a mutating tool through the MCP protocol does *not* execute the underlying HTTP request. Instead, the agent receives a structured JSON response:
 
@@ -280,6 +299,13 @@ The dashboard REST API is served at `/api/mcp-admin`:
 ==== Audit Logging
 
 Every MCP tool execution produces a structured JSON audit event logged at `INFO` level to the `org.springdoc.ai.mcp.audit` logger. When the dashboard is active, events are also stored in-memory for the audit tab.
+
+Since `v3.1.1`, values carried by secret-shaped keys (`authorization`, `password`, `token`, `api-key`, `secret`, `cookie`, …) are masked in the audit event - in the tool arguments, the request URL query string, and the request and response bodies - before it is logged or stored. Turn the masking off only if your audit sink is itself a trusted, access-controlled store:
+
+[source,properties]
+----
+springdoc.ai.mcp.audit.redact=false
+----
 
 === Schema Conversion
 

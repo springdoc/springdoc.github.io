@@ -117,6 +117,13 @@ You can rely on native Scalar configuration properties, using the prefix `scalar
    </dependency>
 ----
 
+NOTE: Since `v3.1.1`, the Scalar starters no longer register a `ForwardedHeaderFilter` (Web MVC) or a `ForwardedHeaderTransformer` (WebFlux). Adding the starter therefore no longer makes the whole application trust the `Forwarded` and `X-Forwarded-*` headers of every caller. If your application runs behind a trusted reverse proxy and the Scalar page must be rendered with the external host, enable Spring Boot's own support instead:
+
+[source,properties]
+----
+server.forward-headers-strategy=framework
+----
+
 === MCP support
 
 `springdoc-openapi` provides MCP (Model Context Protocol) integration modules that automatically expose your REST API endpoints as AI tools. For detailed usage and configuration, see the <<mcp>> section.
