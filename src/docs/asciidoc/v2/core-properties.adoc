@@ -27,6 +27,7 @@ endif::[]
 |springdoc.default-consumes-media-type | `application/json` | `String`. The default consumes media type.
 |springdoc.default-produces-media-type | `\*/*` | `String`. The default produces media type.
 |springdoc.cache.disabled | `false` | `Boolean`. To disable the springdoc-openapi cache of the calculated OpenAPI.
+|springdoc.cache.max-entries | `100` | `Integer`. The maximum number of OpenAPI descriptions kept in the cache. One entry is cached per requested locale (`Accept-Language`); the oldest entry is evicted once the limit is reached.
 |springdoc.show-actuator | `false` |  `Boolean`. To display the actuator endpoints.
 |springdoc.auto-tag-classes | `true` | `Boolean`. To disable the springdoc-openapi automatic tags.
 |springdoc.model-and-view-allowed | `false` | `Boolean`. To allow RestControllers with ModelAndView return to appear in the OpenAPI description.

@@ -120,6 +120,13 @@ You can rely on native Scalar configuration properties, using the prefix `scalar
    </dependency>
 ----
 
+NOTE: Since `v2.9.1`, the Scalar starters no longer register a `ForwardedHeaderFilter` (Web MVC) or a `ForwardedHeaderTransformer` (WebFlux). Adding the starter therefore no longer makes the whole application trust the `Forwarded` and `X-Forwarded-*` headers of every caller. If your application runs behind a trusted reverse proxy and the Scalar page must be rendered with the external host, enable Spring Boot's own support instead:
+
+[source,properties]
+----
+server.forward-headers-strategy=framework
+----
+
 === Spring Hateoas support
 The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
 
