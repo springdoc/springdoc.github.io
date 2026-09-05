@@ -124,7 +124,6 @@
 <li><a href="#properties">Springdoc-openapi Properties</a>
 <ul class="sectlevel2">
 <li><a href="#_springdoc_openapi_core_properties">springdoc-openapi core properties</a></li>
-<li><a href="#_springdoc_openapi_mcp_properties">springdoc-openapi MCP properties</a></li>
 <li><a href="#_swagger_ui_properties">swagger-ui properties</a></li>
 </ul>
 </li>
@@ -233,7 +232,7 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.cache.max-entries</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code>. The maximum number of OpenAPI descriptions kept in the cache. One entry is cached per requested locale (<code>Accept-Language</code>); the least recently used entry is evicted once the limit is reached.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code>. The maximum number of OpenAPI descriptions kept in the cache. One entry is cached per requested locale (<code>Accept-Language</code>); the oldest entry is evicted once the limit is reached.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.show-actuator</p></td>
@@ -363,7 +362,7 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.use-management-port</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui on the actuator management port.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To expose the swagger-ui/scalar on the actuator management port.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.disable-i18n</p></td>
@@ -462,102 +461,6 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_springdoc_openapi_mcp_properties"><a class="anchor" href="#_springdoc_openapi_mcp_properties"></a>springdoc-openapi MCP properties</h3>
-<div class="paragraph">
-<p>All properties are under the <code>springdoc.ai.mcp</code> prefix. These properties require the <code>springdoc-openapi-starter-webmvc-mcp</code> or <code>springdoc-openapi-starter-webflux-mcp</code> dependency.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Parameter name</th>
-<th class="tableblock halign-left valign-top">Default Value</th>
-<th class="tableblock halign-left valign-top">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable the MCP tool integration. Since <code>v3.1.1</code>, the MCP surface is opt-in: nothing is registered unless this property is explicitly set to <code>true</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.base-url</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>http://localhost:8080</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Base URL for tool execution HTTP calls. If not set, defaults to <code>http://localhost:{server.port}</code>.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.init-timeout-seconds</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>30</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code>. Timeout in seconds waiting for the OpenAPI spec at startup.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.paths-to-exclude</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>. List of ant patterns for paths to exclude from MCP tool generation.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.mcp-endpoint</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/mcp</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The MCP server endpoint path.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.dashboard-enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable the MCP Developer Dashboard UI.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.dashboard-path</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>/mcp-ui</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. The dashboard UI mount path.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. When <code>true</code>, calling a mutating tool (POST/PUT/DELETE/PATCH) via MCP returns an approval-required response instead of executing the HTTP call.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.guardrails.safe-methods</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET,HEAD,OPTIONS</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>. Comma-separated list of HTTP methods considered safe (read-only). All other methods are treated as mutating.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.audit.redact</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. When <code>true</code>, values carried by secret-shaped keys (<code>authorization</code>, <code>password</code>, <code>token</code>, <code>api-key</code>, <code>cookie</code>, …) are masked in the audit event before it is logged or stored for the dashboard.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-When MCP is enabled, <code>springdoc.pre-loading-enabled</code> is automatically forced to <code>true</code> by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The MCP endpoints (<code>/mcp</code>, <code>/mcp-ui</code> and <code>/api/mcp-admin/**</code>) are integration surfaces, exactly like <code>/swagger-ui</code>: they provide no authentication or authorization of their own and must be secured by your application. In particular, <code>springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools</code> is a human-in-the-loop confirmation step, not an access-control boundary.
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_swagger_ui_properties"><a class="anchor" href="#_swagger_ui_properties"></a>swagger-ui properties</h3>
@@ -839,7 +742,7 @@ All these properties should be declared with the following prefix: <code>springd
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-29 20:55:24 +0200
+Last updated 2026-09-05 13:11:11 +0200
 </div>
 </div>
 </div>

@@ -19,7 +19,7 @@ endif::[]
 
 === springdoc-openapi core properties
 
-include::v2/core-properties.adoc[]
+include::{docdir}/v2/core-properties.adoc[]
 
 === swagger-ui properties
 - The support of the swagger-ui properties is available on `springdoc-openapi`.  See link:https://swagger.io/docs/open-source-tools/swagger-ui/usage/configuration/[Official documentation, window="_blank"].
@@ -28,4 +28,4 @@ include::v2/core-properties.adoc[]
 
 NOTE: All these properties should be declared with the following prefix: `springdoc.swagger-ui`
 
-include::v2/ui-properties.adoc[]
+include::{docdir}/v2/ui-properties.adoc[]
