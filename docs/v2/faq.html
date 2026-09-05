@@ -1273,6 +1273,18 @@ public OpenAPI customOpenAPI() {
 <pre>springdoc.cache.disabled= true</pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>One description is cached per requested locale (<code>Accept-Language</code>). Since <code>v2.9.1</code> the number of cached descriptions is bounded, and can be tuned with:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>springdoc.cache.max-entries= 100</pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_how_can_i_expose_the_mvc_api_docs_endpoints_without_using_the_swagger_ui"><a class="anchor" href="#_how_can_i_expose_the_mvc_api_docs_endpoints_without_using_the_swagger_ui"></a>How can I expose the mvc api-docs endpoints without using the <code>swagger-ui</code>?</h3>
@@ -2198,7 +2210,7 @@ public class WebConfig implements WebApplicationInitializer {
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.9.0.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.9.1.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -2321,7 +2333,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-29 20:55:24 +0200
+Last updated 2026-09-05 13:05:55 +0200
 </div>
 </div>
 </div>

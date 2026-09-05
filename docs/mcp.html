@@ -118,7 +118,11 @@
 <li><a href="#mcp">MCP Support</a>
 <ul class="sectlevel2">
 <li><a href="#_modules">Modules</a></li>
-<li><a href="#_getting_started">Getting Started</a></li>
+<li><a href="#_getting_started">Getting Started</a>
+<ul class="sectlevel3">
+<li><a href="#_securing_the_mcp_endpoints">Securing the MCP endpoints</a></li>
+</ul>
+</li>
 <li><a href="#_how_it_works">How It Works</a></li>
 <li><a href="#_mcp_guardrails">MCP Guardrails</a>
 <ul class="sectlevel3">
@@ -197,7 +201,7 @@
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-mcp&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -209,12 +213,12 @@
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-mcp&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Enable the integration in your <code>application.properties</code>:</p>
+<p>The integration is <strong>opt-in</strong>: adding the dependency alone registers nothing. Enable it explicitly in your <code>application.properties</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -235,6 +239,36 @@ When MCP is enabled, <code>springdoc.pre-loading-enabled</code> is automatically
 </td>
 </tr>
 </table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Since <code>v3.1.1</code>, <code>springdoc.ai.mcp.enabled</code> defaults to <code>false</code> and no MCP bean, endpoint or dashboard is registered until you set it to <code>true</code>. Previously, adding the starter was enough to expose <code>/mcp</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_securing_the_mcp_endpoints"><a class="anchor" href="#_securing_the_mcp_endpoints"></a>Securing the MCP endpoints</h4>
+<div class="paragraph">
+<p>The MCP endpoints - <code>/mcp</code>, the dashboard at <code>/mcp-ui</code> and its REST API at <code>/api/mcp-admin/<strong>*</code> - are integration surfaces, exactly like <code>/swagger-ui</code>. *They provide no authentication or authorization of their own</strong>: they let an MCP client discover and invoke your API endpoints, so securing them is your application&#8217;s responsibility, for example with Spring Security.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+SecurityFilterChain mcpSecurity(HttpSecurity http) throws Exception {
+    return http.securityMatcher("/mcp", "/mcp-ui/**", "/api/mcp-admin/**")
+            .authorizeHttpRequests(requests -&gt; requests.anyRequest().hasRole("MCP_ADMIN"))
+            .httpBasic(Customizer.withDefaults())
+            .build();
+}
+</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -313,6 +347,18 @@ When MCP is enabled, <code>springdoc.pre-loading-enabled</code> is automatically
 </div>
 <div class="sect3">
 <h4 id="_human_in_the_loop_hitl"><a class="anchor" href="#_human_in_the_loop_hitl"></a>Human-in-the-Loop (HITL)</h4>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+HITL is a <strong>confirmation step, not an authorization control</strong>. It gives a human operator the chance to review a mutating tool call before it runs. It does not authenticate or authorize the caller, and it is not designed to withstand a caller that deliberately confirms its own call: whoever can reach the MCP endpoint can also complete the confirmation - by repeating the call through <code>/mcp</code>, or by sending <code>approved: true</code> to <code>/api/mcp-admin/tools/execute</code>. Do not use it as an access-control boundary; secure <code>/mcp</code> and <code>/api/mcp-admin/**</code> in your application instead.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>When <code>require-approval-for-mutating-tools</code> is <code>true</code> (the default), calling a mutating tool through the MCP protocol does <strong>not</strong> execute the underlying HTTP request. Instead, the agent receives a structured JSON response:</p>
 </div>
@@ -620,6 +666,14 @@ public class ProductController {
 <div class="paragraph">
 <p>Every MCP tool execution produces a structured JSON audit event logged at <code>INFO</code> level to the <code>org.springdoc.ai.mcp.audit</code> logger. When the dashboard is active, events are also stored in-memory for the audit tab.</p>
 </div>
+<div class="paragraph">
+<p>Since <code>v3.1.1</code>, values carried by secret-shaped keys (<code>authorization</code>, <code>password</code>, <code>token</code>, <code>api-key</code>, <code>secret</code>, <code>cookie</code>, …) are masked in the audit event - in the tool arguments, the request URL query string, and the request and response bodies - before it is logged or stored. Turn the masking off only if your audit sink is itself a trusted, access-controlled store:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties">springdoc.ai.mcp.audit.redact=false</code></pre>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -667,7 +721,7 @@ public class ProductController {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-29 20:55:24 +0200
+Last updated 2026-09-05 13:03:16 +0200
 </div>
 </div>
 </div>

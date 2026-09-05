@@ -179,7 +179,7 @@
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -231,7 +231,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -253,7 +253,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -269,7 +269,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -312,7 +312,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-scalar&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -328,8 +328,25 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-scalar&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since <code>v3.1.1</code>, the Scalar starters no longer register a <code>ForwardedHeaderFilter</code> (Web MVC) or a <code>ForwardedHeaderTransformer</code> (WebFlux). Adding the starter therefore no longer makes the whole application trust the <code>Forwarded</code> and <code>X-Forwarded-*</code> headers of every caller. If your application runs behind a trusted reverse proxy and the Scalar page must be rendered with the external host, enable Spring Boot&#8217;s own support instead:
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties">server.forward-headers-strategy=framework</code></pre>
 </div>
 </div>
 </div>
@@ -350,7 +367,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-mcp&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -366,7 +383,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-mcp&lt;/artifactId&gt;
-      &lt;version&gt;3.1.0&lt;/version&gt;
+      &lt;version&gt;3.1.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -844,7 +861,7 @@ You can declare it in your project as follows:</p>
 			&lt;dependency&gt;
 				&lt;groupId&gt;org.springdoc&lt;/groupId&gt;
 				&lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
-                &lt;version&gt;3.1.0&lt;/version&gt;
+                &lt;version&gt;3.1.1&lt;/version&gt;
 				&lt;type&gt;pom&lt;/type&gt;
 				&lt;scope&gt;import&lt;/scope&gt;
 			&lt;/dependency&gt;
@@ -858,7 +875,7 @@ You can declare it in your project as follows:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-29 20:55:24 +0200
+Last updated 2026-09-05 13:01:19 +0200
 </div>
 </div>
 </div>

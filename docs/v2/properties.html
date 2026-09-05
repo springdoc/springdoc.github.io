@@ -231,6 +231,11 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable the springdoc-openapi cache of the calculated OpenAPI.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.cache.max-entries</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>100</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Integer</code>. The maximum number of OpenAPI descriptions kept in the cache. One entry is cached per requested locale (<code>Accept-Language</code>); the least recently used entry is evicted once the limit is reached.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.show-actuator</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To display the actuator endpoints.</p></td>
@@ -479,8 +484,8 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.enabled</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable the MCP tool integration.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. Enable the MCP tool integration. Since <code>v3.1.1</code>, the MCP surface is opt-in: nothing is registered unless this property is explicitly set to <code>true</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.base-url</p></td>
@@ -522,6 +527,11 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GET,HEAD,OPTIONS</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>List of Strings</code>. Comma-separated list of HTTP methods considered safe (read-only). All other methods are treated as mutating.</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.ai.mcp.audit.redact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. When <code>true</code>, values carried by secret-shaped keys (<code>authorization</code>, <code>password</code>, <code>token</code>, <code>api-key</code>, <code>cookie</code>, …) are masked in the audit event before it is logged or stored for the dashboard.</p></td>
+</tr>
 </tbody>
 </table>
 <div class="admonitionblock note">
@@ -532,6 +542,18 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 </td>
 <td class="content">
 When MCP is enabled, <code>springdoc.pre-loading-enabled</code> is automatically forced to <code>true</code> by an environment post-processor, ensuring the OpenAPI specification is available at startup for tool registration.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The MCP endpoints (<code>/mcp</code>, <code>/mcp-ui</code> and <code>/api/mcp-admin/**</code>) are integration surfaces, exactly like <code>/swagger-ui</code>: they provide no authentication or authorization of their own and must be secured by your application. In particular, <code>springdoc.ai.mcp.guardrails.require-approval-for-mutating-tools</code> is a human-in-the-loop confirmation step, not an access-control boundary.
 </td>
 </tr>
 </table>
