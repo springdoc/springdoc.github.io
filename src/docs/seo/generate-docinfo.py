@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
-"""Generates the Asciidoctor docinfo files that carry the SEO head of every page.
+"""Generates the SEO head of every page, plus sitemap.xml.
 
 Run from src/docs/asciidoc:  python3 ../seo/generate-docinfo.py
 
 Asciidoctor picks up docinfo.html (shared, every page in the directory) and
 <docname>-docinfo.html (private, that page only) and injects both into <head>.
 Keeping them generated from this one table is what stops the descriptions,
-canonicals and structured data from drifting apart across root/v1/v2.
+canonicals, structured data and sitemap entries from drifting apart across
+root/v1/v2 - a sitemap that lists a URL whose canonical points elsewhere is
+what makes Search Console report the page as a duplicate.
 """
 
+import datetime
 import json
 import pathlib
+import subprocess
 
 SITE = "https://springdoc.org"
 OG_IMAGE = f"{SITE}/img/og-springdoc.png"
@@ -119,11 +123,12 @@ AD_PAGES = {
 }
 
 VERSIONS = {
-    "":   {"label": "", "prefix": "", "boot": "Spring Boot 4", "version": "3"},
+    "":   {"label": "", "prefix": "", "boot": "Spring Boot 4", "version": "3",
+           "priority": ("1.0", "0.8")},
     "v1": {"label": " (v1)", "prefix": "springdoc-openapi v1 docs (Spring Boot 2.x). ",
-           "boot": "Spring Boot 2", "version": "1"},
+           "boot": "Spring Boot 2", "version": "1", "priority": ("0.3", "0.2")},
     "v2": {"label": " (v2)", "prefix": "springdoc-openapi v2 docs (Spring Boot 3.x). ",
-           "boot": "Spring Boot 3", "version": "2"},
+           "boot": "Spring Boot 3", "version": "2", "priority": ("0.5", "0.4")},
 }
 
 # pages that do not exist in a given version directory
@@ -131,6 +136,20 @@ SKIP = {
     "":   {"privacy-policy"},
     "v1": {"mcp", "migrating-from-springdoc-v1"},
     "v2": {"mcp", "privacy-policy"},
+}
+
+# Versioned pages whose text is a near-verbatim copy of the root page - only the title suffix and
+# the "you are reading the v1/v2 docs" banner differ. A self-referencing canonical on those makes
+# Search Console report "Duplicate, Google chose a different canonical than the user", because
+# Google folds them into the root page anyway. Pointing the canonical at the root URL states the
+# same choice explicitly. Pages that carry version-specific content (index, getting-started,
+# modules, features, demos and the property tables) keep their own canonical and stay indexable.
+DUPLICATE_OF_ROOT = {
+    "":   set(),
+    "v1": {"intro", "migrating-from-springfox", "other-resources", "plugins", "sponsor",
+           "thanks", "ui-properties"},
+    "v2": {"faq", "intro", "migrating-from-springdoc-v1", "migrating-from-springfox",
+           "other-resources", "plugins", "sponsor", "thanks", "ui-properties"},
 }
 
 
@@ -185,7 +204,10 @@ def shared_docinfo(ver):
 def page_docinfo(ver, page, title, description):
     meta = VERSIONS[ver]
     root = f"{SITE}/{ver}" if ver else SITE
-    url = root + "/" if page == "index" else f"{root}/{page}.html"
+    # a duplicate of the root page indexes as the root page, so every URL it declares is that one
+    duplicate = page in DUPLICATE_OF_ROOT[ver]
+    home = SITE if duplicate else root
+    url = home + "/" if page == "index" else f"{home}/{page}.html"
     og_title = ("springdoc-openapi - OpenAPI 3 & Swagger UI for Spring Boot"
                 if page == "index" else f"{title} - springdoc-openapi") + meta["label"]
     desc = meta["prefix"] + description
@@ -234,7 +256,7 @@ def page_docinfo(ver, page, title, description):
         }))
         crumbs = [{"@type": "ListItem", "position": 1, "name": "springdoc-openapi",
                    "item": SITE + "/"}]
-        if ver:
+        if ver and not duplicate:
             crumbs.append({"@type": "ListItem", "position": 2, "name": f"v{meta['version']}",
                            "item": f"{root}/"})
         crumbs.append({"@type": "ListItem", "position": len(crumbs) + 1, "name": title,
@@ -251,6 +273,37 @@ def page_docinfo(ver, page, title, description):
     return "\n".join(out)
 
 
+def last_modified(path):
+    """Date of the last commit that touched the source file, for <lastmod>."""
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cs", "--", str(path)],
+                             capture_output=True, text=True, check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        out = ""
+    return out or datetime.date.today().isoformat()
+
+
+def sitemap(base):
+    """sitemap.xml - canonical URLs only, so it never advertises a page as its own original."""
+    entries = []
+    for ver in VERSIONS:
+        d = base / ver if ver else base
+        root = f"{SITE}/{ver}" if ver else SITE
+        home, inner = VERSIONS[ver]["priority"]
+        for page in PAGES:
+            src = d / f"{page}.adoc"
+            if page in SKIP[ver] or page in DUPLICATE_OF_ROOT[ver] or not src.exists():
+                continue
+            loc = f"{root}/" if page == "index" else f"{root}/{page}.html"
+            entries.append(f"\t<url>\n\t\t<loc>{loc}</loc>\n"
+                           f"\t\t<lastmod>{last_modified(src)}</lastmod>\n"
+                           f"\t\t<priority>{home if page == 'index' else inner}</priority>\n"
+                           "\t</url>")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + "\n".join(entries) + "\n</urlset>\n")
+
+
 def main():
     base = pathlib.Path(".")
     for ver in VERSIONS:
@@ -263,6 +316,8 @@ def main():
             target = d / f"{page}-docinfo.html"
             target.write_text(page_docinfo(ver, page, title, description), encoding="utf-8")
             print("wrote", target)
+    (base / "sitemap.xml").write_text(sitemap(base), encoding="utf-8")
+    print("wrote", base / "sitemap.xml")
 
 
 if __name__ == "__main__":
