@@ -163,6 +163,7 @@
 <li><a href="#_how_can_i_hide_schema_of_the_the_response">How can I hide Schema of the the response ?</a></li>
 <li><a href="#_what_is_the_url_of_the_swagger_ui_when_i_set_a_different_context_path">What is the URL of the <code>swagger-ui</code>, when I set a different context-path?</a></li>
 <li><a href="#_can_i_customize_openapi_object_programmatically">Can I customize OpenAPI object programmatically?</a></li>
+<li><a href="#_how_can_i_build_a_component_schema_from_a_class_programmatically">How can I build a component schema from a class programmatically?</a></li>
 <li><a href="#_where_can_i_find_the_source_code_of_the_demo_applications">Where can I find the source code of the demo applications?</a></li>
 <li><a href="#_does_this_library_supports_annotations_from_interfaces">Does this library supports annotations from interfaces?</a></li>
 <li><a href="#_what_is_the_list_of_the_excluded_parameter_types">What is the list of the excluded parameter types?</a></li>
@@ -1402,6 +1403,54 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 </div>
 </div>
 <div class="sect2">
+<h3 id="_how_can_i_build_a_component_schema_from_a_class_programmatically"><a class="anchor" href="#_how_can_i_build_a_component_schema_from_a_class_programmatically"></a>How can I build a component schema from a class programmatically?</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>When you declare an endpoint yourself, for example one served by a filter that no controller declares, you do not have to assemble its schema by hand.</p>
+</li>
+<li>
+<p><code>org.springdoc.core.utils.SpringDocAnnotationsUtils.extractSchema</code> resolves a type the same way <code>springdoc-openapi</code> resolves a controller signature: it registers every referenced schema in the <code>Components</code> you hand it, and returns the <code>$ref</code> to use.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-java" data-lang="java">@Bean
+public OpenApiCustomizer loginEndpointCustomizer() {
+    return openApi -&gt; {
+        Schema&lt;?&gt; schema = SpringDocAnnotationsUtils.extractSchema(
+                openApi.getComponents(), LoginRequest.class, null, null, openApi.getSpecVersion());
+        Operation operation = new Operation()
+                .operationId("login")
+                .requestBody(new RequestBody().required(true)
+                        .content(new Content().addMediaType(APPLICATION_JSON_VALUE,
+                                new MediaType().schema(schema))))
+                .responses(new ApiResponses().addApiResponse("200", new ApiResponse().description("OK")));
+        openApi.path("/login", new PathItem().post(operation));
+    };
+}
+</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Nested types are resolved recursively. For a <code>LoginRequest</code> holding an <code>Address</code>, both <code>LoginRequest</code> and <code>Address</code> are added to <code>components.schemas</code>, and the returned schema is <code>{"$ref": "#/components/schemas/LoginRequest"}</code>.</p>
+</li>
+<li>
+<p>Prefer <code>extractSchema</code> over <code>resolveSchemaFromType</code>: the latter is a thin wrapper that falls back to <code>type: string</code> when the resolved schema carries neither a <code>$ref</code> nor a type, which is rarely what you want for a model class.</p>
+</li>
+<li>
+<p>The <code>JsonView</code> and <code>Annotation[]</code> arguments are optional. Pass the annotations you would otherwise have written on the controller method to have them applied, <code>null</code> to apply none.</p>
+</li>
+<li>
+<p>Since the customizer runs once the application context is up, the call also goes through the converters <code>springdoc-openapi</code> registers, so polymorphism, <code>@Deprecated</code> and Kotlin nullability are handled. Calling <code>io.swagger.v3.core.converter.ModelConverters</code> directly skips all of that, and leaves you to copy <code>referencedSchemas</code> into the components yourself.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_where_can_i_find_the_source_code_of_the_demo_applications"><a class="anchor" href="#_where_can_i_find_the_source_code_of_the_demo_applications"></a>Where can I find the source code of the demo applications?</h3>
 <div class="ulist">
 <ul>
@@ -2259,7 +2308,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-09-05 13:06:40 +0200
+Last updated 2026-09-06 12:23:47 +0200
 </div>
 </div>
 </div>

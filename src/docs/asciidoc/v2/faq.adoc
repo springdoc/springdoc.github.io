@@ -594,6 +594,33 @@ public OpenApiCustomizer customerGlobalHeaderOpenApiCustomizer() {
 }
 ----
 
+=== How can I build a component schema from a class programmatically?
+
+* When you declare an endpoint yourself, for example one served by a filter that no controller declares, you do not have to assemble its schema by hand.
+* `org.springdoc.core.utils.SpringDocAnnotationsUtils.extractSchema` resolves a type the same way `springdoc-openapi` resolves a controller signature: it registers every referenced schema in the `Components` you hand it, and returns the `$ref` to use.
+
+[source,java]
+----
+@Bean
+public OpenApiCustomizer loginEndpointCustomizer() {
+    return openApi -> {
+        Schema<?> schema = SpringDocAnnotationsUtils.extractSchema(
+                openApi.getComponents(), LoginRequest.class, null, null, openApi.getSpecVersion());
+        Operation operation = new Operation()
+                .operationId("login")
+                .requestBody(new RequestBody().required(true)
+                        .content(new Content().addMediaType(APPLICATION_JSON_VALUE,
+                                new MediaType().schema(schema))))
+                .responses(new ApiResponses().addApiResponse("200", new ApiResponse().description("OK")));
+        openApi.path("/login", new PathItem().post(operation));
+    };
+}
+----
+
+* Nested types are resolved recursively. For a `LoginRequest` holding an `Address`, both `LoginRequest` and `Address` are added to `components.schemas`, and the returned schema is `{"$ref": "#/components/schemas/LoginRequest"}`.
+* Prefer `extractSchema` over `resolveSchemaFromType`: the latter is a thin wrapper that falls back to `type: string` when the resolved schema carries neither a `$ref` nor a type, which is rarely what you want for a model class.
+* The `JsonView` and `Annotation[]` arguments are optional. Pass the annotations you would otherwise have written on the controller method to have them applied, `null` to apply none.
+* Since the customizer runs once the application context is up, the call also goes through the converters `springdoc-openapi` registers, so polymorphism, `@Deprecated` and Kotlin nullability are handled. Calling `io.swagger.v3.core.converter.ModelConverters` directly skips all of that, and leaves you to copy `referencedSchemas` into the components yourself.
 
 === Where can I find the source code of the demo applications?
 * The source code of the application is available at the following GitHub repository:
