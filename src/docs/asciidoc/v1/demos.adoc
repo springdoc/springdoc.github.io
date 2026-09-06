@@ -13,18 +13,19 @@ endif::[]
 [[demos]]
 == Springdoc-openapi Demos
 
+NOTE: The v1 demos are no longer hosted. The sources below still build and run locally, and the https://springdoc.org/demos.html[current demos] are live.
+
 === springdoc applications demos
-* link:https://demos1.springdoc.org/demo-spring-boot-2-webmvc[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-spring-boot-2-webflux/swagger-ui.html[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-spring-boot-1-webmvc[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-spring-boot-2-webflux-functional/swagger-ui.html[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-spring-hateoas[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
-* link:https://demos1.springdoc.org/demo-microservices/swagger-ui.html[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
-* link:https://demos1.springdoc.org/spring-cloud-function-webmvc[Demo Spring Boot 2 and Spring Cloud Function Web MVC, window="_blank"]
-* link:https://demos1.springdoc.org/spring-cloud-function-webflux/swagger-ui.html[Demo Spring Boot 2 and Spring Cloud Function WebFlux, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-spring-boot-2-webmvc[Demo Spring Boot 2 Web MVC with OpenAPI 3, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-spring-boot-2-webflux[Demo Spring Boot 2 WebFlux with OpenAPI 3, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-spring-boot-1[Demo Spring Boot 1 Web MVC with OpenAPI 3, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-spring-boot-2-webflux-functional[Demo Spring Boot 2 WebFlux with Functional endpoints OpenAPI 3, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-hateoas-service[Demo Spring Boot 2 and Spring Hateoas with OpenAPI 3, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-microservices[Demo Spring Boot 2 and Spring Cloud Gateway, window="_blank"]
+* link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x/springdoc-openapi-spring-cloud-function[Demo Spring Boot 2 and Spring Cloud Function, window="_blank"]
 
 image::img/pets.webp[Swagger UI rendering the Pet Store OpenAPI demo,1200,555]
 
 === Source code of the Demo Applications
-*   link:https://github.com/springdoc/springdoc-openapi-demos.git[https://github.com/springdoc/springdoc-openapi-demos.git, window="_blank"]
+*   link:https://github.com/springdoc/springdoc-openapi-demos/tree/2.x[https://github.com/springdoc/springdoc-openapi-demos/tree/2.x, window="_blank"]
 
