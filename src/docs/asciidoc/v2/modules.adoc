@@ -127,6 +127,8 @@ NOTE: Since `v2.9.1`, the Scalar starters no longer register a `ForwardedHeaderF
 server.forward-headers-strategy=framework
 ----
 
+include::{docdir}/_ad-in-article.adoc[]
+
 === Spring Hateoas support
 The support for Spring Hateoas is available using the dependency springdoc-openapi-hateoas.
 
@@ -296,6 +298,8 @@ Some code samples are available on GITHUB of demos:
 
 * link:https://github.com/springdoc/springdoc-openapi-demos/tree/master/demo-spring-cloud-function[Sample applications with Spring Cloud Function Web, window="_blank"]
 
+
+include::{docdir}/_ad-in-article.adoc[]
 
 === Kotlin support
 

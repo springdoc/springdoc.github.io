@@ -72,6 +72,8 @@ endif::[]
 |springdoc.use-arbitrary-schemas | `false` | `Boolean`. When set to `true`, schemas without a defined type will be deserialized as an `ArbitrarySchema` (with no type), instead of an `ObjectSchema` with `type: object`.
 |===
 
+include::{docdir}/_ad-in-article.adoc[]
+
 === springdoc-openapi MCP properties
 
 All properties are under the `springdoc.ai.mcp` prefix. These properties require the `springdoc-openapi-starter-webmvc-mcp` or `springdoc-openapi-starter-webflux-mcp` dependency.

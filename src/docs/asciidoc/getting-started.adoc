@@ -51,14 +51,4 @@ TIP: For custom path of the swagger documentation in HTML format, add a custom s
 springdoc.swagger-ui.path=/swagger-ui.html
 ----
 
-++++
-<ins class="adsbygoogle"
-     style="display:block; text-align:center; min-height:280px;"
-     data-ad-layout="in-article"
-     data-ad-format="fluid"
-     data-ad-client="ca-pub-8127371937306964"
-     data-ad-slot="6163211104"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-++++
+include::{docdir}/_ad-in-article.adoc[]

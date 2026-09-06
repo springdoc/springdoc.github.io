@@ -310,6 +310,8 @@ public class CustomServerBaseUrlCustomizer implements ServerBaseUrlCustomizer {
 }
 ----
 
+include::{docdir}/_ad-in-article.adoc[]
+
 ===  Is `@JsonView` annotations in Spring MVC APIs supported?
 * Yes
 
@@ -620,6 +622,8 @@ public OpenApiCustomizer loginEndpointCustomizer() {
 * Prefer `extractSchema` over `resolveSchemaFromType`: the latter is a thin wrapper that falls back to `type: string` when the resolved schema carries neither a `$ref` nor a type, which is rarely what you want for a model class.
 * The `JsonView` and `Annotation[]` arguments are optional. Pass the annotations you would otherwise have written on the controller method to have them applied, `null` to apply none.
 * Since the customizer runs once the application context is up, the call also goes through the converters `springdoc-openapi` registers, so polymorphism, `@Deprecated` and Kotlin nullability are handled. Calling `io.swagger.v3.core.converter.ModelConverters` directly skips all of that, and leaves you to copy `referencedSchemas` into the components yourself.
+
+include::{docdir}/_ad-in-article.adoc[]
 
 === Where can I find the source code of the demo applications?
 * The source code of the application is available at the following GitHub repository:
@@ -957,6 +961,8 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
     return resolvedSchema.schema.addProperties("email", new StringSchema().description(description));
 }
 ----
+
+include::{docdir}/_ad-in-article.adoc[]
 
 === Customizing swagger static resources
 

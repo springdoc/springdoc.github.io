@@ -89,8 +89,12 @@
 }
 </script>
 
-<!-- Loaded once per page here; the article body only carries the <ins> slots. -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964" crossorigin="anonymous"></script>
+<!-- Loaded once per page here; the article body only carries the <ins> slots.
+     The frequency hint spaces out anything Auto ads inserts on top of them, so a
+     long reference page cannot end up with an ad every other paragraph. It only
+     applies to in-page formats - side rails, anchors and vignettes are switched
+     off in the AdSense console, not here. -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8127371937306964" crossorigin="anonymous" data-ad-frequency-hint="30s"></script>
 <script src="js/setup.js"></script><script defer src="js/site.js"></script>
 
 </head>
@@ -379,7 +383,7 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-29 20:55:24 +0200
+Last updated 2026-09-07 00:17:27 +0200
 </div>
 </div>
 </div>

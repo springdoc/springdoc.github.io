@@ -124,6 +124,8 @@ NOTE: Since `v3.1.1`, the Scalar starters no longer register a `ForwardedHeaderF
 server.forward-headers-strategy=framework
 ----
 
+include::{docdir}/_ad-in-article.adoc[]
+
 === MCP support
 
 `springdoc-openapi` provides MCP (Model Context Protocol) integration modules that automatically expose your REST API endpoints as AI tools. For detailed usage and configuration, see the <<mcp>> section.
@@ -308,6 +310,8 @@ Some code samples are available on GITHUB of demos:
 
 * link:https://github.com/springdoc/springdoc-openapi-demos/tree/4.x/demo-spring-cloud-function[Sample applications with Spring Cloud Function Web, window="_blank"]
 
+
+include::{docdir}/_ad-in-article.adoc[]
 
 === Kotlin support
 

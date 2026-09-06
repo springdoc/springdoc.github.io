@@ -20,6 +20,8 @@ SITE = "https://springdoc.org"
 OG_IMAGE = f"{SITE}/img/og-springdoc.png"
 GA_ID = "G-1GEGWXWNH4"
 ADS_CLIENT = "ca-pub-8127371937306964"
+# minimum reading time Auto ads should leave between two in-page ads
+AD_FREQUENCY_HINT = "30s"
 
 # page -> (title used in og:title and breadcrumbs, meta description)
 PAGES = {
@@ -115,11 +117,14 @@ PAGES = {
     ),
 }
 
-# the pages that actually render an <ins class="adsbygoogle"> slot, per version directory
+# The pages that actually render an <ins class="adsbygoogle"> slot, per version directory.
+# core-properties reaches properties.adoc through an include, so both carry the loader.
 AD_PAGES = {
-    "": {"index", "getting-started", "features", "mcp", "demos", "ui-properties", "properties"},
+    "": {"index", "getting-started", "modules", "features", "mcp", "demos", "ui-properties",
+         "core-properties", "properties", "faq"},
     "v1": set(),
-    "v2": {"index", "getting-started", "features", "demos", "ui-properties", "properties"},
+    "v2": {"index", "getting-started", "modules", "features", "demos", "ui-properties",
+           "core-properties", "properties", "faq"},
 }
 
 VERSIONS = {
@@ -266,9 +271,14 @@ def page_docinfo(ver, page, title, description):
 
     if page in AD_PAGES[ver]:
         out.append(
-            "<!-- Loaded once per page here; the article body only carries the <ins> slots. -->\n"
+            "<!-- Loaded once per page here; the article body only carries the <ins> slots.\n"
+            "     The frequency hint spaces out anything Auto ads inserts on top of them, so a\n"
+            "     long reference page cannot end up with an ad every other paragraph. It only\n"
+            "     applies to in-page formats - side rails, anchors and vignettes are switched\n"
+            "     off in the AdSense console, not here. -->\n"
             f'<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-            f'?client={ADS_CLIENT}" crossorigin="anonymous"></script>\n')
+            f'?client={ADS_CLIENT}" crossorigin="anonymous"'
+            f' data-ad-frequency-hint="{AD_FREQUENCY_HINT}"></script>\n')
 
     return "\n".join(out)
 
