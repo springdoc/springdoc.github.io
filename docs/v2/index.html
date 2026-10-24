@@ -92,7 +92,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v2.9.1</h1>
+<h1>springdoc-openapi v2.10.0</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -359,7 +359,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -465,7 +465,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -517,7 +517,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -539,7 +539,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -555,7 +555,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -598,7 +598,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-scalar&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -614,7 +614,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-scalar&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -634,6 +634,18 @@ Since <code>v2.9.1</code>, the Scalar starters no longer register a <code>Forwar
 <div class="content">
 <pre class="highlight"><code class="language-properties" data-lang="properties">server.forward-headers-strategy=framework</code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Only the springdoc Scalar starters replace Scalar&#8217;s own Spring Boot integration. Since <code>v2.10.0</code>, an application using another springdoc starter (Swagger UI or API only) together with Scalar&#8217;s <code>scalar-webmvc</code> or <code>scalar-webflux</code> gets Scalar&#8217;s standalone integration, enabled by default: set <code>scalar.enabled=false</code> to disable it, or <code>scalar.url</code> to point it at your OpenAPI description, as it otherwise renders a demo specification.
+</td>
+</tr>
+</table>
 </div>
 <ins class="adsbygoogle"
      style="display:block; text-align:center; min-height:280px;"
@@ -1152,7 +1164,7 @@ You can declare it in your project as follows:</p>
             &lt;dependency&gt;
                 &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
                 &lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
-                &lt;version&gt;2.9.1&lt;/version&gt;
+                &lt;version&gt;2.10.0&lt;/version&gt;
                 &lt;type&gt;pom&lt;/type&gt;
                 &lt;scope&gt;import&lt;/scope&gt;
             &lt;/dependency&gt;
@@ -1657,6 +1669,26 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.polymorphic-converter.enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable polymorphic model converter.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.polymorphic-converter.one-of-as-ref</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To emit the <code>oneOf</code> unions discovered by the polymorphic model converter as reusable component schemas, referenced through <code>$ref</code>, instead of repeating them inline. Since <code>v2.10.0</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.polymorphic-converter.one-of-ref-suffix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Variant</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Suffix appended to the name of the parent schema for the generated <code>oneOf</code> component schemas (for example <code>PetVariant</code>). Since <code>v2.10.0</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.kotlin-nullable-property-customizer.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable marking the schema properties of nullable Kotlin types (<code>Type?</code>) as nullable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.java-nullable-property-customizer.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To mark the schema properties of Java models annotated with <code>@Nullable</code> (JSpecify, Spring, JSR-305) as nullable, including <code>$ref</code> properties, without changing the shared component schema. Since <code>v2.10.0</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.pageable-converter.enabled</p></td>
@@ -2460,7 +2492,7 @@ Migration tips
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.9.1&lt;/version&gt;
+      &lt;version&gt;2.10.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -4863,7 +4895,7 @@ public class WebConfig implements WebApplicationInitializer {
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.9.1.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.10.0.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -4884,7 +4916,7 @@ public class WebConfig implements WebApplicationInitializer {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.5.x</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.8.x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2.8.x</code> - <code>2.10.x</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.4.x</code></p></td>

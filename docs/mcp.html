@@ -205,7 +205,7 @@
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-mcp&lt;/artifactId&gt;
-      &lt;version&gt;3.1.1&lt;/version&gt;
+      &lt;version&gt;3.2.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -217,7 +217,7 @@
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-mcp&lt;/artifactId&gt;
-      &lt;version&gt;3.1.1&lt;/version&gt;
+      &lt;version&gt;3.2.0&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -308,7 +308,7 @@ SecurityFilterChain mcpSecurity(HttpSecurity http) throws Exception {
 <p>AI agents connect to the MCP server, discover the available tools, and can invoke your API endpoints directly.</p>
 </li>
 <li>
-<p>When an MCP server (<code>McpSyncServer</code>) is present, tools are registered dynamically after all singletons are instantiated via a deferred registration mechanism to avoid startup deadlocks.</p>
+<p>When an MCP server is present, tools are registered dynamically after all singletons are instantiated via a deferred registration mechanism to avoid startup deadlocks: a <code>McpSyncServer</code>, or, since <code>v3.2.0</code>, the <code>McpStatelessSyncServer</code> of the Spring AI <code>STATELESS</code> protocol (<code>spring.ai.mcp.server.protocol=STATELESS</code>).</p>
 </li>
 </ol>
 </div>
@@ -725,7 +725,7 @@ public class ProductController {
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-09-07 00:17:27 +0200
+Last updated 2026-10-24 16:58:35 +0200
 </div>
 </div>
 </div>

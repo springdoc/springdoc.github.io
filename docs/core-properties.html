@@ -296,6 +296,26 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable polymorphic model converter.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.polymorphic-converter.one-of-as-ref</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To emit the <code>oneOf</code> unions discovered by the polymorphic model converter as reusable component schemas, referenced through <code>$ref</code>, instead of repeating them inline. Since <code>v3.2.0</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.polymorphic-converter.one-of-ref-suffix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Variant</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>String</code>. Suffix appended to the name of the parent schema for the generated <code>oneOf</code> component schemas (for example <code>PetVariant</code>). Since <code>v3.2.0</code>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.kotlin-nullable-property-customizer.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable marking the schema properties of nullable Kotlin types (<code>Type?</code>) as nullable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.java-nullable-property-customizer.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To mark the schema properties of Java models annotated with <code>@Nullable</code> (JSpecify, Spring, JSR-305) as nullable, including <code>$ref</code> properties, without changing the shared component schema. Since <code>v3.2.0</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.pageable-converter.enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable pageable model converter.</p></td>
@@ -542,7 +562,7 @@ The MCP endpoints (<code>/mcp</code>, <code>/mcp-ui</code> and <code>/api/mcp-ad
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-09-07 00:17:50 +0200
+Last updated 2026-10-24 16:58:35 +0200
 </div>
 </div>
 </div>
