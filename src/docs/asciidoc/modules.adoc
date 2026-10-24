@@ -124,6 +124,8 @@ NOTE: Since `v3.1.1`, the Scalar starters no longer register a `ForwardedHeaderF
 server.forward-headers-strategy=framework
 ----
 
+NOTE: Only the springdoc Scalar starters replace Scalar's own Spring Boot integration. Since `v3.2.0`, an application using another springdoc starter (Swagger UI or API only) together with Scalar's `scalar-webmvc` or `scalar-webflux` gets Scalar's standalone integration, enabled by default: set `scalar.enabled=false` to disable it, or `scalar.url` to point it at your OpenAPI description, as it otherwise renders a demo specification.
+
 include::{docdir}/_ad-in-article.adoc[]
 
 === MCP support

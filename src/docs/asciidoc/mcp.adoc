@@ -88,7 +88,7 @@ SecurityFilterChain mcpSecurity(HttpSecurity http) throws Exception {
    - A *group* from the first `@Tag` annotation on the controller.
 3. The customizer chain runs on each tool definition, applying `@McpToolDescription` annotations first, then any user-registered `McpToolCustomizer` beans.
 4. AI agents connect to the MCP server, discover the available tools, and can invoke your API endpoints directly.
-5. When an MCP server (`McpSyncServer`) is present, tools are registered dynamically after all singletons are instantiated via a deferred registration mechanism to avoid startup deadlocks.
+5. When an MCP server is present, tools are registered dynamically after all singletons are instantiated via a deferred registration mechanism to avoid startup deadlocks: a `McpSyncServer`, or, since `v3.2.0`, the `McpStatelessSyncServer` of the Spring AI `STATELESS` protocol (`spring.ai.mcp.server.protocol=STATELESS`).
 
 === MCP Guardrails
 

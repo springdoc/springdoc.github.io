@@ -27,10 +27,10 @@ For the integration between spring-boot and swagger-ui, add the library to the l
 implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:{springdoc-version}'
 
 
-For example, using version 3.0.3:
-[source,gradle]
+For example, using version {springdoc-version}:
+[source,gradle, subs="attributes+"]
 ----
-implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.3'
+implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:{springdoc-version}'
 ----
 
 This will automatically deploy swagger-ui to a spring-boot application:

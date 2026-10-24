@@ -46,6 +46,10 @@ endif::[]
 |springdoc.writer-with-default-pretty-printer | `false` | `Boolean`. To enable pretty print of the OpenApi specification.
 |springdoc.model-converters.deprecating-converter.enabled | `true` | `Boolean`. To disable deprecating model converter.
 |springdoc.model-converters.polymorphic-converter.enabled | `true` | `Boolean`. To disable polymorphic model converter.
+|springdoc.model-converters.polymorphic-converter.one-of-as-ref | `false` | `Boolean`. To emit the `oneOf` unions discovered by the polymorphic model converter as reusable component schemas, referenced through `$ref`, instead of repeating them inline. Since `v2.10.0`.
+|springdoc.model-converters.polymorphic-converter.one-of-ref-suffix | `Variant` | `String`. Suffix appended to the name of the parent schema for the generated `oneOf` component schemas (for example `PetVariant`). Since `v2.10.0`.
+|springdoc.model-converters.kotlin-nullable-property-customizer.enabled | `true` | `Boolean`. To disable marking the schema properties of nullable Kotlin types (`Type?`) as nullable.
+|springdoc.model-converters.java-nullable-property-customizer.enabled | `false` | `Boolean`. To mark the schema properties of Java models annotated with `@Nullable` (JSpecify, Spring, JSR-305) as nullable, including `$ref` properties, without changing the shared component schema. Since `v2.10.0`.
 |springdoc.model-converters.pageable-converter.enabled | `true` | `Boolean`. To disable pageable model converter.
 |springdoc.model-converters.sort-converter.enabled | `true` | `Boolean`. To disable Sort converter.
 |springdoc.use-fqn | `false` | `Boolean`. To enable fully qualified names.
