@@ -14,19 +14,8 @@
 		<springdoc.version>3.2.0</springdoc.version>
 		<java.version>1.8</java.version>
 		<refdocs.build.directory>${project.basedir}/docs</refdocs.build.directory>
-		<spring-doc-resources.version>0.2.5</spring-doc-resources.version>
 		<spring-asciidoctor-backends.version>0.0.5</spring-asciidoctor-backends.version>
 	</properties>
-
-	<dependencies>
-		<dependency>
-			<groupId>io.spring.docresources</groupId>
-			<artifactId>spring-doc-resources</artifactId>
-			<version>${spring-doc-resources.version}</version>
-			<type>zip</type>
-			<optional>true</optional>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -189,44 +178,5 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>spring-release</id>
-			<name>Spring release</name>
-			<url>https://repo.spring.io/release</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-snapshot</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestone</id>
-			<name>Spring Milestone</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
 	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-release</id>
-			<name>Spring release</name>
-			<url>https://repo.spring.io/release</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 </project>
