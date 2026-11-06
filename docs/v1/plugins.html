@@ -206,37 +206,62 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 <div class="sect2">
 <h3 id="_gradle_plugin"><a class="anchor" href="#_gradle_plugin"></a>Gradle plugin</h3>
 <div class="paragraph">
-<p>This plugin allows you to generate an OpenAPI 3 specification for a Spring Boot application from a Gradle build.</p>
+<p>The aim of <code>springdoc-openapi-gradle-plugin</code> is to generate the OpenAPI description of a Spring Boot application during the Gradle build.
+Its <code>generateOpenApiDocs</code> task starts the application with the settings of the <code>bootRun</code> task, downloads the OpenAPI description, writes it to <code>build/openapi.json</code>, and stops the application again.
+When nothing has changed since the last run, the task is up to date and the application is not started.
+The plugin supports the Gradle configuration cache.</p>
+</div>
+<div class="paragraph">
+<p>In order to use it, add the plugin next to the Spring Boot plugin, in your <code>build.gradle.kts</code>:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
-      id("org.springframework.boot") version "2.7.0"
-      id("org.springdoc.openapi-gradle-plugin") version "1.9.0"
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">plugins {
+    java
+    id("org.springframework.boot") version "2.7.18"
+    id("org.springdoc.openapi-gradle-plugin") version "2.0.0"
 }
 </code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When you add this plugin and its runtime dependency plugins to your build file, the plugin creates the following tasks:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>forkedSpringBootRun</p>
-</li>
-<li>
-<p>generateOpenApiDocs</p>
-</li>
-</ul>
+<p>Then run:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">gradle clean generateOpenApiDocs</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">./gradlew generateOpenApiDocs</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For more custom configuration of <code>springdoc-openapi-gradle-plugin</code> ,you can consult the plugin documentation:</p>
+<p>The plugin is configured in the <code>openApi</code> block, for example to start the application with another profile:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">openApi {
+    apiDocsUrl.set("http://localhost:8080/v3/api-docs")
+    outputFileName.set("openapi.json")
+    customBootRun {
+        args.set(listOf("--spring.profiles.active=openapi"))
+    }
+}
+</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since version 2.0, the plugin starts the application itself: the <code>forkedSpringBootRun</code> and <code>forkedSpringBootStop</code> tasks of the 1.x versions are gone.
+See <a href="https://github.com/springdoc/springdoc-openapi-gradle-plugin#migrating" target="_blank" rel="noopener">Migrating from 1.x</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The plugin needs Gradle 8.2 or later. For more custom configuration of <code>springdoc-openapi-gradle-plugin</code>, you can consult the plugin documentation, with examples for both the Kotlin and the Groovy DSL:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -251,7 +276,7 @@ The plugin works in conjunction with spring-boot-maven plugin.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-08-29 20:55:24 +0200
+Last updated 2026-11-06 10:14:46 +0100
 </div>
 </div>
 </div>
