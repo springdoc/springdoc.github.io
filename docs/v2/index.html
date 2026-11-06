@@ -2281,7 +2281,7 @@ The plugin supports the Gradle configuration cache.</p>
 <pre class="highlight"><code class="language-kotlin" data-lang="kotlin">plugins {
     java
     id("org.springframework.boot") version "3.5.16"
-    id("org.springdoc.openapi-gradle-plugin") version "2.0.0"
+    id("org.springdoc.openapi-gradle-plugin") version "2.1.0"
 }
 </code></pre>
 </div>
@@ -2317,6 +2317,7 @@ The plugin supports the Gradle configuration cache.</p>
 </td>
 <td class="content">
 Since version 2.0, the plugin starts the application itself: the <code>forkedSpringBootRun</code> and <code>forkedSpringBootStop</code> tasks of the 1.x versions are gone.
+Since version 2.1, it no longer applies the Spring Boot plugin itself: your build must apply <code>org.springframework.boot</code>, as above.
 See <a href="https://github.com/springdoc/springdoc-openapi-gradle-plugin#migrating" target="_blank" rel="noopener">Migrating from 1.x</a>.
 </td>
 </tr>
