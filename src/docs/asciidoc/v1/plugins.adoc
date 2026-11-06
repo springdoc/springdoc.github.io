@@ -141,7 +141,7 @@ In order to use it, add the plugin next to the Spring Boot plugin, in your `buil
 plugins {
     java
     id("org.springframework.boot") version "2.7.18"
-    id("org.springdoc.openapi-gradle-plugin") version "2.0.0"
+    id("org.springdoc.openapi-gradle-plugin") version "2.1.0"
 }
 ----
 
@@ -166,6 +166,7 @@ openApi {
 ----
 
 NOTE: Since version 2.0, the plugin starts the application itself: the `forkedSpringBootRun` and `forkedSpringBootStop` tasks of the 1.x versions are gone.
+Since version 2.1, it no longer applies the Spring Boot plugin itself: your build must apply `org.springframework.boot`, as above.
 See link:https://github.com/springdoc/springdoc-openapi-gradle-plugin#migrating[Migrating from 1.x, window="_blank"].
 
 The plugin needs Gradle 8.0 or later. For more custom configuration of `springdoc-openapi-gradle-plugin`, you can consult the plugin documentation, with examples for both the Kotlin and the Groovy DSL:
