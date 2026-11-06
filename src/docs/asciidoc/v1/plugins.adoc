@@ -67,27 +67,45 @@ For more custom settings of the springdoc-openapi-maven-plugin, you can consult 
 
 === Gradle plugin
 
-This plugin allows you to generate an OpenAPI 3 specification for a Spring Boot application from a Gradle build.
+The aim of `springdoc-openapi-gradle-plugin` is to generate the OpenAPI description of a Spring Boot application during the Gradle build.
+Its `generateOpenApiDocs` task starts the application with the settings of the `bootRun` task, downloads the OpenAPI description, writes it to `build/openapi.json`, and stops the application again.
+When nothing has changed since the last run, the task is up to date and the application is not started.
+The plugin supports the Gradle configuration cache.
 
-[source,groovy]
+In order to use it, add the plugin next to the Spring Boot plugin, in your `build.gradle.kts`:
+
+[source,kotlin]
 ----
 plugins {
-      id("org.springframework.boot") version "2.7.0"
-      id("org.springdoc.openapi-gradle-plugin") version "1.9.0"
+    java
+    id("org.springframework.boot") version "2.7.18"
+    id("org.springdoc.openapi-gradle-plugin") version "2.0.0"
 }
 ----
 
-When you add this plugin and its runtime dependency plugins to your build file, the plugin creates the following tasks:
-
-* forkedSpringBootRun
-* generateOpenApiDocs
+Then run:
 
 [source,bash]
 ----
-gradle clean generateOpenApiDocs
+./gradlew generateOpenApiDocs
 ----
 
-For more custom configuration of `springdoc-openapi-gradle-plugin` ,you can consult the plugin documentation:
+The plugin is configured in the `openApi` block, for example to start the application with another profile:
+
+[source,kotlin]
+----
+openApi {
+    apiDocsUrl.set("http://localhost:8080/v3/api-docs")
+    outputFileName.set("openapi.json")
+    customBootRun {
+        args.set(listOf("--spring.profiles.active=openapi"))
+    }
+}
+----
+
+NOTE: Since version 2.0, the plugin starts the application itself: the `forkedSpringBootRun` and `forkedSpringBootStop` tasks of the 1.x versions are gone.
+See link:https://github.com/springdoc/springdoc-openapi-gradle-plugin#migrating[Migrating from 1.x, window="_blank"].
+
+The plugin needs Gradle 8.2 or later. For more custom configuration of `springdoc-openapi-gradle-plugin`, you can consult the plugin documentation, with examples for both the Kotlin and the Groovy DSL:
 
 * link:https://github.com/springdoc/springdoc-openapi-gradle-plugin[https://github.com/springdoc/springdoc-openapi-gradle-plugin, window="_blank"]
-
