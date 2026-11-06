@@ -15,18 +15,10 @@ endif::[]
 
 === Maven plugin
 
-The aim of `springdoc-openapi-maven-plugin` is to generate json and yaml OpenAPI description  during build time.
-The plugin works during integration-tests phase, and generate the OpenAPI description.
-The plugin works in conjunction with spring-boot-maven plugin.
+The aim of `springdoc-openapi-maven-plugin` is to generate the OpenAPI description of a Spring Boot application, in JSON or YAML, during the Maven build.
+It works in conjunction with the `spring-boot-maven-plugin`: the application is started before the integration tests, the `generate` goal downloads the description that springdoc-openapi serves at `/v3/api-docs`, writes it to `target/openapi.json`, and the application is stopped again.
 
-You can test it during the integration tests phase using the maven command:
-
-[source,bash]
-----
-mvn verify
-----
-
-In order to use this functionality, you need to add the plugin declaration on the plugins section of your pom.xml:
+In order to use it, add both plugins to the plugins section of your `pom.xml`:
 
 [source,xml]
 ----
@@ -39,8 +31,14 @@ In order to use this functionality, you need to add the plugin declaration on th
     </configuration>
     <executions>
         <execution>
+            <id>pre-integration-test</id>
             <goals>
                 <goal>start</goal>
+            </goals>
+        </execution>
+        <execution>
+            <id>post-integration-test</id>
+            <goals>
                 <goal>stop</goal>
             </goals>
         </execution>
@@ -49,7 +47,7 @@ In order to use this functionality, you need to add the plugin declaration on th
 <plugin>
     <groupId>org.springdoc</groupId>
     <artifactId>springdoc-openapi-maven-plugin</artifactId>
-    <version>1.5</version>
+    <version>1.6</version>
     <executions>
         <execution>
             <id>integration-test</id>
@@ -61,7 +59,71 @@ In order to use this functionality, you need to add the plugin declaration on th
 </plugin>
 ----
 
-For more custom settings of the springdoc-openapi-maven-plugin, you can consult the plugin documentation:
+Then run:
+
+[source,bash]
+----
+mvn verify
+----
+
+The `generate` goal is configured in the `configuration` block of the plugin, for example to fail the build on error and attach the file to the project, so it is installed and deployed with the other artifacts:
+
+[source,xml]
+----
+<configuration>
+    <apiDocsUrl>http://localhost:8080/v3/api-docs</apiDocsUrl>
+    <outputFileName>openapi.json</outputFileName>
+    <outputDir>${project.build.directory}</outputDir>
+    <attachArtifact>true</attachArtifact>
+    <failOnError>true</failOnError>
+    <headers>
+        <Authorization>Bearer my-token</Authorization>
+    </headers>
+</configuration>
+----
+
+The other parameters are `attachArtifactClassifier` (default `openapi`), `timeout` (in seconds, default `60`) and `skip`.
+Each parameter can also be set from the command line with its `springdoc.*` user property, for example `mvn verify -Dspringdoc.skip=true`.
+For a YAML description, use `http://localhost:8080/v3/api-docs.yaml` as `apiDocsUrl` and `openapi.yaml` as `outputFileName`.
+
+TIP: Set `failOnError` to `true` on CI: by default, a failure is only logged, and the build goes on without the file.
+When the build fails, Maven skips `spring-boot:stop`, so the application keeps running: stop it before the next build.
+
+Since version 1.6, the `report` goal adds an *OpenAPI Documentation* page, rendered with Swagger UI, to the Maven site.
+It reads the file written by the `generate` goal, or fetches the description from `apiDocsUrl` if the file does not exist.
+Add the plugin to the reporting section of your `pom.xml`:
+
+[source,xml]
+----
+<reporting>
+    <plugins>
+        <plugin>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-maven-plugin</artifactId>
+            <version>1.6</version>
+            <reportSets>
+                <reportSet>
+                    <reports>
+                        <report>report</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+        </plugin>
+    </plugins>
+</reporting>
+----
+
+Then generate the description and the site in the same build:
+
+[source,bash]
+----
+mvn verify site
+----
+
+NOTE: The report needs `maven-site-plugin` 3.9.1 or later, and only supports a JSON description.
+The Swagger UI files are loaded from unpkg.com, so the page needs internet access when it is viewed.
+
+The plugin runs on Java 8 and later, with Maven 3.6.3 and later. For all the parameters of both goals, you can consult the plugin documentation:
 
 * link:https://github.com/springdoc/springdoc-openapi-maven-plugin[https://github.com/springdoc/springdoc-openapi-maven-plugin, window="_blank"]
 
