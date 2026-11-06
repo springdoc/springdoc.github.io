@@ -165,6 +165,6 @@ openApi {
 NOTE: Since version 2.0, the plugin starts the application itself: the `forkedSpringBootRun` and `forkedSpringBootStop` tasks of the 1.x versions are gone.
 See link:https://github.com/springdoc/springdoc-openapi-gradle-plugin#migrating[Migrating from 1.x, window="_blank"].
 
-The plugin needs Gradle 8.2 or later. For more custom configuration of `springdoc-openapi-gradle-plugin`, you can consult the plugin documentation, with examples for both the Kotlin and the Groovy DSL:
+The plugin needs Gradle 8.0 or later. For more custom configuration of `springdoc-openapi-gradle-plugin`, you can consult the plugin documentation, with examples for both the Kotlin and the Groovy DSL:
 
 * link:https://github.com/springdoc/springdoc-openapi-gradle-plugin[https://github.com/springdoc/springdoc-openapi-gradle-plugin, window="_blank"]
