@@ -288,6 +288,16 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 }
 ----
 
+* Since Spring Boot 4.2, `server.forward-headers-strategy` is deprecated in favor of `server.request.header.forwarded.strategy`, and `X-Forwarded-Prefix` is ignored unless enabled:
+
+[source,properties]
+----
+server.request.header.forwarded.strategy=framework
+server.request.header.forwarded.use-prefix=true
+----
+
+* With Spring Boot 4.2, `use-prefix` requires the `x-forwarded` naming. If your proxy sends the host in the standard `Forwarded` header (`server.request.header.forwarded.naming=rfc-7239`) and the prefix in `X-Forwarded-Prefix`, serve the application under the prefix (`server.servlet.context-path` or `spring.webflux.base-path`) and forward the path unchanged, or register a `ForwardedHeaderFilter` (Web MVC) or a `ForwardedHeaderTransformer` (WebFlux) that reads the standard header with `setUseForwardedPrefix(true)`.
+
 * If you need to manually adjust the URL displayed in the Swagger UI, implement the `ServerBaseUrlCustomizer` interface. This might be necessary to remove the port number, for example.
 
 [source,java]
@@ -964,6 +974,9 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 
 include::{docdir}/_ad-in-article.adoc[]
 
+=== How can I use another swagger-ui version?
+Override the version of the `org.webjars:swagger-ui` dependency, for example in the `dependencyManagement` section of your Maven build. Since `v3.2.1`, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set `springdoc.swagger-ui.version` to the same version, or the swagger-ui resources answer 404.
+
 === Customizing swagger static resources
 
 You can customize swagger documentation static resources located in `META-INF/resources/webjars/swagger-ui/{swagger.version}/`. The list of resources includes:
@@ -1120,10 +1133,13 @@ More precisely, this the exhaustive list of spring-boot versions against which `
 
 |===
 | Spring Boot Versions | Springdoc OpenAPI Versions
+|`4.2.x` | `3.2.1`
 |`4.1.x` | `3.1.x` - `3.2.x`
 |`4.0.x` | `3.0.x`
 
 |===
+
+NOTE: `v3.2.1` is built on Spring Boot 4.2 and runs on Spring Boot 4.1 as well. It moves to swagger-core 3.0 and Jackson 3: the Jackson mappers of springdoc-openapi and swagger-core are Jackson 3 (`tools.jackson`) mappers, the `swagger-annotations-jakarta`, `swagger-models-jakarta` and `swagger-core-jakarta` artifacts are renamed `swagger-annotations`, `swagger-models` and `swagger-core`, and the swagger-core mappers are customized with `ObjectMapperFactory.addCustomizer` instead of changing `Json.mapper()` or `Json31.mapper()`. See the link:https://github.com/springdoc/springdoc-openapi/blob/main/CHANGELOG.md[changelog, window="_blank"] for the other changes.
 
 
 === Why am i getting an error: `Swagger UI unable to render definition`, when overriding the default spring registered `HttpMessageConverter`?

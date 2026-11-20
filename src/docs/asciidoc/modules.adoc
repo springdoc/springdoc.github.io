@@ -124,6 +124,8 @@ NOTE: Since `v3.1.1`, the Scalar starters no longer register a `ForwardedHeaderF
 server.forward-headers-strategy=framework
 ----
 
+With Spring Boot 4.2, use `server.request.header.forwarded.strategy=framework` instead, and `server.request.header.forwarded.use-prefix=true` if the proxy sets `X-Forwarded-Prefix`.
+
 NOTE: Only the springdoc Scalar starters replace Scalar's own Spring Boot integration. Since `v3.2.0`, an application using another springdoc starter (Swagger UI or API only) together with Scalar's `scalar-webmvc` or `scalar-webflux` gets Scalar's standalone integration, enabled by default: set `scalar.enabled=false` to disable it, or `scalar.url` to point it at your OpenAPI description, as it otherwise renders a demo specification.
 
 include::{docdir}/_ad-in-article.adoc[]
@@ -324,14 +326,16 @@ The projects that use `Kotlin` should use:
 - `springdoc-openapi-starter-webmvc-api` if they depend on `spring-boot-starter-web` and they only need the access to the OpenAPI endpoints.
 - OR `springdoc-openapi-starter-webflux-api` if they depend on `spring-boot-starter-webflux` and they only the access to the OpenAPI endpoints.
 
-NOTE: In addition, your project should add `jackson-module-kotlin` as well to have the full support of `Kotlin` types:
+NOTE: In addition, your project should add `jackson-module-kotlin` as well to have the full support of `Kotlin` types. Since `v3.2.1`, springdoc-openapi runs on Jackson 3, whose Kotlin module is `tools.jackson.module:jackson-module-kotlin` (`com.fasterxml.jackson.module` before):
 [source,xml, subs="attributes+"]
 ----
     <dependency>
-        <groupId>com.fasterxml.jackson.module</groupId>
+        <groupId>tools.jackson.module</groupId>
         <artifactId>jackson-module-kotlin</artifactId>
     </dependency>
 ----
+
+NOTE: Since `v3.2.1`, a project that uses `kotlinx.serialization` without `jackson-module-kotlin` gets the `required` properties of its `@Serializable` classes derived the way `kotlinx.serialization` decides them: a primary constructor property is required unless it has a default value or is `@Transient`, or when it is annotated with `@Required`. Set `springdoc.model-converters.kotlinx-serialization-required-property-customizer.enabled=false` to disable it.
 
 === Groovy support
 

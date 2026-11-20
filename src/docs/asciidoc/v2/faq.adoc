@@ -965,6 +965,9 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 
 include::{docdir}/_ad-in-article.adoc[]
 
+=== How can I use another swagger-ui version?
+Override the version of the `org.webjars:swagger-ui` dependency, for example in the `dependencyManagement` section of your Maven build. Since `v2.10.1`, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set `springdoc.swagger-ui.version` to the same version, or the swagger-ui resources answer 404.
+
 === Customizing swagger static resources
 
 You can customize swagger documentation static resources located in `META-INF/resources/webjars/swagger-ui/{swagger.version}/`. The list of resources includes:
