@@ -197,6 +197,7 @@
 <li><a href="#_how_can_i_have_pretty_printed_output_of_the_openapi_specification">How can i have pretty-printed output of the OpenApi specification?</a></li>
 <li><a href="#_how_can_i_define_different_schemas_for_the_same_class">How can i define different schemas for the same class?</a></li>
 <li><a href="#_how_can_i_define_different_description_for_a_class_attribute_depending_on_usage">How can i define different description for a class attribute depending on usage?</a></li>
+<li><a href="#_how_can_i_use_another_swagger_ui_version">How can I use another swagger-ui version?</a></li>
 <li><a href="#_customizing_swagger_static_resources">Customizing swagger static resources</a></li>
 <li><a href="#_is_graalvm_supported">Is GraalVM supported ?</a></li>
 <li><a href="#_how_to_integrate_open_api_3_with_spring_project_not_spring_boot">How to Integrate Open API 3 with Spring project (not Spring Boot)?</a></li>
@@ -2067,6 +2068,12 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </script>
 </div>
 <div class="sect2">
+<h3 id="_how_can_i_use_another_swagger_ui_version"><a class="anchor" href="#_how_can_i_use_another_swagger_ui_version"></a>How can I use another swagger-ui version?</h3>
+<div class="paragraph">
+<p>Override the version of the <code>org.webjars:swagger-ui</code> dependency, for example in the <code>dependencyManagement</code> section of your Maven build. Since <code>v2.10.1</code>, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set <code>springdoc.swagger-ui.version</code> to the same version, or the swagger-ui resources answer 404.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_customizing_swagger_static_resources"><a class="anchor" href="#_customizing_swagger_static_resources"></a>Customizing swagger static resources</h3>
 <div class="paragraph">
 <p>You can customize swagger documentation static resources located in <code>META-INF/resources/webjars/swagger-ui/{swagger.version}/</code>. The list of resources includes:</p>
@@ -2287,7 +2294,7 @@ public class WebConfig implements WebApplicationInitializer {
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.10.0.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.10.1.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -2410,7 +2417,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-24 16:58:35 +0200
+Last updated 2026-11-20 21:26:21 +0100
 </div>
 </div>
 </div>

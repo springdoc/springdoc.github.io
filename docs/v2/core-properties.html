@@ -321,6 +321,11 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable marking the schema properties of nullable Kotlin types (<code>Type?</code>) as nullable.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.kotlinx-serialization-required-property-customizer.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable deriving the <code>required</code> properties of <code>kotlinx.serialization</code> <code>@Serializable</code> classes, when <code>jackson-module-kotlin</code> is absent. Since <code>v2.10.1</code>.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.java-nullable-property-customizer.enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To mark the schema properties of Java models annotated with <code>@Nullable</code> (JSpecify, Spring, JSR-305) as nullable, including <code>$ref</code> properties, without changing the shared component schema. Since <code>v2.10.0</code>.</p></td>
@@ -474,7 +479,7 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-24 16:58:35 +0200
+Last updated 2026-11-20 21:26:21 +0100
 </div>
 </div>
 </div>

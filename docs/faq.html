@@ -197,6 +197,7 @@
 <li><a href="#_how_can_i_have_pretty_printed_output_of_the_openapi_specification">How can i have pretty-printed output of the OpenApi specification?</a></li>
 <li><a href="#_how_can_i_define_different_schemas_for_the_same_class">How can i define different schemas for the same class?</a></li>
 <li><a href="#_how_can_i_define_different_description_for_a_class_attribute_depending_on_usage">How can i define different description for a class attribute depending on usage?</a></li>
+<li><a href="#_how_can_i_use_another_swagger_ui_version">How can I use another swagger-ui version?</a></li>
 <li><a href="#_customizing_swagger_static_resources">Customizing swagger static resources</a></li>
 <li><a href="#_is_graalvm_supported">Is GraalVM supported ?</a></li>
 <li><a href="#_how_to_integrate_open_api_3_with_spring_project_not_spring_boot">How to Integrate Open API 3 with Spring project (not Spring Boot)?</a></li>
@@ -778,6 +779,22 @@ ForwardedHeaderFilter forwardedHeaderFilter() {
 </div>
 <div class="ulist">
 <ul>
+<li>
+<p>Since Spring Boot 4.2, <code>server.forward-headers-strategy</code> is deprecated in favor of <code>server.request.header.forwarded.strategy</code>, and <code>X-Forwarded-Prefix</code> is ignored unless enabled:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-properties" data-lang="properties">server.request.header.forwarded.strategy=framework
+server.request.header.forwarded.use-prefix=true</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>With Spring Boot 4.2, <code>use-prefix</code> requires the <code>x-forwarded</code> naming. If your proxy sends the host in the standard <code>Forwarded</code> header (<code>server.request.header.forwarded.naming=rfc-7239</code>) and the prefix in <code>X-Forwarded-Prefix</code>, serve the application under the prefix (<code>server.servlet.context-path</code> or <code>spring.webflux.base-path</code>) and forward the path unchanged, or register a <code>ForwardedHeaderFilter</code> (Web MVC) or a <code>ForwardedHeaderTransformer</code> (WebFlux) that reads the standard header with <code>setUseForwardedPrefix(true)</code>.</p>
+</li>
 <li>
 <p>If you need to manually adjust the URL displayed in the Swagger UI, implement the <code>ServerBaseUrlCustomizer</code> interface. This might be necessary to remove the port number, for example.</p>
 </li>
@@ -2051,6 +2068,12 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </script>
 </div>
 <div class="sect2">
+<h3 id="_how_can_i_use_another_swagger_ui_version"><a class="anchor" href="#_how_can_i_use_another_swagger_ui_version"></a>How can I use another swagger-ui version?</h3>
+<div class="paragraph">
+<p>Override the version of the <code>org.webjars:swagger-ui</code> dependency, for example in the <code>dependencyManagement</code> section of your Maven build. Since <code>v3.2.1</code>, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set <code>springdoc.swagger-ui.version</code> to the same version, or the swagger-ui resources answer 404.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_customizing_swagger_static_resources"><a class="anchor" href="#_customizing_swagger_static_resources"></a>Customizing swagger static resources</h3>
 <div class="paragraph">
 <p>You can customize swagger documentation static resources located in <code>META-INF/resources/webjars/swagger-ui/{swagger.version}/</code>. The list of resources includes:</p>
@@ -2271,7 +2294,7 @@ public class WebConfig implements WebApplicationInitializer {
 <p><code>springdoc-openapi 3.x</code> is compatible with <code>spring-boot 4</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 3.2.0.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 3.2.1.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -2287,6 +2310,10 @@ public class WebConfig implements WebApplicationInitializer {
 <td class="tableblock halign-left valign-top"><p class="tableblock">Springdoc OpenAPI Versions</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>4.2.x</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.2.1</code></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>4.1.x</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.1.x</code> - <code>3.2.x</code></p></td>
 </tr>
@@ -2296,6 +2323,18 @@ public class WebConfig implements WebApplicationInitializer {
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<code>v3.2.1</code> is built on Spring Boot 4.2 and runs on Spring Boot 4.1 as well. It moves to swagger-core 3.0 and Jackson 3: the Jackson mappers of springdoc-openapi and swagger-core are Jackson 3 (<code>tools.jackson</code>) mappers, the <code>swagger-annotations-jakarta</code>, <code>swagger-models-jakarta</code> and <code>swagger-core-jakarta</code> artifacts are renamed <code>swagger-annotations</code>, <code>swagger-models</code> and <code>swagger-core</code>, and the swagger-core mappers are customized with <code>ObjectMapperFactory.addCustomizer</code> instead of changing <code>Json.mapper()</code> or <code>Json31.mapper()</code>. See the <a href="https://github.com/springdoc/springdoc-openapi/blob/main/CHANGELOG.md" target="_blank" rel="noopener">changelog</a> for the other changes.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_why_am_i_getting_an_error_swagger_ui_unable_to_render_definition_when_overriding_the_default_spring_registered_httpmessageconverter"><a class="anchor" href="#_why_am_i_getting_an_error_swagger_ui_unable_to_render_definition_when_overriding_the_default_spring_registered_httpmessageconverter"></a>Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</h3>
@@ -2346,7 +2385,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-24 16:58:35 +0200
+Last updated 2026-11-20 21:25:52 +0100
 </div>
 </div>
 </div>

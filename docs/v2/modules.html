@@ -207,7 +207,7 @@ You are reading the documentation for <strong>springdoc-openapi v2</strong> (Spr
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -259,7 +259,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -281,7 +281,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -297,7 +297,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -340,7 +340,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-scalar&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -356,7 +356,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-scalar&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -790,6 +790,18 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
     &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since <code>v2.10.1</code>, a project that uses <code>kotlinx.serialization</code> without <code>jackson-module-kotlin</code> gets the <code>required</code> properties of its <code>@Serializable</code> classes derived the way <code>kotlinx.serialization</code> decides them: a primary constructor property is required unless it has a default value or is <code>@Transient</code>, or when it is annotated with <code>@Required</code>. Set <code>springdoc.model-converters.kotlinx-serialization-required-property-customizer.enabled=false</code> to disable it.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_groovy_support"><a class="anchor" href="#_groovy_support"></a>Groovy support</h3>
@@ -906,7 +918,7 @@ You can declare it in your project as follows:</p>
 			&lt;dependency&gt;
 				&lt;groupId&gt;org.springdoc&lt;/groupId&gt;
 				&lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
-                &lt;version&gt;2.10.0&lt;/version&gt;
+                &lt;version&gt;2.10.1&lt;/version&gt;
 				&lt;type&gt;pom&lt;/type&gt;
 				&lt;scope&gt;import&lt;/scope&gt;
 			&lt;/dependency&gt;
@@ -920,7 +932,7 @@ You can declare it in your project as follows:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-24 16:58:52 +0200
+Last updated 2026-11-20 21:26:21 +0100
 </div>
 </div>
 </div>

@@ -92,7 +92,7 @@
   <div id="main" class="contained">
     <div id="doc" class="doc">
 <div id="header">
-<h1>springdoc-openapi v2.10.0</h1>
+<h1>springdoc-openapi v2.10.1</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -240,12 +240,13 @@
 <li><a href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification">13.74. How can i have pretty-printed output of the OpenApi specification?</a></li>
 <li><a href="#how-can-i-define-different-schemas-for-the-same-class">13.75. How can i define different schemas for the same class?</a></li>
 <li><a href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage">13.76. How can i define different description for a class attribute depending on usage?</a></li>
-<li><a href="#customizing-swagger-static-resources">13.77. Customizing swagger static resources</a></li>
-<li><a href="#is-graalvm-supported">13.78. Is GraalVM supported ?</a></li>
-<li><a href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot">13.79. How to Integrate Open API 3 with Spring project (not Spring Boot)?</a></li>
-<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.80. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
-<li><a href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter">13.81. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</a></li>
-<li><a href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec">13.82. Some parameters are not generated in the resulting OpenAPI spec.</a></li>
+<li><a href="#how-can-i-use-another-swagger-ui-version">13.77. How can I use another swagger-ui version?</a></li>
+<li><a href="#customizing-swagger-static-resources">13.78. Customizing swagger static resources</a></li>
+<li><a href="#is-graalvm-supported">13.79. Is GraalVM supported ?</a></li>
+<li><a href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot">13.80. How to Integrate Open API 3 with Spring project (not Spring Boot)?</a></li>
+<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.81. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
+<li><a href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter">13.82. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</a></li>
+<li><a href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec">13.83. Some parameters are not generated in the resulting OpenAPI spec.</a></li>
 </ul>
 </li>
 </ul>
@@ -359,7 +360,7 @@ This documentation can be completed by comments using swagger-api annotations.</
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -465,7 +466,7 @@ springdoc.swagger-ui.path=/swagger-ui.html</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-api&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -517,7 +518,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-api&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -539,7 +540,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -555,7 +556,7 @@ springdoc.api-docs.path=/api-docs</code></pre>
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -598,7 +599,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-scalar&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -614,7 +615,7 @@ You can rely on native Scalar configuration properties, using the prefix <code>s
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webflux-scalar&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -1048,6 +1049,18 @@ In addition, your project should add <code>jackson-module-kotlin</code> as well 
     &lt;/dependency&gt;</code></pre>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Since <code>v2.10.1</code>, a project that uses <code>kotlinx.serialization</code> without <code>jackson-module-kotlin</code> gets the <code>required</code> properties of its <code>@Serializable</code> classes derived the way <code>kotlinx.serialization</code> decides them: a primary constructor property is required unless it has a default value or is <code>@Transient</code>, or when it is annotated with <code>@Required</code>. Set <code>springdoc.model-converters.kotlinx-serialization-required-property-customizer.enabled=false</code> to disable it.
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="groovy-support"><a class="anchor" href="#groovy-support"></a>3.12. Groovy support</h3>
@@ -1164,7 +1177,7 @@ You can declare it in your project as follows:</p>
             &lt;dependency&gt;
                 &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
                 &lt;artifactId&gt;springdoc-openapi-bom&lt;/artifactId&gt;
-                &lt;version&gt;2.10.0&lt;/version&gt;
+                &lt;version&gt;2.10.1&lt;/version&gt;
                 &lt;type&gt;pom&lt;/type&gt;
                 &lt;scope&gt;import&lt;/scope&gt;
             &lt;/dependency&gt;
@@ -1684,6 +1697,11 @@ For that, <code>@RouterOperation</code> fields must help identify uniquely the c
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.kotlin-nullable-property-customizer.enabled</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable marking the schema properties of nullable Kotlin types (<code>Type?</code>) as nullable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.kotlinx-serialization-required-property-customizer.enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Boolean</code>. To disable deriving the <code>required</code> properties of <code>kotlinx.serialization</code> <code>@Serializable</code> classes, when <code>jackson-module-kotlin</code> is absent. Since <code>v2.10.1</code>.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">springdoc.model-converters.java-nullable-property-customizer.enabled</p></td>
@@ -2604,7 +2622,7 @@ Migration tips
 <pre class="highlight"><code class="language-xml" data-lang="xml">   &lt;dependency&gt;
       &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
       &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
-      &lt;version&gt;2.10.0&lt;/version&gt;
+      &lt;version&gt;2.10.1&lt;/version&gt;
    &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -4787,7 +4805,13 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </script>
 </div>
 <div class="sect2">
-<h3 id="customizing-swagger-static-resources"><a class="anchor" href="#customizing-swagger-static-resources"></a>13.77. Customizing swagger static resources</h3>
+<h3 id="how-can-i-use-another-swagger-ui-version"><a class="anchor" href="#how-can-i-use-another-swagger-ui-version"></a>13.77. How can I use another swagger-ui version?</h3>
+<div class="paragraph">
+<p>Override the version of the <code>org.webjars:swagger-ui</code> dependency, for example in the <code>dependencyManagement</code> section of your Maven build. Since <code>v2.10.1</code>, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set <code>springdoc.swagger-ui.version</code> to the same version, or the swagger-ui resources answer 404.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customizing-swagger-static-resources"><a class="anchor" href="#customizing-swagger-static-resources"></a>13.78. Customizing swagger static resources</h3>
 <div class="paragraph">
 <p>You can customize swagger documentation static resources located in <code>META-INF/resources/webjars/swagger-ui/{swagger.version}/</code>. The list of resources includes:</p>
 </div>
@@ -4877,7 +4901,7 @@ public class OpenApiConfig {
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-graalvm-supported"><a class="anchor" href="#is-graalvm-supported"></a>13.78. Is GraalVM supported ?</h3>
+<h3 id="is-graalvm-supported"><a class="anchor" href="#is-graalvm-supported"></a>13.79. Is GraalVM supported ?</h3>
 <div class="paragraph">
 <p>The native support available added in spring-boot 3.
 If you have some time, do not hesitate to test it before the next release.</p>
@@ -4899,7 +4923,7 @@ public class OpenAPIConfig {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-to-integrate-open-api-3-with-spring-project-not-spring-boot"><a class="anchor" href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot"></a>13.79. How to Integrate Open API 3 with Spring project (not Spring Boot)?</h3>
+<h3 id="how-to-integrate-open-api-3-with-spring-project-not-spring-boot"><a class="anchor" href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot"></a>13.80. How to Integrate Open API 3 with Spring project (not Spring Boot)?</h3>
 <div class="paragraph">
 <p>When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.</p>
 </div>
@@ -5002,12 +5026,12 @@ public class WebConfig implements WebApplicationInitializer {
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>13.80. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
+<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>13.81. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
 <div class="paragraph">
-<p>In general, <strong>you should only pick the last stable version as per today 2.10.0.</strong></p>
+<p>In general, <strong>you should only pick the last stable version as per today 2.10.1.</strong></p>
 </div>
 <div class="paragraph">
 <p>More precisely, this the exhaustive list of spring-boot versions against which <code>springdoc-openapi</code> has been built:</p>
@@ -5082,7 +5106,7 @@ public class WebConfig implements WebApplicationInitializer {
 </table>
 </div>
 <div class="sect2">
-<h3 id="why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"><a class="anchor" href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"></a>13.81. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</h3>
+<h3 id="why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"><a class="anchor" href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"></a>13.82. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</h3>
 <div class="paragraph">
 <p>When overriding the default spring-boot registered <code>HttpMessageConverter</code>, you should have <code>ByteArrayHttpMessageConverter</code> registered as well to have proper <code>springdoc-openapi</code> support.</p>
 </div>
@@ -5107,7 +5131,7 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="some-parameters-are-not-generated-in-the-resulting-openapi-spec"><a class="anchor" href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec"></a>13.82. Some parameters are not generated in the resulting OpenAPI spec.</h3>
+<h3 id="some-parameters-are-not-generated-in-the-resulting-openapi-spec"><a class="anchor" href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec"></a>13.83. Some parameters are not generated in the resulting OpenAPI spec.</h3>
 <div class="paragraph">
 <p>The issue is caused by the changes introduced by <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes" target="_blank" rel="noopener">Spring-Boot 3.2.0</a>
 in particular for the <strong>Parameter Name Discovery</strong>.
@@ -5130,7 +5154,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-11-03 23:28:45 +0100
+Last updated 2026-08-29 20:40:15 +0200
 </div>
 </div>
 </div>
