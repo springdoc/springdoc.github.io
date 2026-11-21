@@ -197,6 +197,7 @@
 <li><a href="#_how_can_i_have_pretty_printed_output_of_the_openapi_specification">How can i have pretty-printed output of the OpenApi specification?</a></li>
 <li><a href="#_how_can_i_define_different_schemas_for_the_same_class">How can i define different schemas for the same class?</a></li>
 <li><a href="#_how_can_i_define_different_description_for_a_class_attribute_depending_on_usage">How can i define different description for a class attribute depending on usage?</a></li>
+<li><a href="#_why_is_my_duration_example_dropped_or_shown_as_a_number_with_openapi_3_0">Why is my <code>Duration</code> example dropped or shown as a number with OpenAPI 3.0?</a></li>
 <li><a href="#_how_can_i_use_another_swagger_ui_version">How can I use another swagger-ui version?</a></li>
 <li><a href="#_customizing_swagger_static_resources">Customizing swagger static resources</a></li>
 <li><a href="#_is_graalvm_supported">Is GraalVM supported ?</a></li>
@@ -2068,6 +2069,15 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </script>
 </div>
 <div class="sect2">
+<h3 id="_why_is_my_duration_example_dropped_or_shown_as_a_number_with_openapi_3_0"><a class="anchor" href="#_why_is_my_duration_example_dropped_or_shown_as_a_number_with_openapi_3_0"></a>Why is my <code>Duration</code> example dropped or shown as a number with OpenAPI 3.0?</h3>
+<div class="paragraph">
+<p>With <code>springdoc.api-docs.version=openapi_3_0</code>, swagger-core 2.2.x converts the string examples of <code>java.time.Duration</code> schemas: a <code>@Schema(example = "P7D")</code> on a model property is dropped, and the schema example of a <code>@ParameterObject</code> field becomes the number of seconds, such as <code>604800.0</code>. The <code>example</code> of the parameter itself is kept, and <code>LocalTime</code> or <code>OffsetTime</code> examples are not affected.</p>
+</div>
+<div class="paragraph">
+<p>Use OpenAPI 3.1, which is the default, to keep <code>Duration</code> examples as declared. With springdoc-openapi v3, which is built on swagger-core 3.0, OpenAPI 3.0 keeps them too, apart from the schema example of a <code>@ParameterObject</code> field, which is normalized to an equivalent value such as <code>PT168H</code>.</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_how_can_i_use_another_swagger_ui_version"><a class="anchor" href="#_how_can_i_use_another_swagger_ui_version"></a>How can I use another swagger-ui version?</h3>
 <div class="paragraph">
 <p>Override the version of the <code>org.webjars:swagger-ui</code> dependency, for example in the <code>dependencyManagement</code> section of your Maven build. Since <code>v2.10.1</code>, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set <code>springdoc.swagger-ui.version</code> to the same version, or the swagger-ui resources answer 404.</p>
@@ -2417,7 +2427,7 @@ This can be fixed by adding the <code>-parameters</code> arg to the Maven Compil
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-11-20 21:26:21 +0100
+Last updated 2026-11-21 11:24:14 +0100
 </div>
 </div>
 </div>

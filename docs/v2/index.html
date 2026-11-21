@@ -240,13 +240,14 @@
 <li><a href="#how-can-i-have-pretty-printed-output-of-the-openapi-specification">13.74. How can i have pretty-printed output of the OpenApi specification?</a></li>
 <li><a href="#how-can-i-define-different-schemas-for-the-same-class">13.75. How can i define different schemas for the same class?</a></li>
 <li><a href="#how-can-i-define-different-description-for-a-class-attribute-depending-on-usage">13.76. How can i define different description for a class attribute depending on usage?</a></li>
-<li><a href="#how-can-i-use-another-swagger-ui-version">13.77. How can I use another swagger-ui version?</a></li>
-<li><a href="#customizing-swagger-static-resources">13.78. Customizing swagger static resources</a></li>
-<li><a href="#is-graalvm-supported">13.79. Is GraalVM supported ?</a></li>
-<li><a href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot">13.80. How to Integrate Open API 3 with Spring project (not Spring Boot)?</a></li>
-<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.81. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
-<li><a href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter">13.82. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</a></li>
-<li><a href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec">13.83. Some parameters are not generated in the resulting OpenAPI spec.</a></li>
+<li><a href="#why-is-my-duration-example-dropped-or-shown-as-a-number-with-openapi-3-0">13.77. Why is my <code>Duration</code> example dropped or shown as a number with OpenAPI 3.0?</a></li>
+<li><a href="#how-can-i-use-another-swagger-ui-version">13.78. How can I use another swagger-ui version?</a></li>
+<li><a href="#customizing-swagger-static-resources">13.79. Customizing swagger static resources</a></li>
+<li><a href="#is-graalvm-supported">13.80. Is GraalVM supported ?</a></li>
+<li><a href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot">13.81. How to Integrate Open API 3 with Spring project (not Spring Boot)?</a></li>
+<li><a href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot">13.82. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</a></li>
+<li><a href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter">13.83. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</a></li>
+<li><a href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec">13.84. Some parameters are not generated in the resulting OpenAPI spec.</a></li>
 </ul>
 </li>
 </ul>
@@ -4805,13 +4806,22 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 </script>
 </div>
 <div class="sect2">
-<h3 id="how-can-i-use-another-swagger-ui-version"><a class="anchor" href="#how-can-i-use-another-swagger-ui-version"></a>13.77. How can I use another swagger-ui version?</h3>
+<h3 id="why-is-my-duration-example-dropped-or-shown-as-a-number-with-openapi-3-0"><a class="anchor" href="#why-is-my-duration-example-dropped-or-shown-as-a-number-with-openapi-3-0"></a>13.77. Why is my <code>Duration</code> example dropped or shown as a number with OpenAPI 3.0?</h3>
+<div class="paragraph">
+<p>With <code>springdoc.api-docs.version=openapi_3_0</code>, swagger-core 2.2.x converts the string examples of <code>java.time.Duration</code> schemas: a <code>@Schema(example = "P7D")</code> on a model property is dropped, and the schema example of a <code>@ParameterObject</code> field becomes the number of seconds, such as <code>604800.0</code>. The <code>example</code> of the parameter itself is kept, and <code>LocalTime</code> or <code>OffsetTime</code> examples are not affected.</p>
+</div>
+<div class="paragraph">
+<p>Use OpenAPI 3.1, which is the default, to keep <code>Duration</code> examples as declared. With springdoc-openapi v3, which is built on swagger-core 3.0, OpenAPI 3.0 keeps them too, apart from the schema example of a <code>@ParameterObject</code> field, which is normalized to an equivalent value such as <code>PT168H</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="how-can-i-use-another-swagger-ui-version"><a class="anchor" href="#how-can-i-use-another-swagger-ui-version"></a>13.78. How can I use another swagger-ui version?</h3>
 <div class="paragraph">
 <p>Override the version of the <code>org.webjars:swagger-ui</code> dependency, for example in the <code>dependencyManagement</code> section of your Maven build. Since <code>v2.10.1</code>, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set <code>springdoc.swagger-ui.version</code> to the same version, or the swagger-ui resources answer 404.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="customizing-swagger-static-resources"><a class="anchor" href="#customizing-swagger-static-resources"></a>13.78. Customizing swagger static resources</h3>
+<h3 id="customizing-swagger-static-resources"><a class="anchor" href="#customizing-swagger-static-resources"></a>13.79. Customizing swagger static resources</h3>
 <div class="paragraph">
 <p>You can customize swagger documentation static resources located in <code>META-INF/resources/webjars/swagger-ui/{swagger.version}/</code>. The list of resources includes:</p>
 </div>
@@ -4901,7 +4911,7 @@ public class OpenApiConfig {
 </div>
 </div>
 <div class="sect2">
-<h3 id="is-graalvm-supported"><a class="anchor" href="#is-graalvm-supported"></a>13.79. Is GraalVM supported ?</h3>
+<h3 id="is-graalvm-supported"><a class="anchor" href="#is-graalvm-supported"></a>13.80. Is GraalVM supported ?</h3>
 <div class="paragraph">
 <p>The native support available added in spring-boot 3.
 If you have some time, do not hesitate to test it before the next release.</p>
@@ -4923,7 +4933,7 @@ public class OpenAPIConfig {
 </div>
 </div>
 <div class="sect2">
-<h3 id="how-to-integrate-open-api-3-with-spring-project-not-spring-boot"><a class="anchor" href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot"></a>13.80. How to Integrate Open API 3 with Spring project (not Spring Boot)?</h3>
+<h3 id="how-to-integrate-open-api-3-with-spring-project-not-spring-boot"><a class="anchor" href="#how-to-integrate-open-api-3-with-spring-project-not-spring-boot"></a>13.81. How to Integrate Open API 3 with Spring project (not Spring Boot)?</h3>
 <div class="paragraph">
 <p>When your application is using spring without (spring-boot), you need to add beans and  auto-configuration that are natively provided in spring-boot.</p>
 </div>
@@ -5026,7 +5036,7 @@ public class WebConfig implements WebApplicationInitializer {
 </div>
 </div>
 <div class="sect2">
-<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>13.81. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
+<h3 id="what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"><a class="anchor" href="#what-is-the-compatibility-matrix-of-springdoc-openapi-with-spring-boot"></a>13.82. What is the compatibility matrix of <code>springdoc-openapi</code> with <code>spring-boot</code> ?</h3>
 <div class="paragraph">
 <p><code>springdoc-openapi 2.x</code> is compatible with <code>spring-boot 3</code>.</p>
 </div>
@@ -5106,7 +5116,7 @@ public class WebConfig implements WebApplicationInitializer {
 </table>
 </div>
 <div class="sect2">
-<h3 id="why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"><a class="anchor" href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"></a>13.82. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</h3>
+<h3 id="why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"><a class="anchor" href="#why-am-i-getting-an-error-swagger-ui-unable-to-render-definition-when-overriding-the-default-spring-registered-httpmessageconverter"></a>13.83. Why am i getting an error: <code>Swagger UI unable to render definition</code>, when overriding the default spring registered <code>HttpMessageConverter</code>?</h3>
 <div class="paragraph">
 <p>When overriding the default spring-boot registered <code>HttpMessageConverter</code>, you should have <code>ByteArrayHttpMessageConverter</code> registered as well to have proper <code>springdoc-openapi</code> support.</p>
 </div>
@@ -5131,7 +5141,7 @@ Order is very important, when registering <code>HttpMessageConverters</code>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="some-parameters-are-not-generated-in-the-resulting-openapi-spec"><a class="anchor" href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec"></a>13.83. Some parameters are not generated in the resulting OpenAPI spec.</h3>
+<h3 id="some-parameters-are-not-generated-in-the-resulting-openapi-spec"><a class="anchor" href="#some-parameters-are-not-generated-in-the-resulting-openapi-spec"></a>13.84. Some parameters are not generated in the resulting OpenAPI spec.</h3>
 <div class="paragraph">
 <p>The issue is caused by the changes introduced by <a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.2-Release-Notes" target="_blank" rel="noopener">Spring-Boot 3.2.0</a>
 in particular for the <strong>Parameter Name Discovery</strong>.
