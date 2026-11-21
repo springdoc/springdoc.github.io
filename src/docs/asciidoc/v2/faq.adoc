@@ -965,6 +965,11 @@ private Schema getFieldSchemaWithDifferentDescription(Class className, String de
 
 include::{docdir}/_ad-in-article.adoc[]
 
+=== Why is my `Duration` example dropped or shown as a number with OpenAPI 3.0?
+With `springdoc.api-docs.version=openapi_3_0`, swagger-core 2.2.x converts the string examples of `java.time.Duration` schemas: a `@Schema(example = "P7D")` on a model property is dropped, and the schema example of a `@ParameterObject` field becomes the number of seconds, such as `604800.0`. The `example` of the parameter itself is kept, and `LocalTime` or `OffsetTime` examples are not affected.
+
+Use OpenAPI 3.1, which is the default, to keep `Duration` examples as declared. With springdoc-openapi v3, which is built on swagger-core 3.0, OpenAPI 3.0 keeps them too, apart from the schema example of a `@ParameterObject` field, which is normalized to an equivalent value such as `PT168H`.
+
 === How can I use another swagger-ui version?
 Override the version of the `org.webjars:swagger-ui` dependency, for example in the `dependencyManagement` section of your Maven build. Since `v2.10.1`, springdoc-openapi serves the swagger-ui version found on the classpath. With older versions, also set `springdoc.swagger-ui.version` to the same version, or the swagger-ui resources answer 404.
 
